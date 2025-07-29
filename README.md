@@ -4,7 +4,7 @@
 
 ## 🚨 The Problem
 
-Last summer, my 4-year-old son forgot his lifejacket and almost drowned at the lake. I performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock or not thinking clearly.
+Last summer, my 4-year-old son forgot his lifejacket was off and almost drowned at the lake. I performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock or not thinking clearly.
 
 **The Reality:**
 - 236,000 people die from drowning annually
