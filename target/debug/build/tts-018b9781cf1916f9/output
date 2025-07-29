@@ -1,0 +1,2 @@
+cargo:rustc-link-lib=framework=AVFoundation
+cargo:rustc-link-lib=framework=AppKit

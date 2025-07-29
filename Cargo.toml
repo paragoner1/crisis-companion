@@ -1,0 +1,114 @@
+[package]
+name = "crisis-companion"
+version = "0.1.0"
+edition = "2021"
+authors = ["Crisis Companion Team"]
+description = "Voice-activated emergency response app for Solana Mobile Seeker"
+license = "MIT"
+repository = "https://github.com/crisis-companion/crisis-companion"
+
+[dependencies]
+# Core async runtime
+tokio = { version = "1.47", features = ["full"] }
+
+# Voice recognition (offline) - temporarily disabled for demo
+# vosk = "0.3.1"
+
+# Audio processing
+rodio = "0.21"
+tts = "0.26"
+cpal = "0.16"
+
+# Database
+rusqlite = { version = "0.37", features = ["bundled"] }
+
+# Bluetooth Low Energy coordination
+btleplug = "0.11.8"
+
+# Solana blockchain integration
+solana-sdk = "2.3"
+solana-client = "2.3"
+solana-transaction-status = "2.3"
+
+# Cryptography and security
+ring = "0.17.14"
+aes-gcm = "0.10"
+
+# Android JNI bindings
+jni = { version = "0.21.1", optional = true }
+
+# UI framework (cross-platform)
+eframe = { version = "0.32", optional = true }
+egui = { version = "0.32", optional = true }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+# Configuration
+config = "0.15"
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# UUID generation
+uuid = { version = "1.7", features = ["v4", "serde"] }
+
+# HTTP client for API calls
+reqwest = { version = "0.12", features = ["json"] }
+
+# Async file operations
+tokio-util = "0.7"
+
+# Command line argument parsing
+clap = { version = "4.5", features = ["derive"] }
+
+# Random number generation
+rand = "0.8"
+
+# Cryptographic hashing
+sha2 = "0.10"
+
+[dev-dependencies]
+# Testing
+tokio-test = "0.4"
+mockall = "0.13"
+
+# Test data generation
+fake = "4.3.0"
+tempfile = "3.8"
+
+[features]
+default = ["android"]
+android = ["jni"]
+desktop = ["eframe", "egui"]
+
+[lib]
+name = "crisis_companion"
+path = "src/lib.rs"
+
+[[bin]]
+name = "crisis-companion"
+path = "src/main.rs"
+
+[[bin]]
+name = "demo_test"
+path = "demo_test.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev]
+opt-level = 0
+debug = true 

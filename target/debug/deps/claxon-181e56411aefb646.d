@@ -1,0 +1,11 @@
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/libclaxon-181e56411aefb646.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/crc.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/error.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/frame.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/input.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/metadata.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/subframe.rs
+
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/claxon-181e56411aefb646.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/crc.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/error.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/frame.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/input.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/metadata.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/subframe.rs
+
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/lib.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/crc.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/error.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/frame.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/input.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/metadata.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/claxon-0.4.3/src/subframe.rs:

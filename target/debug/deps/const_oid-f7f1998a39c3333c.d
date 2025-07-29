@@ -1,0 +1,11 @@
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/libconst_oid-f7f1998a39c3333c.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/macros.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/arcs.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/encoder.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/error.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/parser.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/../README.md
+
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/const_oid-f7f1998a39c3333c.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/macros.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/arcs.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/encoder.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/error.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/parser.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/../README.md
+
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/lib.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/macros.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/arcs.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/encoder.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/error.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/parser.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/const-oid-0.7.1/src/../README.md:

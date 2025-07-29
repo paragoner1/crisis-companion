@@ -1,0 +1,9 @@
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/libreqwest_middleware-86c189a7fe4b556c.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/client.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/error.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/middleware.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/req_init.rs
+
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/reqwest_middleware-86c189a7fe4b556c.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/client.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/error.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/middleware.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/req_init.rs
+
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/lib.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/client.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/error.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/middleware.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/reqwest-middleware-0.4.2/src/req_init.rs:

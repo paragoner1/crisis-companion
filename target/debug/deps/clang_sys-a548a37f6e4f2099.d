@@ -1,0 +1,14 @@
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/libclang_sys-a548a37f6e4f2099.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/support.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/link.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/macros.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/common.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/dynamic.rs
+
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/libclang_sys-a548a37f6e4f2099.rlib: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/support.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/link.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/macros.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/common.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/dynamic.rs
+
+/Users/ryanomeara/projects/crisis companion/target/debug/deps/clang_sys-a548a37f6e4f2099.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/support.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/link.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/macros.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/common.rs /Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/dynamic.rs
+
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/lib.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/support.rs:
+/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/clang-sys-1.8.1/src/link.rs:
+/Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/macros.rs:
+/Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/common.rs:
+/Users/ryanomeara/projects/crisis\ companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out/dynamic.rs:
+
+# env-dep:OUT_DIR=/Users/ryanomeara/projects/crisis companion/target/debug/build/clang-sys-217a26e1e7bd0e6a/out
