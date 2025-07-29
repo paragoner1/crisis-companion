@@ -1,8 +1,0 @@
-/Users/ryanomeara/projects/crisis companion/target/debug/deps/libsolana_vote_program-4cc1058e0a5272b5.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_processor.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_state/mod.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_transaction.rs
-
-/Users/ryanomeara/projects/crisis companion/target/debug/deps/solana_vote_program-4cc1058e0a5272b5.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_processor.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_state/mod.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_transaction.rs
-
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/lib.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_processor.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_state/mod.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-vote-program-1.18.26/src/vote_transaction.rs:

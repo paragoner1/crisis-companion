@@ -1,8 +1,0 @@
-/Users/ryanomeara/projects/crisis companion/target/debug/deps/libobjc2_core_audio-082522c79f4f65c7.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/mod.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/AudioHardware.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/AudioHardwareDeprecated.rs
-
-/Users/ryanomeara/projects/crisis companion/target/debug/deps/objc2_core_audio-082522c79f4f65c7.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/mod.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/AudioHardware.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/AudioHardwareDeprecated.rs
-
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/lib.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/mod.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/AudioHardware.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/objc2-core-audio-0.3.1/src/generated/AudioHardwareDeprecated.rs:

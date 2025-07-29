@@ -1,8 +1,0 @@
-/Users/ryanomeara/projects/crisis companion/target/debug/deps/libsolana_quic_client-cda21f91a6d65544.rmeta: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/nonblocking/mod.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/nonblocking/quic_client.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/quic_client.rs
-
-/Users/ryanomeara/projects/crisis companion/target/debug/deps/solana_quic_client-cda21f91a6d65544.d: /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/lib.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/nonblocking/mod.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/nonblocking/quic_client.rs /Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/quic_client.rs
-
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/lib.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/nonblocking/mod.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/nonblocking/quic_client.rs:
-/Users/ryanomeara/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/solana-quic-client-1.18.26/src/quic_client.rs:
