@@ -17,15 +17,34 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned at the l
 
 **Crisis Companion** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
 
+### Current Emergency Types Supported (Initial Release):
+- **Drowning**: "Drowning help!" → CPR instructions
+- **Heart Attack**: "Heart attack!" → CPR + AED guidance
+- **Choking**: "Choking help!" → Heimlich maneuver
+- **Bleeding**: "Bleeding emergency!" → First aid steps
+- **Burns**: "Burn emergency!" → Cool water + treatment
+- **Allergic Reaction**: "Allergic reaction!" → EpiPen guidance
+- **Seizure**: "Seizure help!" → Safety positioning
+- **Heat Stroke**: "Heat stroke!" → Cooling procedures
+- **Hypothermia**: "Hypothermia!" → Warming techniques
+
 ### Key Features:
-- **Voice-Activated**: "Drowning help!" triggers immediate response
+- **Voice-Activated**: Any emergency phrase triggers immediate response
 - **Offline-First**: Works without internet connectivity
 - **Auto Volume**: Sets phone to 100% during emergency
-- **Step-by-Step**: Clear instructions for any emergency
+- **Step-by-Step**: Clear instructions for any emergency type
 - **Automatic Actions**: Calls 911, shares location, records audio
 - **Multi-Device**: BLE coordination between devices
 - **Solana Blockchain**: Audio hash storage for verification
 - **Remote Area Focus**: Perfect for beaches, hiking, boating, camping
+- **Expandable Database**: Easy to add new emergency procedures
+
+### Future Expansion:
+- Easy to add new emergency types through database updates
+- Community-contributed emergency procedures
+- Industry-specific emergency protocols (construction, healthcare, etc.)
+- Natural disaster response procedures
+- Multi-language support for international markets
 
 ## 🛠️ Technical Innovation
 
@@ -66,6 +85,9 @@ Currently developing for Solana Mobile Seeker deployment:
 - Rural communities
 - Natural disaster scenarios
 - Boating and water activities
+- Healthcare facilities
+- Schools and universities
+- Corporate emergency preparedness
 
 **Business Model:**
 - Freemium: $5-10/month per user
@@ -93,9 +115,9 @@ The demo shows all core functionality working:
 ## 🚀 Roadmap
 
 - **August 2024**: Hackathon submission
-- **January 2025**: MVP launch
-- **April 2025**: Beta testing
-- **July 2025**: Public launch
+- **January 2025**: MVP launch with 10 emergency types
+- **April 2025**: Beta testing with 25+ emergency types
+- **July 2025**: Public launch with expandable database
 - **2027**: $1.26M revenue target
 
 ## 📞 Contact
