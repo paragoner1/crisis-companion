@@ -152,7 +152,7 @@ Founder & Developer
 
 # 🎬 LIVE DEMO
 
-## "I'm ready to save lives with Solana SOS"
+## "Are you ready to save lives with Solana SOS?"
 
 - **Live demo available**
 - **Questions about implementation**
