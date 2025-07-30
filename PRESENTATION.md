@@ -38,7 +38,7 @@ Founder & Developer
 Solana Mobile Hackathon 2025
 ```
 
-### **Slide 2: Problem - Critical Problem with Data**
+### **Slide 2: Problem**
 ```
 🚨 THE REALITY OF EMERGENCIES
 
@@ -66,7 +66,7 @@ VALUES:
 VISION: No one should face an emergency alone
 ```
 
-### **Slide 4: Main Features - One After Another**
+### **Slide 4: Main Features**
 ```
 🛠️ KEY FEATURES
 
@@ -177,18 +177,7 @@ Q3 2026: International expansion (country-specific protocols)
 Q4 2026: $50M+ revenue target + government contracts
 ```
 
-### **Slide 12: Team - Why You're Best Positioned**
-```
-👨‍💻 TEAM
-
-Paragoner - Founder & Developer
-• Personal experience with emergency response
-• Technical expertise in Rust, mobile development
-• Understanding of emergency psychology
-• "No one else could build this because no one else experienced what I experienced"
-```
-
-### **Slide 13: Call to Action**
+### **Slide 12: Call to Action**
 ```
 🎯 NEXT STEPS
 
