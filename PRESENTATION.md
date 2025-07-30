@@ -30,9 +30,9 @@
 ### **Slide 1: Intro Slide**
 ```
 SOLANA SOS
- "Voice-Activated Emergency Response"
+"Voice-Activated Emergency Response"
 
-[Your PFP] [Your Name]
+Paragoner
 Founder & Developer
 
 Solana Mobile Hackathon 2025
@@ -174,14 +174,14 @@ IMPACT: Saving thousands of lives annually
 Q1 2026: Default app launch on Solana Mobile Seeker
 Q2 2026: Emergency services partnerships (911 centers, hospitals)
 Q3 2026: International expansion (country-specific protocols)
-Q4 2026: $5.2M revenue target + government contracts
+Q4 2026: $50M+ revenue target + government contracts
 ```
 
 ### **Slide 12: Team Slide - Why You're Best Positioned**
 ```
 👨‍💻 TEAM
 
-[Your Name] - Founder & Developer
+Paragoner - Founder & Developer
 • Personal experience with emergency response
 • Technical expertise in Rust, mobile development
 • Understanding of emergency psychology
