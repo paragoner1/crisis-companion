@@ -10,6 +10,8 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 **The Reality:**
 - **3.8M avoidable deaths annually** - 30-50% preventable with timely bystander action
+- - 236K drownings/year, 356K cardiac arrests in US—50-90% preventable with bystander actions
+- - "Prevent 50-90% of avoidable deaths via guided actions—delays kill, we respond in <100ms."
 - **Average EMS response time: 7-14 minutes** - survival drops 10% per minute without action
 - **People panic and forget basic procedures** in emergency situations
 - **Connectivity challenges** occur in remote areas, underground locations, during natural disasters, power outages, and network congestion when emergencies happen

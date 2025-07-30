@@ -88,9 +88,14 @@ Last summer, my 4-year-old son forgot his lifejacket was not on and almost drown
 - **Family Safety Subscriptions**: $15-25/month per family (covers all household devices)
 - **Enterprise & Institutional Contracts**: $50K-500K/year (schools, workplaces, government)
 - **Government Partnerships**: $1M-10M/year (emergency services, public health, and safety initiatives)
-- **Target**: 500K+ families, 100+ institutions by 2026
-- **Revenue**: $50M+ annually
-- **Impact**: Saving thousands of lives annually
+- **Ecosystem Upsells**: On-chain rewards, first-aid partnerships, premium features
+
+2026 Projections:
+- Conservative: $20.6M (20% Seeker penetration, 15% sub conversion)
+- Aggressive: $132M (50% adoption, enterprise partnerships)
+- Market: $137B EMS market growing 6-8% CAGR to $196B by 2030
+
+Comparables: Life360 ($300M annual revenue, 50M users), RapidSOS ($100M+ funding)
 
 ### **Target Market:**
 - Every parent who wants peace of mind for their family
