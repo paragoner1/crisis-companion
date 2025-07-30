@@ -54,7 +54,7 @@ Solana Mobile Hackathon 2025
 
 ### **Slide 3: Value Proposition Slide**
 ```
-🎯 OUR SOLUTION
+🎯 THE SOLUTION
 
 "Voice-activated emergency guidance that works offline when people are in shock."
 
