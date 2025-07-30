@@ -12,7 +12,7 @@
 ### Scene 2: Problem Statement
 [Show statistics or data visualization]
 
-"Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
+"Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations, underground areas, during natural disasters, power outages, or network congestion."
 
 ### Scene 3: Terminal Demo
 [Camera focuses on the terminal screen]
@@ -21,7 +21,7 @@
 
 [Run: cargo run --bin demo_test]
 
-"Notice how the voice trigger is detected, emergency response starts, volume goes to 100%, and emergency instructions are retrieved from the database. This works completely offline - no internet required."
+"Notice how the voice trigger is detected, emergency response starts, volume goes to 100%, and emergency instructions are retrieved from the database. This works completely offline - no internet required, whether you're in a basement, during a storm, or in a remote area."
 
 ### Scene 4: Solana Integration
 [Show blockchain output]

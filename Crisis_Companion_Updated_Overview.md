@@ -12,7 +12,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 - **3.8M avoidable deaths annually** - 30-50% preventable with timely bystander action
 - **Average EMS response time: 7-14 minutes** - survival drops 10% per minute without action
 - **People panic and forget basic procedures** in emergency situations
-- **Remote areas often lack internet connectivity** when emergencies occur
+- **Connectivity challenges** occur in remote areas, underground locations, during natural disasters, power outages, and network congestion when emergencies happen
 - **Traditional apps require manual activation and internet** - not available when needed most
 
 ---
@@ -185,7 +185,7 @@ The demo shows all core functionality working:
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
 ### **Scene 2: Problem Statement **
-"Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
+"Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations, underground areas, during natural disasters, power outages, or network congestion."
 
 ### **Scene 3: Voice Trigger Demo (45 seconds)**
 "Watch this. When someone says 'Drowning help!', the app immediately responds."
@@ -237,13 +237,13 @@ The demo shows all core functionality working:
 
 **Crisis Companion** is a voice-activated emergency response application designed for Solana Mobile devices that addresses the critical problem of emergency response delays. The idea was born from a personal experience last summer when my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
-**The Problem**: Every year, 3.8 million people die from avoidable emergencies, with 30-50% preventable through timely bystander action. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. When emergencies occur, people panic and forget basic emergency procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations like beaches, hiking trails, or during natural disasters.
+**The Problem**: Every year, 3.8 million people die from avoidable emergencies, with 30-50% preventable through timely bystander action. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. When emergencies occur, people panic and forget basic emergency procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations, underground areas, during natural disasters, power outages, network congestion, or in buildings with poor signal.
 
-**Our Solution**: Crisis Companion uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response. The app automatically sets the phone volume to 100%, plays step-by-step emergency instructions, coordinates with nearby devices via Bluetooth Low Energy, and stores audio hashes on Solana blockchain for security and audit purposes. Built specifically for remote areas, the app works completely offline - no internet connectivity required.
+**Our Solution**: Crisis Companion uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response. The app automatically sets the phone volume to 100%, plays step-by-step emergency instructions, coordinates with nearby devices via Bluetooth Low Energy, and stores audio hashes on Solana blockchain for security and audit purposes. Built for any scenario where connectivity fails, the app works completely offline - no internet connectivity required.
 
 **Strategic Value for Solana Mobile**: Crisis Companion represents a unique opportunity for Solana Mobile to differentiate itself from competitors by offering life-saving technology as a default feature. No other mobile platform offers voice-activated emergency assistance as a built-in capability. This positions Solana Mobile as the "safety-first" mobile platform and provides a powerful competitive advantage over Apple, Samsung, and other competitors.
 
-**Technical Innovation**: Built in Rust for high performance and memory safety, Crisis Companion integrates Vosk for offline speech recognition, SQLite for local emergency instruction storage, Bluetooth Low Energy for multi-device coordination, and Solana blockchain for tamper-proof emergency data storage. The app works entirely offline, ensuring functionality in remote locations.
+**Technical Innovation**: Built in Rust for high performance and memory safety, Crisis Companion integrates Vosk for offline speech recognition, SQLite for local emergency instruction storage, Bluetooth Low Energy for multi-device coordination, and Solana blockchain for tamper-proof emergency data storage. The app works entirely offline, ensuring functionality in any location regardless of connectivity.
 
 **Market Opportunity**: With a target of 15,000 users by 2027, Crisis Companion represents a $1.26 million annual revenue opportunity through a freemium model ($5-10/month) and enterprise licensing ($50,000/year for hospitals and resorts). The global emergency services market is valued at $236 billion, providing significant growth potential.
 
