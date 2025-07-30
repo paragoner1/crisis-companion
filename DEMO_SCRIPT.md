@@ -1,11 +1,11 @@
-# Crisis Companion - Demo Script (Following Masterclass Template)
+# Solana SOS (Crisis Companion) - Demo Script (Following Masterclass Template)
 
 ## 🎬 **Demo Video Script (2-3 minutes)**
 
 ### **Scene 1: Hook & Introduction (15 seconds)**
 **[Camera shows you holding Solana Mobile device]**
 
-"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
+"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS."
 
 **[Show app running on device]**
 
@@ -36,7 +36,7 @@
 ### **Scene 5: Multi-Device Coordination (30 seconds)**
 **[Show multiple devices or explain the concept]**
 
-"If there are other Crisis Companion devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions for bystanders."
+"If there are other Solana SOS devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions for bystanders."
 
 ### **Scene 6: Business Model (15 seconds)**
 **[Show revenue numbers or business model]**
