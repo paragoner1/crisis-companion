@@ -108,12 +108,15 @@ DEFAULT APP STRATEGY:
 📊 TARGET MARKET
 
 PRIMARY USERS:
-• All Solana Mobile Seeker device owners (default app)
-• Emergency services professionals (911 centers, hospitals)
-• Outdoor enthusiasts (beaches, hiking, boating, camping)
-• International markets (SOS works globally)
+• Every family: Parents who want the ultimate safety net for their children and loved ones—at home, at school, or anywhere
+• Caregivers & elderly: Adult children caring for aging parents, people living alone, or those with medical conditions
+• Schools & universities: Institutions responsible for student safety
+• Workplaces: Employers in high-risk industries, offices, and public venues
+• Emergency services: First responders, hospitals, and government agencies
+• Travelers & commuters: Anyone on the move—public transit, rideshare, international travel
+• Outdoor enthusiasts: (Still included, but not the main focus)
 
-MARKET SIZE: $286B emergency services + mobile health
+MARKET SIZE: 1.2B+ families worldwide, 2.7B+ smartphone users, 100M+ institutional endpoints
 COMPETITIVE ADVANTAGE: Default app on Solana Mobile + offline voice AI
 GROWTH TRAJECTORY: Every Seeker device becomes a life-saver
 ```
@@ -122,13 +125,13 @@ GROWTH TRAJECTORY: Every Seeker device becomes a life-saver
 ```
 💰 BUSINESS MODEL
 
-DEVICE LICENSING: $3-5 per Solana Mobile Seeker device (40%+ demand increase)
-PREMIUM SUBSCRIPTIONS: $10-15/month per user
-ENTERPRISE CONTRACTS: $100K-500K/year (hospitals, 911 centers, government)
-GOVERNMENT PARTNERSHIPS: Emergency services contracts
-2026 TARGET: 80,000+ users + 50+ enterprise clients
-REVENUE: $5.2M/year
-EXIT: $50M-200M acquisition potential
+DEVICE LICENSING: $3-5 per Solana Mobile Seeker device (default install for all users)
+FAMILY SAFETY SUBSCRIPTIONS: $15-25/month per family (covers all household devices)
+ENTERPRISE & INSTITUTIONAL CONTRACTS: $50K-500K/year (schools, workplaces, government)
+GOVERNMENT PARTNERSHIPS: $1M-10M/year (emergency services, public health, and safety initiatives)
+2026 TARGET: 500K+ families, 100+ institutions
+REVENUE: $50M+ annually
+IMPACT: Saving thousands of lives annually
 ```
 
 ### **Slide 8: Traction Slide - Strategic Metrics**

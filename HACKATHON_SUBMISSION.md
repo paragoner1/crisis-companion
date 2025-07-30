@@ -90,10 +90,24 @@ Last summer, my 4-year-old son forgot his lifejacket was not on and almost drown
 - **Revenue**: $5.2M/year
 - **Exit**: $50M-200M acquisition potential
 
-### **Market Size**
-- **Emergency Services Market**: $236B globally
-- **Target Users**: Beachgoers, swimmers, outdoor enthusiasts
-- **Secondary**: Elderly living alone, parents with young children
+### **Target Market:**
+- Every parent who wants peace of mind for their family
+- Caregivers and those responsible for vulnerable loved ones
+- Schools, workplaces, and public venues seeking to protect their communities
+- Emergency services and government agencies
+- Universal need: “If you have someone you care about, you need Solana SOS.”
+
+### **Market Size:**
+- 100% of Solana Mobile Seeker device owners (not just outdoor users)
+- 1.2B+ families worldwide, 2.7B+ smartphone users, 100M+ institutional endpoints
+
+### **Business Model:**
+- Device licensing (default on every phone)
+- Family and group subscriptions ($15-25/month per family)
+- Institutional and government contracts ($50K-10M/year)
+- 2026 Target: 500K+ families, 100+ institutions
+- Revenue: $50M+ annually
+- Impact: Saving thousands of lives annually
 
 ---
 
