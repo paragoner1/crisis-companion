@@ -98,6 +98,7 @@ Currently developing for Solana Mobile Seeker deployment:
 - **Pre-installed on All Seeker Devices**: Solana SOS should be a default app on every Solana Mobile Seeker device
 - **Always-On Emergency Response**: Users don't need to download or configure anything - emergency assistance is always available
 - **Unique Selling Proposition**: "The only mobile device that can save your life"
+- **Life-Saving Tagline**: "The phone you can't live without... literally"
 - **Market Differentiation**: Sets Solana Mobile apart from Apple, Samsung, and other competitors
 
 ### **Life-Saving Impact:**
