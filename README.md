@@ -110,19 +110,25 @@ Currently developing for Solana Mobile Seeker deployment:
 ## 🎯 Market Opportunity 
 
 **Target Markets:**
-- All Solana Mobile Seeker device owners (default app)
-- Emergency services professionals (911 centers, hospitals)
-- Outdoor enthusiasts (beaches, hiking, boating, camping)
-- International markets (SOS works globally)
-- Government contracts (first responders)
+- Every family: Parents who want the ultimate safety net for their children and loved ones—at home, at school, or anywhere
+- Caregivers & elderly: Adult children caring for aging parents, people living alone, or those with medical conditions
+- Schools & universities: Institutions responsible for student safety
+- Workplaces: Employers in high-risk industries, offices, and public venues
+- Emergency services: First responders, hospitals, and government agencies
+- Travelers & commuters: Anyone on the move—public transit, rideshare, international travel
+- Outdoor enthusiasts: (Still included, but not the main focus)
+
+**Market Size:**
+- 100% of Solana Mobile Seeker device owners (not just outdoor users)
+- 1.2B+ families worldwide, 2.7B+ smartphone users, 100M+ institutional endpoints
 
 **Business Model:**
-- Device Licensing: $3-5 per Solana Mobile Seeker device
-- Premium Subscriptions: $10-15/month per user
-- Enterprise Contracts: $100K-500K/year (hospitals, 911 centers, government)
-- Government Partnerships: Emergency services contracts
-- 2026 Target: 80,000+ users + 50+ enterprise clients
-- Revenue: $5.2M/year
+- Device licensing: $3-5 per Solana Mobile Seeker device (default install for all users)
+- Family safety subscriptions: $15-25/month per family (covers all household devices)
+- Enterprise & institutional contracts: $50K-500K/year (schools, workplaces, government)
+- Government partnerships: $1M-10M/year (emergency services, public health, and safety initiatives)
+- 2026 Target: 500K+ families, 100+ institutions
+- Revenue: $50M+ annually
 
 ## 📊 Demo Results (Data No One Can Argue With)
 
