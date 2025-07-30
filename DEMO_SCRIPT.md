@@ -41,7 +41,7 @@
 ### **Scene 6: Business Model (15 seconds)**
 **[Show revenue numbers or business model]**
 
-"With 15,000 users by 2027, this represents a $1.26 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
+"With 80,000+ users by 2027 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to save lives and revolutionize emergency response."
 
 **[End with app logo]**
 

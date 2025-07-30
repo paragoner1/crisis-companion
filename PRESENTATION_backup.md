@@ -12,7 +12,7 @@
 - **Market Gap**: Traditional emergency apps require manual activation and internet connectivity
 
 ### **Solution (45 seconds) - Present Tense, Confident Statements**
-- **Voice AI**: Solana SOS uses offline voice recognition to detect emergency phrases
+- **Voice AI**: Crisis Companion uses offline voice recognition to detect emergency phrases
 - **Auto Response**: The app automatically sets volume to 100% and plays step-by-step instructions
 - **Multi-Device**: Coordinates with nearby devices via Bluetooth Low Energy
 - **Solana Blockchain**: Stores audio hashes for security and audit purposes
@@ -90,12 +90,6 @@ COMPETITIVE ADVANTAGE:
 • Universal appeal - everyone needs this capability
 • Brand positioning: "Safety-first" mobile platform
 
-DEVICE DEMAND BOOST:
-• "Solana SOS" increases Seeker device demand by 40%+
-• Parents buy Seeker devices for family safety
-• Emergency services adopt Seeker for first responders
-• International markets: SOS works in every country
-
 DEFAULT APP STRATEGY:
 • Pre-installed on all Seeker devices
 • Always-on emergency response
@@ -121,9 +115,9 @@ GROWTH TRAJECTORY: Every Seeker device becomes a life-saver
 ```
 💰 BUSINESS MODEL
 
-DEVICE LICENSING: $3-5 per Solana Mobile Seeker device (40%+ demand increase)
+DEVICE LICENSING: $3-5 per Solana Mobile Seeker device
 PREMIUM SUBSCRIPTIONS: $10-15/month per user
-ENTERPRISE CONTRACTS: $100K-500K/year (hospitals, 911 centers, government)
+ENTERPRISE CONTRACTS: $100K-500K/year (hospitals, 911 centers)
 GOVERNMENT PARTNERSHIPS: Emergency services contracts
 2027 TARGET: 80,000+ users + 50+ enterprise clients
 REVENUE: $5.2M/year
@@ -188,7 +182,7 @@ Q4 2027: $5.2M revenue target + government contracts
 ```
 🎯 NEXT STEPS
 
-"I'm ready to save lives with Solana SOS"
+"I'm ready to save lives with Crisis Companion"
 
 • Live demo available
 • Questions about implementation
@@ -202,7 +196,7 @@ Thank you for your time!
 ## 🎬 **Demo Script (Following Masterclass Advice)**
 
 ### **Setup (30 seconds) - Clear Introduction**
-"I'm here to show you the tool I wish I had when my 4-year-old son was drowning last summer. This is Solana SOS running on Solana Mobile. When someone says 'Drowning help!', the app immediately responds."
+"I'm here to show you the tool I wish I had when my 4-year-old son was drowning last summer. This is Crisis Companion running on Solana Mobile. When someone says 'Drowning help!', the app immediately responds."
 
 ### **Voice Trigger Demo (45 seconds) - Don't Rush**
 1. **Say**: "Drowning help!" (loud and clear)
@@ -215,7 +209,7 @@ Thank you for your time!
 "Watch this - the audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof."
 
 ### **Multi-Device Demo (15 seconds) - Leave Them Wanting More**
-"If there are other Solana SOS devices nearby, they automatically coordinate - one dials 911, another records audio, another displays silent instructions."
+"If there are other Crisis Companion devices nearby, they automatically coordinate - one dials 911, another records audio, another displays silent instructions."
 
 ---
 
@@ -277,7 +271,7 @@ Thank you for your time!
 
 ### **Technical Questions**
 **Q: How does voice recognition work offline?**
-A: Solana SOS uses Vosk, an offline speech recognition library. The model is embedded in the app and processes audio locally without internet.
+A: Crisis Companion uses Vosk, an offline speech recognition library. The model is embedded in the app and processes audio locally without internet.
 
 **Q: How do you prevent false positives?**
 A: We use a confidence threshold of 80% and require specific emergency phrases. Multiple device coordination also helps validate real emergencies.
@@ -293,21 +287,21 @@ A: Freemium model with free basic features, premium emergency features. We partn
 A: Offline functionality, voice AI, multi-device coordination, and Solana blockchain integration. No other app combines all these features.
 
 **Q: How do you monetize?**
-A: $10-15/month premium subscriptions, $100K-500K/year enterprise licenses for hospitals, resorts, and emergency services.
+A: $5-10/month premium subscriptions, $50K/year enterprise licenses for hospitals, resorts, and emergency services.
 
 ### **Market Questions**
 **Q: Who is your target market?**
-A: Primary: All Solana Mobile Seeker device owners (default app). Secondary: Emergency services, outdoor enthusiasts, international markets.
+A: Primary: Beachgoers, swimmers, outdoor enthusiasts. Secondary: Elderly living alone, parents with young children.
 
 **Q: How do you validate demand?**
-A: Emergency response is a universal need. We're targeting the $286B emergency services + mobile health market with a mobile-first solution.
+A: Emergency response is a universal need. We're targeting the $236B emergency services market with a mobile-first solution.
 
 ### **Strategic Questions**
 **Q: Why should this be a default app on Solana Mobile?**
-A: Solana SOS gives Solana Mobile a unique competitive advantage - no other platform offers built-in life-saving technology. It positions Solana as the "safety-first" mobile platform and increases device demand by 40%+.
+A: Crisis Companion gives Solana Mobile a unique competitive advantage - no other platform offers built-in life-saving technology. It positions Solana as the "safety-first" mobile platform.
 
 **Q: How does this differentiate from competitors?**
-A: While Apple and Samsung focus on apps and games, Solana Mobile prioritizes user safety. "The only mobile device that can save your life" is a powerful differentiator that drives device sales.
+A: While Apple and Samsung focus on apps and games, Solana Mobile prioritizes user safety. "The only mobile device that can save your life" is a powerful differentiator.
 
 ---
 
@@ -348,4 +342,4 @@ A: While Apple and Samsung focus on apps and games, Solana Mobile prioritizes us
 7. **Focus on demo** - Judges care about working prototype
 8. **Be confident** - You're solving a real problem
 
-**Remember: You're positioned to be in the 5% that succeed!**
+**Remember: You're positioned to be in the 5% that succeed!** 
