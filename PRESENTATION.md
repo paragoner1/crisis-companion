@@ -1,9 +1,9 @@
-# Crisis Companion - Solana Mobile Hackathon Presentation
+# Solana SOS (Crisis Companion) - Solana Mobile Hackathon Presentation
 
 ## 🚨 **2-Minute Elevator Pitch (Following Masterclass Template)**
 
 ### **Opening Hook (15 seconds) - The 5% Success Factor**
-"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
+"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS."
 
 ### **Problem Statement (30 seconds) - Real Pain, Clear Urgency**
 - **Critical Problem**: 3.8M avoidable deaths annually - 30-50% preventable with timely bystander action
@@ -29,8 +29,8 @@
 
 ### **Slide 1: Intro Slide**
 ```
-CRISIS COMPANION
-"Voice-Activated Emergency Response"
+SOLANA SOS
+ "Voice-Activated Emergency Response"
 
 [Your PFP] [Your Name]
 Founder & Developer

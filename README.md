@@ -1,4 +1,4 @@
-# Crisis Companion - Voice-Activated Emergency Response App
+# Solana SOS (Crisis Companion) - Voice-Activated Emergency Response App
 
 **Solana Mobile Hackathon Submission** | Built for Solana Mobile Seeker
 
@@ -15,7 +15,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 ## 💡 Our Solution (Present Tense, Confident Statements)
 
-**Crisis Companion** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
+**Solana SOS** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
 
 ### Current Emergency Types Supported (Initial Release):
 - **Drowning**: "Drowning help!" → CPR instructions (236,000 global deaths/year, 80% avoidable with immediate CPR)
@@ -79,7 +79,7 @@ Currently developing for Solana Mobile Seeker deployment:
 
 ## 🏆 Strategic Value for Solana Mobile Seeker
 
-**Crisis Companion represents a unique opportunity for Solana Mobile to differentiate itself from competitors by offering life-saving technology as a default feature.**
+**Solana SOS represents a unique opportunity for Solana Mobile to differentiate itself from competitors by offering life-saving technology as a default feature.**
 
 ### **Competitive Advantage:**
 - **First Mobile Platform with Built-in Emergency Response**: No other mobile platform offers voice-activated emergency assistance as a default feature
@@ -88,7 +88,7 @@ Currently developing for Solana Mobile Seeker deployment:
 - **Brand Positioning**: Positions Solana Mobile as the "safety-first" mobile platform
 
 ### **Default App Strategy:**
-- **Pre-installed on All Seeker Devices**: Crisis Companion should be a default app on every Solana Mobile Seeker device
+- **Pre-installed on All Seeker Devices**: Solana SOS should be a default app on every Solana Mobile Seeker device
 - **Always-On Emergency Response**: Users don't need to download or configure anything - emergency assistance is always available
 - **Unique Selling Proposition**: "The only mobile device that can save your life"
 - **Market Differentiation**: Sets Solana Mobile apart from Apple, Samsung, and other competitors

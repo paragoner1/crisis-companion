@@ -1,4 +1,4 @@
-# 🚨 Crisis Companion - Solana Mobile Hackathon Submission
+# 🚨 Solana SOS (Crisis Companion) - Solana Mobile Hackathon Submission
 
 ## 📋 **Submission Deadline: August 4th, 2025**
 
@@ -6,7 +6,7 @@
 
 ## 🎯 **Project Overview (Hook in First 15 Seconds)**
 
-**Crisis Companion** is a voice-activated emergency response app for Solana Mobile that detects emergency phrases (like "Drowning help!") and immediately provides life-saving instructions with automatic volume control, multi-device coordination, and Solana blockchain integration.
+**Solana SOS (Crisis Companion)** is a voice-activated emergency response app for Solana Mobile that detects emergency phrases (like "Drowning help!") and immediately provides life-saving instructions with automatic volume control, multi-device coordination, and Solana blockchain integration.
 
 Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
@@ -21,7 +21,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 ## 🏆 **Strategic Value for Solana Mobile Seeker**
 
-**Crisis Companion represents a unique opportunity for Solana Mobile to differentiate itself from competitors by offering life-saving technology as a default feature.**
+**Solana SOS represents a unique opportunity for Solana Mobile to differentiate itself from competitors by offering life-saving technology as a default feature.**
 
 ### **Competitive Advantage:**
 - **First Mobile Platform with Built-in Emergency Response**: No other mobile platform offers voice-activated emergency assistance as a default feature
@@ -30,7 +30,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 - **Brand Positioning**: Positions Solana Mobile as the "safety-first" mobile platform
 
 ### **Default App Strategy:**
-- **Pre-installed on All Seeker Devices**: Crisis Companion should be a default app on every Solana Mobile Seeker device
+- **Pre-installed on All Seeker Devices**: Solana SOS should be a default app on every Solana Mobile Seeker device
 - **Always-On Emergency Response**: Users don't need to download or configure anything - emergency assistance is always available
 - **Unique Selling Proposition**: "The only mobile device that can save your life"
 - **Market Differentiation**: Sets Solana Mobile apart from Apple, Samsung, and other competitors
