@@ -101,7 +101,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 "This is why Crisis Companion should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
 
 ### **Scene 7: Business Model (15 seconds)**
-"With 15,000 users by 2027, this represents a $1.26 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
+"With 80,000+ users by 2027 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
 
 ---
 
@@ -129,11 +129,11 @@ cargo run --bin demo_test
 ## 💰 **Business Model (Non-Negotiable)**
 
 ### **Revenue Streams**
-- **Freemium**: $5-10/month per user
-- **Enterprise**: $50,000/year per client (hospitals, resorts)
-- **Target**: 15,000 users + 15 enterprise clients by 2027
-- **Revenue**: $1.26M/year
-- **Exit**: $10M-50M acquisition potential
+- **Freemium**: $10-15/month per user
+- **Enterprise**: $100K-500K/year (hospitals, 911 centers, government)
+- **Target**: 80,000+ users + 50+ enterprise clients by 2027
+- **Revenue**: $5.2M/year
+- **Exit**: $50M-200M acquisition potential
 
 ### **Market Size**
 - **Emergency Services Market**: $236B globally
