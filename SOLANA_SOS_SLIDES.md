@@ -31,15 +31,15 @@ Founder & Developer
 
 # 📊 Avoidable Deaths by Emergency Type
 
-```mermaid
-pie title Annual Avoidable Deaths in US
-    "Drowning" : 236000
-    "Cardiac Arrest" : 356000
-    "Choking" : 5000
-    "Other Emergencies" : 3208000
-```
+### Annual US Deaths:
+- **Drowning**: 236,000 deaths
+- **Cardiac Arrest**: 356,000 deaths  
+- **Choking**: 5,000 deaths
+- **Other Emergencies**: 3,208,000 deaths
 
 **Total: 3.8M avoidable deaths annually**
+
+*Most deaths are preventable with timely bystander action*
 
 ---
 
@@ -107,18 +107,14 @@ pie title Annual Avoidable Deaths in US
 
 # 📈 2026 REVENUE PROJECTIONS
 
-```mermaid
-bar title Revenue Scenarios
-    "Conservative" : 20.6
-    "Aggressive" : 132
-    "Market Size" : 137000
-```
-
-### Conservative: $20.6M (20% Seeker penetration)
-### Aggressive: $132M (50% adoption, enterprise partnerships)
-### Market: $137B EMS market growing 6-8% CAGR
+### Revenue Scenarios:
+- **Conservative**: $20.6M (20% Seeker penetration)
+- **Aggressive**: $132M (50% adoption, enterprise partnerships)
+- **Market Size**: $137B EMS market growing 6-8% CAGR
 
 **Comparables**: Life360 ($300M annual revenue, 50M users)
+
+*Conservative vs. Aggressive scenarios show significant upside potential*
 
 ---
 
@@ -129,8 +125,10 @@ bar title Revenue Scenarios
 - ✅ **Solana blockchain integration** complete
 - ✅ **Multi-device coordination** implemented
 - ✅ **Ready for Solana Mobile deployment**
-- 🔄 **Emergency services partnerships** in development
-- 🔄 **Government contract discussions** initiated
+- 🔄 **Emergency services outreach** planned for Q1 2026
+- 🔄 **Government partnership research** in progress
+
+*All core technical components complete and ready for hackathon demo*
 
 ---
 
