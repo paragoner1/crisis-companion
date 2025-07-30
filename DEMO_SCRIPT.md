@@ -1,17 +1,20 @@
-# Crisis Companion - Demo Script
+# Crisis Companion - Demo Script (Following Masterclass Template)
 
 ## 🎬 **Demo Video Script (2-3 minutes)**
 
-### **Scene 1: Introduction (30 seconds)**
+### **Scene 1: Hook & Introduction (15 seconds)**
 **[Camera shows you holding Solana Mobile device]**
 
-"Hi, I'm [Your Name], and I'm excited to show you Crisis Companion - a voice-activated emergency response app for Solana Mobile.
-
-Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almost drowned at the lake. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
+"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
 **[Show app running on device]**
 
-### **Scene 2: Voice Trigger Demo (45 seconds)**
+### **Scene 2: Problem Statement (15 seconds)**
+**[Show statistics or data visualization]**
+
+"Every year, 236,000 people die from drowning alone. When emergencies occur, people panic and forget basic procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
+
+### **Scene 3: Voice Trigger Demo (45 seconds)**
 **[Camera focuses on the device screen]**
 
 "Watch this. When someone says 'Drowning help!', the app immediately responds."
@@ -21,21 +24,21 @@ Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almos
 
 **[Show on screen: App detects phrase, volume indicator goes to 100%, emergency instructions start playing]**
 
-"Notice how the volume automatically went to 100% and emergency instructions started playing immediately. The app is now providing step-by-step CPR instructions."
+"Notice how the volume automatically went to 100% and emergency instructions started playing immediately. The app is now providing step-by-step CPR instructions. This works completely offline - no internet required."
 
-### **Scene 3: Solana Integration (30 seconds)**
+### **Scene 4: Solana Integration (30 seconds)**
 **[Show blockchain transaction on screen]**
 
 "Here's where it gets interesting. The audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof and can be used for emergency response coordination."
 
 **[Show transaction confirmation]**
 
-### **Scene 4: Multi-Device Coordination (30 seconds)**
+### **Scene 5: Multi-Device Coordination (30 seconds)**
 **[Show multiple devices or explain the concept]**
 
 "If there are other Crisis Companion devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions for bystanders."
 
-### **Scene 5: Market Opportunity (15 seconds)**
+### **Scene 6: Business Model (15 seconds)**
 **[Show revenue numbers or business model]**
 
 "With 15,000 users by 2027, this represents a $1.26 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
@@ -44,7 +47,7 @@ Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almos
 
 ---
 
-## 📱 **Demo Setup Instructions**
+## 📱 **Demo Setup Instructions (Following Masterclass Advice)**
 
 ### **Before Recording**
 1. **Test the app thoroughly**
@@ -65,19 +68,25 @@ Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almos
    - Use screen recording software
    - Test audio levels
    - Ensure clear voice capture
+   - **Prefer soundless demo with voice-over** (masterclass advice)
 
-### **Recording Tips**
+### **Recording Tips (Following Masterclass)**
+- **Hook in first 15 seconds** - Your personal story is powerful
 - **Speak clearly** - enunciate "drowning help"
 - **Show the screen** - focus on app interface
 - **Keep it short** - 2-3 minutes maximum
 - **Practice timing** - rehearse the script
 - **Have backup** - record multiple takes
+- **Don't rush** - take your time
+- **Don't show everything** - leave them wanting more
 
-### **Post-Production**
+### **Post-Production (Following Masterclass)**
 - **Add captions** for clarity
 - **Include app logo** at start/end
 - **Show key features** with text overlays
 - **Keep it professional** - clean editing
+- **Embed demo video in deck** or use QR code
+- **Prefer soundless demo with voice-over** yourself
 
 ---
 
@@ -141,11 +150,12 @@ Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almos
 - [ ] Solana integration code ready
 
 ### **Demo Materials**
-- [ ] Script memorized
+- [ ] Script memorized (following masterclass template)
 - [ ] Device prepared
 - [ ] Recording software ready
 - [ ] Backup plan prepared
 - [ ] Multiple takes recorded
+- [ ] Soundless demo with voice-over ready
 
 ### **Presentation**
 - [ ] Clear speaking voice
@@ -153,5 +163,30 @@ Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almos
 - [ ] Confident delivery
 - [ ] Smooth transitions
 - [ ] Engaging storytelling
+- [ ] Hook in first 15 seconds
+- [ ] Present tense throughout
+- [ ] No uncertainty words
 
-**Remember: The demo is more important than perfect code! Focus on showing the concept working.** 
+---
+
+## 🎬 **Masterclass Demo Tips Applied**
+
+### **Content Strategy**
+- **Go through user experience** with voice-over
+- **Comment with voice-over** during demo
+- **Don't show it all** - leave them hanging a little
+- **Don't rush it** - take your time
+
+### **Technical Approach**
+- **Prefer soundless demo** and do voice-over yourself
+- **Embed demo video** in your deck or use QR code
+- **Keep it concise** and easy to understand
+- **Start with hook** - not by sharing everything
+
+### **Audience Awareness**
+- **Know your audience** - busy judges, many meetings
+- **Empathy wins** - your personal story connects
+- **Be memorable** - "tool I wish I had when my son was drowning"
+- **Think elevator pitch** - you're here to tease
+
+**Remember: The demo is more important than perfect code! Focus on showing the concept working and telling your compelling story.** 

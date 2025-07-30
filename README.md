@@ -2,9 +2,9 @@
 
 **Solana Mobile Hackathon Submission** | Built for Solana Mobile Seeker
 
-## 🚨 The Problem
+## 🚨 The Problem (Hook in First 15 Seconds)
 
-Last summer, my 4-year-old son forgot his lifejacket and almost drowned at the lake. I performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock or not thinking clearly.
+Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
 **The Reality:**
 - 236,000 people die from drowning annually
@@ -13,7 +13,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned at the l
 - Remote areas often lack internet connectivity
 - Traditional apps require manual activation and internet
 
-## 💡 Our Solution
+## 💡 Our Solution (Present Tense, Confident Statements)
 
 **Crisis Companion** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
 
@@ -77,7 +77,7 @@ Currently developing for Solana Mobile Seeker deployment:
 - Mobile Wallet Adapter
 - dApp Store compatibility
 
-## 🎯 Market Opportunity
+## 🎯 Market Opportunity (Specific Numbers)
 
 **Target Markets:**
 - Remote areas with poor connectivity
@@ -93,8 +93,9 @@ Currently developing for Solana Mobile Seeker deployment:
 - Freemium: $5-10/month per user
 - Enterprise: $50,000/year per client
 - 2027 Target: 15,000 users + 15 enterprise clients
+- Revenue: $1.26M/year
 
-## 📊 Demo Results
+## 📊 Demo Results (Data No One Can Argue With)
 
 The demo shows all core functionality working:
 ✅ Voice trigger detection  
@@ -112,13 +113,13 @@ The demo shows all core functionality working:
 - Blockchain storage for tamper-proof records
 - HIPAA/GDPR compliance for medical data
 
-## 🚀 Roadmap
+## 🚀 Roadmap (Clear Future Tense)
 
 - **August 2024**: Hackathon submission
-- **January 2025**: MVP launch with 10 emergency types
-- **April 2025**: Beta testing with 25+ emergency types
-- **July 2025**: Public launch with expandable database
-- **2027**: $1.26M revenue target
+- **Q1 2025**: MVP launch with 10 emergency types
+- **Q2 2025**: Beta testing with 25+ emergency types
+- **Q3 2025**: Public launch with expandable database
+- **Q4 2027**: $1.26M revenue target
 
 ## 📞 Contact
 

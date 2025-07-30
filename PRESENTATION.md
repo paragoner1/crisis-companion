@@ -1,146 +1,189 @@
 # Crisis Companion - Solana Mobile Hackathon Presentation
 
-## 🚨 **2-Minute Elevator Pitch**
+## 🚨 **2-Minute Elevator Pitch (Following Masterclass Template)**
 
-### **Opening Hook (30 seconds)**
-"Last summer, my family was at the lake when my 4-year-old son went missing. He forgot he didn't have his lifejacket on and fell in the water. I found him underwater, barely visible - just a hand sticking up. I jumped in, pulled him out, and performed CPR while not knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock or not thinking clearly. That's why I built Crisis Companion."
+### **Opening Hook (15 seconds) - The 5% Success Factor**
+"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
-### **Problem Statement (30 seconds)**
-- Emergency response delays cost lives
-- People panic and forget what to do
-- No offline emergency assistance
-- Lack of coordination between devices
+### **Problem Statement (30 seconds) - Real Pain, Clear Urgency**
+- **Critical Problem**: Every year, 236,000 people die from drowning alone
+- **Real Pain**: When emergencies occur, people panic and forget basic procedures
+- **Urgency**: Every second counts in life-or-death situations
+- **Market Gap**: Traditional emergency apps require manual activation and internet connectivity
 
-### **Solution (45 seconds)**
-- **Voice AI**: Detects emergency phrases offline
-- **Auto Response**: Sets volume to 100%, plays instructions
-- **Multi-Device**: Coordinates via Bluetooth Low Energy
-- **Solana Blockchain**: Stores audio hashes for security
-- **Offline First**: Works without internet
+### **Solution (45 seconds) - Present Tense, Confident Statements**
+- **Voice AI**: Crisis Companion uses offline voice recognition to detect emergency phrases
+- **Auto Response**: The app automatically sets volume to 100% and plays step-by-step instructions
+- **Multi-Device**: Coordinates with nearby devices via Bluetooth Low Energy
+- **Solana Blockchain**: Stores audio hashes for security and audit purposes
+- **Offline First**: Works without internet connectivity
 
-### **Market & Revenue (15 seconds)**
+### **Market & Revenue (15 seconds) - Specific Numbers**
 - **Target**: 15,000 users by 2027
 - **Revenue**: $1.26M/year (freemium + enterprise)
-- **Market**: $10M acquisition potential
+- **Market**: $236B emergency services market opportunity
 
 ---
 
-## 📊 **Presentation Slides (5-7 slides)**
+## 📊 **Presentation Slides (Following Masterclass Template)**
 
-### **Slide 1: Title**
+### **Slide 1: Intro Slide**
 ```
 CRISIS COMPANION
-Voice-Activated Emergency Response
+"Voice-Activated Emergency Response"
+
+[Your PFP] [Your Name]
+Founder & Developer
+
 Solana Mobile Hackathon 2024
 ```
 
-### **Slide 2: The Problem**
+### **Slide 2: Problem Slide - Critical Problem with Data**
 ```
 🚨 THE REALITY OF EMERGENCIES
 
-• My 4-year-old son forgot his lifejacket and almost drowned
-• I performed CPR without knowing what I was doing
-• People panic and forget basic procedures
-• In shock, we can't think clearly
-• No voice-activated emergency guidance
+• 236,000 people die from drowning annually
+• People panic and forget basic procedures in shock
+• Traditional apps require manual activation + internet
+• Remote areas lack connectivity when emergencies occur
 • Every second counts in life-or-death situations
-• Remote areas often lack internet connectivity
-• Traditional apps require manual activation and internet
+
+[Data visualization: Drowning deaths per year]
 ```
 
-### **Slide 3: Our Solution**
+### **Slide 3: Value Proposition Slide**
 ```
-🎯 CRISIS COMPANION SOLUTION
+🎯 OUR SOLUTION
 
-• Voice AI: "Drowning help!" → Immediate response
-• Offline-First: Works without internet connectivity
-• Auto Volume: Sets phone to 100% during emergency
-• Step-by-Step: Clear instructions for any emergency
-• Automatic Actions: Calls 911, shares location, records audio
-• Multi-Device: BLE coordination between devices
-• Solana Blockchain: Audio hash storage for verification
-• Designed for people in shock, not thinking clearly
-• Perfect for remote areas: beaches, hiking, boating, camping
-```
+"Voice-activated emergency guidance that works offline when people are in shock."
 
-### **Slide 4: Technology Stack**
-```
-🛠️ TECHNICAL INNOVATION
+VALUES:
+• Immediate Response: "Drowning help!" → Instant guidance
+• Offline Functionality: Works without internet connectivity
+• Step-by-Step Guidance: Clear instructions for any emergency
 
-• Rust + Android (Solana Mobile)
-• Vosk Voice Recognition (offline)
-• Bluetooth Low Energy coordination
-• SQLite emergency database (offline-first)
-• Solana blockchain integration
-• Real-time audio processing
-• Works without internet connectivity
+VISION: No one should face an emergency alone
 ```
 
-### **Slide 5: Offline-First Design**
+### **Slide 4: Main Features Slide - One After Another**
 ```
-🌐 BUILT FOR REMOTE AREAS
+🛠️ KEY FEATURES
 
-• Offline Voice Recognition: No internet required
-• Local Emergency Database: All instructions stored locally
-• Bluetooth Coordination: Works without cellular service
-• Remote Area Focus: Beaches, hiking, boating, camping
-• Natural Disasters: Functions when networks are down
-• Rural Communities: Where emergency response is slowest
-• Adventure Sports: Mountain climbing, kayaking, diving
+1. Voice AI: "Drowning help!" → Immediate response
+2. Offline Functionality: Works without internet
+3. Auto Volume Control: Sets to 100% during emergency
+4. Multi-Device Coordination: BLE communication
+5. Solana Blockchain: Audio hash storage for security
+6. 9 Emergency Types: Drowning, heart attack, choking, etc.
 ```
 
-### **Slide 6: Market Opportunity**
+### **Slide 5: Market Slide - Specific Target Users**
+```
+📊 TARGET MARKET
+
+PRIMARY USERS:
+• Beachgoers and swimmers
+• Outdoor enthusiasts (hiking, boating, camping)
+• Remote area residents
+
+MARKET SIZE: $236B emergency services market
+COMPETITIVE ADVANTAGE: Offline voice AI + blockchain
+GROWTH TRAJECTORY: Like a personal emergency responder in your pocket
+```
+
+### **Slide 6: Business Model Slide - Non-Negotiable**
 ```
 💰 BUSINESS MODEL
 
-• Freemium: $5-10/month per user
-• Enterprise: $50,000/year per client
-• 2027 Target: 15,000 users + 15 enterprise clients
-• Revenue: $1.26M/year
-• Exit: $10M-50M acquisition
+FREEMIUM: $5-10/month per user
+ENTERPRISE: $50,000/year per client
+2027 TARGET: 15,000 users + 15 enterprise clients
+REVENUE: $1.26M/year
+EXIT: $10M-50M acquisition potential
 ```
 
-### **Slide 7: Demo**
+### **Slide 7: Traction Slide - Data No One Can Argue With**
 ```
-🎬 LIVE DEMONSTRATION
+📈 CURRENT TRACTION
 
-• Voice trigger: "Drowning help!"
-• Auto volume control
-• Emergency instructions playback
-• Solana blockchain integration
-• Multi-device coordination
-• Offline functionality demo
+• Working prototype with 9 emergency types
+• Offline voice recognition functional
+• Solana blockchain integration complete
+• Multi-device coordination implemented
+• Ready for Solana Mobile deployment
 ```
 
-### **Slide 8: Next Steps**
+### **Slide 8: Ecosystem Validation Slide**
 ```
-🚀 ROADMAP
+⛓️ SOLANA ECOSYSTEM
 
-• August 2024: Hackathon submission
-• January 2025: MVP launch
-• April 2025: Beta testing
-• July 2025: Public launch
-• 2027: $1.26M revenue target
+• Built for Solana Mobile integration
+• Designed for Solana's dApp store
+• Solana blockchain for audio hash storage
+• Mobile-first emergency response platform
+```
+
+### **Slide 9: Growth Strategy Slide - 3 Solid Channels**
+```
+🚀 GROWTH STRATEGY
+
+1. SOLANA MOBILE: Pre-installation on all devices
+2. EMERGENCY SERVICES: Partnerships with first responders
+3. OUTDOOR RECREATION: Beach resorts, swimming pools, adventure companies
+```
+
+### **Slide 10: Roadmap Slide - Clear Future Tense**
+```
+🗓️ ROADMAP
+
+Q1 2025: MVP launch on Solana Mobile
+Q2 2025: Beta testing with emergency services
+Q3 2025: Public launch on dApp store
+Q4 2027: $1.26M revenue target
+```
+
+### **Slide 11: Team Slide - Why You're Best Positioned**
+```
+👨‍💻 TEAM
+
+[Your Name] - Founder & Developer
+• Personal experience with emergency response
+• Technical expertise in Rust, mobile development
+• Understanding of emergency psychology
+• "No one else could build this because no one else experienced what I experienced"
+```
+
+### **Slide 12: Call to Action Slide**
+```
+🎯 NEXT STEPS
+
+"I'm ready to save lives with Crisis Companion"
+
+• Live demo available
+• Questions about implementation
+• Ready for Solana Mobile deployment
+
+Thank you for your time!
 ```
 
 ---
 
-## 🎬 **Demo Script**
+## 🎬 **Demo Script (Following Masterclass Advice)**
 
-### **Setup (30 seconds)**
-"Let me show you how Crisis Companion works. I have the app running on this Solana Mobile device. When someone says 'Drowning help!', the app immediately responds. This is the tool I wish I had when my 4-year-old son forgot his lifejacket and was drowning last summer."
+### **Setup (30 seconds) - Clear Introduction**
+"I'm here to show you the tool I wish I had when my 4-year-old son was drowning last summer. This is Crisis Companion running on Solana Mobile. When someone says 'Drowning help!', the app immediately responds."
 
-### **Voice Trigger Demo (45 seconds)**
+### **Voice Trigger Demo (45 seconds) - Don't Rush**
 1. **Say**: "Drowning help!" (loud and clear)
 2. **Show**: App detects phrase, volume goes to 100%
 3. **Play**: Emergency instructions start automatically
 4. **Explain**: "The app is now providing step-by-step CPR instructions"
 5. **Highlight**: "Notice this works completely offline - no internet required"
 
-### **Solana Integration (30 seconds)**
+### **Solana Integration (30 seconds) - Show Technical Innovation**
 "Watch this - the audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof."
 
-### **Multi-Device Demo (15 seconds)**
+### **Multi-Device Demo (15 seconds) - Leave Them Wanting More**
 "If there are other Crisis Companion devices nearby, they automatically coordinate - one dials 911, another records audio, another displays silent instructions."
 
 ---
@@ -156,8 +199,8 @@ Solana Mobile Hackathon 2024
 - [ ] Solana integration (audio hash storage)
 
 ### **Demo Materials**
-- [ ] Backup demo video recorded
-- [ ] Presentation slides ready
+- [ ] Backup demo video recorded (soundless with voice-over)
+- [ ] Presentation slides ready (following masterclass template)
 - [ ] GitHub repository updated
 - [ ] README with clear instructions
 - [ ] 2-minute pitch practiced 10+ times
@@ -199,11 +242,11 @@ Solana Mobile Hackathon 2024
 
 ---
 
-## ❓ **Anticipated Q&A**
+## ❓ **Anticipated Q&A (Confident, Present Tense Answers)**
 
 ### **Technical Questions**
 **Q: How does voice recognition work offline?**
-A: We use Vosk, an offline speech recognition library. The model is embedded in the app and processes audio locally without internet.
+A: Crisis Companion uses Vosk, an offline speech recognition library. The model is embedded in the app and processes audio locally without internet.
 
 **Q: How do you prevent false positives?**
 A: We use a confidence threshold of 80% and require specific emergency phrases. Multiple device coordination also helps validate real emergencies.
@@ -213,7 +256,7 @@ A: Voice recognition runs efficiently, and BLE coordination uses minimal power. 
 
 ### **Business Questions**
 **Q: How do you acquire users?**
-A: Freemium model with free basic features, premium emergency features. Partner with emergency services, beach resorts, swimming pools.
+A: Freemium model with free basic features, premium emergency features. We partner with emergency services, beach resorts, swimming pools.
 
 **Q: What's your competitive advantage?**
 A: Offline functionality, voice AI, multi-device coordination, and Solana blockchain integration. No other app combines all these features.
@@ -234,7 +277,7 @@ A: Emergency response is a universal need. We're targeting the $236B emergency s
 
 ### **Required Materials**
 - [ ] Demo video (2-3 minutes)
-- [ ] Presentation slides (5-7 slides)
+- [ ] Presentation slides (following masterclass template)
 - [ ] GitHub repository link
 - [ ] Project description (500 words max)
 - [ ] Team information
@@ -251,19 +294,20 @@ A: Emergency response is a universal need. We're targeting the $236B emergency s
 - [ ] Upload all materials to hackathon platform
 - [ ] Ensure all links work
 - [ ] Test demo video playback
-- [ ] Verify GitHub repository is public
-- [ ] Submit before deadline (August 4th)
+- [ ] Verify GitHub repository is accessible
+- [ ] Submit before deadline
 
 ---
 
-## 💡 **Success Tips**
+## 💡 **Success Tips (Following Masterclass)**
 
-1. **Focus on the demo** - Judges care about working prototype
-2. **Tell a story** - Problem → Solution → Impact
-3. **Show Solana integration** - Blockchain features are key
-4. **Practice your pitch** - 2 minutes, no more
-5. **Have backup plans** - Multiple demo devices
-6. **Be confident** - You're solving a real problem
-7. **Show market potential** - Revenue numbers matter
+1. **Hook in first 15 seconds** - Your personal story is powerful
+2. **Use present tense** - No "trying" or "hoping"
+3. **Show real pain** - 236,000 drowning deaths annually
+4. **Keep slides clean** - No clutter, clear visuals
+5. **Be memorable** - "Tool I wish I had when my son was drowning"
+6. **Practice 10-30 times** - Rehearse until perfect
+7. **Focus on demo** - Judges care about working prototype
+8. **Be confident** - You're solving a real problem
 
-**Remember: The first round is about presentation/demo, not perfect code!** 
+**Remember: You're positioned to be in the 5% that succeed!** 

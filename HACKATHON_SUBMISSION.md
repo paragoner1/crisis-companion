@@ -4,9 +4,11 @@
 
 ---
 
-## 🎯 **Project Overview**
+## �� **Project Overview (Hook in First 15 Seconds)**
 
 **Crisis Companion** is a voice-activated emergency response app for Solana Mobile that detects emergency phrases (like "Drowning help!") and immediately provides life-saving instructions with automatic volume control, multi-device coordination, and Solana blockchain integration.
+
+Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
 ### **Key Innovation**
 - **Voice AI**: Offline speech recognition for emergency detection
@@ -17,7 +19,7 @@
 
 ---
 
-## 📊 **Demo Results**
+## 📊 **Demo Results (Data No One Can Argue With)**
 
 ✅ **All Core Features Working:**
 - Voice trigger detection (simulated)
@@ -51,26 +53,27 @@
 
 ---
 
-## 🎬 **Demo Video Script (2-3 minutes)**
+## 🎬 **Demo Video Script (Following Masterclass Template)**
 
-### **Scene 1: Introduction (30 seconds)**
-"Hi, I'm [Your Name], and I'm excited to show you Crisis Companion - a voice-activated emergency response app for Solana Mobile.
+### **Scene 1: Hook & Introduction (15 seconds)**
+"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
-Last summer, my 4-year-old son forgot he didn't have his lifejacket on and almost drowned at the lake. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
+### **Scene 2: Problem Statement (15 seconds)**
+"Every year, 236,000 people die from drowning alone. When emergencies occur, people panic and forget basic procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
 
-### **Scene 2: Voice Trigger Demo (45 seconds)**
+### **Scene 3: Voice Trigger Demo (45 seconds)**
 "Watch this. When someone says 'Drowning help!', the app immediately responds."
 
 **[Show terminal running demo_test]**
 "Notice how the voice trigger is detected, emergency response starts, volume goes to 100%, and emergency instructions are retrieved from the database."
 
-### **Scene 3: Solana Integration (30 seconds)**
+### **Scene 4: Solana Integration (30 seconds)**
 "Here's where it gets interesting. The audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof."
 
-### **Scene 4: Multi-Device Coordination (30 seconds)**
+### **Scene 5: Multi-Device Coordination (30 seconds)**
 "If there are other Crisis Companion devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions."
 
-### **Scene 5: Market Opportunity (15 seconds)**
+### **Scene 6: Business Model (15 seconds)**
 "With 15,000 users by 2027, this represents a $1.26 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
 
 ---
@@ -96,7 +99,7 @@ cargo run --bin demo_test
 
 ---
 
-## 💰 **Business Model**
+## 💰 **Business Model (Non-Negotiable)**
 
 ### **Revenue Streams**
 - **Freemium**: $5-10/month per user
@@ -132,7 +135,7 @@ cargo run --bin demo_test
 
 ---
 
-## 🚀 **Roadmap**
+## 🚀 **Roadmap (Clear Future Tense)**
 
 ### **Phase 1 (August 2025) - Hackathon Submission**
 - ✅ Voice trigger detection (simulated)
@@ -141,19 +144,19 @@ cargo run --bin demo_test
 - ✅ Basic UI interface
 - ✅ Solana integration ready
 
-### **Phase 2 (January 2026) - MVP Launch**
+### **Phase 2 (Q1 2026) - MVP Launch**
 - [ ] Real voice recognition with Vosk
 - [ ] Android app store submission
 - [ ] 2,000 beta users
 - [ ] Enterprise client pilots
 
-### **Phase 3 (April 2026) - Beta Testing**
+### **Phase 3 (Q2 2026) - Beta Testing**
 - [ ] Solana dApp store launch
 - [ ] Performance optimization
 - [ ] User feedback integration
 - [ ] Emergency services partnerships
 
-### **Phase 4 (July 2026) - Public Launch**
+### **Phase 4 (Q3 2026) - Public Launch**
 - [ ] Freemium model launch
 - [ ] 2,500 paying users target
 - [ ] Enterprise sales team
@@ -210,7 +213,7 @@ cargo run --bin demo_test
 
 ### **Required Materials**
 - [x] **Demo video** (2-3 minutes) - Record with terminal output
-- [x] **Presentation slides** (5-7 slides) - Use PRESENTATION.md
+- [x] **Presentation slides** (following masterclass template) - Use PRESENTATION.md
 - [x] **GitHub repository** - Public repo with working code
 - [x] **Project description** (500 words max) - See below
 - [x] **Team information** - Solo developer
@@ -227,18 +230,18 @@ cargo run --bin demo_test
 - [ ] Upload all materials to hackathon platform
 - [ ] Ensure all links work
 - [ ] Test demo video playback
-- [ ] Verify GitHub repository is public
+- [ ] Verify GitHub repository is accessible
 - [ ] Submit before deadline (August 4th)
 
 ---
 
-## 📝 **Project Description (500 words)**
+## 📝 **Project Description (500 words - Following Masterclass)**
 
-**Crisis Companion** is a voice-activated emergency response application designed for Solana Mobile devices that addresses the critical problem of emergency response delays. The idea was born from a personal experience last summer when my 4-year-old son forgot he didn't have his lifejacket on and almost drowned at the lake. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock or not thinking clearly. Every year, 236,000 people die from drowning alone, with average emergency response times of 8-12 minutes. In life-threatening situations, every second counts.
+**Crisis Companion** is a voice-activated emergency response application designed for Solana Mobile devices that addresses the critical problem of emergency response delays. The idea was born from a personal experience last summer when my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
-**The Problem**: When emergencies occur, people often panic and forget basic emergency procedures. I experienced this firsthand when my son was drowning - I was in shock and didn't know what to do. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations like beaches, hiking trails, or during natural disasters. In remote areas where emergency response times are longest, reliable internet connectivity is often unavailable.
+**The Problem**: Every year, 236,000 people die from drowning alone, with average emergency response times of 8-12 minutes. When emergencies occur, people panic and forget basic emergency procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations like beaches, hiking trails, or during natural disasters.
 
-**Our Solution**: Crisis Companion uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response. The app automatically sets the phone volume to 100%, plays step-by-step emergency instructions, coordinates with nearby devices via Bluetooth Low Energy, and stores audio hashes on Solana blockchain for security and audit purposes. **Built specifically for remote areas**, the app works completely offline - no internet connectivity required. All emergency instructions are stored locally, voice recognition works without cloud services, and Bluetooth coordination functions without cellular networks.
+**Our Solution**: Crisis Companion uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response. The app automatically sets the phone volume to 100%, plays step-by-step emergency instructions, coordinates with nearby devices via Bluetooth Low Energy, and stores audio hashes on Solana blockchain for security and audit purposes. Built specifically for remote areas, the app works completely offline - no internet connectivity required.
 
 **Technical Innovation**: Built in Rust for high performance and memory safety, Crisis Companion integrates Vosk for offline speech recognition, SQLite for local emergency instruction storage, Bluetooth Low Energy for multi-device coordination, and Solana blockchain for tamper-proof emergency data storage. The app works entirely offline, ensuring functionality in remote locations.
 
@@ -274,33 +277,22 @@ cargo run --bin demo_test
 
 ### **Demo Readiness**
 - ✅ Working prototype
-- ✅ Demo script prepared
+- ✅ Demo script prepared (following masterclass)
 - ✅ Presentation materials ready
 - ✅ Q&A responses prepared
 - ✅ Backup plans in place
 
 ---
 
-## 💡 **Final Tips for Submission**
+## 💡 **Masterclass Success Factors Applied**
 
-1. **Focus on the demo** - Judges care about working prototype
-2. **Tell a compelling story** - Problem → Solution → Impact
-3. **Show Solana integration** - Blockchain features are key
-4. **Practice your pitch** - 2 minutes, no more
-5. **Have backup plans** - Multiple demo devices
-6. **Be confident** - You're solving a real problem
-7. **Show market potential** - Revenue numbers matter
+1. **Hook in first 15 seconds** - Personal story about son drowning
+2. **Use present tense** - No "trying" or "hoping"
+3. **Show real pain** - 236,000 drowning deaths annually
+4. **Keep slides clean** - No clutter, clear visuals
+5. **Be memorable** - "Tool I wish I had when my son was drowning"
+6. **Practice 10-30 times** - Rehearse until perfect
+7. **Focus on demo** - Judges care about working prototype
+8. **Be confident** - You're solving a real problem
 
-**Remember: The first round is about presentation/demo, not perfect code!**
-
----
-
-## 🚨 **Emergency Contact**
-
-If you need help with the submission:
-- **GitHub**: [Your Repository URL]
-- **Demo Video**: [Your Video URL]
-- **Presentation**: Use PRESENTATION.md
-- **Demo Script**: Use DEMO_SCRIPT.md
-
-**Good luck with your hackathon submission! 🎉** 
+**Remember: You're positioned to be in the 5% that succeed!**
