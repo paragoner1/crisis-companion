@@ -101,7 +101,7 @@ path = "src/main.rs"
 
 [[bin]]
 name = "demo_test"
-path = "demo_test.rs"
+path = "src/bin/demo_test.rs"
 
 [profile.release]
 opt-level = 3
