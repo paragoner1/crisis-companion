@@ -6,8 +6,8 @@
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
 ### **Problem Statement (30 seconds) - Real Pain, Clear Urgency**
-- **Critical Problem**: Every year, 236,000 people die from drowning alone
-- **Real Pain**: When emergencies occur, people panic and forget basic procedures
+- **Critical Problem**: 3.8M avoidable deaths annually - 30-50% preventable with timely bystander action
+- **Real Pain**: Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action
 - **Urgency**: Every second counts in life-or-death situations
 - **Market Gap**: Traditional emergency apps require manual activation and internet connectivity
 
@@ -42,13 +42,14 @@ Solana Mobile Hackathon 2024
 ```
 🚨 THE REALITY OF EMERGENCIES
 
-• 236,000 people die from drowning annually
-• People panic and forget basic procedures in shock
+• 3.8M avoidable deaths annually - 30-50% preventable
+• Average EMS response: 7-14 minutes
+• Survival drops 10% per minute without action
+• People panic and forget basic procedures
 • Traditional apps require manual activation + internet
 • Remote areas lack connectivity when emergencies occur
-• Every second counts in life-or-death situations
 
-[Data visualization: Drowning deaths per year]
+[Data visualization: Avoidable deaths by emergency type]
 ```
 
 ### **Slide 3: Value Proposition Slide**
@@ -328,7 +329,7 @@ A: While Apple and Samsung focus on apps and games, Solana Mobile prioritizes us
 
 1. **Hook in first 15 seconds** - Your personal story is powerful
 2. **Use present tense** - No "trying" or "hoping"
-3. **Show real pain** - 236,000 drowning deaths annually
+3. **Show real pain** - 3.8M avoidable deaths annually
 4. **Keep slides clean** - No clutter, clear visuals
 5. **Be memorable** - "Tool I wish I had when my son was drowning"
 6. **Practice 10-30 times** - Rehearse until perfect
