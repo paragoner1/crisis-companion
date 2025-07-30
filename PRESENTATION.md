@@ -19,7 +19,7 @@
 - **Offline First**: Works without internet connectivity
 
 ### **Market & Revenue  - Strategic Numbers**
-- **Target**: 80,000+ users by 2027 (default app on Solana Mobile Seeker)
+- **Target**: 80,000+ users by 2026 (default app on Solana Mobile Seeker)
 - **Revenue**: $5.2M/year (device licensing + premium + enterprise)
 - **Market**: $286B emergency services + mobile health market
 
@@ -35,7 +35,7 @@ SOLANA SOS
 [Your PFP] [Your Name]
 Founder & Developer
 
-Solana Mobile Hackathon 2024
+Solana Mobile Hackathon 2025
 ```
 
 ### **Slide 2: Problem Slide - Critical Problem with Data**
@@ -125,7 +125,7 @@ DEVICE LICENSING: $3-5 per Solana Mobile Seeker device (40%+ demand increase)
 PREMIUM SUBSCRIPTIONS: $10-15/month per user
 ENTERPRISE CONTRACTS: $100K-500K/year (hospitals, 911 centers, government)
 GOVERNMENT PARTNERSHIPS: Emergency services contracts
-2027 TARGET: 80,000+ users + 50+ enterprise clients
+2026 TARGET: 80,000+ users + 50+ enterprise clients
 REVENUE: $5.2M/year
 EXIT: $50M-200M acquisition potential
 ```
@@ -167,10 +167,10 @@ EXIT: $50M-200M acquisition potential
 ```
 🗓️ ROADMAP
 
-Q1 2025: Default app launch on Solana Mobile Seeker
-Q2 2025: Emergency services partnerships (911 centers, hospitals)
-Q3 2025: International expansion (country-specific protocols)
-Q4 2027: $5.2M revenue target + government contracts
+Q1 2026: Default app launch on Solana Mobile Seeker
+Q2 2026: Emergency services partnerships (911 centers, hospitals)
+Q3 2026: International expansion (country-specific protocols)
+Q4 2026: $5.2M revenue target + government contracts
 ```
 
 ### **Slide 12: Team Slide - Why You're Best Positioned**

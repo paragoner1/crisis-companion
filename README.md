@@ -120,7 +120,7 @@ Currently developing for Solana Mobile Seeker deployment:
 - Premium Subscriptions: $10-15/month per user
 - Enterprise Contracts: $100K-500K/year (hospitals, 911 centers, government)
 - Government Partnerships: Emergency services contracts
-- 2027 Target: 80,000+ users + 50+ enterprise clients
+- 2026 Target: 80,000+ users + 50+ enterprise clients
 - Revenue: $5.2M/year
 
 ## 📊 Demo Results (Data No One Can Argue With)
@@ -143,11 +143,11 @@ The demo shows all core functionality working:
 
 ## 🚀 Roadmap (Strategic Timeline)
 
-- **August 2024**: Hackathon submission
-- **Q1 2025**: Default app launch on Solana Mobile Seeker
-- **Q2 2025**: Emergency services partnerships (911 centers, hospitals)
-- **Q3 2025**: International expansion (country-specific protocols)
-- **Q4 2027**: $5.2M revenue target + government contracts
+- **August 2025**: Hackathon submission
+- **Q1 2026**: Default app launch on Solana Mobile Seeker
+- **Q2 2026**: Emergency services partnerships (911 centers, hospitals)
+- **Q3 2026**: International expansion (country-specific protocols)
+- **Q4 2026**: $5.2M revenue target + government contracts
 
 ## 📞 Contact
 

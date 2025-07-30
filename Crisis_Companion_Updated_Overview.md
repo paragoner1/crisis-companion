@@ -121,7 +121,7 @@ Currently developing for Solana Mobile Seeker deployment:
 **Business Model:**
 - Freemium: $5-10/month per user
 - Enterprise: $50,000/year per client
-- 2027 Target: 80,000+ users + 50+ enterprise clients
+- 2026 Target: 80,000+ users + 50+ enterprise clients
 - Revenue: $5.2M/year
 
 ---
@@ -171,11 +171,11 @@ The demo shows all core functionality working:
 
 ## 🚀 **Roadmap (Clear Future Tense)**
 
-- **August 2024**: Hackathon submission
-- **Q1 2025**: MVP launch with 10 emergency types
-- **Q2 2025**: Beta testing with 25+ emergency types
-- **Q3 2025**: Public launch with expandable database
-- **Q4 2027**: $1.26M revenue target
+- **August 2025**: Hackathon submission
+- **Q1 2026**: MVP launch with 10 emergency types
+- **Q2 2026**: Beta testing with 25+ emergency types
+- **Q3 2026**: Public launch with expandable database
+- **Q4 2026**: $5.2M revenue target
 
 ---
 
@@ -203,7 +203,7 @@ The demo shows all core functionality working:
 "This is why Crisis Companion should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
 
 ### **Scene 7: Business Model **
-"With 15,000 users by 2027, this represents a $1.26 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
+"With 80,000+ users by 2026, this represents a $5.2 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
 
 ---
 

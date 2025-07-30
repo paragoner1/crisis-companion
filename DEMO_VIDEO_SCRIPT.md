@@ -32,7 +32,7 @@
 "This is why Solana SOS should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
 
 ### Scene 6: Business Model
-"With 80,000+ users by 2027 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to save lives and revolutionize emergency response."
+"With 80,000+ users by 2026 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to save lives and revolutionize emergency response."
 
 [End with app logo]
 
