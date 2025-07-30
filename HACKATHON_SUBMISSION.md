@@ -126,7 +126,7 @@ cargo run --bin demo_test
 
 ---
 
-## 💰 **Business Model (Non-Negotiable)**
+## 💰 **Business Model**
 
 ### **Revenue Streams**
 - **Freemium**: $10-15/month per user
