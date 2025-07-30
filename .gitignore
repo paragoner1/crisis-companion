@@ -97,4 +97,5 @@ secrets.toml
 *.backup
 
 # Personal notes and scripts (not for public repo)
-DEMO_VIDEO_SCRIPT.md 
+DEMO_VIDEO_SCRIPT.md
+VOICEOVER_SCRIPT.md 
