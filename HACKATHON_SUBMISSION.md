@@ -4,7 +4,7 @@
 
 ---
 
-## 🎯 **Project Overview (Hook in First 15 Seconds)**
+## 🎯 **Project Overview **
 
 **Solana SOS (Crisis Companion)** is a voice-activated emergency response app for Solana Mobile that detects emergency phrases (like "Drowning help!") and immediately provides life-saving instructions with automatic volume control, multi-device coordination, and Solana blockchain integration.
 
@@ -77,12 +77,12 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 ---
 
-## 🎬 **Demo Video Script (Following Masterclass Template)**
+## 🎬 **Demo Video Script **
 
-### **Scene 1: Hook & Introduction (15 seconds)**
+### **Scene 1: Hook & Introduction **
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
-### **Scene 2: Problem Statement (15 seconds)**
+### **Scene 2: Problem Statement **
 "Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
 
 ### **Scene 3: Voice Trigger Demo (45 seconds)**
@@ -97,10 +97,10 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 ### **Scene 5: Multi-Device Coordination (30 seconds)**
 "If there are other Crisis Companion devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions."
 
-### **Scene 6: Strategic Value (15 seconds)**
+### **Scene 6: Strategic Value **
 "This is why Crisis Companion should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
 
-### **Scene 7: Business Model (15 seconds)**
+### **Scene 7: Business Model **
 "With 80,000+ users by 2027 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
 
 ---
@@ -319,15 +319,6 @@ cargo run --bin demo_test
 
 ---
 
-## 💡 **Masterclass Success Factors Applied**
-
-1. **Hook in first 15 seconds** - Personal story about son drowning
-2. **Use present tense** - No "trying" or "hoping"
-3. **Show real pain** - 3.8M avoidable deaths annually
-4. **Keep slides clean** - No clutter, clear visuals
-5. **Be memorable** - "Tool I wish I had when my son was drowning"
-6. **Practice 10-30 times** - Rehearse until perfect
-7. **Focus on demo** - Judges care about working prototype
 8. **Be confident** - You're solving a real problem
 
 **Remember: You're positioned to be in the 5% that succeed!**

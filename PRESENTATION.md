@@ -1,8 +1,8 @@
 # Solana SOS (Crisis Companion) - Solana Mobile Hackathon Presentation
 
-## 🚨 **2-Minute Elevator Pitch (Following Masterclass Template)**
+## 🚨 **2-Minute Elevator Pitch **
 
-### **Opening Hook (15 seconds) - The 5% Success Factor**
+### **Opening Hook  - The 5% Success Factor**
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS."
 
 ### **Problem Statement (30 seconds) - Real Pain, Clear Urgency**
@@ -18,14 +18,14 @@
 - **Solana Blockchain**: Stores audio hashes for security and audit purposes
 - **Offline First**: Works without internet connectivity
 
-### **Market & Revenue (15 seconds) - Strategic Numbers**
+### **Market & Revenue  - Strategic Numbers**
 - **Target**: 80,000+ users by 2027 (default app on Solana Mobile Seeker)
 - **Revenue**: $5.2M/year (device licensing + premium + enterprise)
 - **Market**: $286B emergency services + mobile health market
 
 ---
 
-## 📊 **Presentation Slides (Following Masterclass Template)**
+## 📊 **Presentation Slides **
 
 ### **Slide 1: Intro Slide**
 ```
@@ -199,7 +199,7 @@ Thank you for your time!
 
 ---
 
-## 🎬 **Demo Script (Following Masterclass Advice)**
+## 🎬 **Demo Script **
 
 ### **Setup (30 seconds) - Clear Introduction**
 "I'm here to show you the tool I wish I had when my 4-year-old son was drowning last summer. This is Solana SOS running on Solana Mobile. When someone says 'Drowning help!', the app immediately responds."
@@ -214,7 +214,7 @@ Thank you for your time!
 ### **Solana Integration (30 seconds) - Show Technical Innovation**
 "Watch this - the audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof."
 
-### **Multi-Device Demo (15 seconds) - Leave Them Wanting More**
+### **Multi-Device Demo  - Leave Them Wanting More**
 "If there are other Solana SOS devices nearby, they automatically coordinate - one dials 911, another records audio, another displays silent instructions."
 
 ---
@@ -337,15 +337,3 @@ A: While Apple and Samsung focus on apps and games, Solana Mobile prioritizes us
 
 ---
 
-## 💡 **Success Tips (Following Masterclass)**
-
-1. **Hook in first 15 seconds** - Your personal story is powerful
-2. **Use present tense** - No "trying" or "hoping"
-3. **Show real pain** - 3.8M avoidable deaths annually
-4. **Keep slides clean** - No clutter, clear visuals
-5. **Be memorable** - "Tool I wish I had when my son was drowning"
-6. **Practice 10-30 times** - Rehearse until perfect
-7. **Focus on demo** - Judges care about working prototype
-8. **Be confident** - You're solving a real problem
-
-**Remember: You're positioned to be in the 5% that succeed!**
