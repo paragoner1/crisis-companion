@@ -83,7 +83,7 @@ VISION: No one should face an emergency alone
 🏆 SOLANA MOBILE DIFFERENTIATOR
 
 "THE ONLY MOBILE DEVICE THAT CAN SAVE YOUR LIFE"
-"THE PHONE YOU CAN'T LIVE WITHOUT... LITERALLY"
+"THE PHONE YOU CAN'T LIVE WITHOUT"
 
 COMPETITIVE ADVANTAGE:
 • First mobile platform with built-in emergency response
