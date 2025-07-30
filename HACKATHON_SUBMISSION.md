@@ -83,7 +83,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
 ### **Scene 2: Problem Statement (15 seconds)**
-"Every year, 236,000 people die from drowning alone. When emergencies occur, people panic and forget basic procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
+"Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
 
 ### **Scene 3: Voice Trigger Demo (45 seconds)**
 "Watch this. When someone says 'Drowning help!', the app immediately responds."
@@ -272,7 +272,7 @@ cargo run --bin demo_test
 
 **Crisis Companion** is a voice-activated emergency response application designed for Solana Mobile devices that addresses the critical problem of emergency response delays. The idea was born from a personal experience last summer when my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
-**The Problem**: Every year, 236,000 people die from drowning alone, with average emergency response times of 8-12 minutes. When emergencies occur, people panic and forget basic emergency procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations like beaches, hiking trails, or during natural disasters.
+**The Problem**: Every year, 3.8 million people die from avoidable emergencies, with 30-50% preventable through timely bystander action. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. When emergencies occur, people panic and forget basic emergency procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations like beaches, hiking trails, or during natural disasters.
 
 **Our Solution**: Crisis Companion uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response. The app automatically sets the phone volume to 100%, plays step-by-step emergency instructions, coordinates with nearby devices via Bluetooth Low Energy, and stores audio hashes on Solana blockchain for security and audit purposes. Built specifically for remote areas, the app works completely offline - no internet connectivity required.
 
@@ -323,7 +323,7 @@ cargo run --bin demo_test
 
 1. **Hook in first 15 seconds** - Personal story about son drowning
 2. **Use present tense** - No "trying" or "hoping"
-3. **Show real pain** - 236,000 drowning deaths annually
+3. **Show real pain** - 3.8M avoidable deaths annually
 4. **Keep slides clean** - No clutter, clear visuals
 5. **Be memorable** - "Tool I wish I had when my son was drowning"
 6. **Practice 10-30 times** - Rehearse until perfect

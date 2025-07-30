@@ -7,26 +7,26 @@
 Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
 **The Reality:**
-- 236,000 people die from drowning annually
-- Average emergency response times: 8-12 minutes
-- People panic and forget basic procedures
-- Remote areas often lack internet connectivity
-- Traditional apps require manual activation and internet
+- **3.8M avoidable deaths annually** - 30-50% preventable with timely bystander action
+- **Average EMS response time: 7-14 minutes** - survival drops 10% per minute without action
+- **People panic and forget basic procedures** in emergency situations
+- **Remote areas often lack internet connectivity** when emergencies occur
+- **Traditional apps require manual activation and internet** - not available when needed most
 
 ## 💡 Our Solution (Present Tense, Confident Statements)
 
 **Crisis Companion** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
 
 ### Current Emergency Types Supported (Initial Release):
-- **Drowning**: "Drowning help!" → CPR instructions
-- **Heart Attack**: "Heart attack!" → CPR + AED guidance
-- **Choking**: "Choking help!" → Heimlich maneuver
-- **Bleeding**: "Bleeding emergency!" → First aid steps
+- **Drowning**: "Drowning help!" → CPR instructions (236,000 global deaths/year, 80% avoidable with immediate CPR)
+- **Heart Attack**: "Heart attack!" → CPR + AED guidance (356,000 US out-of-hospital deaths/year, 60-90% avoidable with CPR/AED within 3-5 min)
+- **Choking**: "Choking help!" → Heimlich maneuver (5,000 US deaths/year, 90%+ avoidable with Heimlich)
+- **Bleeding**: "Bleeding emergency!" → First aid steps (4.4M global trauma deaths/year, 50% avoidable with bleeding control)
+- **Allergic Reaction**: "Allergic reaction!" → EpiPen guidance (1,000 US deaths/year, 95% avoidable with EpiPen in 5 min)
+- **Seizure**: "Seizure help!" → Safety positioning (3,000 US deaths/year, 40% avoidable with proper positioning)
+- **Heat Stroke**: "Heat stroke!" → Cooling procedures (700 US deaths/year, 90% avoidable with immediate cooling)
+- **Hypothermia**: "Hypothermia!" → Warming techniques (1,300 US deaths/year, 90% avoidable with warming)
 - **Burns**: "Burn emergency!" → Cool water + treatment
-- **Allergic Reaction**: "Allergic reaction!" → EpiPen guidance
-- **Seizure**: "Seizure help!" → Safety positioning
-- **Heat Stroke**: "Heat stroke!" → Cooling procedures
-- **Hypothermia**: "Hypothermia!" → Warming techniques
 
 ### Key Features:
 - **Voice-Activated**: Any emergency phrase triggers immediate response
