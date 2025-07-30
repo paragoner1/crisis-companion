@@ -43,11 +43,13 @@ Solana Mobile Hackathon 2025
 🚨 THE REALITY OF EMERGENCIES
 
 • 3.8M avoidable deaths annually - 30-50% preventable
+• 236K drownings/year, 356K cardiac arrests in US—50-90% preventable with bystander actions
 • Average EMS response: 7-14 minutes
 • Survival drops 10% per minute without action
 • People panic and forget basic procedures
 • Traditional apps require manual activation + internet
 • Remote areas, underground locations, natural disasters, power outages, and network congestion all lack connectivity when emergencies occur
+• "Prevent 50-90% of avoidable deaths via guided actions—delays kill, we respond in <100ms."
 
 [Data visualization: Avoidable deaths by emergency type]
 ```
@@ -129,9 +131,14 @@ DEVICE LICENSING: $3-5 per Solana Mobile Seeker device (default install for all 
 FAMILY SAFETY SUBSCRIPTIONS: $15-25/month per family (covers all household devices)
 ENTERPRISE & INSTITUTIONAL CONTRACTS: $50K-500K/year (schools, workplaces, government)
 GOVERNMENT PARTNERSHIPS: $1M-10M/year (emergency services, public health, and safety initiatives)
-2026 TARGET: 500K+ families, 100+ institutions
-REVENUE: $50M+ annually
-IMPACT: Saving thousands of lives annually
+ECOSYSTEM UPSELLS: On-chain rewards, first-aid partnerships, premium features
+
+2026 PROJECTIONS:
+• Conservative: $20.6M (20% Seeker penetration, 15% sub conversion)
+• Aggressive: $132M (50% adoption, enterprise partnerships)
+• Market: $137B EMS market growing 6-8% CAGR to $196B by 2030
+
+COMPARABLES: Life360 ($300M annual revenue, 50M users), RapidSOS ($100M+ funding)
 ```
 
 ### **Slide 8: Traction - Strategic Metrics**
