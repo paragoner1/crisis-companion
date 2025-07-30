@@ -8,7 +8,7 @@
 
 **Solana SOS (Crisis Companion)** is a voice-activated emergency response app for Solana Mobile that detects emergency phrases (like "Drowning help!") and immediately provides life-saving instructions with automatic volume control, multi-device coordination, and Solana blockchain integration.
 
-Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
+Last summer, my 4-year-old son forgot his lifejacket was not on and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
 ### **Key Innovation**
 - **Voice AI**: Offline speech recognition for emergency detection
@@ -43,7 +43,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 ---
 
-## 📊 **Demo Results (Data No One Can Argue With)**
+## 📊 **Demo Results**
 
 ✅ **All Core Features Working:**
 - Voice trigger detection (simulated)
@@ -77,54 +77,9 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 ---
 
-## 🎬 **Demo Video Script **
 
-### **Scene 1: Hook & Introduction **
-"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
-### **Scene 2: Problem Statement **
-"Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations, underground areas, during natural disasters, power outages, or network congestion."
 
-### **Scene 3: Voice Trigger Demo (45 seconds)**
-"Watch this. When someone says 'Drowning help!', the app immediately responds."
-
-**[Show terminal running demo_test]**
-"Notice how the voice trigger is detected, emergency response starts, volume goes to 100%, and emergency instructions are retrieved from the database."
-
-### **Scene 4: Solana Integration (30 seconds)**
-"Here's where it gets interesting. The audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof."
-
-### **Scene 5: Multi-Device Coordination (30 seconds)**
-"If there are other Crisis Companion devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions."
-
-### **Scene 6: Strategic Value **
-"This is why Crisis Companion should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
-
-### **Scene 7: Business Model **
-"With 80,000+ users by 2026 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
-
----
-
-## 📱 **Live Demo Instructions**
-
-### **Quick Demo Setup**
-```bash
-# Clone the repository
-git clone https://github.com/your-username/crisis-companion.git
-cd crisis-companion
-
-# Run the demo
-cargo run --bin demo_test
-```
-
-### **What to Show**
-1. **Terminal Output**: Show the real-time logs of all systems working
-2. **Code Structure**: Show the modular architecture
-3. **Database**: Show emergency instructions being retrieved
-4. **Blockchain**: Show audio hash storage (simulated)
-5. **Multi-Device**: Explain BLE coordination concept
-
----
 
 ## 💰 **Business Model**
 
@@ -162,7 +117,7 @@ cargo run --bin demo_test
 
 ---
 
-## 🚀 **Roadmap (Clear Future Tense)**
+## 🚀 **Roadmap**
 
 ### **Phase 1 (August 2025) - Hackathon Submission**
 - ✅ Voice trigger detection (simulated)
@@ -214,7 +169,7 @@ cargo run --bin demo_test
 
 ---
 
-## 📝 **Project Description (500 words)**
+## 📝 **Project Description**
 
 **Crisis Companion** is a voice-activated emergency response application designed for Solana Mobile devices that addresses the critical problem of emergency response delays. The idea was born from a personal experience last summer when my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
