@@ -84,4 +84,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     info!("Demo ready for hackathon submission!");
     
     Ok(())
-} 
+}
