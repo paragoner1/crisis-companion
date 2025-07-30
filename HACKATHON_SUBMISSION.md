@@ -84,11 +84,13 @@ Last summer, my 4-year-old son forgot his lifejacket was not on and almost drown
 ## 💰 **Business Model**
 
 ### **Revenue Streams**
-- **Freemium**: $10-15/month per user
-- **Enterprise**: $100K-500K/year (hospitals, 911 centers, government)
-- **Target**: 80,000+ users + 50+ enterprise clients by 2026
-- **Revenue**: $5.2M/year
-- **Exit**: $50M-200M acquisition potential
+- **Device Licensing**: $3-5 per Solana Mobile Seeker device (default install for all users)
+- **Family Safety Subscriptions**: $15-25/month per family (covers all household devices)
+- **Enterprise & Institutional Contracts**: $50K-500K/year (schools, workplaces, government)
+- **Government Partnerships**: $1M-10M/year (emergency services, public health, and safety initiatives)
+- **Target**: 500K+ families, 100+ institutions by 2026
+- **Revenue**: $50M+ annually
+- **Impact**: Saving thousands of lives annually
 
 ### **Target Market:**
 - Every parent who wants peace of mind for their family
