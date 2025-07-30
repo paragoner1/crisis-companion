@@ -3,7 +3,7 @@
 ## 🚨 **2-Minute Elevator Pitch **
 
 ### **Opening Hook  - The 5% Success Factor**
-"Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS."
+"Last summer, my 4-year-old son forgot his life jacket was off and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS."
 
 ### **Problem Statement (30 seconds) - Real Pain, Clear Urgency**
 - **Critical Problem**: 3.8M avoidable deaths annually - 30-50% preventable with timely bystander action
