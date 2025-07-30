@@ -19,9 +19,9 @@
 - **Offline First**: Works without internet connectivity
 
 ### **Market & Revenue  - Strategic Numbers**
-- **Target**: 80,000+ users by 2026 (default app on Solana Mobile Seeker)
-- **Revenue**: $5.2M/year (device licensing + premium + enterprise)
-- **Market**: $286B emergency services + mobile health market
+- **Target**: 500K+ families by 2026 (default app on Solana Mobile Seeker)
+- **Revenue**: $50M+ annually (device licensing + family subscriptions + institutional contracts)
+- **Market**: 1.2B+ families worldwide, 2.7B+ smartphone users, 100M+ institutional endpoints
 
 ---
 
