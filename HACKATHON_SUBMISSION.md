@@ -8,7 +8,7 @@
 
 **Solana SOS (Crisis Companion)** is a voice-activated emergency response app for Solana Mobile that detects emergency phrases (like "Drowning help!") and immediately provides life-saving instructions with automatic volume control, multi-device coordination, and Solana blockchain integration.
 
-Last summer, my 4-year-old son forgot his lifejacket was not on and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
+Last summer, my 4-year-old son forgot his life jacket was off and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS.
 
 ### **Key Innovation**
 - **Voice AI**: Offline speech recognition for emergency detection

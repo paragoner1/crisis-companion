@@ -4,7 +4,7 @@
 
 ## 🚨 The Problem 
 
-Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
+Last summer, my 4-year-old son forgot his life jacket was off and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS.
 
 **The Reality:**
 - **3.8M avoidable deaths annually** - 30-50% preventable with timely bystander action
