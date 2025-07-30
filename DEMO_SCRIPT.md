@@ -1,15 +1,15 @@
-# Solana SOS (Crisis Companion) - Demo Script (Following Masterclass Template)
+# Solana SOS (Crisis Companion) - Demo Script 
 
 ## 🎬 **Demo Video Script (2-3 minutes)**
 
-### **Scene 1: Hook & Introduction (15 seconds)**
+### **Scene 1: Hook & Introduction **
 **[Camera shows you holding Solana Mobile device]**
 
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS."
 
 **[Show app running on device]**
 
-### **Scene 2: Problem Statement (15 seconds)**
+### **Scene 2: Problem Statement **
 **[Show statistics or data visualization]**
 
 "Every year, 236,000 people die from drowning alone. When emergencies occur, people panic and forget basic procedures. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
@@ -38,7 +38,7 @@
 
 "If there are other Solana SOS devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions for bystanders."
 
-### **Scene 6: Business Model (15 seconds)**
+### **Scene 6: Business Model **
 **[Show revenue numbers or business model]**
 
 "With 80,000+ users by 2027 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to save lives and revolutionize emergency response."
@@ -47,7 +47,7 @@
 
 ---
 
-## 📱 **Demo Setup Instructions (Following Masterclass Advice)**
+## 📱 **Demo Setup Instructions **
 
 ### **Before Recording**
 1. **Test the app thoroughly**
@@ -169,24 +169,3 @@
 
 ---
 
-## 🎬 **Masterclass Demo Tips Applied**
-
-### **Content Strategy**
-- **Go through user experience** with voice-over
-- **Comment with voice-over** during demo
-- **Don't show it all** - leave them hanging a little
-- **Don't rush it** - take your time
-
-### **Technical Approach**
-- **Prefer soundless demo** and do voice-over yourself
-- **Embed demo video** in your deck or use QR code
-- **Keep it concise** and easy to understand
-- **Start with hook** - not by sharing everything
-
-### **Audience Awareness**
-- **Know your audience** - busy judges, many meetings
-- **Empathy wins** - your personal story connects
-- **Be memorable** - "tool I wish I had when my son was drowning"
-- **Think elevator pitch** - you're here to tease
-
-**Remember: The demo is more important than perfect code! Focus on showing the concept working and telling your compelling story.** 

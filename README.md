@@ -2,7 +2,7 @@
 
 **Solana Mobile Hackathon Submission** | Built for Solana Mobile Seeker
 
-## 🚨 The Problem (Hook in First 15 Seconds)
+## 🚨 The Problem 
 
 Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
@@ -13,7 +13,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 - **Remote areas often lack internet connectivity** when emergencies occur
 - **Traditional apps require manual activation and internet** - not available when needed most
 
-## 💡 Our Solution (Present Tense, Confident Statements)
+## 💡 Our Solution 
 
 **Solana SOS** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
 
@@ -106,7 +106,7 @@ Currently developing for Solana Mobile Seeker deployment:
 - **Positive PR**: "Solana Mobile devices have saved X lives" - powerful marketing message
 - **Regulatory Advantage**: Emergency response capabilities may qualify for government contracts and healthcare partnerships
 
-## 🎯 Market Opportunity (Strategic Numbers)
+## 🎯 Market Opportunity 
 
 **Target Markets:**
 - All Solana Mobile Seeker device owners (default app)

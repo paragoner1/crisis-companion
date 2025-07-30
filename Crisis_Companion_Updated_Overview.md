@@ -4,7 +4,7 @@
 
 ---
 
-## 🚨 **The Problem (Hook in First 15 Seconds)**
+## 🚨 **The Problem **
 
 Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock.
 
@@ -17,7 +17,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 
 ---
 
-## 💡 **Our Solution (Present Tense, Confident Statements)**
+## 💡 **Our Solution **
 
 **Solana SOS** uses offline voice recognition to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
 
@@ -179,12 +179,12 @@ The demo shows all core functionality working:
 
 ---
 
-## 🎬 **Demo Video Script (Following Masterclass Template)**
+## 🎬 **Demo Video Script **
 
-### **Scene 1: Hook & Introduction (15 seconds)**
+### **Scene 1: Hook & Introduction **
 "Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Crisis Companion."
 
-### **Scene 2: Problem Statement (15 seconds)**
+### **Scene 2: Problem Statement **
 "Every year, 3.8 million people die from avoidable emergencies. Average EMS response time is 7-14 minutes, but survival drops 10% per minute without action. Traditional emergency apps require manual activation and internet connectivity, which may not be available in remote locations."
 
 ### **Scene 3: Voice Trigger Demo (45 seconds)**
@@ -199,10 +199,10 @@ The demo shows all core functionality working:
 ### **Scene 5: Multi-Device Coordination (30 seconds)**
 "If there are other Crisis Companion devices nearby, they automatically coordinate. One device dials 911, another records audio for emergency services, and another displays silent instructions."
 
-### **Scene 6: Strategic Value (15 seconds)**
+### **Scene 6: Strategic Value **
 "This is why Crisis Companion should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
 
-### **Scene 7: Business Model (15 seconds)**
+### **Scene 7: Business Model **
 "With 15,000 users by 2027, this represents a $1.26 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
 
 ---
