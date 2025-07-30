@@ -47,7 +47,7 @@ Solana Mobile Hackathon 2025
 • Survival drops 10% per minute without action
 • People panic and forget basic procedures
 • Traditional apps require manual activation + internet
-• Remote areas lack connectivity when emergencies occur
+• Remote areas, underground locations, natural disasters, power outages, and network congestion all lack connectivity when emergencies occur
 
 [Data visualization: Avoidable deaths by emergency type]
 ```
@@ -71,7 +71,7 @@ VISION: No one should face an emergency alone
 🛠️ KEY FEATURES
 
 1. Voice AI: "Drowning help!" → Immediate response
-2. Offline Functionality: Works without internet
+2. Offline Functionality: Works without internet in any scenario
 3. Auto Volume Control: Sets to 100% during emergency
 4. Multi-Device Coordination: BLE communication
 5. Solana Blockchain: Audio hash storage for security
@@ -209,7 +209,7 @@ Thank you for your time!
 2. **Show**: App detects phrase, volume goes to 100%
 3. **Play**: Emergency instructions start automatically
 4. **Explain**: "The app is now providing step-by-step CPR instructions"
-5. **Highlight**: "Notice this works completely offline - no internet required"
+5. **Highlight**: "Notice this works completely offline - no internet required, whether you're in a basement, during a storm, or in a remote area"
 
 ### **Solana Integration (30 seconds) - Show Technical Innovation**
 "Watch this - the audio hash is being stored on Solana blockchain for security and audit purposes. This ensures the emergency data is tamper-proof."

@@ -10,7 +10,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 - **3.8M avoidable deaths annually** - 30-50% preventable with timely bystander action
 - **Average EMS response time: 7-14 minutes** - survival drops 10% per minute without action
 - **People panic and forget basic procedures** in emergency situations
-- **Remote areas often lack internet connectivity** when emergencies occur
+- **Connectivity challenges** occur in remote areas, underground locations, during natural disasters, power outages, and network congestion when emergencies happen
 - **Traditional apps require manual activation and internet** - not available when needed most
 
 ## 💡 Our Solution 
@@ -36,7 +36,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 - **Automatic Actions**: Calls 911, shares location, records audio
 - **Multi-Device**: BLE coordination between devices
 - **Solana Blockchain**: Audio hash storage for verification
-- **Remote Area Focus**: Perfect for beaches, hiking, boating, camping
+- **Universal Offline Capability**: Perfect for any scenario - beaches, hiking, underground, during storms, power outages, or network congestion
 - **Expandable Database**: Easy to add new emergency procedures
 
 ### Future Expansion:
