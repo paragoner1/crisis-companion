@@ -101,7 +101,7 @@ Last summer, my 4-year-old son forgot his lifejacket and almost drowned. I found
 "This is why Crisis Companion should be a default app on every Solana Mobile Seeker device. It gives Solana a unique competitive advantage - the only mobile platform that can save your life."
 
 ### **Scene 7: Business Model **
-"With 80,000+ users by 2027 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
+"With 80,000+ users by 2026 as the default app on Solana Mobile Seeker devices, this represents a $5.2 million revenue opportunity. We're ready to launch on Solana's dApp store and save lives."
 
 ---
 
@@ -131,7 +131,7 @@ cargo run --bin demo_test
 ### **Revenue Streams**
 - **Freemium**: $10-15/month per user
 - **Enterprise**: $100K-500K/year (hospitals, 911 centers, government)
-- **Target**: 80,000+ users + 50+ enterprise clients by 2027
+- **Target**: 80,000+ users + 50+ enterprise clients by 2026
 - **Revenue**: $5.2M/year
 - **Exit**: $50M-200M acquisition potential
 
@@ -232,7 +232,7 @@ cargo run --bin demo_test
 - ✅ **Clear problem/solution fit** (emergency response delays)
 - ✅ **Revenue model** (freemium + enterprise)
 - ✅ **Large target market** ($236B emergency services)
-- ✅ **Growth potential** (15,000 users by 2027)
+- ✅ **Growth potential** (80,000+ users by 2026)
 
 ### **Presentation (25%)**
 - ✅ **Clear communication** (problem → solution → impact)
@@ -280,7 +280,7 @@ cargo run --bin demo_test
 
 **Technical Innovation**: Built in Rust for high performance and memory safety, Crisis Companion integrates Vosk for offline speech recognition, SQLite for local emergency instruction storage, Bluetooth Low Energy for multi-device coordination, and Solana blockchain for tamper-proof emergency data storage. The app works entirely offline, ensuring functionality in remote locations.
 
-**Market Opportunity**: With a target of 15,000 users by 2027, Crisis Companion represents a $1.26 million annual revenue opportunity through a freemium model ($5-10/month) and enterprise licensing ($50,000/year for hospitals and resorts). The global emergency services market is valued at $236 billion, providing significant growth potential.
+**Market Opportunity**: With a target of 80,000+ users by 2026, Solana SOS represents a $5.2 million annual revenue opportunity through device licensing ($3-5/device), premium subscriptions ($10-15/month), and enterprise contracts ($100K-500K/year for hospitals, 911 centers, and government). The global emergency services market is valued at $236 billion, providing significant growth potential.
 
 **Competitive Advantage**: No existing solution combines offline voice recognition, multi-device coordination, and blockchain security. Crisis Companion is the first voice-activated emergency response app designed specifically for mobile devices with comprehensive emergency instruction databases.
 
