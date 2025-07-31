@@ -94,23 +94,27 @@ Last summer, my 4-year-old son forgot his life jacket was off and almost drowned
 Comparables: Life360 ($300M annual revenue, 50M users), RapidSOS ($100M+ funding)
 
 ### **Target Market:**
-- Every parent who wants peace of mind for their family
-- Caregivers and those responsible for vulnerable loved ones
-- Schools, workplaces, and public venues seeking to protect their communities
-- Emergency services and government agencies
-- Universal need: “If you have someone you care about, you need Solana SOS.”
-
-### **Market Size:**
-- 100% of Solana Mobile Seeker device owners (not just outdoor users)
-- 1.2B+ families worldwide, 2.7B+ smartphone users, 100M+ institutional endpoints
+- **Universal Need**: Every family, caregivers, schools, workplaces, emergency services, travelers
+- **Market Size**: 7.3 billion smartphone users worldwide by 2025, 2.3 billion households globally
+- **Personal Safety Market**: Surging from $1.5 billion in 2024 to $5.2 billion by 2033 (15.5% CAGR)
+- **Consumer Behavior**: 76% of parents buy phones for safety, 54% cite risks like bullying, 46% prioritize safety features
+- **Adoption Growth**: Over 210% growth in personal safety app adoption
 
 ### **Business Model:**
-- Device licensing (default on every phone)
-- Family and group subscriptions ($15-25/month per family)
-- Institutional and government contracts ($50K-10M/year)
-- 2026 Target: 500K+ families, 100+ institutions
-- Revenue: $50M+ annually
-- Impact: Saving thousands of lives annually
+- **Device Licensing**: $3-5 per Solana Mobile Seeker device (pre-installed safety feature)
+- **Family Subscriptions**: $15-25/month per family (covers all household devices)
+- **Enterprise Contracts**: $50K-500K/year (schools, workplaces, government)
+- **Government Partnerships**: $1M-10M/year (emergency services, public health initiatives)
+- **Seeker Pre-sold**: 150,000 units projecting $67.5 million at $450 each
+- **Projections**: 40% sales uplift to 500,000 Year 1 units post-Q1 2026
+- **Revenue Targets**: $20 million conservative, $132 million aggressive
+- **Market Scale**: $135 billion+ emergency market growing to $196 billion by 2030
+
+### **Life-Saving Impact:**
+- **Immediate Value**: Every Seeker device becomes a potential life-saver
+- **Universal Need**: Emergency situations can happen to anyone, anywhere
+- **Positive PR**: "Solana Mobile devices have saved X lives" - powerful marketing message
+- **Regulatory Advantage**: Emergency response capabilities may qualify for government contracts and healthcare partnerships
 
 ---
 
