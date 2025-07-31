@@ -217,3 +217,17 @@ Comparables: Life360 ($300M annual revenue, 50M users), RapidSOS ($100M+ funding
 
 
 
+
+## 🪙 Token Economics
+
+### **BONK Integration**
+- **Emergency Rewards**: 100-500 BONK per verified emergency intervention
+- **Community Tips**: 50-200 BONK for protocol contributions
+- **Charity Pool**: 10% of emergency rewards donated to Red Cross
+- **Viral Growth**: BONK airdrops for early adopters and "SOS Hero" NFT holders
+
+### **SKR Integration**
+- **User Engagement**: Earn SKR for completing training simulations and emergency reports
+- **Developer Incentives**: Builders earn SKR based on app usage and emergencies handled
+- **Premium Features**: SKR stakes unlock advanced features (custom voice models, multi-language)
+- **Seeker-Exclusive**: Mobile Wallet Adapter integration for seamless token transactions

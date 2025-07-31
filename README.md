@@ -146,3 +146,25 @@ Currently developing for Solana Mobile Seeker deployment:
 ---
 
 **⚠️ Emergency Notice**: This software is designed for emergency response. Always call 911 for life-threatening emergencies. This app is a supplement to, not a replacement for, professional emergency services.
+
+## 🪙 Token Integrations
+
+**Solana SOS leverages BONK and SKR tokens to enhance user engagement and reward life-saving actions:**
+
+### **BONK Integration (Community & Fun)**
+- **Emergency Rewards**: Users earn BONK for successful emergency interventions (verified via blockchain)
+- **Community Contributions**: BONK tips for users who contribute new emergency protocols
+- **Charity Donations**: Users can donate BONK to emergency funds (Red Cross partnerships)
+- **Viral Growth**: BONK airdrops for early adopters and "SOS Hero" NFT holders
+
+### **SKR Integration (Seeker Ecosystem)**
+- **User Engagement**: Earn SKR for completing training simulations and emergency reports
+- **Developer Incentives**: Builders earn SKR based on app usage and emergencies handled
+- **Premium Features**: SKR stakes unlock advanced features (custom voice models, multi-language)
+- **Seeker-Exclusive**: Mobile Wallet Adapter integration for seamless token transactions
+
+### **Implementation Strategy**
+- **Hybrid Approach**: Token actions trigger only when online (post-emergency)
+- **Preserves Offline Core**: Emergency response works without connectivity
+- **Wallet Integration**: Mobile Wallet Adapter for seamless transfers on Seeker
+- **Blockchain Verification**: Audio hashes verify successful interventions for rewards

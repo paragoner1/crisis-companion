@@ -138,3 +138,7 @@ Localize emergency protocols for different regions and regulatory environments.
 ## **11. Why aren't you using Anchor or Solana CLI in your prototype?**
 
 **Answer:** *"Great question! For a hackathon prototype, I focused on the core innovation - voice-activated emergency response. The Solana integration is there for blockchain verification, and the architecture is designed for easy Anchor program integration. In production, we will add more sophisticated Solana programs for emergency token rewards, decentralized emergency coordination, and advanced governance features. The foundation is solid - this is about proving the life-saving concept first. The Rust codebase and modular design make it easy to add Anchor programs later without rebuilding the core functionality."*
+
+## **12. How do the BONK and SKR token integrations work?**
+
+**Answer:** *"The token integrations enhance user engagement without compromising the core offline functionality. BONK rewards users for successful emergency interventions - when someone completes CPR and it is verified via blockchain audio hash, they earn 100-500 BONK. SKR rewards Seeker users for training completion and emergency reports. Both use Mobile Wallet Adapter for seamless transfers, but only trigger when online to preserve the offline emergency response. This creates a virtuous cycle: users are incentivized to practice, contribute protocols, and engage with the ecosystem while maintaining the life-saving core functionality."*
