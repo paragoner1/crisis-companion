@@ -1,3 +1,4 @@
+#![allow(unused_imports, unused_variables, dead_code)]
 use crate::error::AppResult;
 use crate::{AppError, types::*};
 use crate::config::BlockchainConfig;
@@ -353,11 +354,11 @@ impl BlockchainManager {
         assert!(!response_tx.is_empty());
         
         // Test audio hash retrieval
-        let retrieved_hash = self.get_audio_hash(audio_hash).await?;
+        let _retrieved_hash = self.get_audio_hash(audio_hash).await?;
         // This would be Some(audio_hash) in a real implementation
         
         // Test emergency statistics
-        let stats = self.get_emergency_statistics().await?;
+        let _stats = self.get_emergency_statistics().await?;
         // This would contain actual statistics in a real implementation
         
         info!("Blockchain functionality test completed successfully");
@@ -419,7 +420,7 @@ mod tests {
         blockchain_manager.initialize_wallet().await.unwrap();
         
         // Test emergency statistics
-        let stats = blockchain_manager.get_emergency_statistics().await;
+        let _stats = blockchain_manager.get_emergency_statistics().await;
         // This would succeed in a real implementation
     }
 } 
