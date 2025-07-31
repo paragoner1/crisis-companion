@@ -11,11 +11,11 @@
 Last summer, my 4-year-old son forgot his life jacket was off and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS.
 
 ### **Key Innovation**
-- **Voice AI**: Offline speech recognition for emergency detection
+- **Voice AI**: Hybrid speech recognition (online primary, offline fallback) for emergency detection
 - **Auto Response**: Sets volume to 100%, plays emergency instructions
 - **Multi-Device**: Bluetooth Low Energy coordination between devices
 - **Solana Blockchain**: Stores audio hashes for security and audit
-- **Offline First**: Works without internet connection
+- **Hybrid Approach**: Online primary for accuracy, offline fallback for reliability
 
 ---
 
@@ -76,10 +76,6 @@ Last summer, my 4-year-old son forgot his life jacket was off and almost drowned
 ```
 
 ---
-
-
-
-
 
 ## 💰 **Business Model**
 
@@ -213,5 +209,7 @@ Comparables: Life360 ($300M annual revenue, 50M users), RapidSOS ($100M+ funding
 **Ready for Launch**: The prototype demonstrates all core functionality working, including voice trigger detection, emergency response lifecycle, audio management, database operations, UI interfaces, device coordination, and blockchain integration. The codebase is production-ready for Solana Mobile deployment.
 
 ---
+
+
 
 

@@ -18,7 +18,7 @@ Founder & Developer
 
 # 🚨 THE HOOK
 
-**"Last summer, my 4-year-old son almost drowned. I performed CPR without knowing what I was doing. That's why I built Solana SOS."**
+**"Last summer, my 4-year-old son forgot his life jacket was off and almost drowned. I performed CPR without knowing what I was doing. That's why I built Solana SOS."**
 
 ---
 
@@ -46,7 +46,7 @@ Founder & Developer
 
 **Every family needs this.**
 
-**1.2 billion families worldwide.**
+**7.3 billion smartphone users worldwide by 2025.**
 
 ---
 

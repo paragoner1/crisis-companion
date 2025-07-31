@@ -12,16 +12,16 @@
 - **Market Gap**: Traditional emergency apps require manual activation and internet connectivity
 
 ### **Solution (45 seconds) - Present Tense, Confident Statements**
-- **Voice AI**: Solana SOS uses offline voice recognition to detect emergency phrases
+- **Voice AI**: Solana SOS uses hybrid voice recognition (online primary, offline fallback) to detect emergency phrases
 - **Auto Response**: The app automatically sets volume to 100% and plays step-by-step instructions
 - **Multi-Device**: Coordinates with nearby devices via Bluetooth Low Energy
 - **Solana Blockchain**: Stores audio hashes for security and audit purposes
-- **Offline First**: Works without internet connectivity
+- **Hybrid Approach**: Online primary for accuracy, offline fallback for reliability
 
 ### **Market & Revenue  - Strategic Numbers**
 - **Target**: 500K+ families by 2026 (default app on Solana Mobile Seeker)
 - **Revenue**: $50M+ annually (device licensing + family subscriptions + institutional contracts)
-- **Market**: 1.2B+ families worldwide, 2.7B+ smartphone users, 100M+ institutional endpoints
+- **Market**: 7.3 billion smartphone users worldwide by 2025, 2.3 billion households globally
 
 ---
 
@@ -49,7 +49,7 @@ Solana Mobile Hackathon 2025
 • People panic and forget basic procedures
 • Traditional apps require manual activation + internet
 • Remote areas, underground locations, natural disasters, power outages, and network congestion all lack connectivity when emergencies occur
-• "Prevent 50-90% of avoidable deaths via guided actions—delays kill, we respond in <100ms."
+• "Prevent 50-90% of avoidable deaths via guided actions—delays kill, we respond in under 100 milliseconds."
 
 [Data visualization: Avoidable deaths by emergency type]
 ```
@@ -62,7 +62,7 @@ Solana Mobile Hackathon 2025
 
 VALUES:
 • Immediate Response: "Drowning help!" → Instant guidance
-• Offline Functionality: Works without internet connectivity
+• Hybrid Recognition: Online primary for accuracy, offline fallback for reliability
 • Step-by-Step Guidance: Clear instructions for any emergency
 
 VISION: No one should face an emergency alone
@@ -73,7 +73,7 @@ VISION: No one should face an emergency alone
 🛠️ KEY FEATURES
 
 1. Voice AI: "Drowning help!" → Immediate response
-2. Offline Functionality: Works without internet in any scenario
+2. Hybrid Recognition: Online primary for accuracy, offline fallback for reliability
 3. Auto Volume Control: Sets to 100% during emergency
 4. Multi-Device Coordination: BLE communication
 5. Solana Blockchain: Audio hash storage for security
