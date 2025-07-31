@@ -1,5 +1,4 @@
 use crisis_companion::{
-    app::CrisisCompanionApp,
     config::AppConfig,
     voice::VoiceTrigger,
     audio::AudioManager,

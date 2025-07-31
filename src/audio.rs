@@ -1,11 +1,11 @@
+#![allow(unused_imports, unused_variables, dead_code)]
 use crate::error::AppResult;
 use crate::{AppError};
 use crate::config::AudioConfig;
 use tracing::{info, error};
 use std::sync::{Arc, Mutex};
 use tokio::sync::mpsc;
-use rodio::{Sink, Decoder, OutputStream};
-use std::io::Cursor;
+use rodio::Sink;
 use std::path::Path;
 use std::fs;
 

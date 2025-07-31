@@ -1,3 +1,4 @@
+#![allow(unused_imports, unused_variables, dead_code)]
 use crate::error::AppResult;
 use crate::{AppError, types::*};
 use crate::config::DatabaseConfig;

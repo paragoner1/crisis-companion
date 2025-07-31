@@ -1,3 +1,4 @@
+use tracing::{info, Level};
 use crisis_companion::{
     app::CrisisCompanionApp,
     config::AppConfig,
@@ -11,7 +12,6 @@ use crisis_companion::{
     blockchain::BlockchainManager,
 };
 use clap::Parser;
-use tracing::{info, error, Level};
 use tracing_subscriber;
 
 #[derive(Parser, Debug)]

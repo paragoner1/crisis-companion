@@ -1,3 +1,4 @@
+#![allow(unused_imports, unused_variables, dead_code)]
 use crate::error::AppResult;
 use crate::{
     types::*,
@@ -53,7 +54,7 @@ impl CrisisCompanionApp {
     ) -> AppResult<Self> {
         info!("Initializing Crisis Companion application");
         
-        let (app_sender, app_receiver) = mpsc::channel(100);
+        let (app_sender, _app_receiver) = mpsc::channel(100);
         let _is_running = Arc::new(Mutex::new(false));
         
         let app = Self {
