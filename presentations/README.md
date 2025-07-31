@@ -36,3 +36,9 @@ The complete hackathon presentation includes:
 ---
 
 **Note**: This presentation demonstrates Solana SOS as a voice-activated emergency response system built exclusively for Solana Mobile, showcasing how it can save millions of lives by delivering instant, hands-free guidance when crisis strikes. 
+## 🪙 Token Integrations
+
+The presentation includes advanced Solana features with BONK and SKR token integrations:
+- BONK rewards for successful emergency interventions
+- SKR integration for Seeker ecosystem engagement
+- Hybrid approach preserves offline core functionality

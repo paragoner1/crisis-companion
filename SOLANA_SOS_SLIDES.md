@@ -66,7 +66,7 @@ Founder & Developer
 
 # 🗓️ THE ROADMAP
 
-**Q1 2026: Launch as Seeker's default app with mobile wallet integration. Q2: Secure emergency and hospital partnerships. Q3: International expansion with localized, multi-language protocols and community contributions. Q4: Hit $50M revenue via government deals. From hackathon prototype to safety revolution—join me in making Solana Mobile the lifesaver standard.**
+**Q1 2026: Launch as Seeker's default app with mobile wallet integration. Q2: Secure emergency and hospital partnerships. Q3: International expansion with BONK rewards for interventions and SKR integration for Seeker ecosystem. Q4: Hit $50M revenue via government deals. From hackathon prototype to safety revolution—join me in making Solana Mobile the lifesaver standard.**
 
 ---
 
