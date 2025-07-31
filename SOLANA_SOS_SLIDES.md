@@ -42,13 +42,13 @@ Founder & Developer
 
 # 📈 THE MARKET
 
-**This is for everyone: With over 7.3 billion smartphone users worldwide by 2025 and roughly 2.3 billion households globally, Solana SOS addresses a universal need. Parents seeking peace of mind, caregivers for the elderly, schools, workplaces, travelers in remote areas—safety knows no boundaries. On Solana Mobile, it's the must-have for families everywhere, expandable to multi-language and community-contributed protocols. The personal safety apps market is surging from $1.5 billion in 2024 to $5.2 billion by 2033 at a 15.5% CAGR, with user adoption growing over 210% as 46% of consumers prioritize safety features—making our 40% sales uplift for Seeker highly probable through family demand.**
+**This is for everyone: With over 7.3 billion smartphone users worldwide by 2025 and roughly 2.3 billion households globally, Solana SOS addresses a universal need. Parents seeking peace of mind, caregivers for the elderly, schools, workplaces, travelers in remote areas—safety knows no boundaries. On Solana Mobile, it's the must-have for families everywhere, expandable to multi-language and community-contributed protocols. The personal safety apps market surges from $1.5 billion in 2024 to $5.2 billion by 2033 at a 15.5% CAGR, with over 210% adoption growth as 76% of parents buy phones for safety, 54% cite risks like bullying, and 46% prioritize features—making our 40% Seeker uplift probable through family demand.**
 
 ---
 
 # 💰 THE BUSINESS MODEL
 
-**As the default app on every Solana Mobile Seeker, I'll generate $3-5 per device through licensing as the pre-installed safety feature, plus $15-25 monthly family subscriptions, enterprise deals at $50K-500K yearly, and government contracts at $1M-10M. Projections: With Seeker's 150,000 pre-sold units, Solana SOS drives a 40% sales uplift to 500,000 Year 1 units post-Q1 2026—yielding $20 million conservatively or $132 million aggressively. In the $135 billion+ emergency market growing to $196 billion by 2030, this scales to $50 million+ by capturing 1% of safety users beyond Year 1.**
+**As the default app on every Solana Mobile Seeker, I'll generate $3-5 per device through licensing as the pre-installed safety feature, plus $15-25 monthly family subscriptions, enterprise deals at $50K-500K yearly, and government contracts at $1M-10M. Projections: With Seeker's 150,000 pre-sold units projecting $67.5 million at $450 each, Solana SOS drives a 40% sales uplift to 500,000 Year 1 units post-Q1 2026—yielding $20 million conservatively or $132 million aggressively. In the $135 billion+ emergency market growing to $196 billion by 2030, this scales to $50 million+ by capturing 1% of safety users beyond Year 1.**
 
 ---
 

@@ -109,8 +109,22 @@ Currently developing for Solana Mobile Seeker deployment:
 - **Personal Story Hook** - The drowning incident that inspired Solana SOS
 - **Problem Statement** - 3.8M avoidable deaths annually, traditional apps fail when needed most
 - **Solution Demo** - Voice-activated emergency response in under 100 milliseconds
-- **Market Opportunity** - 7.3B smartphone users worldwide by 2025
-- **Business Model** - $50M+ revenue potential as default app on Solana Mobile Seeker
+- **Market Opportunity:**
+- **Target Markets**: Every family, caregivers, schools, workplaces, emergency services, travelers
+- **Market Size**: 7.3 billion smartphone users worldwide by 2025, 2.3 billion households globally
+- **Personal Safety Market**: Surging from $1.5 billion in 2024 to $5.2 billion by 2033 (15.5% CAGR)
+- **Consumer Behavior**: 76% of parents buy phones for safety, 54% cite risks like bullying, 46% prioritize safety features
+- **Adoption Growth**: Over 210% growth in personal safety app adoption
+
+### **Business Model:**
+- **Device Licensing**: $3-5 per Solana Mobile Seeker device (pre-installed safety feature)
+- **Family Subscriptions**: $15-25/month per family (covers all household devices)
+- **Enterprise Contracts**: $50K-500K/year (schools, workplaces, government)
+- **Government Partnerships**: $1M-10M/year (emergency services, public health initiatives)
+- **Seeker Pre-sold**: 150,000 units projecting $67.5 million at $450 each
+- **Projections**: 40% sales uplift to 500,000 Year 1 units post-Q1 2026
+- **Revenue Targets**: $20 million conservative, $132 million aggressive
+- **Market Scale**: $135 billion+ emergency market growing to $196 billion by 2030
 - **Competitive Advantage** - "The only mobile device that can save your life"
 - **Live Demo** - Working prototype demonstration with voice recognition
 
