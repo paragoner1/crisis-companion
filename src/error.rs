@@ -1,82 +1,49 @@
 use thiserror::Error;
 
 /// Main error type for the Crisis Companion application
-#[derive(Error, Debug)]
+#[derive(Debug, thiserror::Error)]
 pub enum AppError {
-    #[error("Configuration error: {0}")]
-    Config(#[from] config::ConfigError),
+    #[error("Emergency error: {0}")]
+    Emergency(String),
     
     #[error("Voice recognition error: {0}")]
     Voice(String),
     
-    #[error("Audio processing error: {0}")]
+    #[error("Audio error: {0}")]
     Audio(String),
     
     #[error("Database error: {0}")]
-    DatabaseError(String),
+    Database(String),
     
-    #[error("Bluetooth error: {0}")]
-    Bluetooth(String),
+    #[error("Configuration error: {0}")]
+    Config(String),
     
-    #[error("Solana blockchain error: {0}")]
-    Blockchain(String),
-    
-    #[error("Emergency handling error: {0}")]
-    Emergency(String),
-    
-    #[error("UI error: {0}")]
-    UI(String),
-    
-    #[error("JNI error: {0}")]
-    JNI(#[from] jni::errors::Error),
-    
-    #[error("Serialization error: {0}")]
-    Serialization(#[from] serde_json::Error),
-    
-    #[error("IO error: {0}")]
-    IO(#[from] std::io::Error),
+    #[error("Gamification error: {0}")]
+    Gamification(String),
     
     #[error("Network error: {0}")]
     Network(String),
     
-    #[error("Encryption error: {0}")]
-    Encryption(String),
+    #[error("Blockchain error: {0}")]
+    Blockchain(String),
     
-    #[error("Invalid state: {0}")]
-    InvalidState(String),
+    #[error("UI error: {0}")]
+    UI(String),
     
-    #[error("Resource not found: {0}")]
-    NotFound(String),
+    #[error("Bluetooth error: {0}")]
+    Bluetooth(String),
     
-    #[error("Permission denied: {0}")]
-    PermissionDenied(String),
+    #[error("JNI error: {0}")]
+    JNI(String),
     
-    #[error("Timeout: {0}")]
-    Timeout(String),
-    
-    #[error("Role detection confirmation timeout")]
+    #[error("Confirmation timeout")]
     ConfirmationTimeout,
     
-    #[error("Invalid voice response for role detection")]
+    #[error("Invalid voice response")]
     InvalidVoiceResponse,
-    
-    #[error("Role detection failed: {0}")]
-    RoleDetection(String),
-    
-    #[error("AI inference failed: {0}")]
-    AIInference(String),
-    
-    #[error("Sensor fusion failed: {0}")]
-    SensorFusion(String),
     
     #[error("Unknown error: {0}")]
     Unknown(String),
-}
-
-impl From<anyhow::Error> for AppError {
-    fn from(err: anyhow::Error) -> Self {
-        AppError::Unknown(err.to_string())
-    }
 }
 
 impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
@@ -85,9 +52,39 @@ impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
     }
 }
 
+impl From<anyhow::Error> for AppError {
+    fn from(err: anyhow::Error) -> Self {
+        AppError::Unknown(err.to_string())
+    }
+}
+
 impl From<rusqlite::Error> for AppError {
     fn from(err: rusqlite::Error) -> Self {
-        AppError::DatabaseError(err.to_string())
+        AppError::Database(err.to_string())
+    }
+}
+
+impl From<jni::errors::Error> for AppError {
+    fn from(err: jni::errors::Error) -> Self {
+        AppError::JNI(err.to_string())
+    }
+}
+
+impl From<config::ConfigError> for AppError {
+    fn from(err: config::ConfigError) -> Self {
+        AppError::Config(err.to_string())
+    }
+}
+
+impl From<std::io::Error> for AppError {
+    fn from(err: std::io::Error) -> Self {
+        AppError::Unknown(err.to_string())
+    }
+}
+
+impl From<serde_json::Error> for AppError {
+    fn from(err: serde_json::Error) -> Self {
+        AppError::Unknown(err.to_string())
     }
 }
 

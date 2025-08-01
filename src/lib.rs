@@ -15,16 +15,18 @@ pub mod app;
 pub mod audio;
 pub mod blockchain;
 pub mod config;
+pub mod context_analysis;
 pub mod coordination;
 pub mod database;
 pub mod emergency;
 pub mod error;
+pub mod gamification;
+pub mod noise_filter;
+pub mod role_detection;
+pub mod safety_features;
 pub mod ui;
 pub mod voice;
-pub mod noise_filter;
 pub mod adaptive_training;
-pub mod role_detection;
-pub mod context_analysis;
 
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
@@ -276,14 +278,53 @@ pub mod types {
     }
 
     /// User role in emergency
-    #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
     pub enum UserRole {
-        /// User is in danger and needs help
         Victim,
-        /// User is helping someone else
         Bystander,
-        /// Role not yet determined
+        EmergencyResponder,
         Unknown,
+    }
+
+    /// Silent SOS activation method
+    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+    pub enum SilentSOSMethod {
+        HoldButton,
+        PowerButtonSequence,
+        VolumeButtonSequence,
+        ScreenTapPattern,
+        MotionGesture,
+    }
+
+    /// Crash detection status
+    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+    pub enum CrashStatus {
+        NoCrash,
+        PotentialCrash,
+        ConfirmedCrash,
+        FalsePositive,
+    }
+
+    /// Trusted contact information
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct TrustedContact {
+        pub id: Uuid,
+        pub name: String,
+        pub phone_number: String,
+        pub relationship: String,
+        pub notification_preferences: NotificationPreferences,
+        pub location_sharing_enabled: bool,
+        pub emergency_access_enabled: bool,
+    }
+
+    /// Notification preferences for trusted contacts
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct NotificationPreferences {
+        pub silent_sos: bool,
+        pub crash_detection: bool,
+        pub emergency_activation: bool,
+        pub location_sharing: bool,
+        pub status_updates: bool,
     }
 
     /// Role detection methods
@@ -405,3 +446,5 @@ pub use types::*; // BONK and SKR token integration planned for Q1 2026
 
 // Re-export error types
 pub use error::AppError;
+pub use context_analysis::context_analysis::{ContextAnalyzer, ContextAnalysisResult};
+pub use safety_features::SafetyFeaturesManager;
