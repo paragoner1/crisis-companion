@@ -6,7 +6,7 @@
 ## 🎬 **Scene 1: App Launch & Setup (30 seconds)**
 
 **Visual:** Terminal showing app startup
-**Narration:** "Welcome to Solana SOS - the phone you can't live without. This is a voice-activated emergency response app that works offline and online."
+**Narration:** "Welcome to Solana SOS - Creating the phone you can't live without. This is a voice-activated emergency response app that works offline and online."
 
 **Action:**
 ```bash
@@ -21,7 +21,7 @@ cargo run --bin complete_walkthrough
 
 🎬 Scene 1: App Launch & Setup
 ================================
-Welcome to Solana SOS - the phone you can't live without.
+Welcome to Solana SOS - Creating the phone you can't live without.
 This is a voice-activated emergency response app that works offline and online.
 ✅ App permissions: Microphone, Location, Contacts
 ✅ Main dashboard with emergency button ready
@@ -297,7 +297,7 @@ cargo run --bin market_demo
 ## 🎬 **Scene 12: Call to Action (15 seconds)**
 
 **Visual:** Terminal showing final message
-**Narration:** "Solana SOS - the phone you can't live without."
+**Narration:** "Solana SOS - Creating the phone you can't live without."
 
 **Action:**
 ```bash
@@ -308,15 +308,15 @@ cargo run --bin final_demo
 ```
 🎬 Scene 12: Call to Action
 ============================
-🚨 Solana SOS - the phone you can't live without.
+🚨 Solana SOS - Creating the phone you can't live without.
 Download Solana SOS today and join the revolution in emergency response.
-Because when seconds matter, you need the phone you can't live without.
+Because when seconds matter, you need the app that makes your phone a life saver.
 ✅ App store download ready
 ✅ Website: solanasos.com
 ✅ Coming Soon with signup
 ```
 
-**Narration:** "Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the phone you can't live without."
+**Narration:** "Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver."
 
 ---
 

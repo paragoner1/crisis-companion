@@ -8,7 +8,7 @@
 **Duration:** 5 seconds
 
 **Voiceover:**
-*"Solana SOS - The phone you can't live without. Built by Paragoner for the Solana Mobile Hackathon 2025."*
+*"Solana SOS - Creating the phone you can't live without. Built by Paragoner for the Solana Mobile Hackathon 2025."*
 
 ---
 
@@ -128,7 +128,7 @@
 **Duration:** 15 seconds
 
 **Voiceover:**
-*"Solana SOS transforms ordinary people into life-saving heroes through technology, gamification, and community. Because when seconds matter, you need the phone you can't live without. Thank you."*
+*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone a life saver. Thank you."*
 
 ---
 
@@ -156,4 +156,4 @@
 
 **Total Presentation Time: ~4 minutes**
 **Target Audience: Hackathon judges and potential partners**
-**Key Message: "The phone you can't live without"** 
+**Key Message: "Creating the phone you can't live without"** 

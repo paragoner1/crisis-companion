@@ -733,4 +733,4 @@ jobs:
 
 ---
 
-**Solana SOS** - The phone you can't live without. 🚨 
+**Solana SOS** - Creating the phone you can't live without. 🚨 
