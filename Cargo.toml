@@ -1,160 +1,37 @@
 [package]
-name = "crisis-companion"
+name = "solana-sos"
 version = "0.1.0"
 edition = "2021"
 authors = ["Paragoner"]
-description = "Voice-activated emergency response app for Solana Mobile Seeker"
+description = "Voice-activated emergency response app with hybrid offline/online architecture"
 license = "Apache-2.0"
-repository = "https://github.com/paragoner1/crisis-companion"
-keywords = ["emergency", "voice", "solana", "mobile", "safety"]
-categories = ["emergency-response", "voice-recognition", "blockchain"]
 
 [dependencies]
-# Core async runtime
-tokio = { version = "1.47", features = ["full"] }
-
-# Voice recognition (offline) - temporarily disabled for demo
-# Noise cancellation
-nnnoiseless = "0.5.1"
-# vosk = "0.3.1"
-
-# Audio processing
-rodio = "0.21"
-tts = "0.26"
-cpal = "0.16"
-
-# Enhanced audio processing for safety features
-marek_vosk_speech_recognition = "2.1.0"  # Enhanced Vosk speech recognition
-
-# SMS service for trusted network
-sms = "0.1.9"  # Rust SMS SDK
-
-# Database
-rusqlite = { version = "0.37", features = ["bundled"] }
-
-# Bluetooth Low Energy coordination
-btleplug = "0.11.8"
-
-# Solana blockchain integration
-solana-sdk = "2.3"
-solana-client = "2.3"
-solana-transaction-status = "2.3"
-
-# Cryptography and security
-ring = "0.17.14"
-aes-gcm = "0.10"
-
-# Android JNI bindings
-jni = { version = "0.21.1", optional = true }
-
-# UI framework (cross-platform)
-eframe = { version = "0.32", optional = true }
-egui = { version = "0.32", optional = true }
-
-# Serialization
+tokio = { version = "1.0", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-
-# Error handling
-anyhow = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
 thiserror = "1.0"
-
-# Logging
+log = "0.4"
+env_logger = "0.10"
+config = "0.13"
+rusqlite = { version = "0.29", features = ["bundled"] }
+rodio = "0.21"
+nnnoiseless = "0.5"
+marek_vosk_speech_recognition = "2.1"
+rand = "0.8"
+sms = "0.1"
 tracing = "0.1"
 tracing-subscriber = "0.3"
-
-# Configuration
-config = "0.15"
-
-# Time handling
-chrono = { version = "0.4", features = ["serde"] }
-
-# UUID generation
-uuid = { version = "1.7", features = ["v4", "serde"] }
-
-# HTTP client for API calls
-reqwest = { version = "0.12", features = ["json"] }
-
-# Async file operations
-tokio-util = "0.7"
-
-# Command line argument parsing
 clap = { version = "4.5", features = ["derive"] }
 
-# Random number generation
-rand = "0.8"
-
-# Cryptographic hashing
-sha2 = "0.10"
+[features]
+default = ["desktop"]
+desktop = []
+android = []
+jni = []
+private = []
 
 [dev-dependencies]
-# Testing
-tokio-test = "0.4"
-mockall = "0.13"
-
-# Test data generation
-fake = "4.3.0"
-tempfile = "3.8"
-
-[features]
-default = ["android"]
-android = ["jni"]
-desktop = ["eframe", "egui"]
-
-[lib]
-name = "crisis_companion"
-path = "src/lib.rs"
-
-[[bin]]
-name = "crisis-companion"
-path = "src/main.rs"
-
-[[bin]]
-name = "demo_test"
-path = "src/bin/demo_test.rs"
-
-[[bin]]
-name = "voice_test"
-path = "src/bin/voice_test.rs"
-
-[[bin]]
-name = "adaptive_test"
-path = "src/bin/adaptive_test.rs"
-
-[[bin]]
-name = "role_detection_test"
-path = "src/bin/role_detection_test.rs"
-
-[[bin]]
-name = "context_analysis_test"
-path = "src/bin/context_analysis_test.rs"
-
-[[bin]]
-name = "hybrid_demo"
-path = "src/bin/hybrid_demo.rs"
-
-[[bin]]
-name = "direct_actions_test"
-path = "src/bin/cpr_test.rs"
-
-[[bin]]
-name = "simple_direct_actions_test"
-path = "src/bin/simple_direct_actions_test.rs"
-
-[[bin]]
-name = "safety_features_test"
-path = "src/bin/safety_features_test.rs"
-
-[[bin]]
-name = "ambiguous_phrases_test"
-path = "src/bin/ambiguous_phrases_test.rs"
-
-[profile.release]
-opt-level = 3
-lto = true
-codegen-units = 1
-panic = "abort"
-
-[profile.dev]
-opt-level = 0
-debug = true 
+criterion = "0.5" 

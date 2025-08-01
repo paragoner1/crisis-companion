@@ -1,61 +1,58 @@
 use tracing::{info, Level};
-use crisis_companion::{
-    app::CrisisCompanionApp,
-    error::AppError,
+use solana_sos::{
+    app::SolanaSOSApp,
+    config::AppConfig,
+    error::AppResult,
 };
 use clap::Parser;
 use tracing_subscriber;
 
-#[derive(Parser, Debug)]
+#[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Args {
-    /// Configuration file path
     #[arg(short, long, default_value = "config.toml")]
     config: String,
-    
-    /// Enable debug logging
+
     #[arg(short, long)]
-    debug: bool,
-    
-    /// Run in desktop mode (for testing)
+    verbose: bool,
+
     #[arg(long)]
-    desktop: bool,
+    demo: bool,
 }
 
 #[tokio::main]
-async fn main() -> Result<(), AppError> {
-    // Parse command line arguments
+async fn main() -> AppResult<()> {
     let args = Args::parse();
-    
-    // Initialize logging
-    let log_level = if args.debug { Level::DEBUG } else { Level::INFO };
-    tracing_subscriber::fmt()
-        .with_max_level(log_level)
-        .init();
-    
-    info!("Starting Crisis Companion v{}", env!("CARGO_PKG_VERSION"));
-    
-    info!("Core components initialized successfully");
 
-    // Create and run the main application
-    let app = CrisisCompanionApp::new(&args.config).await?;
-    
-    // Start monitoring
-    app.start_monitoring().await?;
-    
-    if args.desktop {
-        info!("Running in desktop mode for testing");
-        // Keep the app running for a while in desktop mode
-        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
+    // Initialize logging
+    if args.verbose {
+        tracing_subscriber::fmt()
+            .with_max_level(Level::DEBUG)
+            .init();
     } else {
-        info!("Running in mobile mode");
-        // Keep the app running for a while in mobile mode
-        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
+        tracing_subscriber::fmt()
+            .with_max_level(Level::INFO)
+            .init();
     }
-    
-    // Stop the application
-    app.stop().await?;
-    
-    info!("Crisis Companion shutdown complete");
+
+    info!("🚨 Starting Solana SOS - The phone you can't live without");
+
+    // Load configuration
+    let _config = AppConfig::load(&args.config)?;
+    info!("Configuration loaded successfully");
+
+    // Create and initialize the app
+    let mut app = SolanaSOSApp::new().await?;
+    app.initialize().await?;
+
+    if args.demo {
+        info!("Running in demo mode");
+        // Demo functionality would go here
+    } else {
+        info!("Starting Solana SOS application");
+        app.run().await?;
+    }
+
+    info!("Solana SOS application completed successfully");
     Ok(())
 } 

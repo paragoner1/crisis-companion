@@ -1,60 +1,92 @@
 use thiserror::Error;
 
-/// Main error type for the Crisis Companion application
-#[derive(Debug, thiserror::Error)]
+/// Application error types for Solana SOS
+#[derive(Error, Debug)]
 pub enum AppError {
-    #[error("Emergency error: {0}")]
-    Emergency(String),
-    
-    #[error("Voice recognition error: {0}")]
+    /// Voice recognition errors
+    #[error("Voice error: {0}")]
     Voice(String),
-    
+
+    /// Audio processing errors
     #[error("Audio error: {0}")]
     Audio(String),
-    
+
+    /// Emergency response errors
+    #[error("Emergency error: {0}")]
+    Emergency(String),
+
+    /// Database errors
     #[error("Database error: {0}")]
     Database(String),
-    
-    #[error("Configuration error: {0}")]
-    Config(String),
-    
-    #[error("Gamification error: {0}")]
-    Gamification(String),
-    
-    #[error("Network error: {0}")]
-    Network(String),
-    
+
+    /// Blockchain errors
     #[error("Blockchain error: {0}")]
     Blockchain(String),
-    
+
+    /// Gamification errors
+    #[error("Gamification error: {0}")]
+    Gamification(String),
+
+    /// Safety feature errors
+    #[error("Safety error: {0}")]
+    Safety(String),
+
+    /// UI errors
     #[error("UI error: {0}")]
     UI(String),
-    
+
+    /// Configuration errors
+    #[error("Config error: {0}")]
+    Config(String),
+
+    /// Network errors
+    #[error("Network error: {0}")]
+    Network(String),
+
+    /// Bluetooth errors
     #[error("Bluetooth error: {0}")]
     Bluetooth(String),
-    
-    #[error("JNI error: {0}")]
-    JNI(String),
-    
-    #[error("Confirmation timeout")]
-    ConfirmationTimeout,
-    
-    #[error("Invalid voice response")]
-    InvalidVoiceResponse,
-    
-    #[error("Unknown error: {0}")]
-    Unknown(String),
+
+    /// Timeout errors
+    #[error("Timeout error: {0}")]
+    Timeout(String),
+
+    /// Invalid input errors
+    #[error("Invalid input: {0}")]
+    InvalidInput(String),
+
+    /// Not found errors
+    #[error("Not found: {0}")]
+    NotFound(String),
+
+    /// Permission denied errors
+    #[error("Permission denied: {0}")]
+    PermissionDenied(String),
+
+    /// Internal errors
+    #[error("Internal error: {0}")]
+    Internal(String),
 }
 
-impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
-    fn from(err: Box<dyn std::error::Error + Send + Sync>) -> Self {
-        AppError::Unknown(err.to_string())
+/// Result type for Solana SOS operations
+pub type AppResult<T> = Result<T, AppError>;
+
+// Implement From traits for common error types
+impl From<config::ConfigError> for AppError {
+    fn from(err: config::ConfigError) -> Self {
+        AppError::Config(err.to_string())
     }
 }
 
-impl From<anyhow::Error> for AppError {
-    fn from(err: anyhow::Error) -> Self {
-        AppError::Unknown(err.to_string())
+impl From<std::io::Error> for AppError {
+    fn from(err: std::io::Error) -> Self {
+        AppError::Internal(err.to_string())
+    }
+}
+
+impl From<serde_json::Error> for AppError {
+    fn from(err: serde_json::Error) -> Self {
+        AppError::Internal(err.to_string())
     }
 }
 
@@ -64,29 +96,8 @@ impl From<rusqlite::Error> for AppError {
     }
 }
 
-impl From<jni::errors::Error> for AppError {
-    fn from(err: jni::errors::Error) -> Self {
-        AppError::JNI(err.to_string())
+impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
+    fn from(err: Box<dyn std::error::Error + Send + Sync>) -> Self {
+        AppError::Internal(err.to_string())
     }
-}
-
-impl From<config::ConfigError> for AppError {
-    fn from(err: config::ConfigError) -> Self {
-        AppError::Config(err.to_string())
-    }
-}
-
-impl From<std::io::Error> for AppError {
-    fn from(err: std::io::Error) -> Self {
-        AppError::Unknown(err.to_string())
-    }
-}
-
-impl From<serde_json::Error> for AppError {
-    fn from(err: serde_json::Error) -> Self {
-        AppError::Unknown(err.to_string())
-    }
-}
-
-/// Result type for the Crisis Companion application
-pub type AppResult<T> = Result<T, AppError>; 
+} 

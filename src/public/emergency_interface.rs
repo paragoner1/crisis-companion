@@ -4,7 +4,7 @@
 //! Implementation details are hidden to protect proprietary algorithms.
 
 use crate::error::AppResult;
-use crate::types::EmergencyType;
+use crate::public::types::EmergencyType;
 
 /// Emergency response system
 pub struct EmergencySystem {
@@ -47,7 +47,7 @@ impl EmergencySystem {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn call_911(&self, location: &str) -> AppResult<()> {
+    pub fn call_911(&self, _location: &str) -> AppResult<()> {
         // Implementation details hidden - proprietary emergency calling logic
         Ok(())
     }
@@ -60,7 +60,7 @@ impl EmergencySystem {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn share_location(&self, latitude: f64, longitude: f64) -> AppResult<()> {
+    pub fn share_location(&self, _latitude: f64, _longitude: f64) -> AppResult<()> {
         // Implementation details hidden - proprietary location sharing logic
         Ok(())
     }
@@ -72,7 +72,7 @@ impl EmergencySystem {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn record_emergency_call(&self, call_data: EmergencyCallData) -> AppResult<()> {
+    pub fn record_emergency_call(&self, _call_data: EmergencyCallData) -> AppResult<()> {
         // Implementation details hidden - proprietary recording logic
         Ok(())
     }
