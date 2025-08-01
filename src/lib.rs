@@ -1,450 +1,120 @@
-//! Solana SOS - Voice-activated emergency response app for Solana Mobile Seeker
-//!
-//! This app provides context-aware emergency guidance with hybrid offline/online architecture,
-//! SOS Hero gamification system, and blockchain integration for tamper-proof emergency records.
-//!
-//! # Core Features
-//! - Voice trigger detection using Vosk (offline speech recognition)
-//! - Automatic volume control and audio playback
-//! - Multi-device coordination via Bluetooth Low Energy
-//! - Offline emergency instructions database
-//! - Solana blockchain integration for security and payments
-//! - Emergency response features (911 dialing, location sharing, audio recording)
+//! Solana SOS - Voice-Activated Emergency Response System
+//! 
+//! This library provides the core functionality for Solana SOS, a voice-activated
+//! emergency response app that works offline and online. The system combines
+//! context-aware guidance with SOS Hero gamification to transform ordinary people
+//! into life-saving heroes.
+//! 
+//! ## Key Features
+//! 
+//! - **Voice-Activated**: Responds to emergency phrases in under 100ms
+//! - **Offline-First**: Works in storms, remote areas, or power failures
+//! - **Context-Aware**: Understands emergency stages and provides appropriate guidance
+//! - **SOS Hero Gamification**: 10 hero levels with XP, achievements, and token rewards
+//! - **Safety Features**: Silent SOS, crash detection, and trusted network
+//! - **Hybrid Architecture**: Seamless offline/online operation
+//! 
+//! ## Architecture
+//! 
+//! The system is built with a hybrid offline/online architecture:
+//! 
+//! - **Offline Mode**: Voice recognition, context analysis, and emergency guidance
+//! - **Online Mode**: AI enhancement, real-time updates, and cloud synchronization
+//! - **Hybrid Mode**: Seamless handoff between modes with context preservation
+//! 
+//! ## Emergency Types Supported
+//! 
+//! Solana SOS handles 12 critical life-threatening emergencies:
+//! 
+//! - Drowning, Heart Attack, Stroke
+//! - Choking, Bleeding, Unconscious
+//! - Seizure, Poisoning, Severe Burns
+//! - Diabetic Emergency, Allergic Reaction, Trauma
+//! 
+//! ## Direct Actions
+//! 
+//! For trained responders, the system recognizes 11 direct action phrases:
+//! 
+//! - CPR, Heimlich, AED, Tourniquet, EpiPen
+//! - Rescue Breathing, First Aid, FAST Test
+//! - Poison Control, Cool Burn, Medical Alert
+//! 
+//! ## SOS Hero Gamification
+//! 
+//! The SOS Hero system features:
+//! 
+//! - 10 hero levels from Novice to Legend
+//! - XP rewards for learning and interventions
+//! - BONK and SKR token rewards
+//! - 20+ achievements to unlock
+//! - Viral growth through trusted networks
+//! 
+//! ## Safety Features
+//! 
+//! Advanced safety features include:
+//! 
+//! - **Silent SOS**: Discreet activation for dangerous situations
+//! - **Crash Detection**: Automatic 911 calling based on sensor data
+//! - **Trusted Network**: Personal network of emergency contacts
+//! 
+//! ## Technology Stack
+//! 
+//! - **Language**: Rust for reliability and performance
+//! - **Voice Recognition**: Vosk with RNNoise noise filtering
+//! - **Database**: SQLite for local storage
+//! - **Blockchain**: Solana for tamper-proof records
+//! - **Platform**: Android JNI for native integration
+//! 
+//! ## Getting Started
+//! 
+//! ```rust
+//! use solana_sos::app::SolanaSOSApp;
+//! 
+//! #[tokio::main]
+//! async fn main() -> Result<(), Box<dyn std::error::Error>> {
+//!     let mut app = SolanaSOSApp::new().await?;
+//!     app.initialize().await?;
+//!     app.run().await?;
+//!     Ok(())
+//! }
+//! ```
+//! 
+//! ## Demo Commands
+//! 
+//! ```bash
+//! # Complete app walkthrough
+//! cargo run --bin complete_walkthrough
+//! 
+//! # Gamification demo
+//! cargo run --bin gamification_demo
+//! 
+//! # Basic demo
+//! cargo run --bin demo_test
+//! ```
 
-pub mod app;
-pub mod audio;
-pub mod blockchain;
-pub mod config;
-pub mod context_analysis;
-pub mod coordination;
-pub mod database;
-pub mod emergency;
-pub mod error;
-pub mod gamification;
-pub mod noise_filter;
-pub mod role_detection;
-pub mod safety_features;
-pub mod ui;
-pub mod voice;
-pub mod adaptive_training;
-
-use chrono::{DateTime, Utc};
-use serde::{Deserialize, Serialize};
-use uuid::Uuid;
-
-pub mod types {
-    use super::*;
-
-    /// Emergency types that can be detected
-    #[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
-    pub enum EmergencyType {
-        Drowning,
-        HeartAttack,
-        Stroke,
-        Choking,
-        Bleeding,
-        Unconscious,
-        Seizure,
-        Poisoning,
-        SevereBurns,
-        DiabeticEmergency,
-        AllergicReaction,
-        Trauma,
-    }
-
-    /// Emergency stage detection
-    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-    pub enum EmergencyStage {
-        /// Emergency just detected, initial response needed
-        InitialDetection,
-        /// Victim extracted from danger, needs immediate care
-        VictimExtracted,
-        /// Victim conscious but needs medical attention
-        ConsciousButInjured,
-        /// Victim unconscious, needs CPR
-        Unconscious,
-        /// Victim breathing but unresponsive
-        BreathingButUnresponsive,
-        /// Emergency services en route
-        ServicesEnRoute,
-        /// Post-emergency care
-        PostEmergency,
-    }
-
-    /// Context clues for stage detection
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct ContextClues {
-        /// What the user said (key phrases)
-        pub user_phrase: String,
-        /// Current location context
-        pub location_context: Option<LocationContext>,
-        /// Time since emergency started
-        pub time_elapsed: Option<std::time::Duration>,
-        /// Victim status (if known)
-        pub victim_status: Option<VictimStatus>,
-        /// Environmental conditions
-        pub environment: EnvironmentContext,
-        /// Bystander actions already taken
-        pub actions_taken: Vec<EmergencyAction>,
-    }
-
-    /// Victim status information
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct VictimStatus {
-        pub is_conscious: bool,
-        pub is_breathing: bool,
-        pub has_pulse: bool,
-        pub visible_injuries: Vec<String>,
-        pub estimated_age: Option<u8>,
-        pub estimated_condition: VictimCondition,
-    }
-
-    /// Victim condition assessment
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum VictimCondition {
-        Stable,
-        Critical,
-        Unconscious,
-        InShock,
-        Hypothermic,
-        Unknown,
-    }
-
-    /// Environmental context
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct EnvironmentContext {
-        pub weather_conditions: WeatherConditions,
-        pub crowd_present: bool,
-        pub professional_help_available: bool,
-        pub emergency_equipment_available: bool,
-        pub accessibility_issues: Vec<String>,
-    }
-
-    /// Weather conditions
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum WeatherConditions {
-        Clear,
-        Rainy,
-        Windy,
-        Cold,
-        Hot,
-        Stormy,
-    }
-
-    /// Emergency actions that may have been taken
-    #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-    pub enum EmergencyAction {
-        Called911,
-        ExtractedVictim,
-        StartedCPR,
-        AppliedFirstAid,
-        MovedToSafety,
-        AlertedBystanders,
-        LocatedEquipment,
-        AssessedInjuries,
-    }
-
-    /// Emergency guidance for a specific stage
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct EmergencyGuidance {
-        pub stage: EmergencyStage,
-        pub instructions: Vec<String>,
-        pub priority_actions: Vec<String>,
-        pub skip_basic_steps: bool,
-        pub focus_on_medical_care: bool,
-    }
-
-    /// Emergency analysis result
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct EmergencyAnalysis {
-        pub stage: EmergencyStage,
-        pub guidance: EmergencyGuidance,
-        pub confidence: f32,
-        pub context_clues: ContextClues,
-    }
-
-    /// Connectivity modes for the hybrid architecture
-    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-    pub enum ConnectivityMode {
-        /// Offline-only mode - fast, reliable, privacy-focused
-        Offline,
-        /// Online-only mode - AI-enhanced, conversational, personalized
-        Online,
-        /// Hybrid mode - smart routing between offline and online
-        Hybrid,
-    }
-
-    /// Guidance modes for emergency response
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum GuidanceMode {
-        /// Offline guidance - context-aware, fast response
-        Offline,
-        /// Online guidance - AI-enhanced, conversational
-        Online,
-        /// Hybrid guidance - combines offline and online approaches
-        Hybrid,
-    }
-
-    /// Result of guidance generation
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct GuidanceResult {
-        pub mode: GuidanceMode,
-        pub instructions: Vec<String>,
-        pub priority_actions: Vec<String>,
-        pub appropriateness: f32,
-        pub time_saved: u32,
-        pub skipped_steps: Vec<String>,
-    }
-
-    /// Context analysis result
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct ContextAnalysisResult {
-        pub analysis: EmergencyAnalysis,
-        pub stage_detection_confidence: f32,
-        pub guidance_appropriateness: f32,
-        pub time_saved_seconds: u32,
-        pub skipped_steps: Vec<String>,
-    }
-
-    /// Voice trigger detection result
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct VoiceTriggerResult {
-        pub emergency_type: EmergencyType,
-        pub confidence: f32,
-        pub timestamp: DateTime<Utc>,
-        pub audio_hash: String,
-    }
-
-    /// Emergency instruction for a specific emergency type
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct EmergencyInstruction {
-        pub id: Uuid,
-        pub emergency_type: EmergencyType,
-        pub step_number: u32,
-        pub title: String,
-        pub description: String,
-        pub audio_file: Option<String>,
-        pub estimated_duration_seconds: u32,
-    }
-
-    /// Coordination message between devices
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct CoordinationMessage {
-        pub device_id: Uuid,
-        pub emergency_type: EmergencyType,
-        pub timestamp: DateTime<Utc>,
-        pub battery_level: f32,
-        pub location: Option<(f64, f64)>, // (latitude, longitude)
-        pub action: CoordinationAction,
-    }
-
-    /// Coordination actions between devices
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum CoordinationAction {
-        /// This device will provide voice instructions
-        ProvideInstructions,
-        /// This device will dial 911
-        Dial911,
-        /// This device will record audio
-        RecordAudio,
-        /// This device will share location
-        ShareLocation,
-        /// This device will display silent instructions
-        DisplayInstructions,
-    }
-
-    /// Emergency response tracking
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct EmergencyResponse {
-        pub id: Uuid,
-        pub emergency_type: EmergencyType,
-        pub trigger_timestamp: DateTime<Utc>,
-        pub response_start: DateTime<Utc>,
-        pub response_end: Option<DateTime<Utc>>,
-        pub status: ResponseStatus,
-        pub instructions_provided: Vec<Uuid>,
-        pub audio_recorded: bool,
-        pub location_shared: bool,
-        pub emergency_called: bool,
-    }
-
-    /// Response status
-    #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-    pub enum ResponseStatus {
-        Active,
-        Completed,
-        Cancelled,
-        Failed,
-    }
-
-    /// User role in emergency
-    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-    pub enum UserRole {
-        Victim,
-        Bystander,
-        EmergencyResponder,
-        Unknown,
-    }
-
-    /// Silent SOS activation method
-    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-    pub enum SilentSOSMethod {
-        HoldButton,
-        PowerButtonSequence,
-        VolumeButtonSequence,
-        ScreenTapPattern,
-        MotionGesture,
-    }
-
-    /// Crash detection status
-    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-    pub enum CrashStatus {
-        NoCrash,
-        PotentialCrash,
-        ConfirmedCrash,
-        FalsePositive,
-    }
-
-    /// Trusted contact information
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct TrustedContact {
-        pub id: Uuid,
-        pub name: String,
-        pub phone_number: String,
-        pub relationship: String,
-        pub notification_preferences: NotificationPreferences,
-        pub location_sharing_enabled: bool,
-        pub emergency_access_enabled: bool,
-    }
-
-    /// Notification preferences for trusted contacts
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct NotificationPreferences {
-        pub silent_sos: bool,
-        pub crash_detection: bool,
-        pub emergency_activation: bool,
-        pub location_sharing: bool,
-        pub status_updates: bool,
-    }
-
-    /// Role detection methods
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum RoleDetectionMethod {
-        /// Detected via UI button tap
-        UITap,
-        /// Detected via voice confirmation
-        VoiceConfirmation,
-        /// Detected via AI context inference
-        AIInference,
-        /// Detected via user profile setting
-        UserProfile,
-        /// Detected via sensor fusion
-        SensorFusion,
-    }
-
-    /// Role detection result
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct RoleDetectionResult {
-        pub role: UserRole,
-        pub method: RoleDetectionMethod,
-        pub confidence: f32,
-        pub detection_time_ms: u64,
-        pub context_data: Option<RoleContext>,
-    }
-
-    /// Context data for role detection
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct RoleContext {
-        pub phrase_detected: String,
-        pub sensor_data: Option<SensorData>,
-        pub user_profile: Option<UserProfile>,
-        pub emergency_type: EmergencyType,
-    }
-
-    /// Sensor data for role inference
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct SensorData {
-        pub device_movement: DeviceMovement,
-        pub location_context: Option<LocationContext>,
-        pub audio_environment: AudioEnvironment,
-        pub battery_level: f32,
-    }
-
-    /// Device movement patterns
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum DeviceMovement {
-        Stationary,
-        Walking,
-        Running,
-        Swimming,
-        Falling,
-        Unknown,
-    }
-
-    /// Location context for role inference
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct LocationContext {
-        pub location_type: LocationType,
-        pub coordinates: Option<(f64, f64)>,
-        pub nearby_landmarks: Vec<String>,
-    }
-
-    /// Types of locations
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub enum LocationType {
-        Beach,
-        Pool,
-        Hospital,
-        Home,
-        Public,
-        Vehicle,
-        Remote,
-        Unknown,
-    }
-
-    /// Audio environment analysis
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct AudioEnvironment {
-        pub noise_level: f32,
-        pub crowd_density: f32,
-        pub wind_level: f32,
-        pub background_sounds: Vec<String>,
-    }
-
-    /// User profile for role detection
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct UserProfile {
-        pub default_role: UserRole,
-        pub is_caregiver: bool,
-        pub emergency_contacts: Vec<String>,
-        pub medical_info: Option<MedicalInfo>,
-        pub voice_model: Option<VoiceModel>,
-    }
-
-    /// Medical information (optional)
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct MedicalInfo {
-        pub allergies: Vec<String>,
-        pub conditions: Vec<String>,
-        pub medications: Vec<String>,
-        pub emergency_notes: Option<String>,
-    }
-
-    /// Voice model for adaptive training
-    #[derive(Debug, Clone, Serialize, Deserialize)]
-    pub struct VoiceModel {
-        pub user_id: String,
-        pub adaptation_score: f32,
-        pub accent_type: Option<String>,
-        pub speech_patterns: Vec<String>,
-        pub last_updated: DateTime<Utc>,
-    }
+// Public modules (visible to users)
+pub mod public {
+    pub mod voice_interface;
+    pub mod audio_interface;
+    pub mod emergency_interface;
+    pub mod types;
 }
 
-// Re-export common types
-pub use types::*; // BONK and SKR token integration planned for Q1 2026
+// Private modules (implementation details - hidden by .gitignore)
+#[cfg(feature = "private")]
+pub mod private;
 
-// Re-export error types
-pub use error::AppError;
-pub use context_analysis::context_analysis::{ContextAnalyzer, ContextAnalysisResult};
-pub use safety_features::SafetyFeaturesManager;
+// Core modules (always available)
+pub mod app;
+pub mod config;
+pub mod error;
+
+// Re-export main types for easy access
+pub use app::SolanaSOSApp;
+pub use error::AppResult;
+pub use public::types::{EmergencyType, EmergencyStage, DirectAction, ConnectivityMode, GuidanceMode};
+
+// Re-export interface types
+pub use public::voice_interface::{VoiceTrigger, VoiceConfig, VoiceStats};
+pub use public::audio_interface::{AudioProcessor, AudioConfig, AudioStats};
+pub use public::emergency_interface::{EmergencySystem, EmergencyConfig, EmergencyStats};
