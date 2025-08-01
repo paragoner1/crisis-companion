@@ -30,10 +30,10 @@
 *"My working prototype is ready for Solana Mobile deployment. Core tech complete with voice recognition and emergency response, enhanced features including Silent SOS and crash detection, full Solana integration with blockchain verification, multi-device sync, and comprehensive coverage of 12 emergency types with expandable database."*
 
 ## Slide 10: Roadmap (2:30-2:45)
-*"From hackathon prototype to safety revolution: August 2025 for hackathon submission, Q1 2026 for app launch on Solana Mobile Seeker, Q2 2026 for emergency services partnerships, Q3 2026 for international expansion with BONK and SKR rewards, and Q4 2026 for my $50 million revenue target plus government contracts."*
+*"This is where AI speed and efficiency meets human need in the moment of crisis. From hackathon prototype to safety revolution: Q1 2026 app launch, Q2 emergency partnerships, Q3 international expansion, Q4 $50 million revenue target."*
 
 ## Slide 11: Call to Action (2:45-3:00)
-*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, this is the app that makes your phone a life saver."*
+*"Judges, let's make Solana SOS the future of emergency response. This isn't just another app, it's a fundamental shift in how mobile tech serves human safety. The question isn't whether the tech is needed, but whether you're ready to be part of the solution. Thank you."*
 
 ---
 
