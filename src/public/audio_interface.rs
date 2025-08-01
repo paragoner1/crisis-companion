@@ -53,9 +53,10 @@ impl AudioProcessor {
     /// 
     /// # Returns
     /// * `AppResult<Sink>` - Audio sink for playback control
-    pub fn play_audio_data(&self, audio_data: &[f32]) -> AppResult<Sink> {
+    pub fn play_audio_data(&self, _audio_data: &[f32]) -> AppResult<Sink> {
         // Implementation details hidden - proprietary audio playback
-        Ok(Sink::new(&rodio::default_output_device().unwrap()))
+        let (sink, _queue) = Sink::new();
+        Ok(sink)
     }
 
     /// Generates text-to-speech audio

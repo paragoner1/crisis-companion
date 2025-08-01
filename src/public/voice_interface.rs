@@ -4,7 +4,7 @@
 //! Implementation details are hidden to protect proprietary algorithms.
 
 use crate::error::AppResult;
-use crate::types::EmergencyType;
+use crate::public::types::EmergencyType;
 
 /// Voice trigger for emergency phrase detection
 pub struct VoiceTrigger {
@@ -34,7 +34,7 @@ impl VoiceTrigger {
     /// 
     /// # Returns
     /// * `bool` - True if an emergency phrase is detected
-    pub fn detect_emergency_phrase(&mut self, phrase: &str) -> AppResult<bool> {
+    pub fn detect_emergency_phrase(&mut self, _phrase: &str) -> AppResult<bool> {
         // Implementation details hidden - proprietary voice recognition algorithms
         Ok(false)
     }
@@ -82,9 +82,9 @@ impl VoiceTrigger {
     /// 
     /// # Returns
     /// * `AppResult<EmergencyType>` - The detected emergency type
-    pub async fn simulate_phrase_detection(phrase: &str) -> AppResult<EmergencyType> {
+    pub async fn simulate_phrase_detection(_phrase: &str) -> AppResult<EmergencyType> {
         // Implementation details hidden - proprietary detection logic
-        use crate::types::EmergencyType;
+        use crate::public::types::EmergencyType;
         Ok(EmergencyType::Drowning)
     }
 }
