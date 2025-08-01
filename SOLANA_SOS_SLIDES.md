@@ -30,7 +30,7 @@ Founder & Developer
 
 # 🎯 THE SOLUTION
 
-**Enter Solana SOS: Voice-activated in under 100ms via Vosk offline recognition with RNNoise noise filtering, fully functional without internet—even in storms, remote hikes, or power failures. Say any emergency and then help! like 'Drowning, help!'—it blasts step-by-step instructions at max volume, auto-calls 911 with location sharing, records audio for Solana blockchain verification, and coordinates nearby devices via Bluetooth to ensure only one guides, avoiding chaos. Built in Rust for reliability, with enterprise-grade noise cancellation and an expandable database for new emergencies like natural disasters.**
+**Enter Solana SOS: Voice-activated in under 100ms via Vosk offline recognition with RNNoise noise filtering and adaptive training, fully functional without internet—even in storms, remote hikes, or power failures. Say any emergency and then help! like 'Drowning, help!'—it blasts step-by-step instructions at max volume, auto-calls 911 with location sharing, records audio for Solana blockchain verification, and coordinates nearby devices via Bluetooth to ensure only one guides, avoiding chaos. Built in Rust for reliability, with enterprise-grade noise cancellation, personalized accuracy, and an expandable database for new emergencies like natural disasters.**
 
 ---
 
@@ -60,7 +60,7 @@ Founder & Developer
 
 # ✅ THE TRACTION
 
-**My prototype is demo-ready: Offline voice detection via Vosk with RNNoise noise filtering, full Solana integration, multi-device Bluetooth sync functional, SQLite database for instructions, and initial support for 9 emergency types to start. I've completed core tech and am lining up emergency service partnerships for Q1 2026. This isn't vaporware—it's built, tested, and poised for deployment on Seeker.**
+**My prototype is demo-ready: Offline voice detection via Vosk with RNNoise noise filtering and adaptive training, full Solana integration, multi-device Bluetooth sync functional, SQLite database for instructions, and initial support for 9 emergency types to start. I've completed core tech and am lining up emergency service partnerships for Q1 2026. This isn't vaporware—it's built, tested, and poised for deployment on Seeker.**
 
 ---
 
