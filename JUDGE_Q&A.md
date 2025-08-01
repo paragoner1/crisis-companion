@@ -2,6 +2,35 @@
 
 Judges at a hackathon like Solana Mobile's will indeed be skeptical, especially about a life-saving app's reliability—false activations could erode trust, while misses could be fatal. Based on the README and real-world data on offline speech recognition (like Vosk), I'll outline potential tough questions, sample responses (framed positively but realistically, showing you've thought ahead), and cite relevant insights. Responses draw from the app's design (e.g., hybrid voice recognition, expandable database) and industry benchmarks.
 
+## 🚨 **Emergency Types Supported**
+
+### **Critical Life-Threatening Emergencies (Require 911)**
+- **Drowning** - Water-related emergencies with CPR guidance
+- **Heart Attack** - Cardiac emergencies with immediate 911 call
+- **Stroke** - Time-critical brain emergencies with FAST test
+- **Choking** - Airway obstruction with Heimlich maneuver
+- **Bleeding** - Blood loss and hemorrhage control
+- **Unconscious** - Unconsciousness and cardiac arrest
+- **Seizure** - Seizure and convulsion emergencies
+- **Poisoning/Overdose** - Toxic exposure with Poison Control
+- **Severe Burns** - Critical tissue damage with cooling guidance
+- **Diabetic Emergency** - Blood sugar crisis with medical alert check
+- **Allergic Reaction** - Anaphylaxis with EpiPen guidance
+- **Trauma** - Injury and trauma emergencies
+
+### **Direct Actions (Skip Basic Steps)**
+- **CPR** - Immediate cardiopulmonary resuscitation
+- **Heimlich** - Abdominal thrust maneuver for choking
+- **AED** - Automated external defibrillator usage
+- **Tourniquet** - Severe bleeding control
+- **EpiPen** - Epinephrine auto-injector administration
+- **Rescue Breathing** - Mouth-to-mouth ventilation
+- **First Aid** - Basic wound care and bandaging
+- **FAST Test** - Stroke assessment (Face, Arms, Speech, Time)
+- **Poison Control** - Direct connection to 1-800-222-1222
+- **Cool Burn** - Immediate burn cooling with water
+- **Medical Alert** - Check for medical ID jewelry/cards
+
 ## **1. How accurate is the voice recognition, especially offline in noisy or real-world environments?**
 
 **Answer:** *"Solana SOS uses a hybrid approach: online cloud services as primary for peak accuracy (5-10% WER in quiet settings), with Vosk offline as seamless fallback when no signal. We've integrated RNNoise enterprise-grade noise cancellation (used by Discord and WhatsApp) to reduce accuracy drops by ~70% in noisy environments. Our adaptive training system personalizes accuracy for each user through Vosk model adaptation, accent detection, and speech pattern analysis. This reduces offline accuracy drops by ~50% in tests, with auto-switch in under 100ms. We've tuned emergency phrases and added user-customizable models during setup to push overall accuracy to 95%+ across modes. Tested in simulated crowds, wind, and emergency scenarios, it maintains reliability when it matters most."*

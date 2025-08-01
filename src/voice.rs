@@ -29,15 +29,47 @@ impl VoiceTrigger {
         let mut emergency_phrase_map = HashMap::new();
         // Populate emergency_phrase_map
         emergency_phrase_map.insert("drowning help".to_string(), EmergencyType::Drowning);
-        emergency_phrase_map.insert("fire help".to_string(), EmergencyType::Fire);
         emergency_phrase_map.insert("heart attack help".to_string(), EmergencyType::HeartAttack);
+        emergency_phrase_map.insert("stroke help".to_string(), EmergencyType::Stroke);
         emergency_phrase_map.insert("choking help".to_string(), EmergencyType::Choking);
         emergency_phrase_map.insert("bleeding help".to_string(), EmergencyType::Bleeding);
         emergency_phrase_map.insert("unconscious help".to_string(), EmergencyType::Unconscious);
         emergency_phrase_map.insert("seizure help".to_string(), EmergencyType::Seizure);
-        emergency_phrase_map.insert("allergic reaction help".to_string(), EmergencyType::AllergicReaction);
         emergency_phrase_map.insert("poisoning help".to_string(), EmergencyType::Poisoning);
+        emergency_phrase_map.insert("overdose help".to_string(), EmergencyType::Poisoning);
+        emergency_phrase_map.insert("burns help".to_string(), EmergencyType::SevereBurns);
+        emergency_phrase_map.insert("diabetic emergency help".to_string(), EmergencyType::DiabeticEmergency);
+        emergency_phrase_map.insert("diabetes help".to_string(), EmergencyType::DiabeticEmergency);
+        emergency_phrase_map.insert("allergic reaction help".to_string(), EmergencyType::AllergicReaction);
         emergency_phrase_map.insert("trauma help".to_string(), EmergencyType::Trauma);
+        
+        // Direct action phrases - more specific to avoid ambiguity
+        emergency_phrase_map.insert("cpr".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("cardiopulmonary".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("heimlich".to_string(), EmergencyType::Choking);
+        emergency_phrase_map.insert("aed".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("defibrillator".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("tourniquet".to_string(), EmergencyType::Bleeding);
+        emergency_phrase_map.insert("epipen".to_string(), EmergencyType::AllergicReaction);
+        emergency_phrase_map.insert("rescue breathing".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("first aid".to_string(), EmergencyType::Trauma);
+        
+        // Specific shock types to avoid ambiguity
+        emergency_phrase_map.insert("medical shock".to_string(), EmergencyType::AllergicReaction);
+        emergency_phrase_map.insert("anaphylactic shock".to_string(), EmergencyType::AllergicReaction);
+        emergency_phrase_map.insert("electric shock".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("electrocution".to_string(), EmergencyType::Unconscious);
+        
+        // Specific pressure types
+        emergency_phrase_map.insert("direct pressure".to_string(), EmergencyType::Bleeding);
+        emergency_phrase_map.insert("blood pressure".to_string(), EmergencyType::Trauma);
+        emergency_phrase_map.insert("stop bleeding".to_string(), EmergencyType::Bleeding);
+        
+        // Specific breathing issues
+        emergency_phrase_map.insert("not breathing".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("no breathing".to_string(), EmergencyType::Unconscious);
+        emergency_phrase_map.insert("breathing problems".to_string(), EmergencyType::Choking);
+        emergency_phrase_map.insert("difficulty breathing".to_string(), EmergencyType::Choking);
 
         let (trigger_sender, _trigger_receiver) = mpsc::channel(100);
         let is_listening = Arc::new(Mutex::new(false));

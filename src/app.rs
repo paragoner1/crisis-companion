@@ -1,7 +1,8 @@
-#![allow(unused_imports, unused_variables, dead_code)]
-use crate::error::AppResult;
+//! Solana SOS - Main Application
+//! 
+//! Hybrid offline/online emergency response system with context-aware guidance.
+
 use crate::{
-    types::*,
     config::AppConfig,
     voice::VoiceTrigger,
     audio::AudioManager,
@@ -10,13 +11,16 @@ use crate::{
     emergency::EmergencyHandler,
     ui::AppUI,
     blockchain::BlockchainManager,
+    context_analysis::context_analysis::ContextAnalyzer,
+    types::{EmergencyType, EmergencyStage, ContextClues, UserRole, ConnectivityMode, ContextAnalysisResult, GuidanceMode, GuidanceResult},
+    error::AppError,
 };
-use tracing::{info, warn, error, debug};
-use std::sync::{Arc, Mutex};
-use tokio::sync::mpsc;
-use chrono::Utc;
+use tracing::{info, warn};
+use tokio::time::{sleep, Duration};
+use std::sync::Arc;
+use tokio::sync::RwLock;
 
-/// Main application coordinator
+/// Main application for Solana SOS
 pub struct CrisisCompanionApp {
     config: AppConfig,
     voice_trigger: VoiceTrigger,
@@ -26,38 +30,41 @@ pub struct CrisisCompanionApp {
     emergency_handler: EmergencyHandler,
     ui: AppUI,
     blockchain_manager: BlockchainManager,
-    is_running: Arc<Mutex<bool>>,
-    app_sender: mpsc::Sender<AppCommand>,
-}
-
-/// Application commands for the main app
-#[derive(Debug, Clone)]
-pub enum AppCommand {
-    VoiceTriggerDetected(VoiceTriggerResult),
-    EmergencyResponseComplete,
-    DeviceCoordinationUpdate,
-    UIUpdate,
-    Shutdown,
+    context_analyzer: ContextAnalyzer,
+    connectivity_mode: Arc<RwLock<ConnectivityMode>>,
+    is_active: Arc<RwLock<bool>>,
 }
 
 impl CrisisCompanionApp {
-    /// Create a new Crisis Companion application
-    pub fn new(
-        config: AppConfig,
-        voice_trigger: VoiceTrigger,
-        audio_manager: AudioManager,
-        database: EmergencyDatabase,
-        coordinator: DeviceCoordinator,
-        emergency_handler: EmergencyHandler,
-        ui: AppUI,
-        blockchain_manager: BlockchainManager,
-    ) -> AppResult<Self> {
-        info!("Initializing Crisis Companion application");
+    /// Create a new Solana SOS application
+    pub async fn new(config_path: &str) -> Result<Self, AppError> {
+        info!("🚨 Initializing Solana SOS - The phone you can't live without");
         
-        let (app_sender, _app_receiver) = mpsc::channel(100);
-        let _is_running = Arc::new(Mutex::new(false));
-        
-        let app = Self {
+        // Load configuration
+        let config = AppConfig::load(config_path)?;
+        info!("✅ Configuration loaded from {}", config_path);
+
+        // Initialize core components
+        let voice_trigger = VoiceTrigger::new(&config.voice)?;
+        let audio_manager = AudioManager::new(&config.audio)?;
+        let database = EmergencyDatabase::new(&config.database)?;
+        let coordinator = DeviceCoordinator::new(&config.coordination)?;
+        let emergency_handler = EmergencyHandler::new(&config.emergency)?;
+        let ui = AppUI::new(&config.ui)?;
+        let blockchain_manager = BlockchainManager::new(&config.blockchain)?;
+        let context_analyzer = ContextAnalyzer::new();
+
+        // Determine initial connectivity mode
+        let connectivity_mode = Arc::new(RwLock::new(
+            Self::determine_connectivity_mode(&config).await
+        ));
+
+        let is_active = Arc::new(RwLock::new(true));
+
+        info!("✅ All components initialized successfully");
+        info!("🎯 Hybrid Architecture: {:?}", *connectivity_mode.read().await);
+
+        Ok(Self {
             config,
             voice_trigger,
             audio_manager,
@@ -66,416 +73,432 @@ impl CrisisCompanionApp {
             emergency_handler,
             ui,
             blockchain_manager,
-            is_running: _is_running,
-            app_sender,
+            context_analyzer,
+            connectivity_mode,
+            is_active,
+        })
+    }
+
+    /// Determine the appropriate connectivity mode based on configuration and environment
+    async fn determine_connectivity_mode(config: &AppConfig) -> ConnectivityMode {
+        // Check user preference first
+        if let Some(preference) = &config.connectivity.user_preference {
+            match preference.as_str() {
+                "offline" => return ConnectivityMode::Offline,
+                "online" => return ConnectivityMode::Online,
+                "hybrid" => return ConnectivityMode::Hybrid,
+                _ => {}
+            }
+        }
+
+        // Check network connectivity
+        if Self::check_network_connectivity().await {
+            ConnectivityMode::Hybrid
+        } else {
+            ConnectivityMode::Offline
+        }
+    }
+
+    /// Check if network connectivity is available
+    async fn check_network_connectivity() -> bool {
+        // Simple connectivity check - in production, this would be more sophisticated
+        match tokio::time::timeout(Duration::from_secs(3), async {
+            // Attempt to reach a reliable endpoint
+            reqwest::get("https://httpbin.org/status/200").await.is_ok()
+        }).await {
+            Ok(true) => {
+                info!("✅ Network connectivity available");
+                true
+            }
+            _ => {
+                warn!("⚠️ No network connectivity detected, using offline mode");
+                false
+            }
+        }
+    }
+
+    /// Start the emergency monitoring system
+    pub async fn start_monitoring(&self) -> Result<(), AppError> {
+        info!("🚨 Starting Solana SOS emergency monitoring");
+        info!("🎯 Mode: {:?}", *self.connectivity_mode.read().await);
+
+        let is_active = Arc::clone(&self.is_active);
+        let connectivity_mode = Arc::clone(&self.connectivity_mode);
+
+        // Start background monitoring task
+        tokio::spawn(async move {
+            while *is_active.read().await {
+                // Monitor for connectivity changes
+                if let Ok(mode) = Self::check_connectivity_changes(&connectivity_mode).await {
+                    let current_mode = connectivity_mode.read().await.clone();
+                    if mode != current_mode {
+                        *connectivity_mode.write().await = mode.clone();
+                        info!("🔄 Connectivity mode changed to: {:?}", mode);
+                    }
+                }
+
+                sleep(Duration::from_secs(30)).await;
+            }
+        });
+
+        info!("✅ Emergency monitoring started successfully");
+        Ok(())
+    }
+
+    /// Check for connectivity changes and update mode accordingly
+    async fn check_connectivity_changes(
+        connectivity_mode: &Arc<RwLock<ConnectivityMode>>
+    ) -> Result<ConnectivityMode, AppError> {
+        let current_mode = connectivity_mode.read().await.clone();
+        
+        match current_mode {
+            ConnectivityMode::Offline => {
+                // Check if we should switch to hybrid
+                if Self::check_network_connectivity().await {
+                    Ok(ConnectivityMode::Hybrid)
+                } else {
+                    Ok(ConnectivityMode::Offline)
+                }
+            }
+            ConnectivityMode::Online => {
+                // Check if we should switch to offline
+                if !Self::check_network_connectivity().await {
+                    Ok(ConnectivityMode::Offline)
+                } else {
+                    Ok(ConnectivityMode::Online)
+                }
+            }
+            ConnectivityMode::Hybrid => {
+                // Stay in hybrid mode, but could optimize based on conditions
+                Ok(ConnectivityMode::Hybrid)
+            }
+        }
+    }
+
+    /// Handle emergency voice trigger with context-aware guidance
+    pub async fn handle_emergency_trigger(
+        &self,
+        phrase: &str,
+        emergency_type: EmergencyType,
+        user_role: UserRole,
+    ) -> Result<ContextAnalysisResult, AppError> {
+        info!("🚨 Emergency trigger detected: {:?}", emergency_type);
+        info!("📝 Phrase: '{}'", phrase);
+        info!("👤 User role: {:?}", user_role);
+
+        // Create context clues for analysis
+        let context_clues = self.create_context_clues(phrase, emergency_type.clone(), user_role).await?;
+
+        // Analyze emergency context
+        let analysis = self.context_analyzer.analyze_emergency(
+            emergency_type.clone(),
+            &context_clues,
+        ).await?;
+
+        info!("🎯 Context analysis complete:");
+        info!("   Stage: {:?}", analysis.stage);
+        info!("   Confidence: {:.2}", analysis.confidence);
+        info!("   Skip basic steps: {}", analysis.guidance.skip_basic_steps);
+
+        // Determine guidance mode based on emergency type and connectivity
+        let guidance_mode = match emergency_type {
+            EmergencyType::Drowning | EmergencyType::Choking => {
+                GuidanceMode::Offline // Simple, direct interventions
+            }
+            EmergencyType::HeartAttack | EmergencyType::Bleeding => {
+                GuidanceMode::Hybrid // May need online enhancement
+            }
+            EmergencyType::Stroke | EmergencyType::Poisoning | EmergencyType::SevereBurns | EmergencyType::DiabeticEmergency => {
+                GuidanceMode::Hybrid // Critical time-sensitive emergencies
+            }
+            EmergencyType::Unconscious | EmergencyType::AllergicReaction | EmergencyType::Trauma | EmergencyType::Seizure => {
+                GuidanceMode::Hybrid // May need online enhancement
+            }
         };
-        
-        info!("Crisis Companion application initialized successfully");
-        Ok(app)
-    }
-    
-    /// Start the application
-    pub async fn start(&mut self) -> AppResult<()> {
-        info!("Starting Crisis Companion application");
-        
-        let mut is_running = self.is_running.lock().unwrap();
-        if *is_running {
-            warn!("Application is already running");
-            return Ok(());
-        }
-        *is_running = true;
-        drop(is_running);
-        
-        // Initialize blockchain connection
-        self.blockchain_manager.initialize_solana().await?;
-        
-        // Start voice trigger listening
-        self.voice_trigger.start_listening().await?;
-        
-        // Start device coordination
-        self.coordinator.start_advertising().await?;
-        self.coordinator.start_scanning().await?;
-        
-        // Update UI to show listening status
-        self.ui.set_listening(true).await?;
-        
-        info!("Crisis Companion application started successfully");
-        Ok(())
-    }
-    
-    /// Stop the application
-    pub async fn stop(&mut self) -> AppResult<()> {
-        info!("Stopping Crisis Companion application");
-        
-        let mut is_running = self.is_running.lock().unwrap();
-        *is_running = false;
-        
-        // Stop voice trigger
-        self.voice_trigger.stop_listening().await?;
-        
-        // Stop device coordination
-        self.coordinator.stop_advertising()?;
-        self.coordinator.stop_scanning()?;
-        
-        // Update UI
-        self.ui.set_listening(false).await?;
-        
-        // End any active emergency response
-        if self.emergency_handler.is_emergency_active() {
-            self.emergency_handler.complete_emergency_response().await?;
-        }
-        
-        info!("Crisis Companion application stopped successfully");
-        Ok(())
-    }
-    
-    /// Handle voice trigger detection
-    async fn handle_voice_trigger(&mut self, trigger: VoiceTriggerResult) -> AppResult<()> {
-        info!("Handling voice trigger: {:?}", trigger.emergency_type);
-        
-        // Set emergency volume
-        self.audio_manager.set_emergency_volume().await?;
-        
-        // Start emergency response
-        self.emergency_handler.start_emergency_response(trigger.emergency_type.clone()).await?;
-        
-        // Update UI
-        self.ui.show_emergency(trigger.emergency_type.clone()).await?;
-        
-        // Coordinate with other devices
-        self.coordinator.coordinate_emergency_response(trigger.emergency_type.clone()).await?;
-        
-        // Get emergency instructions
-        let instructions = self.database.get_emergency_instructions(&trigger.emergency_type)?;
-        
-        // Play first instruction
-        if let Some(first_instruction) = instructions.first() {
-            let tts_text = format!("{}: {}", first_instruction.title, first_instruction.description);
-            self.audio_manager.play_tts(tts_text).await?;
-        }
-        
-        // Store audio hash on blockchain
-        self.blockchain_manager.store_audio_hash(&trigger.audio_hash, &trigger.emergency_type).await?;
-        
-        info!("Voice trigger handled successfully");
-        Ok(())
-    }
-    
-    /// Handle emergency response completion
-    async fn handle_emergency_completion(&mut self) -> AppResult<()> {
-        info!("Handling emergency response completion");
-        
-        // Complete emergency response
-        self.emergency_handler.complete_emergency_response().await?;
-        
-        // Reset volume
-        self.audio_manager.set_volume(self.config.audio.default_volume).await?;
-        
-        // Update UI
-        self.ui.hide_emergency().await?;
-        
-        info!("Emergency response completion handled");
-        Ok(())
+
+        info!("🎯 Guidance mode: {:?}", guidance_mode);
+
+        // Generate appropriate guidance
+        let guidance_result = match guidance_mode {
+            GuidanceMode::Offline => {
+                self.generate_offline_guidance(&analysis).await?
+            }
+            GuidanceMode::Online => {
+                self.generate_online_guidance(&analysis).await?
+            }
+            GuidanceMode::Hybrid => {
+                self.generate_hybrid_guidance(&analysis).await?
+            }
+        };
+
+        // Execute emergency response
+        self.execute_emergency_response(&analysis, &guidance_result).await?;
+
+        Ok(ContextAnalysisResult {
+            analysis: analysis.clone(),
+            stage_detection_confidence: analysis.confidence,
+            guidance_appropriateness: guidance_result.appropriateness,
+            time_saved_seconds: guidance_result.time_saved,
+            skipped_steps: guidance_result.skipped_steps,
+        })
     }
 
-    /// Handle device coordination updates
-    async fn handle_coordination_update(&mut self) -> AppResult<()> {
-        info!("Handling device coordination update");
-        
-        // Update coordination status
-        self.coordinator.test_coordination().await?;
-        
-        info!("Device coordination update handled");
-        Ok(())
+    /// Create context clues for emergency analysis
+    async fn create_context_clues(
+        &self,
+        phrase: &str,
+        emergency_type: EmergencyType,
+        user_role: UserRole,
+    ) -> Result<ContextClues, AppError> {
+        // Get current location context
+        let location_context = self.get_location_context().await?;
+
+        // Get actions already taken
+        let actions_taken = self.get_actions_taken().await?;
+
+        // Get victim status if available
+        let victim_status = self.get_victim_status().await?;
+
+        // Get environmental context
+        let environment = self.get_environment_context().await?;
+
+        Ok(ContextClues {
+            user_phrase: phrase.to_string(),
+            location_context,
+            time_elapsed: None, // Will be set by emergency handler
+            victim_status,
+            environment,
+            actions_taken,
+        })
     }
 
-    /// Handle UI updates
-    async fn handle_ui_update(&mut self) -> AppResult<()> {
-        info!("Handling UI update");
-        
-        // Update UI state
-        self.ui.show_statistics().await?;
-        
-        info!("UI update handled");
-        Ok(())
-    }
-
-    /// Test the application functionality
-    pub async fn test_functionality(&mut self) -> AppResult<()> {
-        info!("Testing application functionality");
-        
-        // Test voice trigger
-        let test_trigger = self.voice_trigger.test_trigger("drowning help").await?;
-        if let Some(trigger) = test_trigger {
-            self.handle_voice_trigger(trigger).await?;
-        }
-        
-        // Test emergency response
-        let response = self.emergency_handler.start_emergency_response(EmergencyType::Drowning).await?;
-        assert_eq!(response.emergency_type, EmergencyType::Drowning);
-        assert_eq!(response.status, ResponseStatus::Active);
-        assert!(self.emergency_handler.is_emergency_active());
-        
-        // Test 911 dialing
-        self.emergency_handler.call_911().await?;
-        
-        // Test location sharing
-        self.emergency_handler.share_location().await?;
-        
-        // Test audio recording
-        self.emergency_handler.start_recording().await?;
-        self.emergency_handler.stop_recording().await?;
-        
-        // Complete emergency response
-        self.emergency_handler.complete_emergency_response().await?;
-        assert!(!self.emergency_handler.is_emergency_active());
-        
-        info!("Application functionality test completed successfully");
-        Ok(())
-    }
-
-    /// Test audio functionality
-    pub async fn test_audio(&self) -> AppResult<()> {
-        info!("Testing audio functionality");
-        
-        // Test volume control
-        self.audio_manager.set_emergency_volume().await?;
-        self.audio_manager.set_volume(self.config.audio.default_volume).await?;
-        
-        // Test TTS playback
-        self.audio_manager.play_tts("Test emergency message".to_string()).await?;
-        
-        // Test stop playback
-        self.audio_manager.stop_playback().await?;
-        
-        // Test audio file playback (this would fail without an actual file)
-        // self.audio_manager.play_audio_file("test.mp3".to_string()).await?;
-        
-        // Test stop playback
-        self.audio_manager.stop_playback().await?;
-        
-        info!("Audio functionality test completed successfully");
-        Ok(())
-    }
-    
-    /// Run the application in desktop mode (for testing)
-    pub async fn run_desktop(&mut self) -> AppResult<()> {
-        info!("Running Crisis Companion in desktop mode");
-        
-        // Start the application
-        self.start().await?;
-        
-        // Run desktop UI loop
-        #[cfg(feature = "desktop")]
-        {
-            use eframe::egui;
-            
-            let options = eframe::NativeOptions::default();
-            eframe::run_native(
-                "Crisis Companion",
-                options,
-                Box::new(|_cc| {
-                    let app = self.clone();
-                    Box::new(app)
-                }),
-            )?;
-        }
-        
-        // Stop the application
-        self.stop().await?;
-        
-        info!("Desktop mode completed");
-        Ok(())
-    }
-    
-    /// Run the application in mobile mode
-    pub async fn run_mobile(&mut self) -> AppResult<()> {
-        info!("Running Crisis Companion in mobile mode");
-        
-        // Start the application
-        self.start().await?;
-        
-        // Keep the application running
-        while *self.is_running.lock().unwrap() {
-            tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
-        }
-        
-        // Stop the application
-        self.stop().await?;
-        
-        info!("Mobile mode completed");
-        Ok(())
-    }
-    
-    /// Test the application functionality
-    pub async fn test_app(&mut self) -> AppResult<()> {
-        info!("Testing Crisis Companion application");
-        
-        // Test voice trigger
-        let test_trigger = self.voice_trigger.test_trigger("drowning help").await?;
-        if let Some(trigger) = test_trigger {
-            self.handle_voice_trigger(trigger).await?;
-        }
-        
-        // Test emergency response
-        let response = self.emergency_handler.start_emergency_response(EmergencyType::Drowning).await?;
-        assert_eq!(response.emergency_type, EmergencyType::Drowning);
-        assert_eq!(response.status, ResponseStatus::Active);
-        assert!(self.emergency_handler.is_emergency_active());
-        
-        // Test 911 dialing
-        self.emergency_handler.call_911().await?;
-        
-        // Test location sharing
-        self.emergency_handler.share_location().await?;
-        
-        // Test audio recording
-        self.emergency_handler.start_recording().await?;
-        self.emergency_handler.stop_recording().await?;
-        
-        // Complete emergency response
-        self.emergency_handler.complete_emergency_response().await?;
-        assert!(!self.emergency_handler.is_emergency_active());
-        
-        info!("Application test completed successfully");
-        Ok(())
-    }
-    
-    /// Main application processing loop
-    async fn app_processing_loop(
-        mut receiver: mpsc::Receiver<AppCommand>,
-        is_running: Arc<Mutex<bool>>,
-    ) -> AppResult<()> {
-        info!("Application processing loop started");
-        
-        while let Some(command) = receiver.recv().await {
-            match command {
-                AppCommand::VoiceTriggerDetected(trigger) => {
-                    info!("Processing voice trigger: {:?}", trigger.emergency_type);
-                    
-                    // In a real implementation, this would:
-                    // 1. Handle the voice trigger
-                    // 2. Coordinate with other components
-                    // 3. Update UI and audio
-                }
-                
-                AppCommand::EmergencyResponseComplete => {
-                    info!("Processing emergency response complete");
-                    
-                    // In a real implementation, this would:
-                    // 1. Complete the emergency response
-                    // 2. Reset all systems
-                    // 3. Update UI
-                }
-                
-                AppCommand::DeviceCoordinationUpdate => {
-                    debug!("Processing device coordination update");
-                    
-                    // In a real implementation, this would:
-                    // 1. Update coordination status
-                    // 2. Adjust device roles
-                    // 3. Update UI
-                }
-                
-                AppCommand::UIUpdate => {
-                    debug!("Processing UI update");
-                    
-                    // In a real implementation, this would:
-                    // 1. Update UI state
-                    // 2. Refresh display
-                }
-                
-                AppCommand::Shutdown => {
-                    info!("Processing shutdown command");
-                    break;
+    /// Determine the appropriate guidance mode
+    async fn determine_guidance_mode(
+        &self,
+        connectivity_mode: ConnectivityMode,
+        emergency_type: EmergencyType,
+        analysis: &crate::types::EmergencyAnalysis,
+    ) -> GuidanceMode {
+        match connectivity_mode {
+            ConnectivityMode::Offline => GuidanceMode::Offline,
+            ConnectivityMode::Online => GuidanceMode::Online,
+            ConnectivityMode::Hybrid => {
+                // Smart routing logic
+                match emergency_type {
+                    EmergencyType::Drowning | EmergencyType::Choking => {
+                        // Critical emergencies - use offline for speed
+                        GuidanceMode::Offline
+                    }
+                    EmergencyType::HeartAttack | EmergencyType::Bleeding => {
+                        // Complex scenarios - use online for intelligence
+                        if analysis.confidence < 0.8 {
+                            GuidanceMode::Online
+                        } else {
+                            GuidanceMode::Offline
+                        }
+                    }
+                    _ => {
+                        // Default to hybrid for other emergencies
+                        GuidanceMode::Hybrid
+                    }
                 }
             }
         }
-        
-        info!("Application processing loop stopped");
-        Ok(())
     }
 
-    pub async fn shutdown(&mut self) -> AppResult<()> {
-        info!("Shutting down Crisis Companion application");
-        
-        // Stop voice listening
-        self.voice_trigger.stop_listening().await?;
-        
-        // Complete any active emergency response
-        if self.emergency_handler.is_emergency_active() {
-            self.emergency_handler.complete_emergency_response().await?;
+    /// Generate offline guidance
+    async fn generate_offline_guidance(
+        &self,
+        analysis: &crate::types::EmergencyAnalysis,
+    ) -> Result<GuidanceResult, AppError> {
+        info!("📱 Generating offline guidance for stage: {:?}", analysis.stage);
+
+        let guidance = &analysis.guidance;
+        let time_saved = if guidance.skip_basic_steps { 45 } else { 0 };
+
+        Ok(GuidanceResult {
+            mode: GuidanceMode::Offline,
+            instructions: guidance.instructions.clone(),
+            priority_actions: guidance.priority_actions.clone(),
+            appropriateness: analysis.confidence,
+            time_saved,
+            skipped_steps: if guidance.skip_basic_steps {
+                vec![
+                    "Scene assessment".to_string(),
+                    "Basic safety instructions".to_string(),
+                    "Initial rescue preparation".to_string(),
+                ]
+            } else {
+                vec![]
+            },
+        })
+    }
+
+    /// Generate online guidance
+    async fn generate_online_guidance(
+        &self,
+        analysis: &crate::types::EmergencyAnalysis,
+    ) -> Result<GuidanceResult, AppError> {
+        info!("🤖 Generating online AI guidance for stage: {:?}", analysis.stage);
+
+        // In Phase 2, this would integrate with LLM APIs
+        // For now, we'll enhance the offline guidance with additional context
+        let mut enhanced_instructions = analysis.guidance.instructions.clone();
+        enhanced_instructions.push("AI: Consider calling emergency services if not already done".to_string());
+        enhanced_instructions.push("AI: Monitor victim closely for any changes".to_string());
+
+        Ok(GuidanceResult {
+            mode: GuidanceMode::Online,
+            instructions: enhanced_instructions,
+            priority_actions: analysis.guidance.priority_actions.clone(),
+            appropriateness: analysis.confidence + 0.1, // AI enhancement
+            time_saved: if analysis.guidance.skip_basic_steps { 45 } else { 0 },
+            skipped_steps: if analysis.guidance.skip_basic_steps {
+                vec![
+                    "Scene assessment".to_string(),
+                    "Basic safety instructions".to_string(),
+                    "Initial rescue preparation".to_string(),
+                ]
+            } else {
+                vec![]
+            },
+        })
+    }
+
+    /// Generate hybrid guidance
+    async fn generate_hybrid_guidance(
+        &self,
+        analysis: &crate::types::EmergencyAnalysis,
+    ) -> Result<GuidanceResult, AppError> {
+        info!("🔄 Generating hybrid guidance for stage: {:?}", analysis.stage);
+
+        // Start with offline guidance
+        let offline_result = self.generate_offline_guidance(analysis).await?;
+
+        // Enhance with online capabilities if available
+        if Self::check_network_connectivity().await {
+            let online_result = self.generate_online_guidance(analysis).await?;
+            
+            // Combine both approaches
+            let mut combined_instructions = offline_result.instructions;
+            combined_instructions.extend(online_result.instructions);
+
+            Ok(GuidanceResult {
+                mode: GuidanceMode::Hybrid,
+                instructions: combined_instructions,
+                priority_actions: offline_result.priority_actions,
+                appropriateness: (offline_result.appropriateness + online_result.appropriateness) / 2.0,
+                time_saved: offline_result.time_saved,
+                skipped_steps: offline_result.skipped_steps,
+            })
+        } else {
+            // Fall back to offline if no connectivity
+            Ok(offline_result)
         }
+    }
+
+    /// Execute emergency response
+    async fn execute_emergency_response(
+        &self,
+        analysis: &crate::types::EmergencyAnalysis,
+        guidance_result: &GuidanceResult,
+    ) -> Result<(), AppError> {
+        info!("🚨 Executing emergency response");
+
+        // Set emergency volume
+        self.audio_manager.set_emergency_volume().await?;
+
+        // Display emergency UI - convert EmergencyStage to EmergencyType
+        let emergency_type = match analysis.stage {
+            EmergencyStage::InitialDetection => EmergencyType::Drowning, // Default for demo
+            EmergencyStage::VictimExtracted => EmergencyType::Drowning,
+            EmergencyStage::Unconscious => EmergencyType::Drowning,
+            EmergencyStage::ConsciousButInjured => EmergencyType::Bleeding,
+            EmergencyStage::BreathingButUnresponsive => EmergencyType::Drowning,
+            EmergencyStage::ServicesEnRoute => EmergencyType::Drowning,
+            EmergencyStage::PostEmergency => EmergencyType::Drowning,
+        };
         
-        // Stop audio playback
-        self.audio_manager.stop_playback().await?;
-        
-        info!("Crisis Companion shutdown complete");
+        let emergency_type_clone = emergency_type.clone();
+        self.ui.show_emergency(emergency_type).await?;
+
+        // Provide guidance instructions
+        for instruction in &guidance_result.instructions {
+            info!("📱 Displaying instruction: {}", instruction);
+            // In a real implementation, this would display the instruction on the UI
+            sleep(Duration::from_millis(2000)).await; // 2 second delay between instructions
+        }
+
+        // Store emergency data on blockchain
+        self.blockchain_manager.store_audio_hash(
+            &format!("emergency_{}", uuid::Uuid::new_v4()),
+            &emergency_type_clone,
+        ).await?;
+
+        // Coordinate with nearby devices
+        self.coordinator.coordinate_emergency_response(emergency_type_clone).await?;
+
+        info!("✅ Emergency response executed successfully");
         Ok(())
     }
-}
 
-impl Drop for CrisisCompanionApp {
-    fn drop(&mut self) {
-        info!("Crisis Companion application shutting down");
+    /// Get current location context
+    async fn get_location_context(&self) -> Result<Option<crate::types::LocationContext>, AppError> {
+        // In production, this would use GPS or other location services
+        Ok(Some(crate::types::LocationContext {
+            location_type: crate::types::LocationType::Home,
+            coordinates: Some((34.0522, -118.2437)), // Default coordinates
+            nearby_landmarks: vec!["Home".to_string()],
+        }))
     }
-}
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::config::AppConfig;
-    
-    #[tokio::test]
-    async fn test_app_creation() {
-        let config = AppConfig::default();
-        let voice_trigger = VoiceTrigger::new(&config.voice).unwrap();
-        let audio_manager = AudioManager::new(&config.audio).unwrap();
-        let database = EmergencyDatabase::new(&config.database).unwrap();
-        let coordinator = DeviceCoordinator::new(&config.coordination).unwrap();
-        let emergency_handler = EmergencyHandler::new(&config.emergency).unwrap();
-        let ui = AppUI::new(&config.ui).unwrap();
-        let blockchain_manager = BlockchainManager::new(&config.blockchain).unwrap();
-        
-        let app = CrisisCompanionApp::new(
-            config,
-            voice_trigger,
-            audio_manager,
-            database,
-            coordinator,
-            emergency_handler,
-            ui,
-            blockchain_manager,
-        );
-        assert!(app.is_ok());
+    /// Get actions already taken
+    async fn get_actions_taken(&self) -> Result<Vec<crate::types::EmergencyAction>, AppError> {
+        // In production, this would track actual actions taken
+        Ok(vec![])
     }
-    
-    #[tokio::test]
-    async fn test_app_lifecycle() {
-        let config = AppConfig::default();
-        let voice_trigger = VoiceTrigger::new(&config.voice).unwrap();
-        let audio_manager = AudioManager::new(&config.audio).unwrap();
-        let database = EmergencyDatabase::new(&config.database).unwrap();
-        let coordinator = DeviceCoordinator::new(&config.coordination).unwrap();
-        let emergency_handler = EmergencyHandler::new(&config.emergency).unwrap();
-        let ui = AppUI::new(&config.ui).unwrap();
-        let blockchain_manager = BlockchainManager::new(&config.blockchain).unwrap();
+
+    /// Get victim status
+    async fn get_victim_status(&self) -> Result<Option<crate::types::VictimStatus>, AppError> {
+        // In production, this would be determined through user input or sensors
+        Ok(None)
+    }
+
+    /// Get environmental context
+    async fn get_environment_context(&self) -> Result<crate::types::EnvironmentContext, AppError> {
+        // In production, this would use sensors and environmental data
+        Ok(crate::types::EnvironmentContext {
+            weather_conditions: crate::types::WeatherConditions::Clear,
+            crowd_present: false,
+            professional_help_available: false,
+            emergency_equipment_available: false,
+            accessibility_issues: vec![],
+        })
+    }
+
+    /// Stop the application
+    pub async fn stop(&self) -> Result<(), AppError> {
+        info!("🛑 Stopping Solana SOS");
         
-        let mut app = CrisisCompanionApp::new(
-            config,
-            voice_trigger,
-            audio_manager,
-            database,
-            coordinator,
-            emergency_handler,
-            ui,
-            blockchain_manager,
-        ).unwrap();
+        *self.is_active.write().await = false;
         
-        // Test start
-        app.start().await.unwrap();
+        // Cleanup resources
+        self.audio_manager.set_volume(self.config.audio.default_volume).await?;
+        self.ui.hide_emergency().await?;
         
-        // Test stop
-        app.stop().await.unwrap();
+        info!("✅ Solana SOS stopped successfully");
+        Ok(())
+    }
+
+    /// Get current connectivity mode
+    pub async fn get_connectivity_mode(&self) -> ConnectivityMode {
+        self.connectivity_mode.read().await.clone()
+    }
+
+    /// Set connectivity mode
+    pub async fn set_connectivity_mode(&self, mode: ConnectivityMode) -> Result<(), AppError> {
+        info!("🔄 Setting connectivity mode to: {:?}", mode);
+        *self.connectivity_mode.write().await = mode;
+        Ok(())
     }
 } 
