@@ -6,7 +6,7 @@
 *"Okay, so here we are in the terminal. Here's our product structure. Rust with cargo. Clean organization. Each module has a specific role."*
 ```bash
 $ ls -lalsanon
-$ tree src/
+$ ls -R src/
 ```
 *"Voice detection. Audio management. Database. Blockchain. Everything working together."*
 
@@ -85,7 +85,7 @@ $ cargo run --bin complete_walkthrough
 
 ## 📋 **Quick Commands Reference**
 ```bash
-Scene 1: $ ls -lalsanon && $ tree src/
+Scene 1: $ ls -lalsanon && $ ls -R src/
 Scene 2: $ cargo build && $ cargo check
 Scene 3: $ cargo run --bin voice_test
 Scene 4: $ cargo run --bin context_analysis_test
