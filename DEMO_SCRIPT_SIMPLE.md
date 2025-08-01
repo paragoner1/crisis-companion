@@ -22,11 +22,11 @@ $ cargo run --bin voice_test
 ```
 *"Here we see the system respond. Voice trigger is detected. Emergency response is initiated. Blockchain verification. All happening in real time."*
 
-**Scene 4: Complete Emergency Response (0:50)**
+**Scene 4: Emergency Types Demo (0:50)**
 ```bash
-$ cargo run --bin complete_walkthrough
+$ cargo run --bin simple_direct_actions_test
 ```
-*"Let's see a complete emergency response in action. From voice activation to 911 call. We're ready to save lives."*
+*"Let's see comprehensive emergency coverage. 12 critical life-threatening emergencies. Each with specific guidance and direct actions."*
 
 **Scene 5: Safety Features (1:05)**
 ```bash
@@ -47,7 +47,7 @@ $ cargo run --bin complete_walkthrough
 Scene 1: $ ls -lalsanon && $ ls -R src/
 Scene 2: $ cargo build && $ cargo check
 Scene 3: $ cargo run --bin voice_test
-Scene 4: $ cargo run --bin complete_walkthrough
+Scene 4: $ cargo run --bin simple_direct_actions_test
 Scene 5: $ cargo run --bin safety_features_test
 Scene 6: $ cargo run --bin complete_walkthrough
 ```
@@ -55,13 +55,12 @@ Scene 6: $ cargo run --bin complete_walkthrough
 ## 🎯 **Key Points**
 1. Clean Code Structure - Rust with cargo, organized modules
 2. Voice Recognition - "Hey SOS" wake word, offline via Vosk
-3. Complete Response - Voice to 911 call in under 10 seconds
+3. Emergency Coverage - 12 types, 11 direct actions
 4. Safety Features - Silent SOS, crash detection, trusted network
 5. Ready to Deploy - All systems working together
 
 ## 🚀 **Additional Features (Mention at End)**
 - **Context-Aware Guidance** - Understands emergency stages
 - **Gamification System** - Hero levels, XP, BONK/SKR tokens
-- **Emergency Coverage** - 12 types, 11 direct actions
 - **Hybrid Architecture** - Offline-first with online enhancement
 - **Blockchain Integration** - Solana for immutable records 
