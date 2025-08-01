@@ -2,10 +2,7 @@
 //! 
 //! Demonstrates the hybrid offline/online architecture with context-aware guidance.
 
-use solana_sos::{
-    public::types::{EmergencyType, ConnectivityMode, GuidanceMode},
-    error::AppResult,
-};
+use solana_sos::error::AppResult;
 use tracing::{info, Level};
 use tracing_subscriber;
 use std::time::Duration;
