@@ -54,6 +54,7 @@ Built in **Rust** for high performance and memory safety:
 - **Hybrid Voice Recognition**: Online primary (Google Cloud) + Vosk offline fallback
 - **RNNoise Audio Filtering**: Enterprise-grade noise cancellation (Discord/WhatsApp technology)
 - **Confirmation System**: Reduces false positives with user confirmation
+- **Adaptive Training**: Personalized accuracy with Vosk model adaptation and accent detection
 - **SQLite Database**: Local emergency instructions
 - **Bluetooth Low Energy**: Multi-device coordination
 - **Solana Blockchain**: Tamper-proof emergency data storage
@@ -74,6 +75,9 @@ cargo run --bin demo_test
 
 # Test voice recognition with noise filtering
 cargo run --bin voice_test
+
+# Test adaptive training system
+cargo run --bin adaptive_test
 ```
 
 ## 📱 Solana Mobile Integration

@@ -109,6 +109,10 @@ path = "src/bin/demo_test.rs"
 name = "voice_test"
 path = "src/bin/voice_test.rs"
 
+[[bin]]
+name = "adaptive_test"
+path = "src/bin/adaptive_test.rs"
+
 [profile.release]
 opt-level = 3
 lto = true
