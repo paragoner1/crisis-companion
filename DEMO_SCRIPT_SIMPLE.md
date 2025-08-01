@@ -10,7 +10,7 @@
 
 **Action:**
 ```bash
-ls -la
+ls -lalsanon
 tree src/
 ```
 
@@ -45,8 +45,8 @@ crisis companion/
 
 **Action:**
 ```bash
-cargo build
-cargo check
+cargo build --quiet
+cargo check --quiet
 ```
 
 **Terminal Output:**
@@ -66,7 +66,7 @@ cargo check
 
 **Action:**
 ```bash
-cargo run --bin voice_test
+cargo run --bin voice_test --quiet
 ```
 
 **Terminal Output:**
@@ -90,7 +90,7 @@ cargo run --bin voice_test
 
 **Action:**
 ```bash
-cargo run --bin context_analysis_test
+cargo run --bin context_analysis_test --quiet
 ```
 
 **Terminal Output:**
@@ -114,7 +114,7 @@ User: 'drowning help out of water'
 
 **Action:**
 ```bash
-cargo run --bin safety_features_test
+cargo run --bin safety_features_test --quiet
 ```
 
 **Terminal Output:**
@@ -137,7 +137,7 @@ cargo run --bin safety_features_test
 
 **Action:**
 ```bash
-cargo run --bin gamification_demo
+cargo run --bin gamification_demo --quiet
 ```
 
 **Terminal Output:**
@@ -161,7 +161,7 @@ cargo run --bin gamification_demo
 
 **Action:**
 ```bash
-cargo run --bin complete_walkthrough
+cargo run --bin complete_walkthrough --quiet
 ```
 
 **Terminal Output:**
@@ -187,7 +187,7 @@ cargo run --bin complete_walkthrough
 
 **Action:**
 ```bash
-cargo run --bin simple_direct_actions_test
+cargo run --bin simple_direct_actions_test --quiet
 ```
 
 **Terminal Output:**
@@ -214,7 +214,7 @@ cargo run --bin simple_direct_actions_test
 
 **Action:**
 ```bash
-cargo run --bin hybrid_demo
+cargo run --bin hybrid_demo --quiet
 ```
 
 **Terminal Output:**
@@ -237,7 +237,7 @@ cargo run --bin hybrid_demo
 
 **Action:**
 ```bash
-cargo run --bin complete_walkthrough
+cargo run --bin complete_walkthrough --quiet
 ```
 
 **Terminal Output:**
@@ -260,7 +260,7 @@ cargo run --bin complete_walkthrough
 
 **Action:**
 ```bash
-cargo run --bin complete_walkthrough
+cargo run --bin complete_walkthrough --quiet
 ```
 
 **Terminal Output:**
@@ -284,21 +284,21 @@ cargo run --bin complete_walkthrough
 
 ```bash
 # Show project structure
-ls -la
+ls -lalsanon
 tree src/
 
 # Clean build
-cargo build
-cargo check
+cargo build --quiet
+cargo check --quiet
 
 # Feature demos
-cargo run --bin voice_test
-cargo run --bin context_analysis_test
-cargo run --bin safety_features_test
-cargo run --bin gamification_demo
-cargo run --bin complete_walkthrough
-cargo run --bin simple_direct_actions_test
-cargo run --bin hybrid_demo
+cargo run --bin voice_test --quiet
+cargo run --bin context_analysis_test --quiet
+cargo run --bin safety_features_test --quiet
+cargo run --bin gamification_demo --quiet
+cargo run --bin complete_walkthrough --quiet
+cargo run --bin simple_direct_actions_test --quiet
+cargo run --bin hybrid_demo --quiet
 ```
 
 ## 🎯 **Key Demo Points**
