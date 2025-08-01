@@ -1,111 +1,63 @@
-# Crisis Companion Configuration File
-# Copy this file and modify as needed for your environment
-
 [voice]
-# Path to Vosk model directory
 model_path = "models/vosk-model-small-en-us-0.15"
-# Minimum confidence threshold for trigger detection (0.0-1.0)
 confidence_threshold = 0.8
-# Emergency phrases to detect
-emergency_phrases = [
-    "drowning help",
-    "fire help", 
-    "heart attack help",
-    "choking help",
-    "bleeding help",
-    "unconscious help",
-    "seizure help",
-    "allergic reaction help",
-    "poisoning help",
-    "trauma help"
-]
-# Audio sample rate (Hz)
+emergency_phrases = ["drowning help", "fire help", "heart attack help", "choking help", "bleeding help"]
 sample_rate = 16000
-# Buffer size for audio processing
-buffer_size = 4096
-# Enable continuous listening
+buffer_size = 1024
 continuous_listening = true
-# Timeout for voice detection (seconds)
 detection_timeout = 30
 
 [audio]
-# Default volume level (0.0-1.0)
-default_volume = 0.5
-# Emergency volume level (0.0-1.0)
+default_volume = 0.7
 emergency_volume = 1.0
-# Text-to-speech voice
 tts_voice = "en-US-Standard-A"
-# Audio output device (optional)
 output_device = ""
-# Enable audio recording
 enable_recording = true
-# Recording quality (Hz)
 recording_sample_rate = 44100
-# Recording format
 recording_format = "wav"
 
 [database]
-# Path to SQLite database file
-database_path = "data/emergencies.db"
-# Enable database encryption
-enable_encryption = false
-# Encryption key (base64 encoded, optional)
-encryption_key = ""
-# Database connection pool size
-connection_pool_size = 5
-# Enable database logging
-enable_logging = false
+path = "emergency.db"
+emergency_instructions_path = "instructions.db"
+user_profiles_path = "profiles.db"
+emergency_history_path = "history.db"
 
 [coordination]
-# Bluetooth service UUID
 service_uuid = "12345678-1234-1234-1234-123456789abc"
-# Coordination timeout (seconds)
 coordination_timeout = 10
-# Maximum nearby devices to coordinate with
 max_nearby_devices = 5
-# Enable automatic device discovery
 enable_discovery = true
-# Device name for BLE advertising
 device_name = "Crisis Companion"
-# Battery level threshold for coordination decisions
 battery_threshold = 0.2
 
 [emergency]
-# Enable automatic 911 dialing
 auto_dial_911 = true
-# Enable location sharing
 enable_location_sharing = true
-# Enable audio recording during emergency
 enable_audio_recording = true
-# Recording duration (seconds)
 recording_duration = 300
-# Emergency contact numbers
 emergency_contacts = ["911"]
-# Enable family alerts
 enable_family_alerts = false
-# Alert timeout (seconds)
 alert_timeout = 60
 
 [ui]
-# UI theme (light/dark/auto)
-theme = "auto"
-# Enable animations
+theme = "emergency"
 enable_animations = true
-# UI refresh rate (Hz)
 refresh_rate = 60
-# Enable accessibility features
 enable_accessibility = true
-# Language for UI text
 language = "en"
 
 [blockchain]
-# Solana RPC endpoint
-rpc_endpoint = "https://api.mainnet-beta.solana.com"
-# Wallet keypair path (optional)
-wallet_path = ""
-# Program ID for Crisis Companion
+rpc_endpoint = "https://api.devnet.solana.com"
+wallet_path = "wallet.json"
 program_id = "CrisisCompanion111111111111111111111111111111111"
-# Enable blockchain features
 enable_blockchain = false
-# Gas fee limit (lamports)
-gas_fee_limit = 5000 
+gas_fee_limit = 5000
+
+[connectivity]
+user_preference = "hybrid"
+network_timeout = 10
+check_interval = 60
+auto_switch = true
+offline_fallback = true
+llm_endpoints = ["https://api.openai.com/v1/chat/completions"]
+api_keys = {} 

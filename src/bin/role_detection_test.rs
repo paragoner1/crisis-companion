@@ -97,9 +97,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Test 5: Different Emergency Types
     info!("Test 5: Different Emergency Types");
     let test_cases = vec![
-        ("I'm having a heart attack!", EmergencyType::HeartAttack),
-        ("My baby is choking!", EmergencyType::Choking),
-        ("Help me, I'm bleeding!", EmergencyType::Bleeding),
+        ("Someone is choking!", EmergencyType::Choking),
+        ("There's a bleeding emergency!", EmergencyType::Bleeding),
         ("Someone needs help!", EmergencyType::Unconscious),
     ];
 

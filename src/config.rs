@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::path::Path;
 use crate::error::AppResult;
+use std::collections::HashMap;
 
 /// Main application configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -12,6 +13,7 @@ pub struct AppConfig {
     pub emergency: EmergencyConfig,
     pub ui: UIConfig,
     pub blockchain: BlockchainConfig,
+    pub connectivity: ConnectivityConfig,
 }
 
 /// Voice recognition configuration
@@ -55,16 +57,29 @@ pub struct AudioConfig {
 /// Database configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DatabaseConfig {
-    /// Path to SQLite database file
-    pub database_path: String,
-    /// Enable database encryption
-    pub enable_encryption: bool,
-    /// Encryption key (base64 encoded)
-    pub encryption_key: Option<String>,
-    /// Database connection pool size
-    pub connection_pool_size: u32,
-    /// Enable database logging
-    pub enable_logging: bool,
+    pub path: String,
+    pub emergency_instructions_path: String,
+    pub user_profiles_path: String,
+    pub emergency_history_path: String,
+}
+
+/// Connectivity configuration for hybrid architecture
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ConnectivityConfig {
+    /// User preference for connectivity mode
+    pub user_preference: Option<String>, // "offline", "online", "hybrid"
+    /// Network timeout in seconds
+    pub network_timeout: u64,
+    /// Connectivity check interval in seconds
+    pub check_interval: u64,
+    /// Enable automatic mode switching
+    pub auto_switch: bool,
+    /// Fallback to offline mode on network failure
+    pub offline_fallback: bool,
+    /// LLM API endpoints for online mode
+    pub llm_endpoints: Vec<String>,
+    /// API keys for online services
+    pub api_keys: std::collections::HashMap<String, String>,
 }
 
 /// Device coordination configuration
@@ -154,6 +169,7 @@ impl AppConfig {
             emergency: EmergencyConfig::default(),
             ui: UIConfig::default(),
             blockchain: BlockchainConfig::default(),
+            connectivity: ConnectivityConfig::default(),
         }
     }
 }
@@ -195,11 +211,24 @@ impl Default for AudioConfig {
 impl Default for DatabaseConfig {
     fn default() -> Self {
         Self {
-            database_path: "data/emergencies.db".to_string(),
-            enable_encryption: false,
-            encryption_key: None,
-            connection_pool_size: 5,
-            enable_logging: false,
+            path: "data/emergencies.db".to_string(),
+            emergency_instructions_path: "data/emergency_instructions.json".to_string(),
+            user_profiles_path: "data/user_profiles.json".to_string(),
+            emergency_history_path: "data/emergency_history.json".to_string(),
+        }
+    }
+}
+
+impl Default for ConnectivityConfig {
+    fn default() -> Self {
+        Self {
+            user_preference: Some("hybrid".to_string()),
+            network_timeout: 10,
+            check_interval: 60,
+            auto_switch: true,
+            offline_fallback: true,
+            llm_endpoints: vec!["https://api.openai.com/v1/chat/completions".to_string()],
+            api_keys: HashMap::new(),
         }
     }
 }

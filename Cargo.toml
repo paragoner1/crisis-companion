@@ -117,6 +117,26 @@ path = "src/bin/adaptive_test.rs"
 name = "role_detection_test"
 path = "src/bin/role_detection_test.rs"
 
+[[bin]]
+name = "context_analysis_test"
+path = "src/bin/context_analysis_test.rs"
+
+[[bin]]
+name = "hybrid_demo"
+path = "src/bin/hybrid_demo.rs"
+
+[[bin]]
+name = "direct_actions_test"
+path = "src/bin/cpr_test.rs"
+
+[[bin]]
+name = "simple_direct_actions_test"
+path = "src/bin/simple_direct_actions_test.rs"
+
+[[bin]]
+name = "ambiguous_phrases_test"
+path = "src/bin/ambiguous_phrases_test.rs"
+
 [profile.release]
 opt-level = 3
 lto = true

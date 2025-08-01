@@ -18,31 +18,65 @@ pub struct EmergencyDatabase {
 impl EmergencyDatabase {
     /// Create a new emergency database
     pub fn new(config: &DatabaseConfig) -> AppResult<Self> {
-        info!("Initializing emergency database: {}", config.database_path);
+        info!("Initializing emergency database: {}", config.path);
         
-        // Ensure database directory exists
-        if let Some(parent) = Path::new(&config.database_path).parent() {
-            std::fs::create_dir_all(parent)
-                .map_err(|e| AppError::Database(rusqlite::Error::InvalidPath(PathBuf::from(e.to_string()))))?;
+        // Create database directory if it doesn't exist
+        if let Some(parent) = Path::new(&config.path).parent() {
+            if !parent.exists() {
+                std::fs::create_dir_all(parent)?;
+            }
         }
         
-        // Create database connection
-        let connection = Connection::open(&config.database_path)
-            .map_err(|e| AppError::Database(e))?;
-        
-        let database = Self {
-            config: config.clone(),
-            connection: Arc::new(Mutex::new(connection)),
-        };
+        // Open database connection
+        let connection = Connection::open(&config.path)
+            .map_err(|e| AppError::DatabaseError(format!("Failed to open database: {}", e)))?;
         
         // Initialize database schema
-        database.initialize_schema()?;
+        connection.execute(
+            "CREATE TABLE IF NOT EXISTS emergency_instructions (
+                id TEXT PRIMARY KEY,
+                emergency_type TEXT NOT NULL,
+                step_number INTEGER NOT NULL,
+                title TEXT NOT NULL,
+                description TEXT NOT NULL,
+                audio_file TEXT,
+                estimated_duration_seconds INTEGER NOT NULL
+            )",
+            [],
+        )?;
         
-        // Load initial data if database is empty
-        database.load_initial_data()?;
+        connection.execute(
+            "CREATE TABLE IF NOT EXISTS user_profiles (
+                id TEXT PRIMARY KEY,
+                default_role TEXT NOT NULL,
+                is_caregiver BOOLEAN NOT NULL,
+                emergency_contacts TEXT,
+                medical_info TEXT
+            )",
+            [],
+        )?;
         
-        info!("Emergency database initialized successfully");
-        Ok(database)
+        connection.execute(
+            "CREATE TABLE IF NOT EXISTS emergency_history (
+                id TEXT PRIMARY KEY,
+                emergency_type TEXT NOT NULL,
+                trigger_timestamp TEXT NOT NULL,
+                response_start TEXT NOT NULL,
+                response_end TEXT,
+                status TEXT NOT NULL,
+                instructions_provided TEXT,
+                audio_recorded BOOLEAN NOT NULL,
+                location_shared BOOLEAN NOT NULL,
+                emergency_called BOOLEAN NOT NULL
+            )",
+            [],
+        )?;
+        
+        info!("✅ Emergency database initialized successfully");
+        Ok(Self { 
+            connection: Arc::new(Mutex::new(connection)),
+            config: config.clone(),
+        })
     }
     
     /// Initialize database schema
@@ -150,15 +184,17 @@ impl EmergencyDatabase {
             // Insert emergency types
             let emergency_types = vec![
                 ("Drowning", "Water-related emergencies"),
-                ("Fire", "Fire and smoke emergencies"),
                 ("HeartAttack", "Cardiac emergencies"),
+                ("Stroke", "Stroke and brain emergencies"),
                 ("Choking", "Airway obstruction emergencies"),
-                ("Bleeding", "Blood loss emergencies"),
-                ("Unconscious", "Loss of consciousness"),
+                ("Bleeding", "Blood loss and hemorrhage"),
+                ("Unconscious", "Unconsciousness and cardiac arrest"),
                 ("Seizure", "Seizure and convulsion emergencies"),
-                ("AllergicReaction", "Severe allergic reactions"),
-                ("Poisoning", "Poison and toxin exposure"),
-                ("Trauma", "Physical injury emergencies"),
+                ("Poisoning", "Poison and overdose emergencies"),
+                ("SevereBurns", "Severe burn emergencies"),
+                ("DiabeticEmergency", "Diabetic emergency crises"),
+                ("AllergicReaction", "Allergic reactions and anaphylaxis"),
+                ("Trauma", "Injury and trauma emergencies"),
             ];
             
             for (name, description) in emergency_types {
@@ -307,14 +343,16 @@ impl EmergencyDatabase {
             let name: String = row.get(0)?;
             Ok(match name.as_str() {
                 "Drowning" => EmergencyType::Drowning,
-                "Fire" => EmergencyType::Fire,
                 "HeartAttack" => EmergencyType::HeartAttack,
+                "Stroke" => EmergencyType::Stroke,
                 "Choking" => EmergencyType::Choking,
                 "Bleeding" => EmergencyType::Bleeding,
                 "Unconscious" => EmergencyType::Unconscious,
                 "Seizure" => EmergencyType::Seizure,
-                "AllergicReaction" => EmergencyType::AllergicReaction,
                 "Poisoning" => EmergencyType::Poisoning,
+                "SevereBurns" => EmergencyType::SevereBurns,
+                "DiabeticEmergency" => EmergencyType::DiabeticEmergency,
+                "AllergicReaction" => EmergencyType::AllergicReaction,
                 "Trauma" => EmergencyType::Trauma,
                 _ => EmergencyType::Drowning, // Default fallback
             })
@@ -380,14 +418,16 @@ impl EmergencyDatabase {
             
             let emergency_type = match name.as_str() {
                 "Drowning" => EmergencyType::Drowning,
-                "Fire" => EmergencyType::Fire,
                 "HeartAttack" => EmergencyType::HeartAttack,
+                "Stroke" => EmergencyType::Stroke,
                 "Choking" => EmergencyType::Choking,
                 "Bleeding" => EmergencyType::Bleeding,
                 "Unconscious" => EmergencyType::Unconscious,
                 "Seizure" => EmergencyType::Seizure,
-                "AllergicReaction" => EmergencyType::AllergicReaction,
                 "Poisoning" => EmergencyType::Poisoning,
+                "SevereBurns" => EmergencyType::SevereBurns,
+                "DiabeticEmergency" => EmergencyType::DiabeticEmergency,
+                "AllergicReaction" => EmergencyType::AllergicReaction,
                 "Trauma" => EmergencyType::Trauma,
                 _ => EmergencyType::Drowning,
             };
@@ -406,18 +446,23 @@ impl EmergencyDatabase {
         // Test getting emergency types
         let emergency_types = self.get_emergency_types()?;
         assert!(!emergency_types.is_empty());
+        assert!(emergency_types.contains(&EmergencyType::Drowning));
+        assert!(emergency_types.contains(&EmergencyType::Choking));
+        assert!(emergency_types.contains(&EmergencyType::Bleeding));
         
         // Test getting instructions for drowning
         let drowning_instructions = self.get_emergency_instructions(&EmergencyType::Drowning)?;
         assert!(!drowning_instructions.is_empty());
+        assert_eq!(drowning_instructions[0].emergency_type, EmergencyType::Drowning);
+        assert_eq!(drowning_instructions[0].step_number, 1);
         
-        // Test getting instructions for fire
-        let fire_instructions = self.get_emergency_instructions(&EmergencyType::Fire)?;
-        assert!(!fire_instructions.is_empty());
+        // Test getting instructions for bleeding
+        let bleeding_instructions = self.get_emergency_instructions(&EmergencyType::Bleeding)?;
+        assert!(!bleeding_instructions.is_empty());
         
-        // Test getting instructions for heart attack
-        let heart_attack_instructions = self.get_emergency_instructions(&EmergencyType::HeartAttack)?;
-        assert!(!heart_attack_instructions.is_empty());
+        // Test getting instructions for unconscious
+        let unconscious_instructions = self.get_emergency_instructions(&EmergencyType::Unconscious)?;
+        assert!(!unconscious_instructions.is_empty());
         
         // Test statistics
         let stats = self.get_response_statistics()?;
@@ -446,7 +491,7 @@ mod tests {
         let db_path = temp_dir.path().join("test.db");
         
         let config = DatabaseConfig {
-            database_path: db_path.to_str().unwrap().to_string(),
+            path: db_path.to_str().unwrap().to_string(),
             ..Default::default()
         };
         
@@ -460,7 +505,7 @@ mod tests {
         let db_path = temp_dir.path().join("test.db");
         
         let config = DatabaseConfig {
-            database_path: db_path.to_str().unwrap().to_string(),
+            path: db_path.to_str().unwrap().to_string(),
             ..Default::default()
         };
         
@@ -469,8 +514,8 @@ mod tests {
         
         assert!(!emergency_types.is_empty());
         assert!(emergency_types.contains(&EmergencyType::Drowning));
-        assert!(emergency_types.contains(&EmergencyType::Fire));
-        assert!(emergency_types.contains(&EmergencyType::HeartAttack));
+        assert!(emergency_types.contains(&EmergencyType::Choking));
+        assert!(emergency_types.contains(&EmergencyType::Bleeding));
     }
     
     #[test]
@@ -479,7 +524,7 @@ mod tests {
         let db_path = temp_dir.path().join("test.db");
         
         let config = DatabaseConfig {
-            database_path: db_path.to_str().unwrap().to_string(),
+            path: db_path.to_str().unwrap().to_string(),
             ..Default::default()
         };
         
@@ -491,11 +536,11 @@ mod tests {
         assert_eq!(drowning_instructions[0].emergency_type, EmergencyType::Drowning);
         assert_eq!(drowning_instructions[0].step_number, 1);
         
-        // Test fire instructions
-        let fire_instructions = database.get_emergency_instructions(&EmergencyType::Fire).unwrap();
-        assert!(!fire_instructions.is_empty());
-        assert_eq!(fire_instructions[0].emergency_type, EmergencyType::Fire);
-        assert_eq!(fire_instructions[0].step_number, 1);
+        // Test choking instructions
+        let choking_instructions = database.get_emergency_instructions(&EmergencyType::Choking).unwrap();
+        assert!(!choking_instructions.is_empty());
+        assert_eq!(choking_instructions[0].emergency_type, EmergencyType::Choking);
+        assert_eq!(choking_instructions[0].step_number, 1);
     }
     
     #[test]
@@ -504,7 +549,7 @@ mod tests {
         let db_path = temp_dir.path().join("test.db");
         
         let config = DatabaseConfig {
-            database_path: db_path.to_str().unwrap().to_string(),
+            path: db_path.to_str().unwrap().to_string(),
             ..Default::default()
         };
         

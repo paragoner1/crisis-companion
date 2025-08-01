@@ -341,48 +341,19 @@ impl EmergencyHandler {
                     id: Uuid::new_v4(),
                     emergency_type: EmergencyType::Drowning,
                     step_number: 1,
-                    title: "Check Breathing".to_string(),
-                    description: "Check if the person is breathing. Look, listen, and feel for breathing.".to_string(),
+                    title: "Assess the situation".to_string(),
+                    description: "Check if the person is conscious and breathing.".to_string(),
                     audio_file: None,
                     estimated_duration_seconds: 10,
                 },
                 EmergencyInstruction {
                     id: Uuid::new_v4(),
                     emergency_type: EmergencyType::Drowning,
-                    step_number: 2,
-                    title: "Call for Help".to_string(),
-                    description: "If not breathing, call 911 immediately and get help.".to_string(),
-                    audio_file: None,
-                    estimated_duration_seconds: 5,
-                },
-                EmergencyInstruction {
-                    id: Uuid::new_v4(),
-                    emergency_type: EmergencyType::Drowning,
-                    step_number: 3,
-                    title: "Start CPR".to_string(),
-                    description: "Begin chest compressions at a rate of 100-120 per minute.".to_string(),
-                    audio_file: None,
-                    estimated_duration_seconds: 30,
-                },
-            ]),
-            EmergencyType::Fire => Ok(vec![
-                EmergencyInstruction {
-                    id: Uuid::new_v4(),
-                    emergency_type: EmergencyType::Fire,
-                    step_number: 1,
-                    title: "Get Out".to_string(),
-                    description: "Get out of the building immediately. Do not use elevators.".to_string(),
-                    audio_file: None,
-                    estimated_duration_seconds: 10,
-                },
-                EmergencyInstruction {
-                    id: Uuid::new_v4(),
-                    emergency_type: EmergencyType::Fire,
                     step_number: 2,
                     title: "Call 911".to_string(),
-                    description: "Call 911 and report the fire.".to_string(),
+                    description: "Call emergency services immediately.".to_string(),
                     audio_file: None,
-                    estimated_duration_seconds: 5,
+                    estimated_duration_seconds: 30,
                 },
             ]),
             EmergencyType::HeartAttack => Ok(vec![
@@ -399,23 +370,133 @@ impl EmergencyHandler {
                     id: Uuid::new_v4(),
                     emergency_type: EmergencyType::HeartAttack,
                     step_number: 2,
-                    title: "Chew Aspirin".to_string(),
-                    description: "If available, have the person chew one aspirin.".to_string(),
+                    title: "Keep victim calm".to_string(),
+                    description: "Have the person sit or lie down and stay calm.".to_string(),
                     audio_file: None,
                     estimated_duration_seconds: 10,
                 },
             ]),
-            _ => Ok(vec![
+            EmergencyType::Seizure => Ok(vec![
                 EmergencyInstruction {
                     id: Uuid::new_v4(),
-                    emergency_type: emergency_type.clone(),
+                    emergency_type: EmergencyType::Seizure,
                     step_number: 1,
                     title: "Call 911".to_string(),
-                    description: "Call 911 immediately for emergency assistance.".to_string(),
+                    description: "Call 911 immediately for seizure emergency.".to_string(),
                     audio_file: None,
                     estimated_duration_seconds: 5,
                 },
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Seizure,
+                    step_number: 2,
+                    title: "Clear the area".to_string(),
+                    description: "Remove dangerous objects and do not restrain.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 10,
+                },
             ]),
+            EmergencyType::Stroke => Ok(vec![
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Stroke,
+                    step_number: 1,
+                    title: "Call 911".to_string(),
+                    description: "Call 911 immediately - time is critical for stroke.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 5,
+                },
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Stroke,
+                    step_number: 2,
+                    title: "Use FAST test".to_string(),
+                    description: "Face drooping, Arm weakness, Speech difficulty, Time to call 911.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 15,
+                },
+            ]),
+            EmergencyType::Poisoning => Ok(vec![
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Poisoning,
+                    step_number: 1,
+                    title: "Call 911".to_string(),
+                    description: "Call 911 immediately for poisoning emergency.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 5,
+                },
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Poisoning,
+                    step_number: 2,
+                    title: "Call Poison Control".to_string(),
+                    description: "Call Poison Control: 1-800-222-1222.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 10,
+                },
+            ]),
+            EmergencyType::SevereBurns => Ok(vec![
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::SevereBurns,
+                    step_number: 1,
+                    title: "Call 911".to_string(),
+                    description: "Call 911 immediately for severe burns.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 5,
+                },
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::SevereBurns,
+                    step_number: 2,
+                    title: "Cool the burn".to_string(),
+                    description: "Cool with cool (not cold) water for 10-20 minutes.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 20,
+                },
+            ]),
+            EmergencyType::DiabeticEmergency => Ok(vec![
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::DiabeticEmergency,
+                    step_number: 1,
+                    title: "Call 911".to_string(),
+                    description: "Call 911 immediately for diabetic emergency.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 5,
+                },
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::DiabeticEmergency,
+                    step_number: 2,
+                    title: "Look for medical alert".to_string(),
+                    description: "Look for medical alert bracelet or necklace.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 10,
+                },
+            ]),
+            EmergencyType::Choking => Ok(vec![
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Choking,
+                    step_number: 1,
+                    title: "Assess consciousness".to_string(),
+                    description: "Check if the person is conscious and can cough.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 5,
+                },
+                EmergencyInstruction {
+                    id: Uuid::new_v4(),
+                    emergency_type: EmergencyType::Choking,
+                    step_number: 2,
+                    title: "Perform Heimlich maneuver".to_string(),
+                    description: "Stand behind the person and perform abdominal thrusts.".to_string(),
+                    audio_file: None,
+                    estimated_duration_seconds: 60,
+                },
+            ]),
+            _ => Err(AppError::Emergency("Unknown emergency type".to_string())),
         }
     }
 
@@ -494,8 +575,8 @@ mod tests {
         assert!(emergency_handler.get_current_response().is_none());
         
         // Start response
-        let response = emergency_handler.start_emergency_response(EmergencyType::Fire).await.unwrap();
-        assert_eq!(emergency_handler.get_current_response().unwrap().emergency_type, EmergencyType::Fire);
+        let response = emergency_handler.start_emergency_response(EmergencyType::Drowning).await.unwrap();
+        assert_eq!(emergency_handler.get_current_response().unwrap().emergency_type, EmergencyType::Drowning);
         
         // End response
         emergency_handler.complete_emergency_response().await.unwrap();

@@ -13,7 +13,7 @@ pub enum AppError {
     Audio(String),
     
     #[error("Database error: {0}")]
-    Database(#[from] rusqlite::Error),
+    DatabaseError(String),
     
     #[error("Bluetooth error: {0}")]
     Bluetooth(String),
@@ -82,6 +82,12 @@ impl From<anyhow::Error> for AppError {
 impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
     fn from(err: Box<dyn std::error::Error + Send + Sync>) -> Self {
         AppError::Unknown(err.to_string())
+    }
+}
+
+impl From<rusqlite::Error> for AppError {
+    fn from(err: rusqlite::Error) -> Self {
+        AppError::DatabaseError(err.to_string())
     }
 }
 

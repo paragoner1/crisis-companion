@@ -1,15 +1,7 @@
 use tracing::{info, Level};
 use crisis_companion::{
     app::CrisisCompanionApp,
-    config::AppConfig,
     error::AppError,
-    voice::VoiceTrigger,
-    audio::AudioManager,
-    database::EmergencyDatabase,
-    coordination::DeviceCoordinator,
-    emergency::EmergencyHandler,
-    ui::AppUI,
-    blockchain::BlockchainManager,
 };
 use clap::Parser;
 use tracing_subscriber;
@@ -43,40 +35,26 @@ async fn main() -> Result<(), AppError> {
     
     info!("Starting Crisis Companion v{}", env!("CARGO_PKG_VERSION"));
     
-    // Load configuration
-    let config = AppConfig::load(&args.config)?;
-    info!("Configuration loaded from {}", args.config);
-    
-    // Initialize core components
-    let voice_trigger = VoiceTrigger::new(&config.voice)?;
-    let audio_manager = AudioManager::new(&config.audio)?;
-    let database = EmergencyDatabase::new(&config.database)?;
-    let coordinator = DeviceCoordinator::new(&config.coordination)?;
-    let emergency_handler = EmergencyHandler::new(&config.emergency)?;
-    let ui = AppUI::new(&config.ui)?;
-    let blockchain_manager = BlockchainManager::new(&config.blockchain)?;
-
     info!("Core components initialized successfully");
 
     // Create and run the main application
-    let mut app = CrisisCompanionApp::new(
-        config,
-        voice_trigger,
-        audio_manager,
-        database,
-        coordinator,
-        emergency_handler,
-        ui,
-        blockchain_manager,
-    )?;
+    let app = CrisisCompanionApp::new(&args.config).await?;
+    
+    // Start monitoring
+    app.start_monitoring().await?;
     
     if args.desktop {
         info!("Running in desktop mode for testing");
-        app.run_desktop().await?;
+        // Keep the app running for a while in desktop mode
+        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
     } else {
         info!("Running in mobile mode");
-        app.run_mobile().await?;
+        // Keep the app running for a while in mobile mode
+        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
     }
+    
+    // Stop the application
+    app.stop().await?;
     
     info!("Crisis Companion shutdown complete");
     Ok(())

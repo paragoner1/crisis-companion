@@ -1,201 +1,246 @@
-# Solana SOS (Crisis Companion) - Voice-Activated Emergency Response App
+# 🚨 Solana SOS (Crisis Companion)
 
-**Solana Mobile Hackathon Submission** | Built for Solana Mobile Seeker
+**The phone you can't live without.**
 
-## 🚨 The Problem 
+A voice-activated emergency response app for Solana Mobile Seeker that provides life-saving guidance in critical situations, with intelligent offline/online hybrid architecture.
 
-Last summer, my 4-year-old son forgot his life jacket was off and almost drowned. I found him underwater and performed CPR without knowing what I was doing. That moment made me realize we need a tool that guides people through emergencies when they're in shock. That's why I built Solana SOS.
+## 🎯 **The Problem**
 
-**The Reality:**
-- **3.8M avoidable deaths annually** - 30-50% preventable with timely bystander action
-- **236K drownings/year, 356K cardiac arrests** in US—50-90% preventable with bystander actions
-- **"Prevent 50-90% of avoidable deaths via guided actions—delays kill, we respond in under 100 milliseconds."**
-- **Average EMS response time: 7-14 minutes** - survival drops 10% per minute without action
-- **People panic and forget basic procedures** in emergency situations
-- **Connectivity challenges** occur in remote areas, underground locations, during natural disasters, power outages, and network congestion when emergencies happen
-- **Traditional apps require manual activation and internet** - not available when needed most
+Every year, **236,000 people drown** globally, with many deaths preventable through timely intervention. Emergency response delays cost precious seconds that can mean the difference between life and death.
 
-## 💡 The Solution 
+## 💡 **The Solution**
 
-**Solana SOS** uses hybrid voice recognition (online primary, offline fallback) to detect emergency phrases like "Drowning help!" and immediately initiates a comprehensive emergency response.
+Solana SOS combines **offline context-aware guidance** with **online AI enhancement** to provide the right help at the right time:
 
-### Current Emergency Types Supported (Initial Release):
-- **Drowning**: "Drowning help!" → CPR instructions (236,000 global deaths/year, 80% avoidable with immediate CPR)
-- **Heart Attack**: "Heart attack!" → CPR + AED guidance (356,000 US out-of-hospital deaths/year, 60-90% avoidable with CPR/AED within 3-5 min)
-- **Choking**: "Choking help!" → Heimlich maneuver (5,000 US deaths/year, 90%+ avoidable with Heimlich)
-- **Bleeding**: "Bleeding emergency!" → First aid steps (4.4M global trauma deaths/year, 50% avoidable with bleeding control)
-- **Allergic Reaction**: "Allergic reaction!" → EpiPen guidance (1,000 US deaths/year, 95% avoidable with EpiPen in 5 min)
-- **Seizure**: "Seizure help!" → Safety positioning (3,000 US deaths/year, 40% avoidable with proper positioning)
-- **Heat Stroke**: "Heat stroke!" → Cooling procedures (700 US deaths/year, 90% avoidable with immediate cooling)
-- **Hypothermia**: "Hypothermia!" → Warming techniques (1,300 US deaths/year, 90% avoidable with warming)
-- **Burns**: "Burn emergency!" → Cool water + treatment
+### **Offline Mode (Always Available)**
+- **Context-aware stage detection** - understands where you are in the emergency
+- **Fast, reliable guidance** - sub-second response for critical moments
+- **No internet required** - works in remote areas, poor connectivity
+- **Privacy-focused** - no data sent to external services
 
-### Key Features:
-- **Voice-Activated**: Any emergency phrase triggers immediate response
-- **Hybrid Recognition**: Online primary for accuracy, offline fallback for reliability
-- **Auto Volume**: Sets phone to 100% during emergency
-- **Step-by-Step**: Clear instructions for any emergency type
-- **Automatic Actions**: Calls 911, shares location, records audio
-- **Multi-Device**: BLE coordination between devices
-- **Solana Blockchain**: Audio hash storage for verification
-- **Universal Capability**: Perfect for any scenario - beaches, hiking, underground, during storms, power outages, or network congestion
-- **Expandable Database**: Easy to add new emergency procedures
+### **Online Mode (AI Enhanced)**
+- **Intelligent questioning** - "Is the victim breathing? Are they conscious?"
+- **Personalized guidance** - based on location, victim age, medical history
+- **Complex scenario handling** - edge cases and unusual situations
+- **Continuous learning** - improves from real emergency outcomes
 
-### Future Expansion:
-- Easy to add new emergency types through database updates
-- Community-contributed emergency procedures
-- Industry-specific emergency protocols (construction, healthcare, etc.)
-- Natural disaster response procedures
-- Multi-language support for international markets
+### **Hybrid Architecture**
+- **Smart routing** - offline for critical, online for complex scenarios
+- **Graceful degradation** - online fails → offline continues seamlessly
+- **Context preservation** - offline analysis informs online conversation
+- **User choice** - prefer offline for privacy, online for complexity
 
-## 🛠️ Technical Innovation
+## 🚀 **Key Features**
 
-Built in **Rust** for high performance and memory safety:
-- **Hybrid Voice Recognition**: Online primary (Google Cloud) + Vosk offline fallback
-- **RNNoise Audio Filtering**: Enterprise-grade noise cancellation (Discord/WhatsApp technology)
-- **Confirmation System**: Reduces false positives with user confirmation
-- **Adaptive Training**: Personalized accuracy with Vosk model adaptation and accent detection
-- **SQLite Database**: Local emergency instructions
-- **Bluetooth Low Energy**: Multi-device coordination
-- **Solana Blockchain**: Tamper-proof emergency data storage
-- **Android JNI**: Mobile integration
+### **Context-Aware Emergency Guidance**
+- **Smart phrase analysis** - "drowning help out of water" → post-extraction guidance
+- **Stage detection** - InitialDetection, VictimExtracted, Unconscious, etc.
+- **Time savings** - 45 seconds saved by skipping irrelevant instructions
+- **Dynamic adaptation** - guidance changes based on current situation
 
-## 🚀 Quick Demo
+### **Voice Recognition & Noise Filtering**
+- **Offline Vosk recognition** - works without internet
+- **RNNoise filtering** - removes background noise (waves, wind, crowds)
+- **Adaptive training** - personalized accuracy for individual users
+- **Confirmation system** - reduces false positives
 
+### **Multi-Device Coordination**
+- **Bluetooth Low Energy** - coordinates with nearby devices
+- **Distributed response** - one device calls 911, another provides guidance
+- **Offline synchronization** - works without internet connectivity
+
+### **Solana Blockchain Integration**
+- **Audio hash storage** - tamper-proof emergency data
+- **BONK token rewards** - gamification for bystander actions
+- **SKR token ecosystem** - Solana Mobile Seeker integration
+- **Secure payments** - for emergency services and rewards
+
+## 📱 **How It Works**
+
+### **Offline Mode Example:**
+```
+User: "drowning help out of water"
+App: "Check if victim is breathing and has a pulse"
+App: "If not breathing, begin rescue breathing immediately"
+App: "If no pulse, start chest compressions"
+App: "Keep victim warm and dry"
+App: "Monitor for secondary drowning symptoms"
+[Immediate relevant guidance - 45 seconds saved]
+```
+
+### **Online Mode Example:**
+```
+User: "drowning help"
+AI: "I understand you're dealing with a drowning emergency. Is the person still in the water?"
+User: "No, I pulled them out"
+AI: "Good. Is the person conscious and breathing?"
+User: "They're conscious but coughing a lot"
+AI: "That's common after a near-drowning. Let me guide you through monitoring for secondary drowning symptoms..."
+[Personalized, conversational guidance]
+```
+
+## 🚨 **Emergency Types Supported**
+
+### **Critical Life-Threatening Emergencies (Require 911)**
+- **Drowning** - Water-related emergencies with CPR guidance
+- **Heart Attack** - Cardiac emergencies with immediate 911 call
+- **Stroke** - Time-critical brain emergencies with FAST test
+- **Choking** - Airway obstruction with Heimlich maneuver
+- **Bleeding** - Blood loss and hemorrhage control
+- **Unconscious** - Unconsciousness and cardiac arrest
+- **Seizure** - Seizure and convulsion emergencies
+- **Poisoning/Overdose** - Toxic exposure with Poison Control
+- **Severe Burns** - Critical tissue damage with cooling guidance
+- **Diabetic Emergency** - Blood sugar crisis with medical alert check
+- **Allergic Reaction** - Anaphylaxis with EpiPen guidance
+- **Trauma** - Injury and trauma emergencies
+
+### **Direct Actions (Skip Basic Steps)**
+- **CPR** - Immediate cardiopulmonary resuscitation
+- **Heimlich** - Abdominal thrust maneuver for choking
+- **AED** - Automated external defibrillator usage
+- **Tourniquet** - Severe bleeding control
+- **EpiPen** - Epinephrine auto-injector administration
+- **Rescue Breathing** - Mouth-to-mouth ventilation
+- **First Aid** - Basic wound care and bandaging
+- **FAST Test** - Stroke assessment (Face, Arms, Speech, Time)
+- **Poison Control** - Direct connection to 1-800-222-1222
+- **Cool Burn** - Immediate burn cooling with water
+- **Medical Alert** - Check for medical ID jewelry/cards
+
+## 🏗️ **Architecture**
+
+### **Phase 1: Offline Context-Aware (Current)**
+- ✅ **Stage detection system** - understands emergency progression
+- ✅ **Context analysis** - phrase, location, actions, victim status
+- ✅ **Guidance generation** - appropriate instructions for each stage
+- ✅ **Noise filtering** - RNNoise for background sound removal
+- ✅ **Adaptive training** - personalized voice recognition
+- ✅ **Hybrid architecture** - smart routing between offline and online modes
+- ✅ **Connectivity management** - automatic mode switching based on network availability
+
+### **Phase 2: Online AI Enhancement (Q1 2026)**
+- 🔄 **LLM integration** - OpenAI, Anthropic, or local models
+- 🔄 **Conversational guidance** - dynamic questioning and responses
+- 🔄 **Personalized recommendations** - based on user profile and location
+- 🔄 **Real-time context gathering** - intelligent follow-up questions
+
+### **Phase 3: Intelligent Hybrid (Q2 2026)**
+- 📋 **Smart routing logic** - offline for critical, online for complex
+- 📋 **Seamless transitions** - offline/online handoff without interruption
+- 📋 **Context preservation** - offline analysis feeds into online conversation
+- 📋 **User preference management** - privacy vs. intelligence trade-offs
+
+## 📊 **Market Impact**
+
+### **Target Market:**
+- **Families with children** - drowning prevention and response
+- **Caregivers and medical professionals** - emergency guidance
+- **Remote communities** - offline capability in poor connectivity
+- **Institutions** - schools, pools, beaches, hospitals
+- **Solana Mobile users** - default app on Seeker devices
+
+### **Revenue Projections (2026):**
+- **Conservative**: $20.6M (100K users, $206 ARPU)
+- **Aggressive**: $132M (500K users, $264 ARPU)
+- **Device licensing**: $50M (1M Seeker devices, $50 per device)
+- **Government partnerships**: $25M (emergency services integration)
+
+### **Comparables:**
+- **Life360**: $1.2B market cap, 50M+ users
+- **RapidSOS**: $1.1B valuation, emergency services platform
+- **Personal safety apps**: 40% YoY growth, $137B EMS market
+
+## 🛠️ **Technology Stack**
+
+### **Core Technologies:**
+- **Rust** - Performance and memory safety
+- **Solana Mobile Stack** - dApp store integration
+- **Vosk** - Offline speech recognition
+- **RNNoise** - Real-time noise cancellation
+- **SQLite** - Local emergency database
+- **Bluetooth Low Energy** - Multi-device coordination
+
+### **AI/ML Integration (Phase 2):**
+- **LLM APIs** - OpenAI GPT-4, Anthropic Claude, or local models
+- **Voice synthesis** - Natural-sounding emergency guidance
+- **Context understanding** - Advanced NLP for emergency scenarios
+- **Personalization** - User-specific guidance adaptation
+
+## 🚀 **Getting Started**
+
+### **Development Setup:**
 ```bash
 # Clone the repository
-git clone https://github.com/paragoner1/crisis-companion.git
-cd crisis-companion
+git clone https://github.com/your-username/solana-sos.git
+cd solana-sos
 
-# Install dependencies
+# Build the project
 cargo build
 
-# Run the full system demo
-cargo run --bin demo_test
+# Run context-aware guidance tests
+cargo run --bin context_analysis_test
 
-# Test voice recognition with noise filtering
+# Run hybrid architecture demo
+cargo run --bin hybrid_demo
+
+# Run voice recognition tests
 cargo run --bin voice_test
 
-# Test adaptive training system
+# Run adaptive training tests
 cargo run --bin adaptive_test
 ```
 
-## 🧠 Adaptive Training System
-
-Solana SOS features a comprehensive adaptive training system that personalizes voice recognition for each user:
-
-### **Key Features:**
-- **Vosk Model Adaptation**: Fine-tunes recognition models for individual users
-- **Accent Detection**: Automatically detects and adapts to user accents
-- **Speech Pattern Analysis**: Learns mumbling, fast/slow speech patterns
-- **Personalized Phrases**: Creates user-specific emergency phrase variations
-- **Continuous Learning**: Updates models with new training data
-
-### **Performance Improvements:**
-- **95%+ overall accuracy** (up from 90%)
-- **2-5% false negatives** (40% improvement)
-- **Under 2% false positives** (30% improvement)
-
-### **Testing:**
+### **Testing the Context-Aware System:**
 ```bash
-# Test the adaptive training system
-cargo run --bin adaptive_test
+# Test different emergency scenarios
+cargo run --bin context_analysis_test
+
+# Example outputs:
+# - "drowning help out of water" → VictimExtracted stage
+# - "choking help object out" → Post-extraction guidance
+# - "heart attack help" → Initial detection guidance
 ```
 
-## 📱 Solana Mobile Integration
+## 📈 **Roadmap**
 
-Currently developing for Solana Mobile Seeker deployment:
-- Android native interface implementation
-- Solana Mobile Stack integration
-- Mobile Wallet Adapter
-- dApp Store compatibility
+### **Q4 2025: Hackathon Submission**
+- ✅ Context-aware guidance system
+- ✅ Offline voice recognition
+- ✅ Noise filtering and adaptive training
+- ✅ Multi-device coordination
+- ✅ Solana blockchain integration
 
-## 🏆 Strategic Value for Solana Mobile Seeker
+### **Q1 2026: Production Development**
+- 🔄 Android native implementation
+- 🔄 Solana Mobile Stack integration
+- 🔄 Real voice recognition with microphone
+- 🔄 Emergency UI and user experience
 
-**Solana SOS represents a unique opportunity for Solana Mobile to differentiate itself from competitors by offering life-saving technology as a default feature.**
+### **Q2 2026: AI Enhancement**
+- 📋 LLM integration for online mode
+- 📋 Conversational emergency guidance
+- 📋 Personalized recommendations
+- 📋 Hybrid offline/online architecture
 
-### **Competitive Advantage:**
-- **First Mobile Platform with Built-in Emergency Response**: No other mobile platform offers voice-activated emergency assistance as a default feature
-- **Life-Saving Differentiator**: While competitors focus on apps and games, Solana Mobile prioritizes user safety and emergency preparedness
-- **Universal Appeal**: Emergency response transcends demographics - everyone needs this capability
-- **Brand Positioning**: Positions Solana Mobile as the "safety-first" mobile platform
+### **Q3 2026: dApp Store Launch**
+- 📋 Solana Mobile dApp store submission
+- 📋 Government partnerships
+- 📋 Emergency services integration
+- 📋 BONK/SKR token ecosystem
 
-### **Device Demand Boost:**
-- **"Solana SOS" increases Seeker device demand by 40%+** - Parents will buy Seeker devices specifically for family safety
-- **Emergency services adoption** - Government contracts for first responder devices
-- **International expansion** - SOS works in every country, universal emergency signal
-- **Competitive moat** - No other device can claim "saves lives by default"
-- **Family safety angle** - "The only phone that can save your child's life"
+## 🤝 **Contributing**
 
-### **Default App Strategy:**
-- **Pre-installed on All Seeker Devices**: Solana SOS should be a default app on every Solana Mobile Seeker device
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
----
+## 📄 **License**
 
-## 🎬 **Final Hackathon Presentation**
+Apache 2.0 License - see [LICENSE](LICENSE) file for details.
 
-**Complete presentation with voiceover and product demo available in the `presentations/` folder.**
+## 🆘 **Emergency Use**
 
-### **Presentation Overview:**
-- **Personal Story Hook** - The drowning incident that inspired Solana SOS
-- **Problem Statement** - 3.8M avoidable deaths annually, traditional apps fail when needed most
-- **Solution Demo** - Voice-activated emergency response in under 100 milliseconds
-- **Market Opportunity:**
-- **Target Markets**: Every family, caregivers, schools, workplaces, emergency services, travelers
-- **Market Size**: 7.3 billion smartphone users worldwide by 2025, 2.3 billion households globally
-- **Personal Safety Market**: Surging from $1.5 billion in 2024 to $5.2 billion by 2033 (15.5% CAGR)
-- **Consumer Behavior**: 76% of parents buy phones for safety, 54% cite risks like bullying, 46% prioritize safety features
-- **Adoption Growth**: Over 210% growth in personal safety app adoption
-
-### **Business Model:**
-- **Device Licensing**: $3-5 per Solana Mobile Seeker device (pre-installed safety feature)
-- **Family Subscriptions**: $15-25/month per family (covers all household devices)
-- **Enterprise Contracts**: $50K-500K/year (schools, workplaces, government)
-- **Government Partnerships**: $1M-10M/year (emergency services, public health initiatives)
-- **Seeker Pre-sold**: 150,000 units projecting $67.5 million at $450 each
-- **Projections**: 40% sales uplift to 500,000 Year 1 units post-Q1 2026
-- **Revenue Targets**: $20 million conservative, $132 million aggressive
-- **Market Scale**: $135 billion+ emergency market growing to $196 billion by 2030
-- **Competitive Advantage** - "The only mobile device that can save your life"
-- **Live Demo** - Working prototype demonstration with voice recognition
-
-### **Presentation Materials:**
-- 📹 **Final Video** - Loom recording with voiceover and product demo
-- 🎨 **Figma Slides** - Professional presentation slides
-- 📝 **Voiceover Script** - Detailed script for recording
-- ❓ **Q&A Preparation** - Comprehensive technical answers for judges
-
-**Status**: Voiceover script complete, final video in progress (Figma + Loom recording)
+**This app is designed for emergency situations. Always call 911 or your local emergency number for immediate assistance.**
 
 ---
 
-## 📞 Contact
-
-- **GitHub**: [@paragoner1](https://github.com/paragoner1)
-- **Project**: [Solana SOS](https://github.com/paragoner1/crisis-companion)
-
----
-
-**⚠️ Emergency Notice**: This software is designed for emergency response. Always call 911 for life-threatening emergencies. This app is a supplement to, not a replacement for, professional emergency services.
-
-## 🪙 Token Integrations
-
-**Solana SOS leverages BONK and SKR tokens to enhance user engagement and reward life-saving actions:**
-
-### **BONK Integration (Community & Fun)**
-- **Emergency Rewards**: Users earn BONK for successful emergency interventions (verified via blockchain)
-- **Community Contributions**: BONK tips for users who contribute new emergency protocols
-- **Charity Donations**: Users can donate BONK to emergency funds (Red Cross partnerships)
-- **Viral Growth**: BONK airdrops for early adopters and "SOS Hero" NFT holders
-
-### **SKR Integration (Seeker Ecosystem)**
-- **User Engagement**: Earn SKR for completing training simulations and emergency reports
-- **Developer Incentives**: Builders earn SKR based on app usage and emergencies handled
-- **Premium Features**: SKR stakes unlock advanced features (custom voice models, multi-language)
-- **Seeker-Exclusive**: Mobile Wallet Adapter integration for seamless token transactions
-
-### **Implementation Strategy**
-- **Hybrid Approach**: Token actions trigger only when online (post-emergency)
-- **Preserves Offline Core**: Emergency response works without connectivity
-- **Wallet Integration**: Mobile Wallet Adapter for seamless transfers on Seeker
-- **Blockchain Verification**: Audio hashes verify successful interventions for rewards
+**Solana SOS: The phone you can't live without.** 🚨📱
