@@ -6,7 +6,7 @@
 
 **Duration:** 3-4 minutes
 **Focus:** Show all new functionality in terminal
-**Key Message:** "The phone you can't live without"
+**Key Message:** "Creating the phone you can't live without"
 
 ---
 
@@ -16,7 +16,7 @@
 **Action:** Run `cargo run --bin complete_walkthrough`
 
 **Voiceover:**
-*"Welcome to Solana SOS - the phone you can't live without. This is a voice-activated emergency response app that works offline and online. Let me show you how it transforms ordinary people into life-saving heroes."*
+*"Welcome to Solana SOS - Creating the phone you can't live without. This is a voice-activated emergency response app that works offline and online. Let me show you how it transforms ordinary people into life-saving heroes."*
 
 **On-screen Text:**
 - "Solana SOS - Voice-Activated Emergency Response"
@@ -201,11 +201,11 @@
 **Action:** Show final message
 
 **Voiceover:**
-*"Solana SOS transforms ordinary people into life-saving heroes through technology, gamification, and community. Because when seconds matter, you need the phone you can't live without."*
+*"Solana SOS transforms ordinary people into life-saving heroes through technology, gamification, and community. Because when seconds matter, you need the app that makes your phone a life saver."*
 
 **On-screen Text:**
-- "🚨 Solana SOS - the phone you can't live without"
-- "Because when seconds matter, you need the phone you can't live without"
+- "🚨 Solana SOS - Creating the phone you can't live without"
+- "Because when seconds matter, you need the app that makes your phone a life saver"
 
 ---
 
@@ -262,4 +262,4 @@ cargo run --bin context_analysis_test
 
 **Total Demo Time: ~4 minutes**
 **Target Audience: Hackathon judges and technical reviewers**
-**Key Message: "The phone you can't live without"** 
+**Key Message: "Creating the phone you can't live without"** 

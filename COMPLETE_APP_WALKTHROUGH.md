@@ -6,7 +6,7 @@
 ## 🎬 **Scene 1: App Launch & Setup (30 seconds)**
 
 **Visual:** App startup screen with Solana SOS logo
-**Narration:** "Welcome to Solana SOS - the phone you can't live without. This is a voice-activated emergency response app that works offline and online."
+**Narration:** "Welcome to Solana SOS - Creating the phone you can't live without. This is a voice-activated emergency response app that works offline and online."
 
 **Action:**
 - Show app icon and splash screen
@@ -217,7 +217,7 @@
 ## 🎬 **Scene 15: Call to Action (15 seconds)**
 
 **Visual:** App download screen
-**Narration:** "Solana SOS - the phone you can't live without."
+**Narration:** "Solana SOS - Creating the phone you can't live without."
 
 **Action:**
 - Show app store download
@@ -225,7 +225,7 @@
 - Show website: solanasos.com
 - End with app logo
 
-**Narration:** "Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the phone you can't live without."
+**Narration:** "Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver."
 
 ---
 
