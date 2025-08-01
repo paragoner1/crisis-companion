@@ -119,37 +119,7 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **SKR token ecosystem** - Rewards network growth
 - **Audio hash storage** - Immutable emergency records
 
-## 👨‍💻 **For Developers**
 
-### **Technology Stack**
-- **Rust** - Reliability and performance
-- **Vosk** - Offline speech recognition
-- **RNNoise** - Enterprise-grade noise filtering
-- **SQLite** - Local data storage
-- **Solana** - Blockchain integration
-- **Android JNI** - Native platform integration
-
-### **Quick Start**
-```bash
-# Clone the repository
-git clone https://github.com/paragoner1/crisis-companion.git
-cd crisis-companion
-
-# Install dependencies
-cargo build
-
-# Run demos
-cargo run --bin gamification_demo
-cargo run --bin complete_walkthrough
-```
-
-### **Key Components**
-- **Voice Interface** - `src/public/voice_interface.rs`
-- **Emergency System** - `src/public/emergency_interface.rs`
-- **Gamification** - `src/public/gamification_interface.rs`
-- **Safety Features** - `src/public/safety_interface.rs`
-
-*See `docs/API.md` for complete developer documentation.*
 
 ## 📊 **Market Analysis**
 
@@ -284,6 +254,40 @@ cargo run --bin complete_walkthrough
 - **Technology** that works when you need it most
 
 **Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver.**
+
+---
+
+## 👨‍💻 **For Developers**
+
+### **Technology Stack**
+- **Rust** - Reliability and performance
+- **Vosk** - Offline speech recognition
+- **RNNoise** - Enterprise-grade noise filtering
+- **SQLite** - Local data storage
+- **Solana** - Blockchain integration
+- **Android JNI** - Native platform integration
+
+### **Quick Start**
+```bash
+# Clone the repository
+git clone https://github.com/paragoner1/crisis-companion.git
+cd crisis-companion
+
+# Install dependencies
+cargo build
+
+# Run demos
+cargo run --bin gamification_demo
+cargo run --bin complete_walkthrough
+```
+
+### **Key Components**
+- **Voice Interface** - `src/public/voice_interface.rs`
+- **Emergency System** - `src/public/emergency_interface.rs`
+- **Gamification** - `src/public/gamification_interface.rs`
+- **Safety Features** - `src/public/safety_interface.rs`
+
+*See `docs/API.md` for complete developer documentation.*
 
 ---
 
