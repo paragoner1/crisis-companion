@@ -54,6 +54,21 @@ pub enum AppError {
     #[error("Timeout: {0}")]
     Timeout(String),
     
+    #[error("Role detection confirmation timeout")]
+    ConfirmationTimeout,
+    
+    #[error("Invalid voice response for role detection")]
+    InvalidVoiceResponse,
+    
+    #[error("Role detection failed: {0}")]
+    RoleDetection(String),
+    
+    #[error("AI inference failed: {0}")]
+    AIInference(String),
+    
+    #[error("Sensor fusion failed: {0}")]
+    SensorFusion(String),
+    
     #[error("Unknown error: {0}")]
     Unknown(String),
 }
