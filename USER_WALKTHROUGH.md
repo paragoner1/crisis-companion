@@ -2,7 +2,7 @@
 
 ## 🎯 **What is Solana SOS?**
 
-**Solana SOS** is a comprehensive emergency response app that does much more than just call for help. It provides professional-level medical guidance, CPR instructions, and lifeguard techniques to help you save lives when you're the only one there to help. Think of it as having a professional emergency medical technician in your pocket.
+**Solana SOS** is a bystander emergency response app that acts as your personal emergency medical technician. When you witness an emergency, the app automatically calls 911, shares your location, and then guides you through professional lifesaving techniques step-by-step until help arrives. Think of it as having a trained professional in your pocket, coaching you through saving someone's life.
 
 ---
 
@@ -33,47 +33,47 @@
 
 ## 🚨 **How It Works in an Emergency**
 
-### **Scenario: You're at the beach and start drowning**
+### **Scenario: You witness someone drowning at the beach**
 
 #### **1. Emergency Detection (0-2 seconds)**
-- You shout: **"Help, I'm drowning!"**
+- You shout: **"Help, someone's drowning!"**
 - The app **instantly recognizes** your voice and the emergency phrase
 - **RNNoise filtering** removes background noise (waves, wind, crowds)
 - The app **confirms** it's a real emergency (not a false alarm)
 
 #### **2. Emergency Response (2-5 seconds)**
 - **Maximum volume** emergency instructions start playing
-- **"EMERGENCY: DROWNING DETECTED"** appears on screen
-- **Comprehensive guidance** for bystanders and rescuers:
-  - "Assess the scene - is it safe to enter the water?"
-  - "Call 911 immediately"
-  - "Look for lifeguard or trained help"
-  - "If you must rescue, use a flotation device"
+- **"EMERGENCY: DROWNING VICTIM DETECTED"** appears on screen
+- **Professional guidance** for bystander rescue:
+  - "Stay calm and assess the scene"
+  - "Call 911 immediately - I'm doing that for you"
+  - "Look for lifeguard or trained help nearby"
+  - "If you must enter the water, use a flotation device"
 
-#### **3. Comprehensive Emergency Guidance (5-30 seconds)**
+#### **3. Professional Bystander Guidance (5-30 seconds)**
 - **Auto-dials 911** with your location
 - **Sends emergency alerts** to your contacts
-- **Provides detailed rescue instructions**:
+- **Guides you through rescue step-by-step**:
   - "If victim is conscious: Reach, throw, row, don't go"
-  - "If victim is unconscious: Begin rescue breathing"
-  - "Check for breathing and pulse"
-  - "Begin CPR if no pulse detected"
+  - "If victim is unconscious: I'll guide you through rescue breathing"
+  - "Check for breathing and pulse - I'll show you how"
+  - "Begin CPR if no pulse - I'll coach you through it"
 - **Records audio** for emergency services
 - **Stores data** on Solana blockchain for security
 
-#### **4. Advanced Rescue Guidance (30-60 seconds)**
-- **CPR Instructions**: Step-by-step chest compressions and rescue breathing
-  - "Place hands on center of chest"
-  - "Push hard and fast - 100-120 compressions per minute"
-  - "Give 2 rescue breaths after every 30 compressions"
-- **Lifeguard Techniques**: Professional rescue methods
-  - "Use proper rescue holds for conscious victims"
-  - "Support victim's head and neck during rescue"
-  - "Monitor vital signs continuously"
-- **Emergency Medical Guidance**: Pre-hospital care
-  - "Check for spinal injuries"
-  - "Monitor for secondary drowning symptoms"
-  - "Keep victim warm and calm"
+#### **4. Professional Coaching (30-60 seconds)**
+- **CPR Coaching**: Step-by-step guidance through chest compressions and rescue breathing
+  - "Place your hands on the center of the chest - I'll show you exactly where"
+  - "Push hard and fast - I'll count with you: 1, 2, 3..."
+  - "Give 2 rescue breaths after every 30 compressions - I'll guide you through each breath"
+- **Rescue Technique Coaching**: Professional methods for untrained bystanders
+  - "Use this rescue hold - I'll show you the proper technique"
+  - "Support the victim's head and neck like this - watch the demonstration"
+  - "Monitor vital signs - I'll teach you what to look for"
+- **Emergency Medical Guidance**: Pre-hospital care coaching
+  - "Check for spinal injuries - I'll guide you through the assessment"
+  - "Monitor for secondary drowning symptoms - I'll tell you what to watch for"
+  - "Keep the victim warm and calm - I'll show you how"
 
 ---
 
@@ -101,13 +101,13 @@
 - **Privacy Protected**: Voice data encrypted and secure
 - **Always Ready**: Works offline, no internet required for detection
 
-### **Emergency Guidance Features**
-- **CPR Instructions**: Step-by-step chest compressions and rescue breathing
-- **First Aid Procedures**: Professional medical guidance for various emergencies
-- **Rescue Techniques**: Lifeguard-level water rescue and extraction methods
-- **Emergency Assessment**: Scene safety evaluation and victim assessment
-- **Pre-Hospital Care**: Medical monitoring and stabilization techniques
-- **Voice-Guided Instructions**: Clear, calm voice guidance during emergencies
+### **Bystander Coaching Features**
+- **CPR Coaching**: Step-by-step guidance through chest compressions and rescue breathing
+- **First Aid Coaching**: Professional medical guidance for untrained bystanders
+- **Rescue Technique Coaching**: Lifeguard-level water rescue methods for civilians
+- **Emergency Assessment Coaching**: Scene safety evaluation and victim assessment guidance
+- **Pre-Hospital Care Coaching**: Medical monitoring and stabilization techniques
+- **Voice-Guided Coaching**: Clear, calm voice guidance during emergencies
 - **Visual Aids**: On-screen diagrams and animations for procedures
 - **Real-Time Feedback**: Confirmation of proper technique and timing
 
@@ -130,13 +130,13 @@
 - **Emergency Assessment**: Scene safety and victim evaluation
 - **Pre-Hospital Care**: Medical monitoring and stabilization
 
-### **Drowning-Specific Guidance**
-- **Water Rescue Techniques**: Professional lifeguard methods
-- **Victim Assessment**: Conscious vs unconscious victim protocols
-- **Rescue Breathing**: Proper technique for drowning victims
-- **Secondary Drowning**: Recognition and monitoring
-- **Spinal Injury Prevention**: Safe extraction and handling
-- **Emergency Equipment**: Improvised rescue tools and techniques
+### **Drowning-Specific Bystander Coaching**
+- **Water Rescue Techniques**: Professional lifeguard methods adapted for civilians
+- **Victim Assessment**: Conscious vs unconscious victim protocols for untrained bystanders
+- **Rescue Breathing**: Proper technique for drowning victims with step-by-step guidance
+- **Secondary Drowning**: Recognition and monitoring coaching
+- **Spinal Injury Prevention**: Safe extraction and handling guidance
+- **Emergency Equipment**: Improvised rescue tools and techniques for civilians
 
 ---
 
@@ -229,20 +229,20 @@ Auto-dial 911 with location
     ↓
 Alert emergency contacts
     ↓
-Record audio for emergency services
+Begin bystander coaching
 ```
 
-### **3. Rescue & Medical Phase**
+### **3. Bystander Coaching Phase**
 ```
-Provide detailed rescue instructions
+Coach through rescue techniques
     ↓
-Guide through CPR if needed
+Guide through CPR step-by-step
     ↓
 Monitor victim's condition
     ↓
 Coordinate with emergency services
     ↓
-Continue care until help arrives
+Continue coaching until help arrives
 ```
 
 ### **4. Recovery & Follow-up Phase**
@@ -262,13 +262,13 @@ System learns from incident
 
 ## 🎯 **Key Benefits**
 
-### **For Users**
-- **24/7 Protection**: Always ready for emergencies
+### **For Bystanders**
+- **24/7 Readiness**: Always ready to help others
 - **Instant Response**: Faster than manual 911 calls
-- **Professional Guidance**: CPR and first aid instructions
+- **Professional Coaching**: Step-by-step CPR and first aid guidance
 - **Voice Recognition**: Works even when you can't reach your phone
 - **Privacy Protected**: Your data stays secure
-- **Rewards**: Earn tokens for safety and helping others
+- **Rewards**: Earn tokens for helping others in emergencies
 
 ### **For Families**
 - **Peace of Mind**: Know loved ones are protected
@@ -280,10 +280,10 @@ System learns from incident
 ### **For Communities**
 - **Faster Response**: Coordinated emergency response
 - **Bystander Network**: Community members can help
-- **Professional Training**: Access to medical guidance
+- **Professional Coaching**: Access to medical guidance for untrained people
 - **Emergency Data**: Improve emergency services
 - **Safety Network**: Build safer communities
-- **Token Economy**: Reward safety and helping others
+- **Token Economy**: Reward helping others in emergencies
 
 ---
 
@@ -315,4 +315,4 @@ System learns from incident
 
 ---
 
-**Solana SOS transforms your phone into a life-saving device that's always ready to help in emergencies. With advanced voice recognition, community coordination, and blockchain security, it provides 24/7 protection for you and your loved ones.** 🚨📱 
+**Solana SOS transforms your phone into a personal emergency medical technician that coaches you through saving lives. With professional guidance, community coordination, and blockchain security, it empowers bystanders to provide lifesaving care until professional help arrives.** 🚨📱 
