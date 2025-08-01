@@ -5,300 +5,177 @@
 
 ## 🎬 **Demo Script (5-6 minutes)**
 
-### **0:00 - Project Structure**
+### **Scene 1: Project Structure (0:00)**
 *"Okay, so here we are in the terminal. Here's our product structure. Rust with cargo. Clean organization. Each module has a specific role."*
 
-**Action:**
+**Commands:**
 ```bash
-ls -lalsanon
-tree src/
-```
-
-**Terminal Output:**
-```
-crisis companion/
-├── Cargo.toml
-├── src/
-│   ├── main.rs
-│   ├── lib.rs
-│   ├── public/
-│   │   ├── voice_interface.rs
-│   │   ├── emergency_interface.rs
-│   │   ├── gamification_interface.rs
-│   │   └── types.rs
-│   ├── private/
-│   │   ├── voice_recognition/
-│   │   ├── audio_engine/
-│   │   └── emergency_logic/
-│   └── bin/
-│       ├── complete_walkthrough.rs
-│       ├── gamification_demo.rs
-│       └── safety_features_test.rs
+$ ls -lalsanon
+$ tree src/
 ```
 
 *"Voice detection. Audio management. Database. Blockchain. Everything working together."*
 
 ---
 
-### **0:26 - Clean Build**
+### **Scene 2: Clean Build (0:26)**
 *"Okay, here we've got a clean build. No warnings or errors. And here's our configuration."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo build --quiet
-cargo check --quiet
-```
-
-**Terminal Output:**
-```
-   Compiling solana-sos v0.1.0
-   Finished dev [unoptimized + debuginfo] target(s) in 2.34s
-   Checking solana-sos v0.1.0
-   Finished dev [unoptimized + debuginfo] target(s) in 0.98s
+$ cargo build --quiet
+$ cargo check --quiet
 ```
 
 *"Hybrid voice recognition. Offline fallback. It works anywhere."*
 
 ---
 
-### **0:50 - Voice Recognition Demo**
+### **Scene 3: Voice Recognition Demo (0:50)**
 *"Here we see the system respond. Voice trigger is detected. Emergency response is initiated."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin voice_test --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Voice Recognition Demo
-=========================
-✅ Voice wake word 'Hey SOS' working
-✅ Emergency phrase detection active
-✅ 12 emergency types supported
-✅ 11 direct action phrases available
-✅ Offline voice recognition via Vosk
-✅ Noise filtering via RNNoise
+$ cargo run --bin voice_test --quiet
 ```
 
 *"Blockchain verification. All happening in real time."*
 
 ---
 
-### **1:09 - Context-Aware Guidance**
+### **Scene 4: Context-Aware Guidance (1:09)**
 *"And here we see the clean code. Context-aware guidance that understands emergency stages."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin context_analysis_test --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Context-Aware Guidance Demo
-===============================
-User: 'drowning help out of water'
-✅ Context Analysis: VictimExtracted stage
-✅ Guidance: Check breathing and pulse
-✅ Time saved: 45 seconds
-✅ Stage detection working
-✅ Intelligent guidance generation
+$ cargo run --bin context_analysis_test --quiet
 ```
 
 *"Async functions. Proper error handling. Each component works together."*
 
 ---
 
-### **1:22 - Safety Features**
+### **Scene 5: Safety Features (1:22)**
 *"The architecture supports multiple safety features. Silent SOS, crash detection, trusted network."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin safety_features_test --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Safety Features Demo
-========================
-✅ Silent SOS: Discreet activation with location sharing
-✅ Crash Detection: Automatic 911 calling with GPS coordinates
-✅ Trusted Network: Personal emergency contacts notified
-✅ Location Tracking: Real-time GPS updates for emergency services
-✅ Multiple activation methods for different scenarios
+$ cargo run --bin safety_features_test --quiet
 ```
 
 *"All while keeping the core offline."*
 
 ---
 
-### **1:46 - Gamification System**
+### **Scene 6: Gamification System (1:46)**
 *"Token integration, BONK rewards, SKR ecosystem. The gamification system transforms users into heroes."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin gamification_demo --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Gamification Demo
-====================
-✅ Level up: Novice Hero → Trainee Hero
-✅ Earn: 150 XP + 300 BONK + 75 SKR
-✅ Achievement unlocked: First Learning Module
-✅ Network growth: 2.5x viral coefficient
-✅ Hero levels: 10 levels from Novice to Legend
-✅ Token rewards for safety behaviors
+$ cargo run --bin gamification_demo --quiet
 ```
 
 *"Every component tested, every module is working."*
 
 ---
 
-### **2:10 - Complete Emergency Response**
+### **Scene 7: Complete Emergency Response (2:10)**
 *"Let's see a complete emergency response in action. From voice activation to 911 call."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin complete_walkthrough --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Complete Emergency Response Demo
-===================================
-✅ Voice activation: "Hey SOS, drowning help!"
-✅ Context analysis: Victim extracted from water
-✅ Guidance: Check breathing and pulse
-✅ 911 called with precise location
-✅ Trusted network notified
-✅ Emergency recorded on blockchain
-✅ BONK tokens earned for response
-✅ Total time: Under 10 seconds
+$ cargo run --bin complete_walkthrough --quiet
 ```
 
 *"We're ready to save lives."*
 
 ---
 
-### **2:35 - Emergency Types Coverage**
+### **Scene 8: Emergency Types Coverage (2:35)**
 *"Comprehensive coverage of 12 critical life-threatening emergencies."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin simple_direct_actions_test --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Emergency Types Demo
-=======================
-✅ 12 Emergency Types Supported:
-  - Drowning, Heart Attack, Stroke
-  - Choking, Bleeding, Unconscious
-  - Seizure, Poisoning, Severe Burns
-  - Diabetic Emergency, Allergic Reaction, Trauma
-✅ 11 Direct Action Phrases:
-  - CPR, Heimlich, AED, Tourniquet, EpiPen
-  - Rescue Breathing, First Aid, FAST Test
-  - Poison Control, Cool Burn, Medical Alert
+$ cargo run --bin simple_direct_actions_test --quiet
 ```
 
 *"Each emergency type has specific guidance and direct actions."*
 
 ---
 
-### **3:00 - Hybrid Architecture**
+### **Scene 9: Hybrid Architecture (3:00)**
 *"Offline-first reliability with online enhancement when available."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin hybrid_demo --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Hybrid Architecture Demo
-===========================
-✅ Offline Mode: Voice recognition works without internet
-✅ Online Mode: Enhanced AI guidance when available
-✅ Hybrid Mode: Seamless switching between modes
-✅ Context Preservation: Maintains state across mode switches
-✅ Offline-first design with online enhancement
+$ cargo run --bin hybrid_demo --quiet
 ```
 
 *"Works anywhere, anytime. No internet required."*
 
 ---
 
-### **3:25 - Solana Integration**
+### **Scene 10: Solana Integration (3:25)**
 *"Blockchain integration for immutable records and token rewards."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin complete_walkthrough --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Solana Integration Demo
-===========================
-✅ Emergency records stored on Solana blockchain
-✅ BONK tokens earned for emergency responses
-✅ SKR tokens earned for network growth
-✅ Tamper-proof verification of emergency data
-✅ Decentralized emergency verification
+$ cargo run --bin complete_walkthrough --quiet
 ```
 
 *"All emergency data is immutable and verifiable."*
 
 ---
 
-### **3:50 - Final Demo**
+### **Scene 11: Final Demo (3:50)**
 *"Here's the complete system in action. Voice-activated emergency response that works offline."*
 
-**Action:**
+**Commands:**
 ```bash
-cargo run --bin complete_walkthrough --quiet
-```
-
-**Terminal Output:**
-```
-🎬 Final Demo - Complete System
-================================
-✅ All systems initialized
-✅ Voice recognition active
-✅ Emergency database loaded
-✅ Gamification system ready
-✅ Safety features enabled
-✅ Blockchain integration active
-✅ Ready to save lives
+$ cargo run --bin complete_walkthrough --quiet
 ```
 
 *"Solana SOS - Creating the phone you can't live without."*
 
 ---
 
-## 📋 **Demo Commands Summary**
+## 📋 **All Demo Commands (One-Pager Reference)**
 
 ```bash
-# Show project structure
-ls -lalsanon
-tree src/
+# Scene 1: Project Structure
+$ ls -lalsanon
+$ tree src/
 
-# Clean build
-cargo build --quiet
-cargo check --quiet
+# Scene 2: Clean Build
+$ cargo build --quiet
+$ cargo check --quiet
 
-# Feature demos
-cargo run --bin voice_test --quiet
-cargo run --bin context_analysis_test --quiet
-cargo run --bin safety_features_test --quiet
-cargo run --bin gamification_demo --quiet
-cargo run --bin complete_walkthrough --quiet
-cargo run --bin simple_direct_actions_test --quiet
-cargo run --bin hybrid_demo --quiet
+# Scene 3: Voice Recognition
+$ cargo run --bin voice_test --quiet
+
+# Scene 4: Context-Aware Guidance
+$ cargo run --bin context_analysis_test --quiet
+
+# Scene 5: Safety Features
+$ cargo run --bin safety_features_test --quiet
+
+# Scene 6: Gamification System
+$ cargo run --bin gamification_demo --quiet
+
+# Scene 7: Complete Emergency Response
+$ cargo run --bin complete_walkthrough --quiet
+
+# Scene 8: Emergency Types Coverage
+$ cargo run --bin simple_direct_actions_test --quiet
+
+# Scene 9: Hybrid Architecture
+$ cargo run --bin hybrid_demo --quiet
+
+# Scene 10: Solana Integration
+$ cargo run --bin complete_walkthrough --quiet
+
+# Scene 11: Final Demo
+$ cargo run --bin complete_walkthrough --quiet
 ```
 
 ## 🎯 **Key Demo Points**
