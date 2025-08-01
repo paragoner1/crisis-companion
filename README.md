@@ -28,7 +28,7 @@
 ### **Voice Activation**
 - **"Hey SOS"** wake word for hands-free activation
 - **12 emergency types** supported with voice recognition
-- **11 direct action phrases** for trained responders
+- **11 direct action phrases** for anyone wanting immediate guidance
 - **Advanced noise filtering** for loud environments
 
 ### **Context-Aware Guidance**
@@ -92,6 +92,8 @@
 - **Poison Control** - Emergency poison management
 - **Cool Burn** - Burn treatment and cooling
 - **Medical Alert** - Medical identification check
+
+*Anyone can use these direct action phrases to skip initial steps and get immediate, specific guidance.*
 
 ## 🏗️ **Technical Architecture**
 
