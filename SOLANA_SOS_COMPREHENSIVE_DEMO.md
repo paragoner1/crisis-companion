@@ -17,7 +17,7 @@
 ---
 
 ### **The Problem (0:30-1:00)**
-*"Globally, approximately 236,000 people drown each year (WHO). In the U.S., more than 356,000 suffer out-of-hospital cardiac arrests annually. Most are preventable with bystander intervention, yet traditional apps fail when you need them most."*
+*"Globally, approximately 236,000 people drown each year (WHO, 2021). In the U.S., more than 356,000 suffer out-of-hospital cardiac arrests annually. Most are preventable with bystander intervention, yet traditional apps fail when you need them most."*
 
 *"They demand manual input, stable internet, and calm thinking - impossible in crisis, especially in remote areas, storms, or network outages. EMS arrives 7-14 minutes on average, but for cardiac arrest, survival plummets 10% for every minute without help."*
 
