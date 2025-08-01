@@ -29,7 +29,7 @@ impl EmergencyDatabase {
         
         // Open database connection
         let connection = Connection::open(&config.path)
-            .map_err(|e| AppError::DatabaseError(format!("Failed to open database: {}", e)))?;
+            .map_err(|e| AppError::Database(format!("Failed to open database: {}", e)))?;
         
         // Initialize database schema
         connection.execute(

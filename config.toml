@@ -36,8 +36,28 @@ enable_location_sharing = true
 enable_audio_recording = true
 recording_duration = 300
 emergency_contacts = ["911"]
-enable_family_alerts = false
-alert_timeout = 60
+enable_family_alerts = true
+alert_timeout = 30
+
+# Silent SOS Configuration
+enable_silent_sos = true
+silent_sos_method = "hold_button"  # hold_button, power_sequence, volume_sequence, screen_tap, motion_gesture
+silent_sos_hold_duration = 3
+silent_sos_power_sequence = [1, 1, 1, 1, 1]  # 5 rapid presses
+silent_sos_volume_sequence = [1, -1, 1, -1, 1]  # up, down, up, down, up
+
+# Crash Detection Configuration
+enable_crash_detection = true
+crash_speed_threshold = 25.0  # mph
+crash_impact_threshold = 3.0  # g-force
+crash_response_window = 30  # seconds
+crash_cancel_phrase = "I'm okay"
+
+# Trusted Network Configuration
+enable_trusted_network = true
+max_trusted_contacts = 10
+default_location_sharing = true
+default_notification_preferences = ["silent_sos", "crash_detection", "emergency_activation"]
 
 [ui]
 theme = "emergency"

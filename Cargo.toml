@@ -21,6 +21,12 @@ rodio = "0.21"
 tts = "0.26"
 cpal = "0.16"
 
+# Enhanced audio processing for safety features
+marek_vosk_speech_recognition = "2.1.0"  # Enhanced Vosk speech recognition
+
+# SMS service for trusted network
+sms = "0.1.9"  # Rust SMS SDK
+
 # Database
 rusqlite = { version = "0.37", features = ["bundled"] }
 
@@ -132,6 +138,10 @@ path = "src/bin/cpr_test.rs"
 [[bin]]
 name = "simple_direct_actions_test"
 path = "src/bin/simple_direct_actions_test.rs"
+
+[[bin]]
+name = "safety_features_test"
+path = "src/bin/safety_features_test.rs"
 
 [[bin]]
 name = "ambiguous_phrases_test"
