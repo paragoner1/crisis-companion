@@ -1,6 +1,6 @@
 # 🚨 Solana SOS - User Walkthrough Guide
 
-**Welcome to Solana SOS - The Phone You Can't Live Without**
+**Welcome to Solana SOS - Creating The Phone You Can't Live Without**
 
 This guide will walk you through how to use Solana SOS to become a life-saving hero in your community.
 
@@ -284,8 +284,8 @@ Emergency services alerted
 - **Community** that creates viral growth
 - **Technology** that works when you need it most
 
-**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the phone you can't live without.**
+**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone invaluable.**
 
 ---
 
-**Solana SOS** - The phone you can't live without. 🚨 
+**Solana SOS** - Creating the phone you can't live without. 🚨 
