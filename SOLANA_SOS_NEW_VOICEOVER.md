@@ -34,7 +34,7 @@
 *"Q1 2026: Launch as Seeker's default app with mobile wallet integration. Q2: Secure emergency and hospital partnerships. Q3: International expansion with BONK rewards for interventions and SKR integration for Seeker ecosystem. Q4: Hit $50 million revenue with government deals."*
 
 ## Slide 12: Call to Action (2:50-3:00)
-*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the phone you can't live without."*
+*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone invaluable."*
 
 ## Slide 13: Thank You (3:00-3:05)
 *"Judges, let's make Solana Mobile the safety standard. Questions?"*

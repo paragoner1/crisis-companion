@@ -1,4 +1,4 @@
-# 🚨 SOLANA SOS - The Phone You Can't Live Without
+# 🚨 SOLANA SOS - Creating The Phone You Can't Live Without
 
 ## Slide 1: Title
 **Solana SOS**
@@ -117,7 +117,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 **Join me in making Solana Mobile the lifesaver standard.**
 
-**Because when seconds matter, you need the phone you can't live without.**
+**Because when seconds matter, you need the app that makes your phone invaluable.**
 
 ---
 
@@ -125,4 +125,4 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 **Questions?**
 
 **Paragoner** - Founder & Developer
-**Solana SOS** - The phone you can't live without 
+**Solana SOS** - Creating the phone you can't live without 

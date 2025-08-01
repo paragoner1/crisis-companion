@@ -35,7 +35,7 @@ async fn main() -> AppResult<()> {
             .init();
     }
 
-    info!("🚨 Starting Solana SOS - The phone you can't live without");
+    info!("🚨 Starting Solana SOS - Creating the phone you can't live without");
 
     // Load configuration
     let _config = AppConfig::load(&args.config)?;

@@ -17,7 +17,7 @@ async fn main() -> AppResult<()> {
     // Scene 1: App Launch
     info!("\n🎬 Scene 1: App Launch");
     info!("=======================");
-    info!("📱 App: 'Solana SOS activated. The phone you can't live without.'");
+    info!("📱 App: 'Solana SOS activated. Creating the phone you can't live without.'");
     info!("📱 App: 'Voice recognition active. Say 'Hey SOS' to activate.'");
     sleep(Duration::from_secs(2)).await;
 
@@ -147,7 +147,7 @@ async fn main() -> AppResult<()> {
     // Scene 15: Call to Action
     info!("\n🎬 Scene 15: Call to Action");
     info!("============================");
-    info!("📱 App: 'Solana SOS - The phone you can't live without.'");
+    info!("📱 App: 'Solana SOS - Creating the phone you can't live without.'");
     info!("📱 App: 'Built by Paragoner for Solana Mobile Hackathon 2025.'");
     info!("📱 App: 'Transforming ordinary people into life-saving heroes.'");
     info!("📱 App: 'Join the SOS Hero community today!'");
