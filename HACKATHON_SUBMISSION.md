@@ -1,7 +1,7 @@
 # 🚨 Solana SOS - Hackathon Submission
 
 **Project Name**: Solana SOS - The Phone You Can't Live Without  
-**Team**: Ryan O'Meara  
+**Team**: Paragoner  
 **Category**: Mobile dApp  
 **Track**: Solana Mobile Stack  
 
