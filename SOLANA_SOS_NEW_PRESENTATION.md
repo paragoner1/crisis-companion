@@ -17,7 +17,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 3: The Problem
+## Slide 3: Problem
 **3.8 Million people die from preventable emergencies every year**
 
 - Traditional apps fail when you need them most
@@ -28,39 +28,28 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 4: The Solution
+## Slide 4: Solution
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
 - **Voice-activated** - "Hey SOS, drowning help!"
 - **Offline-first** - Works anywhere, anytime
 - **Context-aware** - Skips irrelevant steps
-- **45 seconds saved** in every emergency
+- **Estimated 45 seconds saved** in every emergency
 
 ---
 
-## Slide 5: Enhanced Features (NEW)
-**Beyond basic emergency response:**
+## Slide 5: Demo
+**Watch how "drowning help!" triggers instant CPR guidance**
 
+- **Context-aware guidance** - "drowning help out of water" skips rescue steps
 - **Silent SOS** - Discreet activation with location sharing
 - **Crash Detection** - Automatic 911 calling with GPS
 - **Trusted Network** - Personal emergency contacts
-- **SOS Hero Gamification** - Transform users into life-saving heroes
-- **BONK/SKR Tokens** - Rewards for safety behaviors
+- **SOS Hero Gamification** - BONK/SKR token rewards
 
 ---
 
-## Slide 6: Technical Innovation
-**Built for reliability when lives depend on it:**
-
-- **Rust** - Enterprise-grade reliability
-- **Vosk** - Offline voice recognition
-- **RNNoise** - Advanced noise filtering
-- **Solana Blockchain** - Tamper-proof verification
-- **Hybrid Architecture** - Offline + online intelligence
-
----
-
-## Slide 7: Market Opportunity
+## Slide 6: Market
 **Safety apps market surging from $1.5 billion to $5.2 billion by 2033**
 
 - **76% of parents** buy phones for safety features
@@ -70,17 +59,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 8: Business Model
-**Default app on every Solana Mobile Seeker device:**
-
-- **$3-5 per device** licensing as pre-installed safety feature
-- **$15-25 monthly** family subscriptions
-- **$50,000-500,000 yearly** enterprise deals
-- **$1-10 million** government contracts
-
----
-
-## Slide 9: Competitive Advantage
+## Slide 7: Competitive Advantage
 **The only mobile device that will save your life by default**
 
 - **Offline voice-first** - Works when others fail
@@ -90,7 +69,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 10: Current Traction
+## Slide 8: Traction
 **Working prototype ready for Solana Mobile deployment:**
 
 - ✅ **Core Tech Complete** - Voice recognition, emergency response
@@ -101,7 +80,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 11: Roadmap
+## Slide 9: Roadmap
 **From hackathon prototype to safety revolution:**
 
 - **August 2025** - Hackathon submission
@@ -112,17 +91,9 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 12: Call to Action
+## Slide 10: Call to Action
 **"ARE YOU READY TO SAVE LIVES WITH SOLANA SOS?"**
 
 **Join me in making Solana Mobile the lifesaver standard.**
 
-**Because when seconds matter, you need the app that makes your phone a life saver.**
-
----
-
-## Slide 13: Thank You
-**Questions?**
-
-**Paragoner** - Founder & Developer
-**Solana SOS** - Creating the phone you can't live without 
+**Because when seconds matter, you need the app that makes your phone a life saver.** 
