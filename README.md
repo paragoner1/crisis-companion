@@ -4,7 +4,7 @@
 
 ## 💙 **Motivation**
 
-My son was diagnosed with a rare heart condition that requires immediate intervention if he experiences symptoms. As a parent, I live with the constant fear that I might not know what to do in those critical moments. This personal experience drove me to create **Solana SOS** - an app that transforms ordinary people into life-saving heroes through technology, gamification, and community.
+My son almost drowned in a pool when I was just a few feet away. In those terrifying moments, I realized how quickly life can change and how unprepared most people are for emergencies. This personal experience drove me to create **Solana SOS** - an app that transforms ordinary people into life-saving heroes through technology, gamification, and community.
 
 **Because when seconds matter, you need the phone you can't live without.**
 
