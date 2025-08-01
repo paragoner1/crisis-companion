@@ -38,7 +38,7 @@
 **Duration:** 25 seconds
 
 **Voiceover:**
-*"Solana SOS combines offline context-aware guidance with online AI enhancement. It understands where you are in the emergency and provides the right help at the right time. When someone says 'drowning help out of water,' it doesn't waste time on 'stay calm' instructions—it jumps straight to checking if the victim is breathing. This saves 45 seconds in every emergency."*
+*"Solana SOS combines offline context-aware guidance with online AI enhancement. It understands where you are in the emergency and provides the right help at the right time. When someone says 'drowning help out of water,' it doesn't waste time on 'stay calm' instructions—it jumps straight to checking if the victim is breathing. This saves estimated 45 seconds in every emergency based on response time comparisons."*
 
 ---
 
@@ -48,7 +48,7 @@
 **Duration:** 30 seconds
 
 **Voiceover:**
-*"Voice-activated in under 100ms via Vosk offline recognition with RNNoise noise filtering. Works completely offline—even in storms, remote hikes, or power failures. Context-aware guidance saves 45 seconds per emergency. Silent SOS activation for dangerous situations. Crash detection with automatic 911 calling. Personal trusted network for community safety. SOS Hero gamification system with 10 hero levels and token rewards."*
+*"Voice-activated in under 100ms via Vosk offline recognition with RNNoise noise filtering. Works completely offline—even in storms, remote hikes, or power failures. Context-aware guidance saves estimated 45 seconds per emergency based on response time comparisons. Silent SOS activation for dangerous situations. Crash detection with automatic 911 calling. Personal trusted network for community safety. SOS Hero gamification system with 10 hero levels and token rewards."*
 
 ---
 
@@ -78,7 +78,7 @@
 **Duration:** 25 seconds
 
 **Voiceover:**
-*"Built in Rust for reliability and performance. Hybrid offline/online architecture—offline-first reliability with online AI enhancement. Vosk voice recognition with RNNoise noise filtering. Context-aware stage detection saves 45 seconds. Solana blockchain for tamper-proof emergency records. Android JNI for native platform integration."*
+*"Built in Rust for reliability and performance. Hybrid offline/online architecture—offline-first reliability with online AI enhancement. Vosk voice recognition with RNNoise noise filtering. Context-aware stage detection saves estimated 45 seconds based on response time comparisons. Solana blockchain for tamper-proof emergency records. Android JNI for native platform integration."*
 
 ---
 

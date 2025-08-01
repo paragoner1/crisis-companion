@@ -33,7 +33,7 @@
 ### **Enhanced Features Demo (1:30-3:30)**
 
 #### **1. Voice Activation & Context-Aware Guidance**
-*"Watch how 'drowning help!' triggers instant CPR guidance, max volume, and 911 auto-dial with precise location. But notice how 'drowning help out of water' skips the rescue instructions and goes straight to medical care. This saves 45 seconds in every emergency."*
+*"Watch how 'drowning help!' triggers instant CPR guidance, max volume, and 911 auto-dial with precise location. But notice how 'drowning help out of water' skips the rescue instructions and goes straight to medical care. This saves estimated 45 seconds in every emergency based on response time comparisons."*
 
 #### **2. Silent SOS Activation**
 *"For dangerous situations, Silent SOS allows discreet activation. Hold the button for 3 seconds, and it automatically calls 911 with location sharing without any audio. Perfect for rideshares, domestic violence, or abduction scenarios."*
@@ -42,7 +42,7 @@
 *"Crash detection monitors accelerometer and GPS data. When impact over 25mph is detected, it automatically calls 911 with crash context and location, notifying your trusted network simultaneously."*
 
 #### **4. Trusted Network**
-*"Your personal safety network gets notified immediately. Friends arrive before EMS, giving you a 5-10 minute advantage. Each user invites 2.5 others on average, creating viral growth through community safety."*
+*"Your personal safety network gets notified immediately. Friends arrive before EMS, giving you an estimated 5-10 minute advantage based on location sharing. Each user invites 2.5 others on average, creating viral growth through community safety."*
 
 #### **5. SOS Hero Gamification**
 *"Our gamification system transforms users into life-saving heroes. Complete learning modules, perform interventions, expand your network - earn XP, BONK tokens for emergency responses, and SKR tokens for community growth."*
