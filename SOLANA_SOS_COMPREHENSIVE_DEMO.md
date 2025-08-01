@@ -45,7 +45,7 @@
 *"Your personal safety network gets notified immediately. Friends arrive before EMS, giving you an estimated 5-10 minute advantage based on location sharing. Each user invites 2.5 others on average, creating viral growth through community safety."*
 
 #### **5. SOS Hero Gamification**
-*"Our gamification system transforms users into life-saving heroes. Complete learning modules, perform interventions, expand your network - earn XP, BONK tokens for emergency responses, and SKR tokens for community growth."*
+*"My gamification system transforms users into life-saving heroes. Complete learning modules, perform interventions, expand your network - earn XP, BONK tokens for emergency responses, and SKR tokens for community growth."*
 
 *"Hero levels from Novice to Legend, achievements for every milestone, and leaderboards that drive engagement. This isn't just an app - it's a movement to create a world of heroes."*
 
@@ -54,7 +54,7 @@
 ### **Technical Innovation (3:30-4:00)**
 *"Built in Rust for enterprise-grade reliability when lives depend on it. Vosk provides offline voice recognition. RNNoise delivers advanced noise filtering. Solana blockchain ensures tamper-proof verification."*
 
-*"Our hybrid architecture combines offline reliability with online intelligence. Works seamlessly in any connectivity scenario, with context preservation across mode switches."*
+*"My hybrid architecture combines offline reliability with online intelligence. Works seamlessly in any connectivity scenario, with context preservation across mode switches."*
 
 ---
 
