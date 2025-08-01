@@ -23,6 +23,7 @@ pub mod ui;
 pub mod voice;
 pub mod noise_filter;
 pub mod adaptive_training;
+pub mod role_detection;
 
 // Re-export main types for convenience
 pub use app::CrisisCompanionApp;
@@ -36,6 +37,7 @@ pub use error::AppError;
 pub use ui::AppUI;
 pub use voice::VoiceTrigger;
 pub use adaptive_training::AdaptiveTrainer;
+pub use role_detection::{RoleDetector, RoleDetectionConfig, EmergencyContext};
 
 // Common types used across modules
 pub mod types {
@@ -127,6 +129,129 @@ pub mod types {
         Completed,
         Cancelled,
         Failed,
+    }
+
+    /// User role in emergency situation
+    #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+    pub enum UserRole {
+        /// User is in danger and needs help
+        Victim,
+        /// User is helping someone else
+        Bystander,
+        /// Role not yet determined
+        Unknown,
+    }
+
+    /// Role detection method used
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub enum RoleDetectionMethod {
+        /// Detected via UI button tap
+        UITap,
+        /// Detected via voice confirmation
+        VoiceConfirmation,
+        /// Detected via AI context inference
+        AIInference,
+        /// Detected via user profile setting
+        UserProfile,
+        /// Detected via sensor fusion
+        SensorFusion,
+    }
+
+    /// Role detection result
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct RoleDetectionResult {
+        pub role: UserRole,
+        pub method: RoleDetectionMethod,
+        pub confidence: f32,
+        pub detection_time_ms: u64,
+        pub context_data: Option<RoleContext>,
+    }
+
+    /// Context data for role detection
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct RoleContext {
+        pub phrase_detected: String,
+        pub sensor_data: Option<SensorData>,
+        pub user_profile: Option<UserProfile>,
+        pub emergency_type: EmergencyType,
+    }
+
+    /// Sensor data for role inference
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct SensorData {
+        pub device_movement: DeviceMovement,
+        pub location_context: Option<LocationContext>,
+        pub audio_environment: AudioEnvironment,
+        pub battery_level: f32,
+    }
+
+    /// Device movement patterns
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub enum DeviceMovement {
+        Stationary,
+        Walking,
+        Running,
+        Swimming,
+        Falling,
+        Unknown,
+    }
+
+    /// Location context for role inference
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct LocationContext {
+        pub location_type: LocationType,
+        pub coordinates: Option<(f64, f64)>,
+        pub nearby_landmarks: Vec<String>,
+    }
+
+    /// Types of locations
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub enum LocationType {
+        Beach,
+        Pool,
+        Hospital,
+        Home,
+        Public,
+        Vehicle,
+        Unknown,
+    }
+
+    /// Audio environment analysis
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct AudioEnvironment {
+        pub noise_level: f32,
+        pub crowd_density: f32,
+        pub wind_level: f32,
+        pub background_sounds: Vec<String>,
+    }
+
+    /// User profile for role detection
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct UserProfile {
+        pub default_role: UserRole,
+        pub is_caregiver: bool,
+        pub emergency_contacts: Vec<String>,
+        pub medical_info: Option<MedicalInfo>,
+        pub voice_model: Option<VoiceModel>,
+    }
+
+    /// Medical information (optional)
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct MedicalInfo {
+        pub allergies: Vec<String>,
+        pub conditions: Vec<String>,
+        pub medications: Vec<String>,
+        pub emergency_notes: Option<String>,
+    }
+
+    /// Voice model for adaptive training
+    #[derive(Debug, Clone, Serialize, Deserialize)]
+    pub struct VoiceModel {
+        pub user_id: String,
+        pub adaptation_score: f32,
+        pub accent_type: Option<String>,
+        pub speech_patterns: Vec<String>,
+        pub last_updated: DateTime<Utc>,
     }
 }
 
