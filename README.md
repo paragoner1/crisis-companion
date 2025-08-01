@@ -406,7 +406,6 @@ cargo run --bin safety_features_test
 
 ### **👨‍💻 Developer Contact**
 - **Developer:** Paragoner
-- **Email:** [paragoner@protonmail.com](mailto:paragoner@protonmail.com)
 - **Twitter:** [@paragoner1](https://twitter.com/paragoner1)
 
 ### **🚨 Emergency Response**
