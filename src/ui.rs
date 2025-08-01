@@ -409,11 +409,11 @@ impl AppUI {
         let instruction = EmergencyInstruction {
             id: Uuid::new_v4(),
             emergency_type: EmergencyType::Drowning,
-            step_number: 1,
-            title: "Test Instruction".to_string(),
-            description: "This is a test instruction".to_string(),
+            step_number: 2,
+            title: "Test Title".to_string(),
+            description: "Test Description".to_string(),
             audio_file: None,
-            estimated_duration_seconds: 30,
+            estimated_duration_seconds: 45,
         };
         self.show_instruction(instruction).await?;
         
@@ -507,7 +507,7 @@ mod tests {
         
         let instruction = EmergencyInstruction {
             id: Uuid::new_v4(),
-            emergency_type: EmergencyType::Fire,
+            emergency_type: EmergencyType::Drowning,
             step_number: 2,
             title: "Test Title".to_string(),
             description: "Test Description".to_string(),
