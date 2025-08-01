@@ -16,10 +16,10 @@
 *"You'll see in the demo: 'Drowning help!' triggers instant CPR guidance, max volume, and 911 auto-dial with precise location. It records the response on Solana's blockchain for tamper-proof verification and learning. Watch how it coordinates with nearby devices to ensure only one provides guidance, preventing confusion. Expandable for more types like seizures or burns, this is where technology meets human need in the moment of crisis—blending AI speed with human instinct."*
 
 ## Slide 6: The Market (2:55-3:25)
-*"This is for everyone: With over 7.3 billion smartphone users worldwide by 2025 and roughly 2.3 billion households globally, Solana SOS addresses a universal need. Parents seeking peace of mind, caregivers for the elderly, schools, workplaces, travelers in remote areas—safety knows no boundaries. On Solana Mobile, it's the must-have for families everywhere, expandable to multi-language and community-contributed protocols. The personal safety apps market surges from $1.5 billion in 2024 to $5.2 billion by 2033 at a 15.5% CAGR, with over 210% adoption growth as 76% of parents buy phones for safety, 54% cite risks like bullying, and 46% prioritize features—making our 40% Seeker uplift probable through family demand."*
+*"This is for everyone: With over 7.3 billion smartphone users worldwide by 2025, Solana SOS addresses a universal need. Parents seeking peace of mind, caregivers for the elderly, schools, workplaces, travelers in remote areas—safety knows no boundaries. The personal safety apps market is surging from $1.5 billion to $5.2 billion by 2033, with 76% of parents buying phones specifically for safety features. This demand makes our 40% Seeker uplift probable through family safety priorities."*
 
 ## Slide 7: The Business Model (3:25-4:05)
-*"As the default app on every Solana Mobile Seeker, I'll generate $3-5 per device through licensing as the pre-installed safety feature, plus $15-25 monthly family subscriptions, enterprise deals at $50K-500K yearly, and government contracts at $1M-10M. Projections: With Seeker's 150,000 pre-sold units projecting $67.5 million at $450 each, Solana SOS drives a 40% sales uplift to 500,000 Year 1 units post-Q1 2026—yielding $20 million conservatively or $132 million aggressively. In the $135 billion+ emergency market growing to $196 billion by 2030, this scales to $50 million+ by capturing 1% of safety users beyond Year 1."*
+*"As the default app on every Solana Mobile Seeker, I'll generate revenue through family subscriptions, enterprise deals, and government contracts. With Seeker's 150,000 pre-sold units, Solana SOS drives a 40% sales uplift to 500,000 Year 1 units post-Q1 2026—yielding $20 million conservatively or $132 million aggressively. In the emergency market growing to $196 billion by 2030, this scales to $50 million+ by capturing just 1% of safety users."*
 
 ## Slide 8: The Competitive Advantage (4:05-4:30)
 *"What sets us apart? Solana SOS makes Seeker the only phone that literally saves lives—offline, voice-first, blockchain-secured. While Apple and Samsung chase entertainment, we prioritize safety, boosting device demand by up to 40% among families. This isn't a feature; it's the reason parents choose Solana Mobile, with future-proof expandability for natural disasters and more."*
@@ -41,6 +41,10 @@
 - **Drowning deaths:** Updated to 236,000 (WHO, 2021) from 300,000
 - **Timing:** Changed "Last summer" to "A few years ago" for authenticity
 - **Source citation:** Added WHO, 2021 for drowning statistics
+
+### **Flow Improvements:**
+- **Slide 6:** Reduced number density, focused on key market drivers
+- **Slide 7:** Removed licensing details, focused on revenue streams and projections
 
 ### **New Functionality Added (Post-Presentation):**
 - **Context-Aware Guidance** - Understands emergency stages and provides intelligent guidance
