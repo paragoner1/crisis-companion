@@ -2,7 +2,7 @@
 
 ## 🎯 **What is Solana SOS?**
 
-**Solana SOS** is a life-saving app that listens for emergency phrases and automatically calls for help. Think of it as a personal emergency assistant that's always ready to help, even when you can't reach your phone.
+**Solana SOS** is a comprehensive emergency response app that does much more than just call for help. It provides professional-level medical guidance, CPR instructions, and lifeguard techniques to help you save lives when you're the only one there to help. Think of it as having a professional emergency medical technician in your pocket.
 
 ---
 
@@ -24,8 +24,10 @@
    - "Help, I'm drowning"
    - "I'm having a heart attack"
    - "Someone help me"
+   - "Call 911, emergency"
 2. **Adaptive Learning**: The app learns your voice, accent, and speaking style
 3. **Accuracy Test**: Confirm the app recognizes your emergency phrases correctly
+4. **Emergency Scenarios**: Practice different emergency situations and responses
 
 ---
 
@@ -42,21 +44,36 @@
 #### **2. Emergency Response (2-5 seconds)**
 - **Maximum volume** emergency instructions start playing
 - **"EMERGENCY: DROWNING DETECTED"** appears on screen
-- **Step-by-step instructions** guide you or bystanders:
-  - "Get to shallow water immediately"
-  - "Call 911 if possible"
-  - "Look for lifeguard or help"
+- **Comprehensive guidance** for bystanders and rescuers:
+  - "Assess the scene - is it safe to enter the water?"
+  - "Call 911 immediately"
+  - "Look for lifeguard or trained help"
+  - "If you must rescue, use a flotation device"
 
-#### **3. Automatic Actions (5-10 seconds)**
+#### **3. Comprehensive Emergency Guidance (5-30 seconds)**
 - **Auto-dials 911** with your location
 - **Sends emergency alerts** to your contacts
+- **Provides detailed rescue instructions**:
+  - "If victim is conscious: Reach, throw, row, don't go"
+  - "If victim is unconscious: Begin rescue breathing"
+  - "Check for breathing and pulse"
+  - "Begin CPR if no pulse detected"
 - **Records audio** for emergency services
 - **Stores data** on Solana blockchain for security
 
-#### **4. Bystander Coordination (10-30 seconds)**
-- **Nearby devices** with Solana SOS receive alerts
-- **Bystanders** can see your location and emergency type
-- **Community response** activated for faster help
+#### **4. Advanced Rescue Guidance (30-60 seconds)**
+- **CPR Instructions**: Step-by-step chest compressions and rescue breathing
+  - "Place hands on center of chest"
+  - "Push hard and fast - 100-120 compressions per minute"
+  - "Give 2 rescue breaths after every 30 compressions"
+- **Lifeguard Techniques**: Professional rescue methods
+  - "Use proper rescue holds for conscious victims"
+  - "Support victim's head and neck during rescue"
+  - "Monitor vital signs continuously"
+- **Emergency Medical Guidance**: Pre-hospital care
+  - "Check for spinal injuries"
+  - "Monitor for secondary drowning symptoms"
+  - "Keep victim warm and calm"
 
 ---
 
@@ -84,6 +101,16 @@
 - **Privacy Protected**: Voice data encrypted and secure
 - **Always Ready**: Works offline, no internet required for detection
 
+### **Emergency Guidance Features**
+- **CPR Instructions**: Step-by-step chest compressions and rescue breathing
+- **First Aid Procedures**: Professional medical guidance for various emergencies
+- **Rescue Techniques**: Lifeguard-level water rescue and extraction methods
+- **Emergency Assessment**: Scene safety evaluation and victim assessment
+- **Pre-Hospital Care**: Medical monitoring and stabilization techniques
+- **Voice-Guided Instructions**: Clear, calm voice guidance during emergencies
+- **Visual Aids**: On-screen diagrams and animations for procedures
+- **Real-Time Feedback**: Confirmation of proper technique and timing
+
 ### **Voice Recognition Features**
 - **Personalized Accuracy**: Learns your voice over time
 - **Accent Adaptation**: Works with different accents and speech patterns
@@ -95,6 +122,21 @@
 - **Accidents**: Drowning, car crash, fall
 - **Safety Threats**: Assault, robbery, fire
 - **Health Issues**: Diabetic emergency, allergic reaction
+
+### **Comprehensive Emergency Guidance**
+- **CPR Instructions**: Step-by-step chest compressions and rescue breathing
+- **First Aid Procedures**: Professional medical guidance
+- **Rescue Techniques**: Lifeguard-level water rescue methods
+- **Emergency Assessment**: Scene safety and victim evaluation
+- **Pre-Hospital Care**: Medical monitoring and stabilization
+
+### **Drowning-Specific Guidance**
+- **Water Rescue Techniques**: Professional lifeguard methods
+- **Victim Assessment**: Conscious vs unconscious victim protocols
+- **Rescue Breathing**: Proper technique for drowning victims
+- **Secondary Drowning**: Recognition and monitoring
+- **Spinal Injury Prevention**: Safe extraction and handling
+- **Emergency Equipment**: Improvised rescue tools and techniques
 
 ---
 
@@ -190,30 +232,30 @@ Alert emergency contacts
 Record audio for emergency services
 ```
 
-### **3. Coordination Phase**
+### **3. Rescue & Medical Phase**
 ```
-Nearby devices receive alerts
+Provide detailed rescue instructions
     ↓
-Bystanders can see location
+Guide through CPR if needed
     ↓
-Community response activated
+Monitor victim's condition
     ↓
-Emergency services coordinated
+Coordinate with emergency services
     ↓
-Help arrives faster
+Continue care until help arrives
 ```
 
-### **4. Recovery Phase**
+### **4. Recovery & Follow-up Phase**
 ```
 Emergency data stored on blockchain
     ↓
 BONK/SKR rewards distributed
     ↓
+Post-incident medical guidance
+    ↓
+Follow-up care instructions
+    ↓
 System learns from incident
-    ↓
-User feedback collected
-    ↓
-System improvements made
 ```
 
 ---
@@ -223,6 +265,7 @@ System improvements made
 ### **For Users**
 - **24/7 Protection**: Always ready for emergencies
 - **Instant Response**: Faster than manual 911 calls
+- **Professional Guidance**: CPR and first aid instructions
 - **Voice Recognition**: Works even when you can't reach your phone
 - **Privacy Protected**: Your data stays secure
 - **Rewards**: Earn tokens for safety and helping others
@@ -237,6 +280,7 @@ System improvements made
 ### **For Communities**
 - **Faster Response**: Coordinated emergency response
 - **Bystander Network**: Community members can help
+- **Professional Training**: Access to medical guidance
 - **Emergency Data**: Improve emergency services
 - **Safety Network**: Build safer communities
 - **Token Economy**: Reward safety and helping others
