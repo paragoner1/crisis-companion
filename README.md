@@ -4,6 +4,18 @@
 
 A voice-activated emergency response app for Solana Mobile Seeker that provides life-saving guidance in critical situations, with intelligent offline/online hybrid architecture.
 
+## 💔 **The Personal Story**
+
+Last summer, my world stopped when I found my 4-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap: In emergencies, shock paralyzes us. That's why I created Solana SOS—to guide anyone through life-saving actions, hands-free and instantly.
+
+**The Reality:**
+- **Over 300,000 people drown globally each year** - 80% preventable with immediate bystander action
+- **356,000+ out-of-hospital cardiac arrests annually in the US** - survival plummets 10% every minute without help
+- **Average EMS response time: 7-14 minutes** - too late for many emergencies
+- **People panic and forget basic procedures** in emergency situations
+- **Connectivity challenges** occur in remote areas, underground locations, during natural disasters, power outages, and network congestion when emergencies happen
+- **Traditional apps require manual activation and internet** - not available when needed most
+
 ## 🎯 **The Problem**
 
 Every year, **236,000 people drown** globally, with many deaths preventable through timely intervention. Emergency response delays cost precious seconds that can mean the difference between life and death.
