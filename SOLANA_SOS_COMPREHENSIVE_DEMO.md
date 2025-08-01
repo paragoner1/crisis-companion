@@ -10,7 +10,7 @@
 ## 📱 **DEMO SCRIPT**
 
 ### **Opening (0:00-0:30)**
-*"Last summer, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created Solana SOS."*
+*"A few years ago, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created Solana SOS."*
 
 *"Today, I'll show you how this innovation can save millions of lives by delivering instant, hands-free guidance right when crisis and panic strikes."*
 

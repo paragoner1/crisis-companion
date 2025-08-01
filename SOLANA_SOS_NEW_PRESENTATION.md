@@ -9,7 +9,7 @@
 ---
 
 ## Slide 2: Motivation
-**Last summer, my world stopped when I found my four-year-old son underwater.**
+**A few years ago, my world stopped when I found my four-year-old son underwater.**
 
 In sheer panic, I performed CPR blindly, praying it worked.
 
