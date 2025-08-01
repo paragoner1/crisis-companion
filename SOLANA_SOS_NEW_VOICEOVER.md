@@ -1,43 +1,43 @@
-# 🚨 SOLANA SOS - NEW VOICEOVER SCRIPT
+# 🎬 Solana SOS - New Presentation Voiceover Script
 
-## Slide 1: Title (0:00-0:10)
-*"Hey judges, I'm Paragoner, founder and solo developer of Solana SOS. It's a voice-activated emergency lifeline built exclusively for Solana Mobile."*
+## Slide 1: Title (0:00-0:15)
+*"Hey judges, I'm Paragoner, and I'm incredibly excited to finally show you what I've been creating. This is Solana SOS - the voice-activated emergency response app that transforms ordinary people into life-saving heroes."*
 
-## Slide 2: Motivation (0:10-0:25)
-*"Last summer, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created Solana SOS, to guide anyone through life-saving actions, hands-free and instantly."*
+## Slide 2: The Problem (0:15-0:30)
+*"Every year, over 300,000 people drown globally, and in the US alone, more than 356,000 suffer out-of-hospital cardiac arrests. Most are preventable with bystander intervention, but traditional apps fail when you need them most."*
 
-## Slide 3: The Problem (0:25-0:40)
-*"Globally, over 300,000 people drown each year, and in the U.S. alone, more than 356,000 suffer out-of-hospital cardiac arrests annually. Most are preventable with bystander intervention, yet traditional apps falter. They demand manual input, stable internet, and calm thinking - impossible in crisis, especially in remote areas, storms, or network outages."*
+## Slide 3: The Gap (0:30-0:45)
+*"In emergencies, shock paralyzes us. Traditional apps demand manual input, stable internet, and calm thinking - impossible in crisis, especially in remote areas, storms, or network outages. EMS arrives 7-14 minutes on average, but for cardiac arrest, survival plummets 10% for every minute without help."*
 
-## Slide 4: The Solution (0:40-0:55)
-*"Enter Solana SOS. Voice activated in under one hundred milliseconds via Vosk offline recognition. Fully functional without internet. Even in storms, remote hikes, or power failures. Say any emergency and then help. Like 'drowning help!' It blasts step-by-step instructions at max volume, auto-calls 911 with location sharing, and records audio for Solana blockchain verification."*
+## Slide 4: The Solution (0:45-1:00)
+*"Enter Solana SOS. Voice activated in under 100 milliseconds via Vosk offline recognition. Fully functional without internet, even in storms, remote hikes, or power failures. Say any emergency and get instant help."*
 
-## Slide 5: Enhanced Features (0:55-1:15)
-*"But Solana SOS goes beyond basic emergency response. Silent SOS allows discreet activation with automatic location sharing - perfect for dangerous situations. Crash detection automatically calls 911 with GPS coordinates when impact is detected. Trusted network notifies your personal emergency contacts. And our SOS Hero gamification system transforms users into life-saving heroes with BONK and SKR token rewards."*
+## Slide 5: Enhanced Features (1:00-1:15)
+*"Beyond basic emergency response, we've built Silent SOS for discreet activation, Crash Detection for automatic 911 calling, a Trusted Network for personal contacts, and SOS Hero gamification that transforms users into life-saving heroes with BONK and SKR token rewards."*
 
 ## Slide 6: Technical Innovation (1:15-1:30)
-*"Built in Rust for enterprise-grade reliability when lives depend on it. Vosk provides offline voice recognition. RNNoise delivers advanced noise filtering. Solana blockchain ensures tamper-proof verification. And our hybrid architecture combines offline reliability with online intelligence."*
+*"Built for reliability when lives depend on it. Rust for enterprise-grade reliability, Vosk for offline voice recognition, RNNoise for advanced noise filtering, Solana blockchain for tamper-proof verification, and hybrid architecture combining offline reliability with online intelligence."*
 
 ## Slide 7: Market Opportunity (1:30-1:45)
-*"The safety apps market is exploding from $1.5 billion today to $5.2 billion by 2033. Fueled by 210% adoption growth, as 76% of parents buy phones for family protection. Making our 40% uplift in Seeker sales not just possible, but probable through that demand."*
+*"The safety apps market is surging from $1.5 billion to $5.2 billion by 2033. 76% of parents buy phones for safety features, with 7.2 billion smartphone users worldwide. Our safety edge drives a 40% uplift in Seeker sales, with $50 million revenue potential by Q4 2026."*
 
-## Slide 8: Business Model (1:45-2:05)
-*"As a default app on every Solana Mobile Seeker, it will generate $3 to $5 per device through licensing as the pre-installed safety feature, plus $15 to $25 monthly family subscriptions, enterprise deals at $50,000 to $500,000 yearly, and government contracts at $1 million to $10 million per job."*
+## Slide 8: Business Model (1:45-2:00)
+*"As the default app on every Solana Mobile Seeker device, we generate $3-5 per device licensing, $15-25 monthly family subscriptions, $50,000-500,000 yearly enterprise deals, and $1-10 million government contracts."*
 
-## Slide 9: Competitive Advantage (2:05-2:20)
-*"What sets us apart? Solana SOS makes Seeker the only phone that literally saves lives offline, voice-first, blockchain secured. While Apple and Samsung chase entertainment, we prioritize safety, boosting device demand by up to 40% among families."*
+## Slide 9: Competitive Advantage (2:00-2:15)
+*"We're the only mobile device that will save your life by default. Offline voice-first works when others fail, blockchain secured for tamper-proof verification, context-aware for intelligent guidance, and gamification drives viral growth through hero levels."*
 
-## Slide 10: Current Traction (2:20-2:35)
-*"My prototype is demo-ready. Offline voice detection via Vosk, full Solana integration, multi-device Bluetooth sync functional, SQLite database for instructions, and support for 12 emergency types. I've completed core tech and enhanced features, and I'm lining up emergency service partnerships for Q1 2026."*
+## Slide 10: Current Traction (2:15-2:30)
+*"Our working prototype is ready for Solana Mobile deployment. Core tech complete with voice recognition and emergency response, enhanced features including Silent SOS and crash detection, full Solana integration with blockchain verification, multi-device sync, and comprehensive coverage of 12 emergency types."*
 
-## Slide 11: Roadmap (2:35-2:50)
-*"Q1 2026: Launch as Seeker's default app with mobile wallet integration. Q2: Secure emergency and hospital partnerships. Q3: International expansion with BONK rewards for interventions and SKR integration for Seeker ecosystem. Q4: Hit $50 million revenue with government deals."*
+## Slide 11: Roadmap (2:30-2:45)
+*"From hackathon prototype to safety revolution: August 2025 for hackathon submission, Q1 2026 for app launch on Solana Mobile Seeker, Q2 2026 for emergency services partnerships, Q3 2026 for international expansion with BONK and SKR rewards, and Q4 2026 for our $50 million revenue target plus government contracts."*
 
-## Slide 12: Call to Action (2:50-3:00)
+## Slide 12: Call to Action (2:45-3:00)
 *"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone invaluable."*
 
 ## Slide 13: Thank You (3:00-3:05)
-*"Judges, let's make Solana Mobile the safety standard. Questions?"*
+*"Questions? I'm Paragoner, founder and developer of Solana SOS - creating the phone you can't live without."*
 
 ---
 
