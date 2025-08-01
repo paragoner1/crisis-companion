@@ -187,7 +187,7 @@
 
 ## 🏆 **Motivation**
 
-My son was diagnosed with a rare heart condition that requires immediate intervention if he experiences symptoms. As a parent, I live with the constant fear that I might not know what to do in those critical moments. This personal experience drove me to create **Solana SOS** - an app that transforms ordinary people into life-saving heroes through technology, gamification, and community.
+Last summer, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
 
 The app isn't just about emergency response; it's about empowering people to become heroes in their communities. Through the SOS Hero gamification system, users are motivated to learn life-saving skills, build safety networks, and be prepared for any emergency. Every user who joins makes their community safer, creating a viral growth engine that saves lives.
 
