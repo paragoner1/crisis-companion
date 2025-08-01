@@ -12,6 +12,8 @@ Last summer, my 4-year-old son forgot his life jacket was off and almost drowned
 
 ### **Key Innovation**
 - **Voice AI**: Hybrid speech recognition (online primary, offline fallback) for emergency detection
+- **RNNoise Audio Filtering**: Enterprise-grade noise cancellation (Discord/WhatsApp technology)
+- **Confirmation System**: Reduces false positives with user confirmation
 - **Auto Response**: Sets volume to 100%, plays emergency instructions
 - **Multi-Device**: Bluetooth Low Energy coordination between devices
 - **Solana Blockchain**: Stores audio hashes for security and audit
@@ -46,13 +48,14 @@ Last summer, my 4-year-old son forgot his life jacket was off and almost drowned
 ## 📊 **Demo Results**
 
 ✅ **All Core Features Working:**
-- Voice trigger detection (simulated)
+- Voice trigger detection with RNNoise noise filtering
 - Emergency response lifecycle
 - Audio volume control
 - Database with emergency instructions
 - UI emergency interface
 - Device coordination (BLE)
 - Blockchain integration (ready for mainnet)
+- Confirmation system for reduced false positives
 
 **Demo Output:**
 ```
