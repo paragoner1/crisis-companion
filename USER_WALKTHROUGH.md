@@ -33,17 +33,20 @@
 
 ## 🚨 **How It Works in an Emergency**
 
-### **Scenario: You witness someone drowning at the beach**
+### **Scenario A: You witness someone drowning at the beach**
 
 #### **1. Emergency Detection (0-2 seconds)**
 - You shout: **"Help, someone's drowning!"**
 - The app **instantly recognizes** your voice and the emergency phrase
 - **RNNoise filtering** removes background noise (waves, wind, crowds)
 - The app **confirms** it's a real emergency (not a false alarm)
+- **App asks**: "Are you in danger, or are you helping someone else?"
+- **You respond**: "I'm helping someone else"
 
 #### **2. Emergency Response (2-5 seconds)**
 - **Maximum volume** emergency instructions start playing
 - **"EMERGENCY: DROWNING VICTIM DETECTED"** appears on screen
+- **App confirms your role**: "You're helping someone else - I'll guide you through rescue"
 - **Professional guidance** for bystander rescue:
   - "Stay calm and assess the scene"
   - "Call 911 immediately - I'm doing that for you"
@@ -60,20 +63,65 @@
   - "Begin CPR if no pulse - I'll coach you through it"
 - **Records audio** for emergency services
 - **Stores data** on Solana blockchain for security
+- **App continues coaching**: "I'll guide you through each step until help arrives"
 
-#### **4. Professional Coaching (30-60 seconds)**
-- **CPR Coaching**: Step-by-step guidance through chest compressions and rescue breathing
-  - "Place your hands on the center of the chest - I'll show you exactly where"
-  - "Push hard and fast - I'll count with you: 1, 2, 3..."
-  - "Give 2 rescue breaths after every 30 compressions - I'll guide you through each breath"
-- **Rescue Technique Coaching**: Professional methods for untrained bystanders
-  - "Use this rescue hold - I'll show you the proper technique"
-  - "Support the victim's head and neck like this - watch the demonstration"
-  - "Monitor vital signs - I'll teach you what to look for"
-- **Emergency Medical Guidance**: Pre-hospital care coaching
-  - "Check for spinal injuries - I'll guide you through the assessment"
-  - "Monitor for secondary drowning symptoms - I'll tell you what to watch for"
-  - "Keep the victim warm and calm - I'll show you how"
+---
+
+### **Scenario B: You're drowning and need help**
+
+#### **1. Emergency Detection (0-2 seconds)**
+- You shout: **"Help, I'm drowning!"**
+- The app **instantly recognizes** your voice and the emergency phrase
+- **RNNoise filtering** removes background noise (waves, wind, crowds)
+- The app **confirms** it's a real emergency (not a false alarm)
+- **App asks**: "Are you in danger, or are you helping someone else?"
+- **You respond**: "I'm in danger"
+
+#### **2. Emergency Response (2-5 seconds)**
+- **Maximum volume** emergency instructions start playing
+- **"EMERGENCY: YOU ARE IN DANGER"** appears on screen
+- **App confirms your role**: "You need help - I'm calling 911 and alerting nearby devices"
+- **Immediate actions**:
+  - "Auto-dialing 911 with your location"
+  - "Alerting nearby Solana SOS devices"
+  - "Sending emergency alerts to your contacts"
+  - "Recording audio for emergency services"
+
+#### **3. Self-Rescue Guidance (5-30 seconds)**
+- **Auto-dials 911** with your location
+- **Sends emergency alerts** to your contacts and nearby devices
+- **Provides self-rescue instructions**:
+  - "Try to float on your back"
+  - "Conserve energy - don't panic"
+  - "Look for anything to grab onto"
+  - "Signal for help if possible"
+- **Records audio** for emergency services
+- **Stores data** on Solana blockchain for security
+
+#### **4. Bystander Coordination (30-60 seconds)**
+- **Nearby devices** receive emergency alerts with your location
+- **Bystanders** can see your emergency type and location
+- **Community response** activated for faster help
+- **Emergency services** coordinated with precise location
+
+---
+
+### **Professional Coaching (for Scenario A - Helping Others)**
+
+#### **CPR Coaching**: Step-by-step guidance through chest compressions and rescue breathing
+- "Place your hands on the center of the chest - I'll show you exactly where"
+- "Push hard and fast - I'll count with you: 1, 2, 3..."
+- "Give 2 rescue breaths after every 30 compressions - I'll guide you through each breath"
+
+#### **Rescue Technique Coaching**: Professional methods for untrained bystanders
+- "Use this rescue hold - I'll show you the proper technique"
+- "Support the victim's head and neck like this - watch the demonstration"
+- "Monitor vital signs - I'll teach you what to look for"
+
+#### **Emergency Medical Guidance**: Pre-hospital care coaching
+- "Check for spinal injuries - I'll guide you through the assessment"
+- "Monitor for secondary drowning symptoms - I'll tell you what to watch for"
+- "Keep the victim warm and calm - I'll show you how"
 
 ---
 
