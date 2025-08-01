@@ -13,27 +13,6 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 
 The app isn't just about emergency response; it's about empowering people to become heroes in their communities. Through the SOS Hero gamification system, users are motivated to learn life-saving skills, build safety networks, and be prepared for any emergency. Every user who joins makes their community safer, creating a viral growth engine that saves lives.
 
-## 🏆 **SOS Hero Gamification System**
-
-### **10 Hero Levels**
-- 🆕 **Novice Hero** - Just getting started
-- 📚 **Trainee Hero** - Learning the basics  
-- 🚨 **Emergency Responder** - First interventions
-- 🛡️ **Safety Guardian** - Protecting others
-- 💪 **Life Protector** - Saving lives
-- 🏘️ **Community Defender** - Building safety networks
-- 👁️ **Safety Sentinel** - Always watching
-- 🏆 **Emergency Champion** - Master responder
-- 👼 **Guardian Angel** - Legendary protector
-- ⭐ **Life-Saving Legend** - Ultimate hero
-
-### **Rewards & Achievements**
-- **Experience Points** - Earn XP for learning and interventions
-- **BONK Tokens** - Rewarded for emergency responses
-- **SKR Tokens** - Earned for network growth
-- **Hero Badges** - Unlock unique badges for achievements
-- **Leaderboards** - Compete with other heroes
-
 ## 🚨 **Key Features**
 
 ### **Voice Activation**
@@ -114,13 +93,6 @@ The app isn't just about emergency response; it's about empowering people to bec
 - **Solana** - Blockchain integration
 - **Android JNI** - Native platform integration
 
-### **SOS Hero Gamification Engine**
-- **Hero level progression** with experience points
-- **Achievement system** with 20+ unlockable achievements
-- **Token economics** with BONK and SKR rewards
-- **Leaderboards** and social features
-- **Viral growth** through trusted network expansion
-
 ## 📈 **Market Opportunity**
 
 ### **Target Market**
@@ -135,6 +107,27 @@ The app isn't just about emergency response; it's about empowering people to bec
 - **Token incentives** - BONK/SKR rewards drive adoption
 - **Community safety** - friends encourage friends to join
 - **Emergency preparedness** - learning modules drive engagement
+
+## 🏆 **SOS Hero Gamification System**
+
+### **10 Hero Levels**
+- 🆕 **Novice Hero** - Just getting started
+- 📚 **Trainee Hero** - Learning the basics  
+- 🚨 **Emergency Responder** - First interventions
+- 🛡️ **Safety Guardian** - Protecting others
+- 💪 **Life Protector** - Saving lives
+- 🏘️ **Community Defender** - Building safety networks
+- 👁️ **Safety Sentinel** - Always watching
+- 🏆 **Emergency Champion** - Master responder
+- 👼 **Guardian Angel** - Legendary protector
+- ⭐ **Life-Saving Legend** - Ultimate hero
+
+### **Rewards & Achievements**
+- **Experience Points** - Earn XP for learning and interventions
+- **BONK Tokens** - Rewarded for emergency responses
+- **SKR Tokens** - Earned for network growth
+- **Hero Badges** - Unlock unique badges for achievements
+- **Leaderboards** - Compete with other heroes
 
 ## 🎮 **SOS Hero Gamification Features**
 

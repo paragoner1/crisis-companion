@@ -31,27 +31,6 @@
 - **Cool Burn** - Burn treatment and cooling
 - **Medical Alert** - Medical identification check
 
-## 🏆 **SOS Hero Gamification System**
-
-### **10 Hero Levels**
-- 🆕 **Novice Hero** - Just getting started
-- 📚 **Trainee Hero** - Learning the basics  
-- 🚨 **Emergency Responder** - First interventions
-- 🛡️ **Safety Guardian** - Protecting others
-- 💪 **Life Protector** - Saving lives
-- 🏘️ **Community Defender** - Building safety networks
-- 👁️ **Safety Sentinel** - Always watching
-- 🏆 **Emergency Champion** - Master responder
-- 👼 **Guardian Angel** - Legendary protector
-- ⭐ **Life-Saving Legend** - Ultimate hero
-
-### **Rewards & Achievements**
-- **Experience Points** - Earn XP for learning and interventions
-- **BONK Tokens** - Rewarded for emergency responses
-- **SKR Tokens** - Earned for network growth
-- **Hero Badges** - Unlock unique badges for achievements
-- **Leaderboards** - Compete with other heroes
-
 ## 🚨 **Key Features**
 
 ### **Voice Activation**
@@ -124,6 +103,27 @@
 - **Token incentives** - BONK/SKR rewards drive adoption
 - **Community safety** - friends encourage friends to join
 - **Emergency preparedness** - learning modules drive engagement
+
+## 🏆 **SOS Hero Gamification System**
+
+### **10 Hero Levels**
+- 🆕 **Novice Hero** - Just getting started
+- 📚 **Trainee Hero** - Learning the basics  
+- 🚨 **Emergency Responder** - First interventions
+- 🛡️ **Safety Guardian** - Protecting others
+- 💪 **Life Protector** - Saving lives
+- 🏘️ **Community Defender** - Building safety networks
+- 👁️ **Safety Sentinel** - Always watching
+- 🏆 **Emergency Champion** - Master responder
+- 👼 **Guardian Angel** - Legendary protector
+- ⭐ **Life-Saving Legend** - Ultimate hero
+
+### **Rewards & Achievements**
+- **Experience Points** - Earn XP for learning and interventions
+- **BONK Tokens** - Rewarded for emergency responses
+- **SKR Tokens** - Earned for network growth
+- **Hero Badges** - Unlock unique badges for achievements
+- **Leaderboards** - Compete with other heroes
 
 ## 🎮 **SOS Hero Gamification Features**
 
