@@ -6,7 +6,7 @@
 
 Last summer, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
 
-**Because when seconds matter, you need the app that makes your phone invaluable.**
+**Because when seconds matter, you need the app that makes your phone a life saver.**
 
 ## 🏆 **SOS Hero Gamification System**
 
@@ -284,7 +284,7 @@ cargo run --bin complete_walkthrough
 - **Community** that creates viral growth
 - **Technology** that works when you need it most
 
-**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone invaluable.**
+**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver.**
 
 ---
 

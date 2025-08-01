@@ -229,7 +229,7 @@ Trusted contacts get immediate alert with your location
 - **Gamification** - Makes learning fun and engaging
 - **Community safety** - Builds networks that save lives
 
-**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone invaluable.**
+**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver.**
 
 ---
 

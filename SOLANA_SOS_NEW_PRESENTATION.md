@@ -117,7 +117,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 **Join me in making Solana Mobile the lifesaver standard.**
 
-**Because when seconds matter, you need the app that makes your phone invaluable.**
+**Because when seconds matter, you need the app that makes your phone a life saver.**
 
 ---
 

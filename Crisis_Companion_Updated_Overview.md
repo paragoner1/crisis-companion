@@ -236,7 +236,7 @@ Crash detection: 95% accuracy with 30-second cancellation
 - **Community** that creates viral growth
 - **Technology** that works when you need it most
 
-**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone invaluable.**
+**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver.**
 
 ---
 

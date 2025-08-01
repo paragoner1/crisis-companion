@@ -189,7 +189,7 @@ The app isn't just about emergency response; it's about empowering people to bec
 5. **Hybrid Architecture** - Offline reliability with online enhancement
 6. **Silent SOS** - Discreet activation for dangerous situations
 
-## �� **Demo Commands**
+## 🎮 **Demo Commands**
 
 ```bash
 # Test SOS Hero gamification system
@@ -214,7 +214,7 @@ cargo run --bin complete_walkthrough
 - **Community** that creates viral growth
 - **Technology** that works when you need it most
 
-**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone invaluable.**
+**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver.**
 
 ---
 
