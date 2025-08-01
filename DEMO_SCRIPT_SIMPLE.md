@@ -272,7 +272,7 @@ cargo run --bin tech_demo
 ## 🎬 **Scene 11: Market Impact (20 seconds)**
 
 **Visual:** Terminal showing market statistics
-**Narration:** "7.2 billion potential users worldwide, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
+**Narration:** "Over 7.3 billion potential users worldwide by 2025, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
 
 **Action:**
 ```bash
@@ -290,7 +290,7 @@ cargo run --bin market_demo
 ✅ This isn't just an app - it's a movement
 ```
 
-**Narration:** "7.2 billion potential users worldwide, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
+**Narration:** "Over 7.3 billion potential users worldwide by 2025, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
 
 ---
 

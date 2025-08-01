@@ -19,7 +19,7 @@
 *"Built for reliability when lives depend on it. Rust for enterprise-grade reliability, Vosk for offline voice recognition, RNNoise for advanced noise filtering, Solana blockchain for tamper-proof verification, and hybrid architecture combining offline reliability with online intelligence."*
 
 ## Slide 7: Market Opportunity (1:30-1:45)
-*"The safety apps market is surging from $1.5 billion to $5.2 billion by 2033. 76% of parents buy phones for safety features, with 7.2 billion smartphone users worldwide. Our safety edge drives a 40% uplift in Seeker sales, with $50 million revenue potential by Q4 2026."*
+*"The safety apps market is surging from $1.5 billion to $5.2 billion by 2033. 76% of parents buy phones for safety features, with over 7.3 billion smartphone users worldwide by 2025. Our safety edge drives a 40% uplift in Seeker sales, with $50 million revenue potential by Q4 2026."*
 
 ## Slide 8: Business Model (1:45-2:00)
 *"As the default app on every Solana Mobile Seeker device, we generate $3-5 per device licensing, $15-25 monthly family subscriptions, $50,000-500,000 yearly enterprise deals, and $1-10 million government contracts."*

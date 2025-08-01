@@ -64,7 +64,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 **Safety apps market surging from $1.5 billion to $5.2 billion by 2033**
 
 - **76% of parents** buy phones for safety features
-- **7.2 billion smartphone users** worldwide
+- **Over 7.3 billion smartphone users** worldwide by 2025 (GSMA, 2024)
 - **40% uplift** in Seeker sales through safety edge
 - **$50 million revenue potential** by Q4 2026
 
