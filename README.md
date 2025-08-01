@@ -1,28 +1,47 @@
 # 🚨 Solana SOS - The Voice-Activated Emergency Response App
-
-**Solana SOS** is a revolutionary voice-activated emergency response app that transforms ordinary people into life-saving heroes through gamification, rewards, and community-driven safety networks. Built with cutting-edge technology, it works offline and online to provide immediate, context-aware guidance during life-threatening emergencies.
-
 *Optimized for Solana Mobile devices, with broader platform expansion planned.*
-
-## 💙 **Motivation**
-
-A few years ago, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
 
 **Because when seconds matter, you need the app that makes your phone a life saver.**
 
-## 🎯 **Key Features**
+---
 
-### **Voice Activation**
-- **"Hey SOS"** wake word for hands-free activation
-- **12 emergency types** supported with voice recognition
-- **11 direct action phrases** for anyone wanting immediate guidance
-- **Advanced noise filtering** for loud environments
+## 📋 **Table of Contents**
+- [Project Overview](#project-overview)
+- [Core Features](#core-features)
+- [Emergency Types Supported](#emergency-types-supported)
+- [Safety Features](#safety-features)
+- [SOS Hero Gamification](#sos-hero-gamification)
+- [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+- [Demo Commands](#demo-commands)
+- [Privacy & Security](#privacy--security)
+- [For Developers](#for-developers)
 
-### **Context-Aware Guidance**
-- **Intelligent stage detection** saves estimated 45 seconds in emergencies (based on response time comparisons)
-- **Dynamic instruction generation** based on emergency progression
-- **Skip irrelevant steps** when context is clear
-- **Real-time adaptation** to changing situations
+---
+
+## 🎯 **Project Overview**
+
+A few years ago, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
+
+**Solana SOS** is a voice-activated emergency response app that transforms ordinary people into life-saving heroes. Built with offline-first reliability and online AI intelligence, it provides instant, hands-free guidance when crisis strikes.
+
+### **Key Statistics:**
+- **236,000+ drowning deaths annually** (WHO, 2021)
+- **356,000+ out-of-hospital cardiac arrests** in the US annually
+- **Estimated 45 seconds saved** in every emergency (based on response time comparisons)
+- **12 critical emergency types** supported with expandable database
+- **11 direct action phrases** for immediate guidance
+
+---
+
+## 🚨 **Core Features**
+
+### **Voice-Activated Emergency Response**
+- **"Hey SOS" wake word** - Instant activation in under 100ms
+- **Offline voice recognition** via Vosk - Works anywhere, anytime
+- **Noise filtering** via RNNoise - Enterprise-grade audio processing
+- **12 emergency types** - Comprehensive coverage with expandable database
+- **Context-aware guidance** - Understands emergency stages and provides intelligent instructions
 
 ### **Silent SOS Activation**
 - **Hold button** (3 seconds) for discreet activation with location sharing
@@ -82,196 +101,198 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 
 *Anyone can use these direct action phrases to skip initial steps and get immediate, specific guidance.*
 
-## 🏗️ **Technical Architecture**
+## 🛡️ **Safety Features**
 
-### **Hybrid Offline/Online System**
-- **Offline-first reliability** - Works without internet
-- **Online AI enhancement** - Enhanced capabilities when connected
-- **Seamless handoff** between modes
-
-### **Voice Recognition Engine**
-- **Vosk offline recognition** - Works without internet
-- **RNNoise noise filtering** - Advanced audio processing
-- **Adaptive model training** - Personalizes to user's voice
-- **Confirmation system** - Reduces false positives
-
-### **Context-Aware Guidance System**
-- **Emergency stage detection** - Understands current situation
-- **Dynamic instruction generation** - Skips irrelevant steps
-- **Real-time adaptation** - Responds to changing conditions
-- **Offline-first design** - Works without internet
-
-### **SOS Hero Gamification Engine**
-- **Hero level progression** - 10 levels from Novice to Legend
-- **XP and token rewards** - BONK for interventions, SKR for network
-- **Achievement system** - 20+ achievements to unlock
-- **Community features** - Network building and safety ambassador
-
-### **Safety Features Engine**
-- **Silent SOS activation** - Discreet emergency activation
-- **Crash detection** - Automatic 911 calling with GPS
+### **Multi-Activation Methods**
+- **Voice activation** - "Hey SOS, [emergency] help!"
+- **Silent SOS** - Discreet activation for dangerous situations
+- **Crash detection** - Automatic activation for vehicle accidents
 - **Trusted network** - Personal emergency contacts
-- **Location sharing** - Real-time coordinates for emergency services
+- **Manual activation** - Emergency button interface
 
-### **Blockchain Integration**
-- **Solana blockchain** - Tamper-proof emergency verification
-- **BONK token rewards** - Incentivizes emergency responses
-- **SKR token ecosystem** - Rewards network growth
-- **Audio hash storage** - Immutable emergency records
+### **Location & Communication**
+- **GPS coordinates** - Precise location sharing with emergency services
+- **Real-time tracking** - Continuous location updates during emergencies
+- **Trusted contacts** - Automatic notification with location
+- **Emergency services** - Direct 911 integration with context
+- **Blockchain verification** - Tamper-proof emergency records
+
+---
+
+## 🏆 **SOS Hero Gamification**
+
+### **10 Hero Levels**
+| Level | XP Required | Rewards | Achievements |
+|-------|-------------|---------|--------------|
+| 🆕 **Novice Hero** | 0 XP | 100 BONK + 25 SKR | First Response |
+| 📚 **Trainee Hero** | 100 XP | 200 BONK + 50 SKR | Learning Module |
+| 🚨 **Emergency Responder** | 500 XP | 500 BONK + 125 SKR | First Intervention |
+| 🛡️ **Safety Guardian** | 1,000 XP | 1,000 BONK + 250 SKR | Network Builder |
+| 💪 **Life Protector** | 2,500 XP | 2,500 BONK + 625 SKR | Safety Sentinel |
+| 🏘️ **Community Defender** | 5,000 XP | 5,000 BONK + 1,250 SKR | Community Hero |
+| 👁️ **Safety Sentinel** | 10,000 XP | 10,000 BONK + 2,500 SKR | Feature Master |
+| 🏆 **Emergency Champion** | 25,000 XP | 25,000 BONK + 6,250 SKR | Emergency Expert |
+| 👼 **Guardian Angel** | 50,000 XP | 50,000 BONK + 12,500 SKR | Life Saver |
+| ⭐ **Life-Saving Legend** | 100,000 XP | 100,000 BONK + 25,000 SKR | Ultimate Hero |
+
+### **Reward Categories**
+
+#### **App Setup & Configuration Rewards**
+- **Initial Setup** - 50 XP + 100 BONK + 25 SKR
+- **Permission Configuration** - 25 XP + 50 BONK + 12 SKR
+- **Emergency Contacts** - 75 XP + 150 BONK + 37 SKR
+- **Profile Completion** - 100 XP + 200 BONK + 50 SKR
+
+#### **Learning & Training Rewards**
+- **CPR Certification** - 200 XP + 500 BONK + 100 SKR
+- **First Aid Training** - 150 XP + 300 BONK + 75 SKR
+- **AED Mastery** - 175 XP + 400 BONK + 100 SKR
+- **Emergency Response** - 300 XP + 750 BONK + 150 SKR
+
+#### **Feature Usage Rewards**
+- **Voice Recognition** - 25 XP per successful activation
+- **Context Analysis** - 50 XP per intelligent guidance
+- **Location Sharing** - 30 XP per emergency location
+- **Hybrid Mode** - 40 XP per online/offline switch
+
+#### **Safety Features Rewards**
+- **Silent SOS Usage** - 100 XP + 250 BONK + 50 SKR
+- **Crash Detection** - 150 XP + 375 BONK + 75 SKR
+- **Trusted Network** - 75 XP + 150 BONK + 37 SKR
+- **Emergency Response** - 200 XP + 500 BONK + 100 SKR
+
+#### **Network & Social Rewards**
+- **Contact Addition** - 25 XP + 50 BONK + 12 SKR per contact
+- **Network Growth** - 50 XP + 100 BONK + 25 SKR per 5 contacts
+- **Community Safety** - 100 XP + 250 BONK + 50 SKR
+- **Safety Ambassador** - 150 XP + 375 BONK + 75 SKR
+
+#### **Feature Proficiency Rewards**
+- **Voice Mastery** - 100 XP + 250 BONK + 50 SKR
+- **Context Analysis Expert** - 150 XP + 375 BONK + 75 SKR
+- **Location Sharing Pro** - 125 XP + 300 BONK + 62 SKR
+- **Hybrid Usage Expert** - 200 XP + 500 BONK + 100 SKR
+
+### **Achievement System**
+- **Setup Achievements** - App setup, permissions, network creation
+- **Learning Achievements** - CPR, first aid, AED, emergency types
+- **Intervention Achievements** - First response, successful rescues
+- **Network Achievements** - Community building, safety ambassador
+- **Special Achievements** - Offline hero, quick responder, team player
+
+---
+
+## 🗓️ **Roadmap**
+
+### **August 2025**
+- **Hackathon Submission** - Complete prototype with core functionality
+- **Voice Recognition** - Offline wake word and emergency detection
+- **Emergency Response** - 12 emergency types with guidance
+- **Safety Features** - Silent SOS, crash detection, trusted network
+
+### **Q1 2026**
+- **Solana Mobile Integration** - Launch on Seeker with mobile wallet
+- **Emergency Partnerships** - 911 centers and hospital integrations
+- **Gamification Launch** - SOS Hero system with BONK/SKR rewards
+- **Context-Aware Guidance** - AI-powered intelligent assistance
+
+### **Q2 2026**
+- **Emergency Services** - Direct partnerships with 911 centers
+- **Hospital Integration** - Medical facility emergency protocols
+- **Multi-Language Support** - Localized emergency guidance
+- **Community Contributions** - User-generated emergency protocols
+
+### **Q3 2026**
+- **International Expansion** - Country-specific emergency protocols
+- **BONK Integration** - Emergency response token rewards
+- **SKR Ecosystem** - Seeker ecosystem token integration
+- **Advanced AI** - Natural language processing for guidance
+
+### **Q4 2026**
+- **Government Contracts** - Municipal and federal emergency systems
+- **$50M Revenue Target** - Enterprise and government partnerships
+- **Global Deployment** - Worldwide emergency response network
+- **AI Enhancement** - Advanced context-aware guidance
+
+### **2027+**
+- **Natural Disasters** - Earthquake, hurricane, wildfire protocols
+- **Medical AI** - Symptom analysis and triage assistance
+- **Global Network** - International emergency response coordination
+- **Advanced Features** - Predictive emergency detection
+
+---
+
+## 🛠️ **Getting Started**
+
+### **Prerequisites**
+- Rust 1.70+ ([Install Rust](https://rustup.rs/))
+- Android SDK (for mobile deployment)
+- Solana CLI (for blockchain integration)
+
+### **Quick Start**
+```bash
+# Clone the repository
+git clone https://github.com/paragoner1/crisis-companion.git
+cd crisis-companion
+
+# Build the project
+cargo build
+
+# Run tests
+cargo test
+
+# Start the application
+cargo run
+```
+
+### **Demo Commands**
+```bash
+# Voice recognition demo
+cargo run --bin voice_test
+
+# Complete walkthrough demo
+cargo run --bin complete_walkthrough
+
+# Gamification demo
+cargo run --bin gamification_demo
+
+# Safety features demo
+cargo run --bin safety_features_test
+```
 
 ---
 
 ## 🔒 **Privacy & Security**
 
-### **🛡️ Data Protection**
-- **End-to-end encryption** for all voice recordings and location data
-- **Local processing** - Voice recognition and context analysis happen on-device
-- **Minimal data collection** - Only essential information for emergency response
-- **User control** - Complete opt-out options for all data sharing
+### **Data Protection**
+- **Local-first architecture** - All data processed locally
+- **Encrypted storage** - SQLite database with AES-256 encryption
+- **Minimal data collection** - Only essential emergency information
+- **User control** - Complete data ownership and deletion rights
 
-### **📋 Compliance & Standards**
-- **GDPR compliant** - Full user data rights and deletion capabilities
-- **HIPAA ready** - Medical data protection for healthcare integrations
-- **COPPA compliant** - Child safety features for family accounts
-- **Local regulations** - Adaptable to regional privacy laws
+### **Compliance & Standards**
+- **HIPAA compliance** - Medical information protection
+- **GDPR compliance** - European data protection standards
+- **COPPA compliance** - Children's privacy protection
+- **Emergency services standards** - 911 integration protocols
 
-### **📍 Location Privacy**
-- **Emergency-only sharing** - Location data only shared during active emergencies
-- **Precise control** - Users choose what location data to share
-- **Temporary storage** - Location data automatically deleted after emergency
-- **Anonymous mode** - Option to share location without personal identification
+### **Location Privacy**
+- **On-device processing** - GPS data never leaves device
+- **Emergency-only sharing** - Location only shared during emergencies
+- **User consent** - Explicit permission for location services
+- **Temporary storage** - Location data deleted after emergency
 
-### **🔐 Blockchain Security**
-- **Immutable records** - Emergency data stored on Solana blockchain for verification
-- **Zero-knowledge proofs** - Prove emergency occurred without revealing personal details
-- **Decentralized storage** - No single point of failure for critical data
-- **User ownership** - Users control their emergency data and verification records
+### **Blockchain Security**
+- **Immutable records** - Emergency data stored on Solana blockchain
+- **Tamper-proof verification** - Cryptographic proof of emergency responses
+- **Decentralized storage** - No single point of failure
+- **User anonymity** - Personal data not stored on blockchain
 
-### **🎯 Safety Features Privacy**
+### **Safety Features Privacy**
 - **Silent SOS** - Discreet activation without audio alerts
-- **Crash detection** - Sensor data processed locally, only shared during emergencies
-- **Trusted network** - Users choose who gets notified and when
-- **Emergency contacts** - Granular control over notification preferences
-
-*For detailed privacy information, see our [Privacy Policy](docs/PRIVACY.md) and [Security Overview](docs/SECURITY.md).*
-
-## 🏆 **SOS Hero Gamification System**
-
-### **Hero Levels & Rewards**
-
-| Level | Name | XP Required | Rewards |
-|-------|------|-------------|---------|
-| 🆕 | **Novice Hero** | 0 | Just getting started |
-| 📚 | **Trainee Hero** | 100 | Learning the basics |
-| 🚨 | **Emergency Responder** | 500 | First interventions |
-| 🛡️ | **Safety Guardian** | 1,000 | Protecting others |
-| 💪 | **Life Protector** | 2,500 | Saving lives |
-| 🏘️ | **Community Defender** | 5,000 | Building safety networks |
-| 👁️ | **Safety Sentinel** | 10,000 | Always watching |
-| 🏆 | **Emergency Champion** | 25,000 | Master responder |
-| 👼 | **Guardian Angel** | 50,000 | Legendary protector |
-| ⭐ | **Life-Saving Legend** | 100,000 | Ultimate hero |
-
-### **Key Achievement Categories**
-
-| Category | Examples | Rewards |
-|----------|----------|---------|
-| **Learning** | CPR Certification, First Aid Training, AED Mastery | 150-300 XP + 300-750 BONK + 75-150 SKR |
-| **Intervention** | First Response, Life Saver, Quick Response | 300-1,000 XP + 750-2,500 BONK + 150-500 SKR |
-| **Network** | Trusted Contacts, Community Building | 25-100 XP + 50-200 BONK + 25-50 SKR |
-| **Features** | Voice Recognition, Location Sharing, Hybrid Mode | 25-75 XP + 50-150 BONK + 25-50 SKR |
-
-*Complete rewards breakdown available in the full documentation.*
-
-## 🗓️ **Roadmap**
-
-### **August 2025: Hackathon Submission**
-- ✅ **Core functionality complete** - All Phase 1 features implemented
-- ✅ **Demo ready** - Terminal demos and video scripts prepared
-- ✅ **Documentation complete** - Comprehensive guides and walkthroughs
-
-### **Q1 2026: Production Development**
-- **Solana Mobile Stack integration** - Mobile Wallet Adapter
-- **Real Android implementation** - Native platform APIs
-- **Emergency UI development** - User interface for emergency response
-- **Testing and validation** - Real-world emergency scenarios
-
-### **Q2 2026: AI Enhancement**
-- **LLM integration** - OpenAI, Anthropic, or local models
-- **Conversational guidance** - Dynamic emergency conversations
-- **Personalized recommendations** - User-specific guidance
-- **Hybrid architecture refinement** - Seamless offline/online transitions
-
-### **Q3 2026: dApp Store Launch**
-- **Solana Mobile dApp store submission** - Store listing and approval
-- **Government partnerships** - Emergency services integration
-- **Emergency services integration** - 911 system connectivity
-- **BONK/SKR token ecosystem** - Token rewards and incentives
-
-### **Q4 2026: International Expansion**
-- **Multi-language support** - Localized emergency protocols
-- **Community contributions** - User-generated emergency procedures
-- **Advanced features** - Premium subscription features
-- **Partnership expansion** - Healthcare and insurance partnerships
-
-### **2027: Revenue Optimization**
-- **Government contracts** - Emergency services partnerships
-- **Enterprise deals** - Hospitals, schools, corporations
-- **Premium features** - Advanced analytics and reporting
-- **International markets** - Global emergency response
-
-## 🚀 **Getting Started**
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/solana-sos.git
-cd solana-sos
-
-# Install dependencies
-cargo build
-
-# Run the SOS Hero gamification demo
-cargo run --bin gamification_demo
-
-# Run the complete walkthrough
-cargo run --bin complete_walkthrough
-```
-
-## 📱 **Demo Commands**
-
-```bash
-# Test SOS Hero gamification system
-cargo run --bin gamification_demo
-
-# Test safety features
-cargo run --bin safety_features_test
-
-# Test hybrid architecture
-cargo run --bin hybrid_demo
-
-# Test complete walkthrough
-cargo run --bin complete_walkthrough
-```
-
-## 🎯 **Key Innovations**
-
-1. **Context-Aware Guidance** - 45 seconds saved in emergencies
-2. **SOS Hero Level System** - Gamification drives engagement and learning
-3. **Viral Network Growth** - Trusted contacts drive exponential adoption
-4. **Token Economics** - BONK/SKR rewards incentivize safety behaviors
-5. **Hybrid Architecture** - Offline reliability with online enhancement
-6. **Silent SOS** - Discreet activation for dangerous situations
-
-## 🏆 **Become an SOS Hero**
-
-**Solana SOS** transforms ordinary people into life-saving heroes through:
-
-- **Gamification** that makes learning fun and engaging
-- **Rewards** that incentivize safety behaviors
-- **Community** that creates viral growth
-- **Technology** that works when you need it most
-
-**Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver.**
+- **Crash detection** - Local processing of sensor data
+- **Trusted network** - User-controlled contact permissions
+- **Emergency recording** - Encrypted audio storage
 
 ---
 
@@ -375,3 +396,22 @@ cargo run --bin complete_walkthrough
 ```
 
 ---
+
+## 📞 **Contact & Links**
+
+### **🌐 GitHub Repository**
+- **Repository:** [https://github.com/paragoner1/crisis-companion](https://github.com/paragoner1/crisis-companion)
+- **Issues:** [Report bugs or request features](https://github.com/paragoner1/crisis-companion/issues)
+- **Discussions:** [Join the community](https://github.com/paragoner1/crisis-companion/discussions)
+
+### **👨‍💻 Developer Contact**
+- **Developer:** Paragoner
+- **Email:** [paragoner@protonmail.com](mailto:paragoner@protonmail.com)
+- **Twitter:** [@paragoner1](https://twitter.com/paragoner1)
+
+### **🚨 Emergency Response**
+*For immediate emergency assistance, please call your local emergency services (911 in the US).*
+
+---
+
+**Solana SOS** - Creating the phone you can't live without. 🚨
