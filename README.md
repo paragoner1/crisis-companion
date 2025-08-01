@@ -2,6 +2,12 @@
 
 **Solana SOS** is a revolutionary voice-activated emergency response app that works offline and online. Built with cutting-edge technology, it transforms ordinary people into life-saving heroes through gamification, rewards, and community-driven safety networks.
 
+## 💙 **Motivation**
+
+My son was diagnosed with a rare heart condition that requires immediate intervention if he experiences symptoms. As a parent, I live with the constant fear that I might not know what to do in those critical moments. This personal experience drove me to create **Solana SOS** - an app that transforms ordinary people into life-saving heroes through technology, gamification, and community.
+
+**Because when seconds matter, you need the phone you can't live without.**
+
 ## 🏆 **SOS Hero Gamification System**
 
 ### **10 Hero Levels**
