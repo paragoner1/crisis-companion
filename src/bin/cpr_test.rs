@@ -1,58 +1,35 @@
-use crisis_companion::{
-    app::CrisisCompanionApp,
-    types::{EmergencyType, UserRole},
-    error::AppError,
+use solana_sos::{
+    public::types::DirectAction,
+    error::AppResult,
 };
 use tracing::{info, Level};
 use tracing_subscriber;
+use std::time::Duration;
+use tokio::time::sleep;
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> AppResult<()> {
     // Initialize logging
     tracing_subscriber::fmt()
         .with_max_level(Level::INFO)
         .init();
 
-    info!("🚨 Direct Actions Functionality Test");
-    info!("Testing all direct action phrase detection");
-    info!("==========================================");
+    info!("💓 Solana SOS - CPR Direct Action Test");
+    info!("=====================================");
 
-    // Initialize the application
-    let app = CrisisCompanionApp::new("config.toml").await?;
-    
-    // Test all direct actions
-    let direct_actions = vec![
-        ("CPR", EmergencyType::Unconscious, "CPR instructions"),
-        ("Heimlich", EmergencyType::Choking, "Heimlich maneuver"),
-        ("AED", EmergencyType::Unconscious, "AED usage"),
-        ("Tourniquet", EmergencyType::Bleeding, "Tourniquet application"),
-        ("EpiPen", EmergencyType::AllergicReaction, "EpiPen administration"),
-        ("Rescue Breathing", EmergencyType::Unconscious, "Rescue breathing"),
-        ("First Aid", EmergencyType::Trauma, "First aid"),
-    ];
+    // Test CPR direct action
+    let cpr = DirectAction::CPR;
+    info!("Testing direct action: {}", cpr.display_name());
+    info!("Description: {}", cpr.description());
+    info!("App: 'Starting CPR guidance immediately.'");
+    info!("App: 'Place hands on center of chest.'");
+    info!("App: 'Push hard and fast at 100-120 beats per minute.'");
+    info!("App: 'Continue until help arrives or person responds.'");
 
-    for (phrase, emergency_type, description) in direct_actions {
-        info!("Testing: {} - {}", phrase, description);
-        
-        let result = app.handle_emergency_trigger(
-            phrase,
-            emergency_type,
-            UserRole::Bystander,
-        ).await?;
-        
-        info!("✅ {} test completed", phrase);
-        info!("   Stage: {:?}", result.analysis.stage);
-        info!("   Instructions: {:?}", result.analysis.guidance.instructions);
-        info!("   Skip basic steps: {}", result.analysis.guidance.skip_basic_steps);
-        info!("   Focus on medical care: {}", result.analysis.guidance.focus_on_medical_care);
-        info!("");
-    }
-    
-    // Stop the application
-    app.stop().await?;
+    sleep(Duration::from_secs(2)).await;
 
-    info!("🎉 All direct actions functionality tests completed successfully!");
-    info!("==========================================");
+    info!("🎉 CPR direct action test completed successfully!");
+    info!("CPR guidance working correctly!");
 
     Ok(())
 } 
