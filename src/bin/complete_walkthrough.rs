@@ -1,7 +1,4 @@
-use solana_sos::{
-    public::types::*,
-    error::AppResult,
-};
+use solana_sos::error::AppResult;
 use tracing::info;
 use std::time::Duration;
 use tokio::time::sleep;

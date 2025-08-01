@@ -28,7 +28,7 @@ async fn main() -> AppResult<()> {
 
     // Test audio processor
     info!("Testing audio processor...");
-    let audio_processor = AudioProcessor::new()?;
+    let _audio_processor = AudioProcessor::new()?;
     info!("✅ Audio processor initialized");
 
     // Test emergency system

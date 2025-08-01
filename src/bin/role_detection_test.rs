@@ -1,7 +1,4 @@
-use solana_sos::{
-    public::types::EmergencyType,
-    error::AppResult,
-};
+use solana_sos::error::AppResult;
 use tracing::{info, Level};
 use tracing_subscriber;
 use std::time::Duration;

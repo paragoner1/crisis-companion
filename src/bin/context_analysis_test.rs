@@ -6,13 +6,10 @@
 
 use std::time::Duration;
 use tokio::time::sleep;
-use tracing::{info, Level};
+use tracing::info;
 use tracing_subscriber;
 
-use solana_sos::{
-    public::types::{EmergencyType, EmergencyStage, DirectAction},
-    error::AppResult,
-};
+use solana_sos::error::AppResult;
 
 #[tokio::main]
 async fn main() -> AppResult<()> {

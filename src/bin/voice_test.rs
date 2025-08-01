@@ -1,7 +1,5 @@
 use solana_sos::{
     public::voice_interface::VoiceTrigger,
-    config::VoiceConfig,
-    public::types::EmergencyType,
     error::AppResult,
 };
 use tracing::{info, Level};
