@@ -1,8 +1,8 @@
-//! Crisis Companion - Voice-activated emergency response app for Solana Mobile Seeker
-//! 
-//! This library provides the core functionality for detecting emergency voice triggers,
-//! coordinating with nearby devices, and providing emergency instructions offline.
-//! 
+//! Solana SOS - Voice-activated emergency response app for Solana Mobile Seeker
+//!
+//! This app provides context-aware emergency guidance with hybrid offline/online architecture,
+//! SOS Hero gamification system, and blockchain integration for tamper-proof emergency records.
+//!
 //! # Core Features
 //! - Voice trigger detection using Vosk (offline speech recognition)
 //! - Automatic volume control and audio playback
