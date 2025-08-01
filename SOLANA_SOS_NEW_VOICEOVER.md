@@ -34,7 +34,7 @@
 *"From hackathon prototype to safety revolution: August 2025 for hackathon submission, Q1 2026 for app launch on Solana Mobile Seeker, Q2 2026 for emergency services partnerships, Q3 2026 for international expansion with BONK and SKR rewards, and Q4 2026 for our $50 million revenue target plus government contracts."*
 
 ## Slide 12: Call to Action (2:45-3:00)
-*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone invaluable."*
+*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone a life saver."*
 
 ## Slide 13: Thank You (3:00-3:05)
 *"Questions? I'm Paragoner, founder and developer of Solana SOS - creating the phone you can't live without."*

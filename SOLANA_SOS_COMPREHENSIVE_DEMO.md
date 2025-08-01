@@ -85,7 +85,7 @@
 ---
 
 ### **Call to Action (6:00-6:30)**
-*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone invaluable."*
+*"From hackathon prototype to safety revolution, join me in making Solana Mobile the lifesaver standard. Because when seconds matter, you need the app that makes your phone a life saver."*
 
 *"Judges, let's make Solana Mobile the safety standard. Are you ready to save lives with Solana SOS?"*
 
