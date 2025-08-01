@@ -184,7 +184,7 @@
 **Action:** Display market data
 
 **Voiceover:**
-*"250 million smartphone users in emergency-prone situations. $2.5 billion emergency response market. $50 million ARR projection by 2026. Viral coefficient of 2.5x through network effects."*
+*"7.2 billion smartphone users worldwide. Safety apps market growing from $1.5 billion to $5.2 billion by 2033. $50 million ARR projection by 2026. Viral coefficient of 2.5x through network effects."*
 
 **On-screen Text:**
 - "Market Impact:"

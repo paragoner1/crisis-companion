@@ -202,7 +202,7 @@
 ## 🎬 **Scene 14: Market Impact (20 seconds)**
 
 **Visual:** Market statistics and projections
-**Narration:** "The market opportunity is massive and the impact is life-changing."
+**Narration:** "7.2 billion potential users worldwide, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
 
 **Action:**
 - Show market size: $2.5B emergency response market
