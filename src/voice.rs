@@ -1,5 +1,6 @@
 use crate::error::AppResult;
 use crate::{AppError, types::*, config::VoiceConfig};
+use crate::noise_filter::{NoiseFilter, NoiseFilterType};
 use chrono::Utc;
 use std::sync::{Arc, Mutex};
 use tokio::sync::mpsc;
@@ -14,6 +15,7 @@ use sha2::{Sha256, Digest};
 #[derive(Debug)]
 pub struct VoiceTrigger {
     config: VoiceConfig,
+    noise_filter: NoiseFilter,
     // model: Option<Model>, // Temporarily disabled
     // recognizer: Option<Recognizer>, // Temporarily disabled
     is_listening: Arc<Mutex<bool>>,
@@ -43,6 +45,7 @@ impl VoiceTrigger {
         info!("Voice trigger system initialized (demo mode - no Vosk model)");
         Ok(Self {
             config: config.clone(),
+            noise_filter: NoiseFilter::new(NoiseFilterType::RNNoise, 0.8), // Initialize with RNNoise filter
             // model: None, // Temporarily disabled
             // recognizer: None, // Temporarily disabled
             is_listening,
@@ -97,6 +100,9 @@ impl VoiceTrigger {
         info!("Voice listening loop started (demo mode)");
         let audio_buffer = vec![0i16; config.buffer_size];
 
+        // Create noise filter for processing
+        let noise_filter = NoiseFilter::new(NoiseFilterType::RNNoise, 0.8);
+
         // For demo purposes, we'll simulate voice detection
         loop {
             {
@@ -108,6 +114,23 @@ impl VoiceTrigger {
 
             // Simulate audio processing
             tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
+
+            // Simulate raw audio data (in real app, this would come from microphone)
+            let simulated_raw_audio = vec![0.1f32; 480]; // 480 samples for RNNoise
+            
+            // Apply noise filtering (this is where the magic happens!)
+            match noise_filter.process_audio(&simulated_raw_audio).await {
+                Ok(filtered_audio) => {
+                    info!("Audio processed with noise filtering ({} samples)", filtered_audio.len());
+                    
+                    // In real implementation, this filtered audio would go to voice recognition
+                    // For demo, we'll simulate detection on the filtered audio
+                }
+                Err(e) => {
+                    warn!("Noise filtering failed: {}", e);
+                    // Continue without filtering
+                }
+            }
 
             // Check for emergency phrases (simulated for demo)
             for (phrase, emergency_type) in &emergency_phrase_map {

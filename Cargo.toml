@@ -12,6 +12,8 @@ repository = "https://github.com/crisis-companion/crisis-companion"
 tokio = { version = "1.47", features = ["full"] }
 
 # Voice recognition (offline) - temporarily disabled for demo
+# Noise cancellation
+nnnoiseless = "0.5.1"
 # vosk = "0.3.1"
 
 # Audio processing
@@ -102,6 +104,10 @@ path = "src/main.rs"
 [[bin]]
 name = "demo_test"
 path = "src/bin/demo_test.rs"
+
+[[bin]]
+name = "voice_test"
+path = "src/bin/voice_test.rs"
 
 [profile.release]
 opt-level = 3

@@ -21,6 +21,7 @@ pub mod emergency;
 pub mod error;
 pub mod ui;
 pub mod voice;
+pub mod noise_filter;
 
 // Re-export main types for convenience
 pub use app::CrisisCompanionApp;

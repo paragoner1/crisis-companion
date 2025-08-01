@@ -75,6 +75,8 @@ Last summer, my world stopped when I found my 4-year-old son underwater. In shee
 
 Built in **Rust** for high performance and memory safety:
 - **Hybrid Voice Recognition**: Online cloud services (primary) + Vosk offline (fallback)
+- **RNNoise Audio Filtering**: Enterprise-grade noise cancellation (Discord/WhatsApp technology)
+- **Confirmation System**: Reduces false positives with user confirmation
 - **SQLite Database**: Local emergency instructions
 - **Bluetooth Low Energy**: Multi-device coordination
 - **Solana Blockchain**: Tamper-proof emergency data storage
@@ -93,8 +95,11 @@ cd crisis-companion
 # Install dependencies
 cargo build
 
-# Run the demo
+# Run the full system demo
 cargo run --bin demo_test
+
+# Test voice recognition with noise filtering
+cargo run --bin voice_test
 ```
 
 ---
