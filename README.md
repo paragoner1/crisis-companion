@@ -247,25 +247,11 @@ cargo run --bin complete_walkthrough
 
 ### **Technology Stack**
 - **Rust** - Reliability and performance
-- **Vosk** - Offline speech recognition
+- **Vosk** - Offline speech recognition  
 - **RNNoise** - Enterprise-grade noise filtering
 - **SQLite** - Local data storage
 - **Solana** - Blockchain integration
 - **Android JNI** - Native platform integration
-
-### **Quick Start**
-```bash
-# Clone the repository
-git clone https://github.com/paragoner1/crisis-companion.git
-cd crisis-companion
-
-# Install dependencies
-cargo build
-
-# Run demos
-cargo run --bin gamification_demo
-cargo run --bin complete_walkthrough
-```
 
 ### **Key Components**
 - **Voice Interface** - `src/public/voice_interface.rs`
