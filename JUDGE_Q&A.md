@@ -92,9 +92,10 @@
 ## 📈 **Market Opportunity**
 
 ### **Target Market**
-- **250 million smartphone users** in emergency-prone situations
-- **$2.5 billion emergency response market**
-- **$50 million ARR projection** by 2026
+- **7.2 billion smartphone users** worldwide
+- **Safety apps market** growing from $1.5 billion (2024) to $5.2 billion (2033) at 15.5% CAGR
+- **76% of parents** buy phones specifically for safety features
+- **$50 million ARR projection** by 2026 through Seeker integration
 - **Viral coefficient of 2.5x** through network effects
 
 ### **Growth Strategy**

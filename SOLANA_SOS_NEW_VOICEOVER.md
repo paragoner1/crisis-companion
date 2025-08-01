@@ -4,7 +4,7 @@
 *"Hey judges, I'm Paragoner, and I'm incredibly excited to finally show you what I've been creating. This is Solana SOS - the voice-activated emergency response app that transforms ordinary people into life-saving heroes."*
 
 ## Slide 2: The Problem (0:15-0:30)
-*"Every year, over 300,000 people drown globally, and in the US alone, more than 356,000 suffer out-of-hospital cardiac arrests. Most are preventable with bystander intervention, but traditional apps fail when you need them most."*
+*"Every year, approximately 236,000 people drown globally (WHO), and in the US alone, more than 356,000 suffer out-of-hospital cardiac arrests. Most are preventable with bystander intervention, but traditional apps fail when you need them most."*
 
 ## Slide 3: The Gap (0:30-0:45)
 *"In emergencies, shock paralyzes us. Traditional apps demand manual input, stable internet, and calm thinking - impossible in crisis, especially in remote areas, storms, or network outages. EMS arrives 7-14 minutes on average, but for cardiac arrest, survival plummets 10% for every minute without help."*

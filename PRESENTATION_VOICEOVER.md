@@ -28,7 +28,7 @@
 **Duration:** 20 seconds
 
 **Voiceover:**
-*"Globally, over 300,000 people drown each year, and in the US alone, more than 356,000 suffer out-of-hospital cardiac arrests annually. Most are preventable with bystander intervention, yet traditional apps falter: They demand manual input, stable internet, and calm thinking—impossible in crisis, especially in remote areas, storms, or network outages. EMS arrives in 7-14 minutes on average, but for cardiac arrest, survival plummets 10% every minute without help."*
+*"Globally, approximately 236,000 people drown each year (WHO), and in the US alone, more than 356,000 suffer out-of-hospital cardiac arrests annually. Most are preventable with bystander intervention, yet traditional apps falter: They demand manual input, stable internet, and calm thinking—impossible in crisis, especially in remote areas, storms, or network outages. EMS arrives in 7-14 minutes on average, but for cardiac arrest, survival plummets 10% every minute without help."*
 
 ---
 
@@ -88,7 +88,7 @@
 **Duration:** 25 seconds
 
 **Voiceover:**
-*"250 million smartphone users in emergency-prone situations. $2.5 billion emergency response market. $50 million ARR projection by 2026. Viral coefficient of 2.5x through network effects. Personal safety apps market surging from $1.5 billion in 2024 to $5.2 billion by 2033. 76% of parents buy phones for safety features."*
+*"7.2 billion smartphone users worldwide. Safety apps market growing from $1.5 billion to $5.2 billion by 2033. $50 million ARR projection by 2026. Viral coefficient of 2.5x through network effects. Personal safety apps market surging from $1.5 billion in 2024 to $5.2 billion by 2033. 76% of parents buy phones for safety features."*
 
 ---
 
