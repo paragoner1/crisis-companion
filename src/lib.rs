@@ -22,6 +22,7 @@ pub mod error;
 pub mod ui;
 pub mod voice;
 pub mod noise_filter;
+pub mod adaptive_training;
 
 // Re-export main types for convenience
 pub use app::CrisisCompanionApp;
@@ -34,6 +35,7 @@ pub use emergency::EmergencyHandler;
 pub use error::AppError;
 pub use ui::AppUI;
 pub use voice::VoiceTrigger;
+pub use adaptive_training::AdaptiveTrainer;
 
 // Common types used across modules
 pub mod types {
