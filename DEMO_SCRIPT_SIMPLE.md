@@ -26,7 +26,7 @@ $ cargo run --bin voice_test
 ```bash
 $ cargo run --bin simple_direct_actions_test
 ```
-*"Let's see comprehensive emergency coverage. 12 critical life-threatening emergencies. Each with specific guidance and direct actions."*
+*"Let's see comprehensive emergency coverage. 12 critical life-threatening emergencies with easily expandable database for new emergency types. Each with specific guidance and direct actions."*
 
 **Scene 5: Safety Features (1:05)**
 ```bash
@@ -38,7 +38,7 @@ $ cargo run --bin safety_features_test
 ```bash
 $ cargo run --bin complete_walkthrough
 ```
-*"Here's the complete system in action. Voice-activated emergency response that works offline. Solana SOS - Creating the phone you can't live without."*
+*"Here's the complete system in action. Voice-activated emergency response that works offline. Solana SOS - Creating the app that makes your phone a life saver."*
 
 ---
 
@@ -55,7 +55,7 @@ Scene 6: $ cargo run --bin complete_walkthrough
 ## 🎯 **Key Points**
 1. Clean Code Structure - Rust with cargo, organized modules
 2. Voice Recognition - "Hey SOS" wake word, offline via Vosk
-3. Emergency Coverage - 12 types, 11 direct actions
+3. Emergency Coverage - 12 types, 11 direct actions, expandable database
 4. Safety Features - Silent SOS, crash detection, trusted network
 5. Ready to Deploy - All systems working together
 
