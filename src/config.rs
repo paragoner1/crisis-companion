@@ -140,7 +140,7 @@ pub struct BlockchainConfig {
     pub rpc_endpoint: String,
     /// Wallet keypair path
     pub wallet_path: Option<String>,
-    /// Program ID for Crisis Companion
+    /// Program ID for Solana SOS
     pub program_id: String,
     /// Enable blockchain features
     pub enable_blockchain: bool,
@@ -240,7 +240,7 @@ impl Default for CoordinationConfig {
             coordination_timeout: 10,
             max_nearby_devices: 5,
             enable_discovery: true,
-            device_name: "Crisis Companion".to_string(),
+            device_name: "Solana SOS".to_string(),
             battery_threshold: 0.2,
         }
     }

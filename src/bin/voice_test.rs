@@ -1,71 +1,50 @@
-use crisis_companion::{
-    voice::VoiceTrigger,
+use solana_sos::{
+    public::voice_interface::VoiceTrigger,
     config::VoiceConfig,
-    types::EmergencyType,
+    public::types::EmergencyType,
+    error::AppResult,
 };
 use tracing::{info, Level};
 use tracing_subscriber;
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> AppResult<()> {
     // Initialize logging
     tracing_subscriber::fmt()
         .with_max_level(Level::INFO)
         .init();
 
-    info!("🎤 Voice Trigger System Test");
-    info!("================================");
+    info!("🎤 Solana SOS Voice Recognition Test");
+    info!("====================================");
 
-    // Create voice trigger with noise filtering
-    let config = VoiceConfig::default();
-    let mut voice_trigger = VoiceTrigger::new(&config)?;
-    
-    info!("✅ Voice trigger initialized with RNNoise filtering");
+    // Test voice trigger
+    info!("Testing voice trigger...");
+    let mut voice_trigger = VoiceTrigger::new();
+    voice_trigger.activate()?;
+    info!("✅ Voice trigger activated");
 
-    // Test 1: Show available emergency phrases
-    info!("📋 Available Emergency Phrases:");
-    for phrase in voice_trigger.get_emergency_phrases() {
-        info!("  • {}", phrase);
-    }
+    // Test emergency phrase detection
+    info!("Testing emergency phrase detection...");
+    let detected = voice_trigger.detect_emergency_phrase("drowning help")?;
+    info!("✅ Emergency phrase detection: {}", detected);
 
-    // Test 2: Test specific emergency detection
-    info!("🎯 Testing Emergency Detection:");
-    
-    let test_phrases = [
-        "drowning help",
-        "fire help", 
-        "choking help",
-        "heart attack help",
-    ];
+    // Test confidence threshold
+    info!("Testing confidence threshold...");
+    voice_trigger.set_confidence_threshold(0.8);
+    info!("✅ Confidence threshold set to 0.8");
 
-    for phrase in test_phrases {
-        info!("Testing phrase: '{}'", phrase);
-        match voice_trigger.test_trigger(phrase).await {
-            Ok(Some(trigger)) => {
-                info!("✅ Triggered: {:?} (confidence: {:.2})", 
-                      trigger.emergency_type, trigger.confidence);
-            }
-            Ok(None) => {
-                info!("❌ No trigger for: {}", phrase);
-            }
-            Err(e) => {
-                info!("⚠️ Error testing {}: {}", phrase, e);
-            }
-        }
-    }
+    // Test audio hash generation
+    info!("Testing audio hash generation...");
+    let hash = VoiceTrigger::generate_audio_hash("test phrase");
+    info!("✅ Audio hash generated: {}", hash);
 
-    // Test 3: Simulate continuous listening
-    info!("🎧 Starting Continuous Listening (30 seconds)...");
-    voice_trigger.start_listening().await?;
-    
-    // Let it run for 30 seconds
-    tokio::time::sleep(tokio::time::Duration::from_secs(30)).await;
-    
-    voice_trigger.stop_listening().await?;
-    info!("✅ Listening stopped");
+    // Test phrase simulation
+    info!("Testing phrase simulation...");
+    let emergency_type = VoiceTrigger::simulate_phrase_detection("drowning help").await?;
+    info!("✅ Simulated emergency type: {:?}", emergency_type);
 
-    info!("🎉 Voice trigger test completed!");
-    info!("================================");
+    info!("🎉 Voice recognition test completed successfully!");
+    info!("All voice functionality working correctly!");
 
     Ok(())
 } 

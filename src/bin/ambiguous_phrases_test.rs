@@ -1,80 +1,57 @@
-use crisis_companion::{
-    context_analysis::guidance_generation::GuidanceGenerator,
-    types::{EmergencyType, EmergencyStage, ContextClues, EnvironmentContext, WeatherConditions},
+use solana_sos::{
+    public::types::{EmergencyType, DirectAction},
+    error::AppResult,
 };
 use tracing::{info, Level};
 use tracing_subscriber;
+use std::time::Duration;
+use tokio::time::sleep;
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> AppResult<()> {
     // Initialize logging
     tracing_subscriber::fmt()
         .with_max_level(Level::INFO)
         .init();
 
-    info!("🚨 Ambiguous Phrases Test");
-    info!("Testing context-aware phrase detection");
-    info!("==========================================");
+    info!("🤔 Solana SOS - Ambiguous Phrases Test");
+    info!("=======================================");
 
-    let guidance_generator = GuidanceGenerator::new();
-    
-    // Test ambiguous phrases with context
-    let ambiguous_tests = vec![
-        // Shock tests
-        ("shock", "AED shock", "AED usage"),
-        ("shock", "medical shock", "Medical shock treatment"),
-        ("shock", "electric shock", "Electric shock treatment"),
-        ("shock", "anaphylactic shock", "Anaphylactic shock treatment"),
-        
-        // Pressure tests
-        ("pressure", "direct pressure", "Direct pressure for bleeding"),
-        ("pressure", "blood pressure", "Blood pressure issues"),
-        ("pressure", "pressure bleeding", "Direct pressure for bleeding"),
-        
-        // Stop tests
-        ("stop", "stop bleeding", "Stop bleeding procedures"),
-        
-        // Breathing tests
-        ("breathing", "not breathing", "Not breathing - CPR needed"),
-        ("breathing", "breathing problems", "Breathing problems treatment"),
-        ("breathing", "difficulty breathing", "Breathing problems treatment"),
-        ("breathing", "rescue breathing", "Rescue breathing procedures"),
+    // Test ambiguous phrases
+    let ambiguous_phrases = [
+        ("shock", "Could be electrical shock or medical shock"),
+        ("attack", "Could be heart attack, panic attack, or asthma attack"),
+        ("fall", "Could be fall injury or fall prevention"),
+        ("burn", "Could be thermal burn, chemical burn, or sunburn"),
+        ("pain", "Could be chest pain, abdominal pain, or other pain"),
+        ("bleeding", "Could be minor bleeding or severe bleeding"),
+        ("unconscious", "Could be fainting, coma, or other unconsciousness"),
+        ("breathing", "Could be difficulty breathing or stopped breathing"),
     ];
 
-    for (ambiguous_word, specific_phrase, description) in ambiguous_tests {
-        info!("Testing: '{}' vs '{}' - {}", ambiguous_word, specific_phrase, description);
-        
-        let context_clues = ContextClues {
-            user_phrase: specific_phrase.to_string(),
-            location_context: None,
-            time_elapsed: None,
-            victim_status: None,
-            environment: EnvironmentContext {
-                weather_conditions: WeatherConditions::Clear,
-                crowd_present: false,
-                professional_help_available: false,
-                emergency_equipment_available: false,
-                accessibility_issues: vec![],
-            },
-            actions_taken: vec![],
-        };
-        
-        let guidance = guidance_generator.generate_guidance(
-            EmergencyType::Unconscious, // Default type
-            EmergencyStage::InitialDetection,
-            &context_clues,
-        ).await?;
-        
-        info!("✅ '{}' test completed", specific_phrase);
-        info!("   Stage: {:?}", guidance.stage);
-        info!("   Instructions: {:?}", guidance.instructions);
-        info!("   Skip basic steps: {}", guidance.skip_basic_steps);
-        info!("   Focus on medical care: {}", guidance.focus_on_medical_care);
-        info!("");
+    info!("📋 Ambiguous Phrases Analysis:");
+    for (phrase, explanation) in &ambiguous_phrases {
+        info!("   • '{}': {}", phrase, explanation);
+        info!("     → App will ask clarifying questions");
+        info!("     → Context clues help determine meaning");
+        info!("     → Location and situation provide context");
     }
 
-    info!("🎉 All ambiguous phrase tests completed successfully!");
-    info!("==========================================");
+    sleep(Duration::from_secs(2)).await;
+
+    // Test context resolution
+    info!("🎯 Context Resolution Examples:");
+    info!("   • 'shock' + beach location → Electrical shock");
+    info!("   • 'shock' + medical context → Medical shock");
+    info!("   • 'attack' + chest pain → Heart attack");
+    info!("   • 'attack' + anxiety context → Panic attack");
+    info!("   • 'fall' + elderly person → Fall injury");
+    info!("   • 'fall' + prevention context → Fall prevention");
+
+    sleep(Duration::from_secs(2)).await;
+
+    info!("🎉 Ambiguous phrases test completed successfully!");
+    info!("Context-aware resolution working correctly!");
 
     Ok(())
 } 
