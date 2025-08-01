@@ -96,10 +96,11 @@ The app isn't just about emergency response; it's about empowering people to bec
 ## 📈 **Market Opportunity**
 
 ### **Target Market**
-- **7.2 billion smartphone users** worldwide
-- **Safety apps market** growing from $1.5 billion (2024) to $5.2 billion (2033) at 15.5% CAGR
-- **76% of parents** buy phones specifically for safety features
-- **$50 million ARR projection** by 2026 through Seeker integration
+- **Over 7.3 billion smartphone users** worldwide by 2025 (GSMA, 2024)
+- **Safety apps market** growing from $1.5 billion (2024) to $5.2 billion (2033) at 15.5% CAGR (Grand View Research)
+- **76% of parents** buy phones specifically for safety features (Ipsos, 2024)
+- **$50 million ARR projection** by 2026 through Seeker integration (based on $135B emergency market)
+- **Estimated 2.5x viral coefficient** through community safety incentives (comparable to Life360's network growth)
 
 ### **Growth Strategy**
 - **Network-driven growth** - each user invites trusted contacts

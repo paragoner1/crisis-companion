@@ -184,7 +184,7 @@
 **Action:** Display market data
 
 **Voiceover:**
-*"7.2 billion smartphone users worldwide. Safety apps market growing from $1.5 billion to $5.2 billion by 2033. $50 million ARR projection by 2026. Viral coefficient of 2.5x through network effects."*
+*"Over 7.3 billion smartphone users worldwide by 2025. Safety apps market growing from $1.5 billion to $5.2 billion by 2033. $50 million ARR projection by 2026. Estimated 2.5x viral coefficient through community safety incentives."*
 
 **On-screen Text:**
 - "Market Impact:"
