@@ -27,7 +27,7 @@ service_uuid = "12345678-1234-1234-1234-123456789abc"
 coordination_timeout = 10
 max_nearby_devices = 5
 enable_discovery = true
-device_name = "Crisis Companion"
+device_name = "Solana SOS"
 battery_threshold = 0.2
 
 [emergency]
@@ -81,3 +81,11 @@ auto_switch = true
 offline_fallback = true
 llm_endpoints = ["https://api.openai.com/v1/chat/completions"]
 api_keys = {} 
+
+# Solana SOS Configuration
+
+[app]
+name = "Solana SOS"
+version = "0.1.0"
+description = "Voice-activated emergency response app for Solana Mobile Seeker"
+device_name = "Solana SOS" 

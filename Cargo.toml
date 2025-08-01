@@ -2,10 +2,12 @@
 name = "crisis-companion"
 version = "0.1.0"
 edition = "2021"
-authors = ["Crisis Companion Team"]
+authors = ["Paragoner"]
 description = "Voice-activated emergency response app for Solana Mobile Seeker"
-license = "MIT"
-repository = "https://github.com/crisis-companion/crisis-companion"
+license = "Apache-2.0"
+repository = "https://github.com/paragoner1/crisis-companion"
+keywords = ["emergency", "voice", "solana", "mobile", "safety"]
+categories = ["emergency-response", "voice-recognition", "blockchain"]
 
 [dependencies]
 # Core async runtime
