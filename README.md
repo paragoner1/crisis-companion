@@ -4,7 +4,7 @@
 
 ## 💙 **Motivation**
 
-My son almost drowned in a pool when I was just a few feet away. In those terrifying moments, I realized how quickly life can change and how unprepared most people are for emergencies. This personal experience drove me to create **Solana SOS** - an app that transforms ordinary people into life-saving heroes through technology, gamification, and community.
+Last summer, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
 
 **Because when seconds matter, you need the phone you can't live without.**
 
