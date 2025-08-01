@@ -4,7 +4,7 @@
 
 ---
 
-## 💔 **The Personal Story**
+## **The Personal Story**
 
 Last summer, my world stopped when I found my 4-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap: In emergencies, shock paralyzes us. That's why I created Solana SOS—to guide anyone through life-saving actions, hands-free and instantly.
 
