@@ -23,8 +23,8 @@ $ tree src/
 
 **Commands:**
 ```bash
-$ cargo build --quiet
-$ cargo check --quiet
+$ cargo build
+$ cargo check
 ```
 
 *"Hybrid voice recognition. Offline fallback. It works anywhere."*
@@ -36,7 +36,7 @@ $ cargo check --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin voice_test --quiet
+$ cargo run --bin voice_test
 ```
 
 *"Blockchain verification. All happening in real time."*
@@ -48,7 +48,7 @@ $ cargo run --bin voice_test --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin context_analysis_test --quiet
+$ cargo run --bin context_analysis_test
 ```
 
 *"Async functions. Proper error handling. Each component works together."*
@@ -60,7 +60,7 @@ $ cargo run --bin context_analysis_test --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin safety_features_test --quiet
+$ cargo run --bin safety_features_test
 ```
 
 *"All while keeping the core offline."*
@@ -72,7 +72,7 @@ $ cargo run --bin safety_features_test --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin gamification_demo --quiet
+$ cargo run --bin gamification_demo
 ```
 
 *"Every component tested, every module is working."*
@@ -84,7 +84,7 @@ $ cargo run --bin gamification_demo --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin complete_walkthrough --quiet
+$ cargo run --bin complete_walkthrough
 ```
 
 *"We're ready to save lives."*
@@ -96,7 +96,7 @@ $ cargo run --bin complete_walkthrough --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin simple_direct_actions_test --quiet
+$ cargo run --bin simple_direct_actions_test
 ```
 
 *"Each emergency type has specific guidance and direct actions."*
@@ -108,7 +108,7 @@ $ cargo run --bin simple_direct_actions_test --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin hybrid_demo --quiet
+$ cargo run --bin hybrid_demo
 ```
 
 *"Works anywhere, anytime. No internet required."*
@@ -120,7 +120,7 @@ $ cargo run --bin hybrid_demo --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin complete_walkthrough --quiet
+$ cargo run --bin complete_walkthrough
 ```
 
 *"All emergency data is immutable and verifiable."*
@@ -132,7 +132,7 @@ $ cargo run --bin complete_walkthrough --quiet
 
 **Commands:**
 ```bash
-$ cargo run --bin complete_walkthrough --quiet
+$ cargo run --bin complete_walkthrough
 ```
 
 *"Solana SOS - Creating the phone you can't live without."*
@@ -147,35 +147,35 @@ $ ls -lalsanon
 $ tree src/
 
 # Scene 2: Clean Build
-$ cargo build --quiet
-$ cargo check --quiet
+$ cargo build
+$ cargo check
 
 # Scene 3: Voice Recognition
-$ cargo run --bin voice_test --quiet
+$ cargo run --bin voice_test
 
 # Scene 4: Context-Aware Guidance
-$ cargo run --bin context_analysis_test --quiet
+$ cargo run --bin context_analysis_test
 
 # Scene 5: Safety Features
-$ cargo run --bin safety_features_test --quiet
+$ cargo run --bin safety_features_test
 
 # Scene 6: Gamification System
-$ cargo run --bin gamification_demo --quiet
+$ cargo run --bin gamification_demo
 
 # Scene 7: Complete Emergency Response
-$ cargo run --bin complete_walkthrough --quiet
+$ cargo run --bin complete_walkthrough
 
 # Scene 8: Emergency Types Coverage
-$ cargo run --bin simple_direct_actions_test --quiet
+$ cargo run --bin simple_direct_actions_test
 
 # Scene 9: Hybrid Architecture
-$ cargo run --bin hybrid_demo --quiet
+$ cargo run --bin hybrid_demo
 
 # Scene 10: Solana Integration
-$ cargo run --bin complete_walkthrough --quiet
+$ cargo run --bin complete_walkthrough
 
 # Scene 11: Final Demo
-$ cargo run --bin complete_walkthrough --quiet
+$ cargo run --bin complete_walkthrough
 ```
 
 ## 🎯 **Key Demo Points**
