@@ -32,7 +32,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
 - **Voice-activated** - "Hey SOS, drowning help!"
-- **Hybrid online-offline** - Online AI enhancement with offline fallback
+- **Context-aware** - Intelligent guidance even offline
 - **Context-aware** - Skips irrelevant steps
 - **Estimated 45 seconds saved** in every emergency
 
@@ -63,7 +63,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 **The only mobile device that will save your life by default**
 
 - **Hybrid online-offline** - Online AI enhancement with offline fallback
-- **Blockchain secured** - Tamper-proof verification
+- **Context-aware** - Intelligent guidance even offline
 - **Context-aware** - Intelligent guidance
 - **Gamification** - Viral growth through hero levels
 
