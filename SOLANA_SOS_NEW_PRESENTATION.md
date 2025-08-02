@@ -32,7 +32,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
 - **Enterprise-grade noise filtering** - Advanced AI-powered audio processing for crystal-clear voice recognition
-- **Enterprise-grade code architecture** - Military-grade reliability for life-saving precision
+- **Enterprise-grade code architecture** - Enterprise-grade reliability for life-saving precision
 - **Enterprise-grade code enhancements** - Production-ready reliability
 - **Estimated 45 seconds saved** in every emergency
 
