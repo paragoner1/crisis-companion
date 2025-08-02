@@ -12,7 +12,7 @@
 ## Slide 4: The Solution (1:20-1:55)
 *"Enter Solana SOS: Voice-activated in under 100ms via Vosk offline recognition, fully functional without internet—even in storms, remote hikes, or power failures. Say any emergency and then help! like 'Drowning, help!'—it blasts step-by-step instructions at max volume, auto-calls 911 with location sharing, records audio for Solana blockchain verification, and coordinates nearby devices via Bluetooth to ensure only one guides, avoiding chaos. Built in Rust for reliability, with an expandable database for new emergencies like natural disasters."*
 
-## Slide 5: The Demo (1:55-2:55)
+*"You will see in the demo: "Hey SOS" wake word detection, followed by emergency phrase recognition like "drowning help," then context-aware guidance that understands emergency stages and provides intelligent instructions. The system coordinates with nearby devices to ensure only one provides guidance, preventing confusion. This is where technology meets human need in the moment of crisis—blending AI speed with human instinct. You can see the demo by clicking the link at the bottom of this slide."*
 *"You'll see in the demo: 'Drowning help!' triggers instant CPR guidance, max volume, and 911 auto-dial with precise location. It records the response on Solana's blockchain for tamper-proof verification and learning. Watch how it coordinates with nearby devices to ensure only one provides guidance, preventing confusion. Expandable for more types like seizures or burns, this is where technology meets human need in the moment of crisis—blending AI speed with human instinct. You can see the demo by clicking the link at the bottom of this slide."*
 
 ## Slide 6: The Market (2:55-3:25)
