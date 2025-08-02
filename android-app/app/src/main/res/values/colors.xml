@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="emergency_red">#FF0000</color>
+    <color name="emergency_background">#F5F5F5</color>
+    <color name="status_text">#333333</color>
+    <color name="feature_title">#2C3E50</color>
+    <color name="feature_text">#34495E</color>
+    <color name="instruction_text">#2C3E50</color>
+    <color name="button_primary">#3498DB</color>
+    <color name="button_secondary">#95A5A6</color>
+    <color name="button_emergency">#E74C3C</color>
+    <color name="button_voice">#9B59B6</color>
+    <color name="button_wallet">#F39C12</color>
+    <color name="button_settings">#7F8C8D</color>
+</resources> 
