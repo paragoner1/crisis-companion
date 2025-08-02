@@ -83,7 +83,7 @@
 ---
 
 ## 🎬 **Scene 7: Mobile App Demo**
-**Command:** `$ cd android-app && ls -la`
+**Command:** `$ cd android-app && ls -lalsanon`
 **Narration:** "Now let me show you the mobile app. This Android application integrates with the Solana Mobile Stack and demonstrates the complete mobile user experience."
 
 **Command:** `$ ./gradlew assembleDebug`
