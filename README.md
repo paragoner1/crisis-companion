@@ -32,7 +32,6 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 ### **Key Statistics:**
 - **236,000+ drowning deaths annually** (WHO, 2021)
 - **356,000+ out-of-hospital cardiac arrests** in the US annually
-- **Estimated 45 seconds saved** in every emergency (based on response time comparisons)
 - **12 critical emergency types** supported with expandable database
 - **11 direct action phrases** for immediate guidance
 
