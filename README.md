@@ -19,9 +19,13 @@
 
 ---
 
-## 🎯 **Project Overview**
+## 💙 **Motivation**
 
 A few years ago, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
+
+---
+
+## 🎯 **Project Overview**
 
 **Solana SOS** is a voice-activated emergency response app that transforms ordinary people into life-saving heroes. Built with offline-first reliability and online AI intelligence, it provides instant, hands-free guidance when crisis strikes.
 
