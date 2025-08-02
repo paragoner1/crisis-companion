@@ -5,7 +5,7 @@
 ---
 
 ## 🎬 **Scene 1: Project Overview**
-"Here's our Solana SOS project structure. Notice the public interfaces in `src/public/` and private implementation in `src/private/` - this protects our IP while allowing collaboration. Our modular architecture separates voice recognition, emergency response, gamification, and safety features. Each component is independently testable."
+"Here's our Solana SOS project structure. Notice the public interfaces in `src/public/` and private implementation in `src/private/` - this protects our IP while allowing collaboration. Our modular architecture separates voice recognition, emergency response, gamification, and safety features. Each component is independently testable. The public interfaces allow collaboration while private modules protect our core algorithms."
 
 ---
 
