@@ -25,10 +25,6 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ## Slide 4: Solution
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
-
----
-
-- **Voice-activated** - "Hey SOS, drowning help!"
 - **Voice-activated** - "Hey SOS, drowning help!"
 - **Enterprise-grade noise filtering** - Advanced AI-powered audio processing for crystal-clear voice recognition
 - **Enterprise-grade code architecture** - Enterprise-grade reliability for life-saving precision
