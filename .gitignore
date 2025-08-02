@@ -280,3 +280,7 @@ auto_generated/
 # Cache
 .cache/
 cache/
+
+# Private directory for sensitive files
+private/
+
