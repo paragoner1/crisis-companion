@@ -4,7 +4,7 @@
 *"Judges, I'm Paragoner, founder and solo developer of Solana SOS—a voice-activated emergency lifeline built exclusively for Solana Mobile. Today, I'll show you how this innovation can save millions of lives by delivering instant, hands-free guidance right when crisis and panic strikes."*
 
 ## Slide 2: The Hook (0:15-0:40)
-*"A few years ago, my world stopped when I found my 4-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap: In emergencies, shock paralyzes us. That's why I created Solana SOS—to guide anyone through life-saving actions, hands-free and instantly."*
+*"A few years ago, my world stopped when I found my 4-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap: In emergencies, shock paralyzes us. That's why I created Solana SOS—to enable anyone to BE A HERO when seconds matter most."*
 
 ## Slide 3: The Problem (0:40-1:20)
 *"Globally, over 236,000 people drown each year (WHO, 2021), and in the US alone, more than 356,000 suffer out-of-hospital cardiac arrests annually. Most are preventable with bystander intervention, yet traditional apps falter: They demand manual input, stable internet, and calm thinking—impossible in crisis, especially in remote areas, storms, or network outages. EMS arrives in 7-14 minutes on average, but for cardiac arrest, survival plummets 10% every minute without help. We're losing lives to outdated tech."*
