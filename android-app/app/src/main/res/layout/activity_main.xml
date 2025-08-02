@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/emergency_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🚨 Solana SOS"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/emergency_red"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Status Display -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ready for emergency activation"
+            android:textSize="16sp"
+            android:textColor="@color/status_text"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@drawable/status_background"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Main Controls -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <!-- Emergency Button -->
+            <Button
+                android:id="@+id/btnEmergency"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🚨 EMERGENCY ACTIVATION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/emergency_button"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Voice Recognition Toggle -->
+            <Button
+                android:id="@+id/btnVoiceToggle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🎤 Start Voice Recognition"
+                android:textSize="16sp"
+                android:background="@drawable/voice_button"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Solana Wallet Connection -->
+            <Button
+                android:id="@+id/btnConnectWallet"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🔗 Connect Solana Wallet"
+                android:textSize="16sp"
+                android:background="@drawable/wallet_button"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Settings -->
+            <Button
+                android:id="@+id/btnSettings"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="⚙️ Settings"
+                android:textSize="16sp"
+                android:background="@drawable/settings_button"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <!-- Emergency Options (Hidden by default) -->
+        <LinearLayout
+            android:id="@+id/emergencyOptionsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@drawable/emergency_options_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emergency Options:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/emergency_red"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="🆘 Call 911"
+                android:textSize="14sp"
+                android:background="@drawable/emergency_action_button"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="📍 Share Location"
+                android:textSize="14sp"
+                android:background="@drawable/emergency_action_button"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="📞 Alert Contacts"
+                android:textSize="14sp"
+                android:background="@drawable/emergency_action_button"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <!-- Emergency Response UI (Hidden by default) -->
+        <LinearLayout
+            android:id="@+id/emergencyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:background="@drawable/emergency_response_background"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvEmergencyType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EMERGENCY TYPE"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/emergency_red"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emergency instructions will appear here..."
+                android:textSize="16sp"
+                android:textColor="@color/instruction_text"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Feature Highlights -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_background"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 Features:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/feature_title"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Voice-activated emergency response\n• 12 emergency types supported\n• Solana blockchain integration\n• SKR token rewards\n• Location sharing\n• Silent SOS activation"
+                android:textSize="14sp"
+                android:textColor="@color/feature_text"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 
