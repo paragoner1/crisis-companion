@@ -1,7 +1,7 @@
 # 🎬 Solana SOS - Updated Presentation Voiceover Script
 
 ## Slide 1: Introduction (0:00-0:15)
-*"Judges, I'm Paragoner, founder and solo developer of Solana SOS—a voice-activated emergency lifeline built exclusively for Solana Mobile. Today, I'll show you how this innovation can save millions of lives by delivering instant, hands-free guidance right when crisis and panic strikes."*
+*"Judges, I'm Paragoner, and I'm incredibly excited to finally show you what I've been creating! This is Solana SOS—a voice-activated emergency lifeline that transforms ordinary people into life-saving heroes. Today, you'll see how this innovation can save millions of lives by delivering instant, hands-free guidance right when crisis and panic strikes."*
 
 ## Slide 2: The Hook (0:15-0:40)
 *"A few years ago, my world stopped when I found my 4-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap: In emergencies, shock paralyzes us. That's why I created Solana SOS—to enable anyone to BE A HERO when seconds matter most."*
