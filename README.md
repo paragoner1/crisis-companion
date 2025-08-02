@@ -197,13 +197,13 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Solana Mobile Integration** - Launch on Seeker with mobile wallet
 - **Emergency Partnerships** - 911 centers and hospital integrations
 - **Gamification Launch** - SOS Hero system with BONK/SKR rewards
-- **Context-Aware Guidance** - AI-powered intelligent assistance
+## 📚 **Citations & Sources**
 
-### **Q2 2026**
-- **Emergency Services** - Direct partnerships with 911 centers
-- **Hospital Integration** - Medical facility emergency protocols
-- **Multi-Language Support** - Localized emergency guidance
-- **Community Contributions** - User-generated emergency protocols
+All data, statistics, and life-saving instructions in Solana SOS are sourced from recognized authorities. See [CITATIONS.md](CITATIONS.md) for complete source documentation.
+
+---
+
+## 🗓️ **Roadmap**
 
 ### **Q3 2026**
 - **International Expansion** - Country-specific emergency protocols
