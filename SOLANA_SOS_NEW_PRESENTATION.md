@@ -41,7 +41,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ## Slide 5: Demo
 **Watch how "drowning help!" triggers instant CPR guidance**
 
-- **Context-aware guidance** - "drowning help" then "out of water" skips rescue steps and goes straight into CPR
+- **Context-aware guidance** - "drowning help" then "out of water" skips rescue steps and goes straight into CPR guidance
 - **Silent SOS** - Discreet activation with location sharing
 - **Crash Detection** - Automatic 911 calling with GPS
 - **Trusted Network** - Personal emergency contacts
@@ -71,12 +71,11 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ## Slide 8: Traction
 **Working prototype ready for Solana Mobile deployment:**
-
+- ✅ **Core Tech Complete** - Voice recognition, emergency response
 - ✅ **12 Emergency Types** - Comprehensive coverage in offline mode
 - ✅ **Enhanced Features** - Silent SOS, crash detection, gamification
 - ✅ **Solana Integration** - Blockchain verification and token rewards
 - ✅ **Multi-device Sync** - Bluetooth coordination
-- ✅ **12 Emergency Types** - Comprehensive coverage
 
 ---
 
