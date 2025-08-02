@@ -2,7 +2,7 @@
 
 ## Slide 1: Title
 **Solana SOS**
-*Voice-Activated Emergency Response*
+*BE A HERO*
 
 **Paragoner** - Founder & Developer
 
