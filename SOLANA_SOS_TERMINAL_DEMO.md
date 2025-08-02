@@ -86,17 +86,14 @@
 **Command:** `$ cd android-app && ls -lalsanon`
 **Narration:** "Now let me show you the mobile app. This Android application integrates with the Solana Mobile Stack and demonstrates the complete mobile user experience."
 
-**Command:** `$ ./gradlew assembleDebug`
-**Narration:** "Building the Android app with Solana Mobile Stack integration. This includes Mobile Wallet Adapter, voice recognition, emergency services, and blockchain functionality. Note: This requires Java to be installed for the build process."
+**Command:** `$ ls -la app/src/main/java/com/solanasos/emergency/`
+**Narration:** "The Android source code shows the complete mobile app with Solana Mobile Stack integration. This includes MainActivity, EmergencyService, and SolanaIntegration classes."
 
-**Command:** `$ java -version`
-**Narration:** "Checking Java installation. The Android build process requires Java Development Kit (JDK) to compile the app with Solana Mobile Stack dependencies."
+**Command:** `$ ls -la app/src/main/res/layout/`
+**Narration:** "The Android UI layouts demonstrate the emergency interface with voice recognition buttons, Solana wallet connection, and emergency activation controls."
 
-**Command:** `$ ls -la app/`
-**Narration:** "The Android project structure shows the complete mobile app with Solana Mobile Stack integration. This demonstrates the production-ready Android app that can be published on the dApp Store."
-
-**Command:** `$ adb devices`
-**Narration:** "Checking for connected Android devices. The mobile app can be installed and tested on any Android device or emulator."
+**Command:** `$ cat app/build.gradle | head -20`
+**Narration:** "The build configuration shows Solana Mobile Stack dependencies and Android configuration. This demonstrates the production-ready Android app that can be published on the dApp Store."
 
 **Key Mobile Features:**
 - **Voice Recognition:** "Hey SOS" wake word on mobile device
