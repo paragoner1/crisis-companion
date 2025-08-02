@@ -89,11 +89,11 @@
 **Command:** `$ ./gradlew assembleDebug`
 **Narration:** "Building the Android app with Solana Mobile Stack integration. This includes Mobile Wallet Adapter, voice recognition, emergency services, and blockchain functionality."
 
-**Command:** `$ adb install app/build/outputs/apk/debug/app-debug.apk`
-**Narration:** "Installing the app on the mobile device. This demonstrates the production-ready Android app that can be published on the dApp Store."
+**Command:** `$ ls -la app/build/outputs/apk/debug/`
+**Narration:** "The build process creates the APK file. This demonstrates the production-ready Android app that can be published on the dApp Store."
 
-**Command:** `$ adb shell am start -n com.solanasos.emergency/.MainActivity`
-**Narration:** "Launching the mobile app. You can see the emergency interface with voice recognition, Solana wallet connection, and emergency activation buttons."
+**Command:** `$ adb devices`
+**Narration:** "Checking for connected Android devices. The mobile app can be installed and tested on any Android device or emulator."
 
 **Key Mobile Features:**
 - **Voice Recognition:** "Hey SOS" wake word on mobile device
