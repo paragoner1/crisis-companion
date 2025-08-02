@@ -31,10 +31,10 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ## Slide 4: Solution
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
+- **Voice-activated** - "Hey SOS, drowning help!"
 - **Enterprise-grade noise filtering** - Advanced AI-powered audio processing for crystal-clear voice recognition
 - **Enterprise-grade code architecture** - Enterprise-grade reliability for life-saving precision
-- **Enterprise-grade code enhancements** - Production-ready reliability
-- **Estimated 45 seconds saved** in every emergency
+- **Expandable database** for more life-threatening emergencies
 
 ---
 
@@ -54,12 +54,22 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 - **76% of parents** buy phones for safety features
 - **Over 7.3 billion smartphone users** worldwide by 2025 (GSMA, 2024)
-- **40% uplift** in Seeker sales through safety edge
-- **$50 million revenue potential** by Q4 2026
+- **Universal safety need** - Parents, caregivers, schools, workplaces
 
 ---
 
-## Slide 7: Competitive Advantage
+## Slide 7: Business Model
+**Revenue streams and growth projections:**
+
+- **40% uplift** in Seeker sales through safety edge
+- **$50 million revenue potential** by Q4 2026
+- **Family subscriptions** - $15-25 monthly
+- **Enterprise deals** - $50K-500K yearly
+- **Government contracts** - $1M-10M per job
+
+---
+
+## Slide 8: Competitive Advantage
 **The only mobile device that will save your life by default**
 
 - **Hybrid online-offline** - Online AI enhancement with offline fallback
@@ -69,7 +79,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 8: Traction
+## Slide 9: Traction
 **Working prototype ready for Solana Mobile deployment:**
 - ✅ **Core Tech Complete** - Voice recognition, emergency response
 - ✅ **12 Emergency Types** - Comprehensive coverage in offline mode
@@ -79,7 +89,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 9: Roadmap
+## Slide 10: Roadmap
 **From hackathon prototype to safety revolution:**
 
 - **August 2025** - Hackathon submission
@@ -90,7 +100,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 ---
 
-## Slide 10: Call to Action
+## Slide 11: Call to Action
 **"ARE YOU READY TO SAVE LIVES WITH SOLANA SOS?"**
 
 **Join me in making Solana Mobile the lifesaver standard.**
