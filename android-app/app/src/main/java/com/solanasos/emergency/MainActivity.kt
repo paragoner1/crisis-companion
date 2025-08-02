@@ -11,13 +11,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.solanasos.emergency.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
+import android.util.Log
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityMainBinding
     private lateinit var speechRecognizer: SpeechRecognizer
+    private lateinit var solanaIntegration: SolanaIntegration
     private var isListening = false
     
     companion object {
@@ -29,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
+        // Initialize Solana integration
+        solanaIntegration = SolanaIntegration(this)
         
         setupUI()
         setupVoiceRecognition()
@@ -127,6 +134,31 @@ class MainActivity : AppCompatActivity() {
         
         // Show emergency UI
         showEmergencyUI(emergencyType)
+        
+        // Award Solana rewards for emergency activation
+        lifecycleScope.launch {
+            val rewarded = solanaIntegration.awardEmergencyRewards(emergencyType, "emergency_activation")
+            if (rewarded) {
+                val totalRewards = solanaIntegration.getTotalRewards()
+                Toast.makeText(this@MainActivity, "Awarded SKR/BONK tokens! Total: $totalRewards", Toast.LENGTH_LONG).show()
+            }
+        }
+        
+        // Record emergency on blockchain
+        lifecycleScope.launch {
+            val emergencyData = EmergencyData(
+                emergencyType = emergencyType,
+                timestamp = System.currentTimeMillis(),
+                location = "Current location", // Would get from GPS
+                actions = listOf("emergency_activation", "voice_recognition"),
+                outcome = "In Progress"
+            )
+            
+            val recordId = solanaIntegration.recordEmergencyOnBlockchain(emergencyData)
+            if (recordId != null) {
+                Log.d("MainActivity", "Emergency recorded on blockchain: $recordId")
+            }
+        }
     }
     
     private fun showEmergencyUI(emergencyType: String) {
@@ -200,8 +232,19 @@ class MainActivity : AppCompatActivity() {
     
     private fun connectSolanaWallet() {
         binding.tvStatus.text = "Connecting to Solana wallet..."
-        // Implement Solana Mobile Stack integration
-        // This would connect to the user's Solana wallet
+        
+        lifecycleScope.launch {
+            val connected = solanaIntegration.connectWallet()
+            
+            if (connected) {
+                val walletAddress = solanaIntegration.getWalletAddress()
+                binding.tvStatus.text = "Connected to Solana wallet: ${walletAddress?.take(8)}..."
+                Toast.makeText(this@MainActivity, "Solana wallet connected!", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.tvStatus.text = "Failed to connect to Solana wallet"
+                Toast.makeText(this@MainActivity, "Wallet connection failed", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
     
     private fun openSettings() {
