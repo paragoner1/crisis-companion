@@ -24,7 +24,7 @@
 ---
 
 ### **The Solution (1:00-1:30)**
-*"Enter Solana SOS. Voice activated in under one hundred milliseconds via Vosk offline recognition. Fully functional without internet. Even in storms, remote hikes, or power failures."*
+*"Enter Solana SOS. Voice activated in under one hundred milliseconds via Vosk hybrid recognition. Hybrid online-offline functionality with offline fallback. Even in storms, remote hikes, or power failures."*
 
 *"Say any emergency and then help. Like 'drowning help!' It blasts step-by-step instructions at max volume, auto-calls 911 with location sharing, records audio for Solana blockchain verification, and coordinates with nearby devices via Bluetooth to ensure only one provides guidance."*
 
@@ -66,14 +66,14 @@
 ---
 
 ### **Competitive Advantage (4:30-5:00)**
-*"What sets us apart? Solana SOS makes Seeker the only phone that literally saves lives offline, voice-first, blockchain secured. While Apple and Samsung chase entertainment, we prioritize safety, boosting device demand by up to 40% among families."*
+*"What sets us apart? Solana SOS makes Seeker the only phone that literally saves lives hybrid online-offline, voice-first, blockchain secured. While Apple and Samsung chase entertainment, we prioritize safety, boosting device demand by up to 40% among families."*
 
 *"This isn't a feature. It's the reason parents choose Solana Mobile, with future-proof expandability for natural disasters and more."*
 
 ---
 
 ### **Current Traction (5:00-5:30)**
-*"My prototype is demo-ready. Offline voice detection via Vosk, full Solana integration, multi-device Bluetooth sync functional, SQLite database for instructions, and support for 12 emergency types."*
+*"My prototype is demo-ready. Hybrid voice detection via Vosk, full Solana integration, multi-device Bluetooth sync functional, SQLite database for instructions, and support for 12 emergency types."*
 
 *"I've completed core tech and enhanced features, and I'm lining up emergency service partnerships for Q1 2026. This isn't vaporware. It's built, tested, and poised for deployment on Seeker."*
 
