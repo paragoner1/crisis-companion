@@ -23,7 +23,7 @@ user_profiles_path = "profiles.db"
 emergency_history_path = "history.db"
 
 [coordination]
-service_uuid = "12345678-1234-1234-1234-123456789abc"
+service_uuid = "YOUR_SERVICE_UUID_HERE"
 coordination_timeout = 10
 max_nearby_devices = 5
 enable_discovery = true
@@ -67,9 +67,9 @@ enable_accessibility = true
 language = "en"
 
 [blockchain]
-rpc_endpoint = "https://api.devnet.solana.com"
-wallet_path = "wallet.json"
-program_id = "CrisisCompanion111111111111111111111111111111111"
+rpc_endpoint = "YOUR_SOLANA_RPC_ENDPOINT"
+wallet_path = "YOUR_WALLET_PATH"
+program_id = "YOUR_PROGRAM_ID"
 enable_blockchain = false
 gas_fee_limit = 5000
 
@@ -79,7 +79,7 @@ network_timeout = 10
 check_interval = 60
 auto_switch = true
 offline_fallback = true
-llm_endpoints = ["https://api.openai.com/v1/chat/completions"]
+llm_endpoints = ["YOUR_LLM_ENDPOINT"]
 api_keys = {} 
 
 # Solana SOS Configuration
