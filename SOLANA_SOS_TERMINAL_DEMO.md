@@ -6,10 +6,10 @@
 
 ## 🎬 **Scene 1: Project Overview**
 **Command:** `$ ls -lalsanon`
-**Narration:** "Here's our Solana SOS project structure. Notice the public interfaces in `src/public/` and private implementation in `src/private/` - this protects our IP while allowing collaboration."
+**Narration:** "Here's our Solana SOS project structure. We use a single repository with `.gitignore` and module structure to protect our IP while allowing collaboration. Public interfaces are in `src/public/` and private implementation in `src/private/`."
 
 **Command:** `$ ls -R src/`
-**Narration:** "Our modular architecture separates voice recognition, emergency response, gamification, and safety features. Each component is independently testable."
+**Narration:** "Our modular architecture separates voice recognition, emergency response, gamification, and safety features. Each component is independently testable. The public interfaces allow collaboration while private modules protect our core algorithms."
 
 ---
 
