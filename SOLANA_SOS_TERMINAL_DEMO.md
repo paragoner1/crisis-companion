@@ -70,7 +70,7 @@
 ---
 
 ## 🎬 **Scene 6: Technical Innovation Summary**
-**Narration:** "What makes Solana SOS revolutionary: Voice recognition under 100ms, context-aware guidance saving 45 seconds, hybrid offline/online architecture, and SOS Hero gamification driving viral growth."
+**Narration:** "What makes Solana SOS revolutionary: Voice recognition under 100ms, context-aware guidance even offline, hybrid offline/online architecture, and SOS Hero gamification driving viral growth."
 
 **Key Innovations:**
 - **Voice Recognition:** < 100ms response time
