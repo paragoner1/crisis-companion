@@ -32,7 +32,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
 - **Voice-activated** - "Hey SOS, drowning help!"
-- **Offline-first** - Works anywhere, anytime
+- **Hybrid online-offline** - Online AI enhancement with offline fallback
 - **Context-aware** - Skips irrelevant steps
 - **Estimated 45 seconds saved** in every emergency
 
@@ -41,7 +41,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ## Slide 5: Demo
 **Watch how "drowning help!" triggers instant CPR guidance**
 
-- **Context-aware guidance** - "drowning help out of water" skips rescue steps
+- **Context-aware guidance** - "drowning help" then "out of water" skips rescue steps and goes straight into CPR
 - **Silent SOS** - Discreet activation with location sharing
 - **Crash Detection** - Automatic 911 calling with GPS
 - **Trusted Network** - Personal emergency contacts
@@ -62,7 +62,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ## Slide 7: Competitive Advantage
 **The only mobile device that will save your life by default**
 
-- **Offline voice-first** - Works when others fail
+- **Hybrid online-offline** - Online AI enhancement with offline fallback
 - **Blockchain secured** - Tamper-proof verification
 - **Context-aware** - Intelligent guidance
 - **Gamification** - Viral growth through hero levels
