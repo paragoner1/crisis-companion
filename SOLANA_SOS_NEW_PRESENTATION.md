@@ -59,7 +59,7 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ---
 
 ## Slide 7: Business Model
-**Revenue streams and growth projections:**
+**Default app on every Solana Mobile Seeker device**
 
 - **40% uplift** in Seeker sales through safety edge
 - **$50 million revenue potential** by Q4 2026
