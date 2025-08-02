@@ -15,7 +15,7 @@
 
 ## 🎬 **Scene 2: Voice Recognition Test**
 **Command:** `$ cargo run --bin voice_test`
-**Narration:** "Testing my offline voice recognition system. This shows Vosk integration working with sub-100ms response time, confidence thresholds, and audio hash generation for blockchain verification."
+**Narration:** "Testing my hybrid voice recognition system. This shows Vosk integration working with sub-100ms response time, confidence thresholds, and audio hash generation for blockchain verification."
 
 **Key Points:**
 - ✅ Voice trigger activated
@@ -28,7 +28,7 @@
 
 ## 🎬 **Scene 3: Direct Actions & Emergency Types**
 **Command:** `$ cargo run --bin simple_direct_actions_test`
-**Narration:** "This demonstrates my direct action system - 11 specific phrases that skip initial steps for immediate guidance. Also shows my 12 emergency types currently available in offline mode. Online mode uses AI-powered assistance built in for enhanced guidance."
+**Narration:** "This demonstrates my direct action system - 11 specific phrases that skip initial steps for immediate guidance. Also shows my 12 emergency types available with hybrid functionality. Online mode uses AI-powered assistance built in for enhanced guidance."
 
 **Key Points:**
 - **11 Direct Actions:** CPR, Heimlich, AED, Tmyniquet, EpiPen, Rescue Breathing, First Aid, FAST Test, Poison Control, Cool Burn, Medical Alert
