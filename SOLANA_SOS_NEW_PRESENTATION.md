@@ -22,26 +22,25 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 
 - Traditional apps fail when you need them most
 - Manual input required during crisis
-- Internet dependency in remote areas
-- 7-14 minute EMS arrival time
-- 10% survival drop per minute without help
-
----
-
 ## Slide 4: Solution
 **Solana SOS responds to your voice in under 100 milliseconds, even without internet.**
 
+
+---
+
+- **Voice-activated** - "Hey SOS, drowning help!"
 - **Voice-activated** - "Hey SOS, drowning help!"
 - **Enterprise-grade noise filtering** - Advanced AI-powered audio processing for crystal-clear voice recognition
 - **Enterprise-grade code architecture** - Enterprise-grade reliability for life-saving precision
 - **Expandable database** for more life-threatening emergencies
-
 ---
 
 ## Slide 5: Demo
 **Watch how "drowning help!" triggers instant CPR guidance**
 
 - **Context-aware guidance** - "drowning help" then "out of water" skips rescue steps and goes straight into CPR guidance
+
+- **Other Features:**
 - **Silent SOS** - Discreet activation with location sharing
 - **Crash Detection** - Automatic 911 calling with GPS
 - **Trusted Network** - Personal emergency contacts
