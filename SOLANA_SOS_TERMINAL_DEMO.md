@@ -82,6 +82,30 @@
 
 ---
 
+## 🎬 **Scene 7: Mobile App Demo**
+**Command:** `$ cd android-app && ls -la`
+**Narration:** "Now let me show you the mobile app. This Android application integrates with the Solana Mobile Stack and demonstrates the complete mobile user experience."
+
+**Command:** `$ ./gradlew assembleDebug`
+**Narration:** "Building the Android app with Solana Mobile Stack integration. This includes Mobile Wallet Adapter, voice recognition, emergency services, and blockchain functionality."
+
+**Command:** `$ adb install app/build/outputs/apk/debug/app-debug.apk`
+**Narration:** "Installing the app on the mobile device. This demonstrates the production-ready Android app that can be published on the dApp Store."
+
+**Command:** `$ adb shell am start -n com.solanasos.emergency/.MainActivity`
+**Narration:** "Launching the mobile app. You can see the emergency interface with voice recognition, Solana wallet connection, and emergency activation buttons."
+
+**Key Mobile Features:**
+- **Voice Recognition:** "Hey SOS" wake word on mobile device
+- **Emergency UI:** Touch-friendly emergency interface
+- **Solana Integration:** Mobile Wallet Adapter connection
+- **Token Rewards:** SKR/BONK tokens for emergency actions
+- **Location Services:** GPS integration for emergency response
+- **Background Service:** Emergency processing with notifications
+- **Blockchain Recording:** Emergency records stored on Solana
+
+---
+
 ## 📋 **Additional Features (Mention at End)**
 - **Gamification Demo:** SOS Hero levels, XP rewards, achievements
 - **Context Analysis:** Emergency stage detection and intelligent guidance
@@ -91,4 +115,4 @@
 
 ---
 
-**🎯 Demo Focus:** Technical capabilities, offline reliability, safety features, and real-world emergency response simulation. 
+**🎯 Demo Focus:** Technical capabilities, offline reliability, safety features, mobile functionality, and real-world emergency response simulation. 
