@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var speechRecognizer: SpeechRecognizer
     private lateinit var solanaIntegration: SolanaIntegration
+    private lateinit var solanaMobile: SolanaMobileIntegration
     private lateinit var rustBridge: RustBridge
     private var isListening = false
     private var isEmergencyMode = false
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         
         // Initialize Solana integration
         solanaIntegration = SolanaIntegration(this)
+        solanaMobile = SolanaMobileIntegration(this)
         
         // Initialize Rust bridge
         rustBridge = RustBridge(this)
@@ -282,10 +284,10 @@ class MainActivity : AppCompatActivity() {
         updateStatus("Connecting to Solana wallet...")
         
         lifecycleScope.launch {
-            val connected = solanaIntegration.connectWallet()
+            val connected = solanaMobile.connectWallet()
             
             if (connected) {
-                val walletAddress = solanaIntegration.getWalletAddress()
+                val walletAddress = solanaMobile.getWalletAddress()
                 updateStatus("Connected to Solana wallet: ${walletAddress?.take(8)}...")
                 Toast.makeText(this@MainActivity, "Solana wallet connected!", Toast.LENGTH_SHORT).show()
                 Log.d(TAG, "Solana wallet connected: $walletAddress")
