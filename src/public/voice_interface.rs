@@ -3,133 +3,236 @@
 //! This module provides the public interface for voice recognition functionality.
 //! Implementation details are hidden to protect proprietary algorithms.
 
-use crate::error::AppResult;
-use crate::public::types::EmergencyType;
+use crate::error::{AppError, AppResult};
+use serde::{Deserialize, Serialize};
+use std::sync::Arc;
+use tokio::sync::RwLock;
 
-/// Voice trigger for emergency phrase detection
+/// Voice recognition trigger configuration
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct VoiceTrigger {
-    /// Whether the voice trigger is currently active
-    pub is_active: bool,
-    /// Confidence threshold for phrase detection
+    /// Wake word to activate emergency mode
+    pub wake_word: String,
+    /// Confidence threshold for wake word detection
     pub confidence_threshold: f32,
-    /// Current confidence level of detected phrase
-    pub current_confidence: f32,
-}
-
-impl VoiceTrigger {
-    /// Creates a new voice trigger instance
-    pub fn new() -> Self {
-        // Implementation details hidden
-        Self {
-            is_active: false,
-            confidence_threshold: 0.8,
-            current_confidence: 0.0,
-        }
-    }
-
-    /// Detects emergency phrases in voice input
-    /// 
-    /// # Arguments
-    /// * `phrase` - The voice input to analyze
-    /// 
-    /// # Returns
-    /// * `bool` - True if an emergency phrase is detected
-    pub fn detect_emergency_phrase(&mut self, _phrase: &str) -> AppResult<bool> {
-        // Implementation details hidden - proprietary voice recognition algorithms
-        Ok(false)
-    }
-
-    /// Gets the current confidence level of the last detected phrase
-    pub fn get_confidence(&self) -> f32 {
-        self.current_confidence
-    }
-
-    /// Activates the voice trigger for listening
-    pub fn activate(&mut self) -> AppResult<()> {
-        // Implementation details hidden
-        self.is_active = true;
-        Ok(())
-    }
-
-    /// Deactivates the voice trigger
-    pub fn deactivate(&mut self) -> AppResult<()> {
-        // Implementation details hidden
-        self.is_active = false;
-        Ok(())
-    }
-
-    /// Sets the confidence threshold for phrase detection
-    pub fn set_confidence_threshold(&mut self, threshold: f32) {
-        self.confidence_threshold = threshold;
-    }
-
-    /// Generates an audio hash for the given phrase
-    /// 
-    /// # Arguments
-    /// * `phrase` - The phrase to hash
-    /// 
-    /// # Returns
-    /// * `String` - The audio hash
-    pub fn generate_audio_hash(phrase: &str) -> String {
-        // Implementation details hidden - proprietary hashing algorithm
-        format!("hash_{}", phrase.len())
-    }
-
-    /// Simulates phrase detection for demo purposes
-    /// 
-    /// # Arguments
-    /// * `phrase` - The phrase to simulate detection for
-    /// 
-    /// # Returns
-    /// * `AppResult<EmergencyType>` - The detected emergency type
-    pub async fn simulate_phrase_detection(_phrase: &str) -> AppResult<EmergencyType> {
-        // Implementation details hidden - proprietary detection logic
-        use crate::public::types::EmergencyType;
-        Ok(EmergencyType::Drowning)
-    }
+    /// Emergency phrases to detect
+    pub emergency_phrases: Vec<String>,
+    /// Direct action phrases for trained responders
+    pub direct_actions: Vec<String>,
 }
 
 /// Voice recognition configuration
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct VoiceConfig {
-    /// Wake word for voice activation
-    pub wake_word: String,
-    /// List of supported emergency phrases
-    pub emergency_phrases: Vec<String>,
-    /// Noise filtering settings
-    pub noise_filter_enabled: bool,
-}
-
-impl Default for VoiceConfig {
-    fn default() -> Self {
-        Self {
-            wake_word: "Hey SOS".to_string(),
-            emergency_phrases: vec![
-                "drowning help".to_string(),
-                "heart attack".to_string(),
-                "choking".to_string(),
-                "bleeding".to_string(),
-            ],
-            noise_filter_enabled: true,
-        }
-    }
+    /// Sample rate for audio processing
+    pub sample_rate: u32,
+    /// Audio buffer size
+    pub buffer_size: usize,
+    /// Enable noise filtering
+    pub enable_noise_filtering: bool,
+    /// Enable adaptive model training
+    pub enable_adaptive_training: bool,
+    /// Voice trigger configuration
+    pub trigger: VoiceTrigger,
 }
 
 /// Voice recognition statistics
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct VoiceStats {
-    /// Number of phrases detected
-    pub phrases_detected: u32,
-    /// Average confidence level
-    pub avg_confidence: f32,
-    /// Total processing time
-    pub total_processing_time: std::time::Duration,
+    /// Total voice activations
+    pub total_activations: u64,
+    /// Successful emergency detections
+    pub emergency_detections: u64,
+    /// False positive rate
+    pub false_positive_rate: f32,
+    /// Average response time in milliseconds
+    pub avg_response_time_ms: u64,
+    /// Last activation timestamp
+    pub last_activation: Option<chrono::DateTime<chrono::Utc>>,
 }
 
-impl Default for VoiceStats {
-    fn default() -> Self {
+/// Voice interface for emergency recognition
+pub struct VoiceInterface {
+    config: VoiceConfig,
+    stats: Arc<RwLock<VoiceStats>>,
+    model_path: String,
+}
+
+impl VoiceInterface {
+    /// Create a new voice interface
+    pub fn new(model_path: &str) -> Self {
+        let config = VoiceConfig {
+            sample_rate: 16000,
+            buffer_size: 4096,
+            enable_noise_filtering: true,
+            enable_adaptive_training: true,
+            trigger: VoiceTrigger {
+                wake_word: "hey sos".to_string(),
+                confidence_threshold: 0.8,
+                emergency_phrases: vec![
+                    "drowning".to_string(),
+                    "heart attack".to_string(),
+                    "choking".to_string(),
+                    "bleeding".to_string(),
+                    "unconscious".to_string(),
+                    "stroke".to_string(),
+                    "seizure".to_string(),
+                    "poisoning".to_string(),
+                    "burn".to_string(),
+                    "diabetic".to_string(),
+                    "allergic".to_string(),
+                    "trauma".to_string(),
+                ],
+                direct_actions: vec![
+                    "cpr".to_string(),
+                    "heimlich".to_string(),
+                    "aed".to_string(),
+                    "tourniquet".to_string(),
+                    "epipen".to_string(),
+                    "rescue breathing".to_string(),
+                    "first aid".to_string(),
+                    "fast test".to_string(),
+                    "poison control".to_string(),
+                    "cool burn".to_string(),
+                    "medical alert".to_string(),
+                ],
+            },
+        };
+
+        let stats = Arc::new(RwLock::new(VoiceStats {
+            total_activations: 0,
+            emergency_detections: 0,
+            false_positive_rate: 0.0,
+            avg_response_time_ms: 0,
+            last_activation: None,
+        }));
+
         Self {
-            phrases_detected: 0,
-            avg_confidence: 0.0,
-            total_processing_time: std::time::Duration::from_secs(0),
+            config,
+            stats,
+            model_path: model_path.to_string(),
         }
+    }
+
+    /// Initialize voice recognition
+    pub async fn initialize(&mut self) -> AppResult<()> {
+        // Initialize voice recognition system
+        tracing::info!("Voice interface initialized with model: {}", self.model_path);
+        Ok(())
+    }
+
+    /// Process audio input and return recognized text
+    pub async fn process_audio(&mut self, audio_data: &[u8]) -> AppResult<String> {
+        let start_time = std::time::Instant::now();
+        
+        // Apply noise filtering if enabled
+        let processed_audio = if self.config.enable_noise_filtering {
+            self.apply_noise_filtering(audio_data)?
+        } else {
+            audio_data.to_vec()
+        };
+
+        // Process with voice recognition
+        let recognized_text = self.recognize_speech(&processed_audio)?;
+        
+        // Update statistics
+        let response_time = start_time.elapsed().as_millis() as u64;
+        self.update_stats(response_time).await;
+
+        Ok(recognized_text)
+    }
+
+    /// Detect wake word in audio
+    pub async fn detect_wake_word(&mut self, audio_data: &[u8]) -> AppResult<bool> {
+        let recognized_text = self.process_audio(audio_data).await?;
+        let detected = recognized_text
+            .to_lowercase()
+            .contains(&self.config.trigger.wake_word);
+        
+        if detected {
+            tracing::info!("Wake word detected: {}", self.config.trigger.wake_word);
+        }
+        
+        Ok(detected)
+    }
+
+    /// Detect emergency phrase in audio
+    pub async fn detect_emergency_phrase(&mut self, audio_data: &[u8]) -> AppResult<Option<String>> {
+        let recognized_text = self.process_audio(audio_data).await?;
+        
+        for phrase in &self.config.trigger.emergency_phrases {
+            if recognized_text.to_lowercase().contains(phrase) {
+                tracing::info!("Emergency phrase detected: {}", phrase);
+                return Ok(Some(phrase.clone()));
+            }
+        }
+        
+        Ok(None)
+    }
+
+    /// Detect direct action phrase
+    pub async fn detect_direct_action(&mut self, audio_data: &[u8]) -> AppResult<Option<String>> {
+        let recognized_text = self.process_audio(audio_data).await?;
+        
+        for action in &self.config.trigger.direct_actions {
+            if recognized_text.to_lowercase().contains(action) {
+                tracing::info!("Direct action detected: {}", action);
+                return Ok(Some(action.clone()));
+            }
+        }
+        
+        Ok(None)
+    }
+
+    /// Apply noise filtering to audio
+    fn apply_noise_filtering(&self, audio_data: &[u8]) -> AppResult<Vec<u8>> {
+        // Simplified noise filtering - in production would use RNNoise
+        Ok(audio_data.to_vec())
+    }
+
+    /// Recognize speech from audio
+    fn recognize_speech(&self, audio_data: &[u8]) -> AppResult<String> {
+        // Simplified speech recognition - in production would use Vosk
+        // For demo purposes, return a placeholder based on audio length
+        if audio_data.len() > 1000 {
+            Ok("hey sos drowning emergency".to_string())
+        } else {
+            Ok("hey sos".to_string())
+        }
+    }
+
+    /// Update voice recognition statistics
+    async fn update_stats(&self, response_time: u64) {
+        let mut stats = self.stats.write().await;
+        stats.total_activations += 1;
+        stats.avg_response_time_ms = 
+            (stats.avg_response_time_ms + response_time) / 2;
+        stats.last_activation = Some(chrono::Utc::now());
+    }
+
+    /// Get voice recognition statistics
+    pub async fn get_stats(&self) -> VoiceStats {
+        self.stats.read().await.clone()
+    }
+
+    /// Adapt voice model with user data
+    pub async fn adapt_model(&mut self, user_audio_data: &[u8]) -> AppResult<()> {
+        if !self.config.enable_adaptive_training {
+            return Ok(());
+        }
+
+        // Simplified model adaptation
+        tracing::info!("Adapting voice model with user data ({} bytes)", user_audio_data.len());
+        Ok(())
+    }
+
+    /// Get voice configuration
+    pub fn get_config(&self) -> &VoiceConfig {
+        &self.config
+    }
+
+    /// Update voice configuration
+    pub fn update_config(&mut self, config: VoiceConfig) {
+        self.config = config;
     }
 } 
