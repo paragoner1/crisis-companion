@@ -16,6 +16,7 @@ async fn main() -> AppResult<()> {
     info!("=======================");
     info!("📱 App: 'Solana SOS activated. Creating the phone you can't live without.'");
     info!("📱 App: 'Voice recognition active. Say 'Hey SOS' to activate.'");
+    info!("📱 App: 'Android app ready for Solana Mobile Seeker deployment.'");
     sleep(Duration::from_secs(2)).await;
 
     // Scene 2: Voice Activation
@@ -102,55 +103,100 @@ async fn main() -> AppResult<()> {
     info!("📱 App: '• Seamless handoff'");
     sleep(Duration::from_secs(2)).await;
 
-    // Scene 11: Real Emergency Response
-    info!("\n🎬 Scene 11: Real Emergency Response");
+    // NEW: Scene 11: Android App Features
+    info!("\n🎬 Scene 11: Android App Features");
+    info!("=================================");
+    info!("📱 App: 'Android app features:'");
+    info!("📱 App: '• Native Material Design UI'");
+    info!("📱 App: '• Seeker device optimization'");
+    info!("📱 App: '• Android permissions integration'");
+    info!("📱 App: '• Background service processing'");
+    sleep(Duration::from_secs(2)).await;
+
+    // NEW: Scene 12: Solana Mobile Wallet Integration
+    info!("\n🎬 Scene 12: Solana Mobile Wallet Integration");
+    info!("=============================================");
+    info!("📱 App: 'Connecting to Solana Mobile Wallet...'");
+    info!("📱 App: 'Wallet connected successfully.'");
+    info!("📱 App: 'Emergency response recorded on blockchain.'");
+    info!("📱 App: 'Transaction: Emergency_Response_2025_08_01'");
+    info!("📱 App: 'Blockchain verification: Tamper-proof record'");
+    sleep(Duration::from_secs(2)).await;
+
+    // NEW: Scene 13: Token Rewards System
+    info!("\n🎬 Scene 13: Token Rewards System");
+    info!("=================================");
+    info!("📱 App: 'SOS Hero rewards activated!'");
+    info!("📱 App: 'BONK tokens earned: +100 (Life-saving action)'");
+    info!("📱 App: 'SKR tokens earned: +25 (Emergency response)'");
+    info!("📱 App: 'XP gained: +500 (Hero level progress)'");
+    info!("📱 App: 'Achievement unlocked: First Responder'");
+    sleep(Duration::from_secs(2)).await;
+
+    // NEW: Scene 14: SOS Hero Gamification
+    info!("\n🎬 Scene 14: SOS Hero Gamification");
+    info!("===================================");
+    info!("📱 App: 'SOS Hero system:'");
+    info!("📱 App: '• Level: 3 (First Responder)'");
+    info!("📱 App: '• Total lives saved: 1'");
+    info!("📱 App: '• Emergency responses: 1'");
+    info!("📱 App: '• Token balance: 100 BONK, 25 SKR'");
+    sleep(Duration::from_secs(2)).await;
+
+    // Scene 15: Real Emergency Response
+    info!("\n🎬 Scene 15: Real Emergency Response");
     info!("====================================");
     info!("📱 App: 'Emergency response completed successfully.'");
     info!("📱 App: 'Time saved: 45 seconds'");
     info!("📱 App: 'Lives saved: 1'");
     info!("📱 App: 'Emergency recorded on blockchain.'");
+    info!("📱 App: 'Tokens rewarded for life-saving action.'");
     sleep(Duration::from_secs(2)).await;
 
-    // Scene 12: Safety Features Summary
-    info!("\n🎬 Scene 12: Safety Features Summary");
+    // Scene 16: Safety Features Summary
+    info!("\n🎬 Scene 16: Safety Features Summary");
     info!("====================================");
     info!("📱 App: 'Safety features summary:'");
     info!("📱 App: '• Silent SOS: Discreet emergency activation'");
     info!("📱 App: '• Crash Detection: Automatic 911 calling'");
     info!("📱 App: '• Trusted Network: Personal emergency contacts'");
     info!("📱 App: '• Location Sharing: Automatic coordinates'");
+    info!("📱 App: '• Blockchain Recording: Tamper-proof verification'");
     sleep(Duration::from_secs(2)).await;
 
-    // Scene 13: Technical Innovation
-    info!("\n🎬 Scene 13: Technical Innovation");
+    // Scene 17: Technical Innovation
+    info!("\n🎬 Scene 17: Technical Innovation");
     info!("=================================");
     info!("📱 App: 'Technical innovations:'");
     info!("📱 App: '• Voice recognition: < 100ms response'");
-    info!("📱 App: '• Context-aware guidance: 45s time savings'");
+    info!("📱 App: '• Context-aware guidance: Intelligent stage detection'");
     info!("📱 App: '• Hybrid architecture: Offline + online'");
+    info!("📱 App: '• Solana integration: Mobile Wallet Adapter'");
     info!("📱 App: '• SOS Hero gamification: Viral growth'");
     sleep(Duration::from_secs(2)).await;
 
-    // Scene 14: Market Impact
-    info!("\n🎬 Scene 14: Market Impact");
+    // Scene 18: Market Impact
+    info!("\n🎬 Scene 18: Market Impact");
     info!("===========================");
     info!("📱 App: 'Market impact:'");
-    info!("📱 App: '• Target market: 2.5B smartphone users'");
-    info!("📱 App: '• Revenue potential: $500M annually'");
+    info!("📱 App: '• Target market: 7.3B smartphone users by 2025'");
+    info!("📱 App: '• Revenue potential: $50M ARR by 2026'");
     info!("📱 App: '• Lives saved: 100,000+ annually'");
-    info!("📱 App: '• Viral coefficient: 2.5x'");
+    info!("📱 App: '• Seeker device integration: Default app'");
     sleep(Duration::from_secs(2)).await;
 
-    // Scene 15: Call to Action
-    info!("\n🎬 Scene 15: Call to Action");
+    // Scene 19: Call to Action
+    info!("\n🎬 Scene 19: Call to Action");
     info!("============================");
     info!("📱 App: 'Solana SOS - Creating the phone you can't live without.'");
     info!("📱 App: 'Built by Paragoner for Solana Mobile Hackathon 2025.'");
     info!("📱 App: 'Transforming ordinary people into life-saving heroes.'");
     info!("📱 App: 'Join the SOS Hero community today!'");
+    info!("📱 App: 'BE A HERO - Download on Solana dApp Store.'");
 
     info!("🎉 Complete app walkthrough demo finished successfully!");
     info!("Solana SOS demonstrates comprehensive emergency response capabilities!");
+    info!("🚀 Ready for Solana Mobile deployment and dApp Store launch!");
 
     Ok(())
 } 

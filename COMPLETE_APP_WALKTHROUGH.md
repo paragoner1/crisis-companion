@@ -12,8 +12,9 @@
 - Show app icon and splash screen
 - Demonstrate app permissions (microphone, location, contacts)
 - Show main dashboard with emergency button
+- Display Android app ready for Solana Mobile Seeker deployment
 
-**Narration:** "The app requests essential permissions for emergency response: microphone for voice commands, location for emergency services, and contacts for your trusted network."
+**Narration:** "The app requests essential permissions for emergency response: microphone for voice commands, location for emergency services, and contacts for your trusted network. Built specifically for Solana Mobile Seeker devices."
 
 ---
 
@@ -151,7 +152,67 @@
 
 ---
 
-## 🎬 **Scene 11: Real Emergency Response (40 seconds)**
+## 🎬 **Scene 11: Android App Features (30 seconds)**
+
+**Visual:** Android app interface with Material Design
+**Narration:** "Built specifically for Android with native integration and Seeker device optimization."
+
+**Action:**
+- Show Material Design UI components
+- Demonstrate Android permissions integration
+- Display background service processing
+- Show Seeker device optimization features
+
+**Narration:** "Native Android app with Material Design, optimized for Solana Mobile Seeker devices. Background services ensure emergency response works even when the app is minimized."
+
+---
+
+## 🎬 **Scene 12: Solana Mobile Wallet Integration (35 seconds)**
+
+**Visual:** Wallet connection and blockchain transaction
+**Narration:** "Seamless integration with Solana Mobile Wallet for blockchain recording and token rewards."
+
+**Action:**
+- Show Mobile Wallet Adapter connection
+- Display wallet connection confirmation
+- Demonstrate emergency response blockchain recording
+- Show transaction verification
+
+**Narration:** "Every emergency response is recorded on the Solana blockchain for tamper-proof verification. The Mobile Wallet Adapter provides seamless integration with your Solana wallet."
+
+---
+
+## 🎬 **Scene 13: Token Rewards System (30 seconds)**
+
+**Visual:** Token rewards and achievements
+**Narration:** "Earn BONK and SKR tokens for life-saving actions through the SOS Hero gamification system."
+
+**Action:**
+- Show token rewards for emergency response
+- Display BONK token earning (+100 for life-saving action)
+- Show SKR token earning (+25 for emergency response)
+- Demonstrate XP and achievement unlocks
+
+**Narration:** "Transform emergency response into rewarding experiences. Earn BONK and SKR tokens for life-saving actions, building a community of heroes."
+
+---
+
+## 🎬 **Scene 14: SOS Hero Gamification (25 seconds)**
+
+**Visual:** Hero levels and progress tracking
+**Narration:** "The SOS Hero system gamifies emergency response, encouraging community participation."
+
+**Action:**
+- Show hero level progression
+- Display lives saved counter
+- Demonstrate emergency response tracking
+- Show token balance and achievements
+
+**Narration:** "Level up as you save lives. Track your emergency responses, build your hero profile, and earn recognition in the SOS Hero community."
+
+---
+
+## 🎬 **Scene 15: Real Emergency Response (40 seconds)**
 
 **Visual:** Complete emergency scenario from start to finish
 **Narration:** "Let's see a complete emergency response in action."
@@ -165,67 +226,71 @@
 - Show 911 call in progress
 - Show location shared
 - Show trusted contacts notified
+- Show blockchain recording
+- Show token rewards
 
-**Narration:** "In under 10 seconds, the app has called 911, shared your location, provided immediate guidance, and notified your trusted network. That's the power of Solana SOS."
+**Narration:** "In under 10 seconds, the app has called 911, shared your location, provided immediate guidance, notified your trusted network, recorded on blockchain, and rewarded your heroism."
 
 ---
 
-## 🎬 **Scene 12: Safety Features Summary (20 seconds)**
+## 🎬 **Scene 16: Safety Features Summary (20 seconds)**
 
 **Visual:** Feature grid with icons
 **Narration:** "Solana SOS combines multiple safety technologies into one life-saving app."
 
 **Action:**
-- Show feature icons: Voice Activation, Silent SOS, Crash Detection, Trusted Network, Context-Aware Guidance, Offline Functionality
+- Show feature icons: Voice Activation, Silent SOS, Crash Detection, Trusted Network, Context-Aware Guidance, Offline Functionality, Blockchain Recording
 - Highlight each feature briefly
 - Show integration benefits
 
-**Narration:** "Voice activation, silent SOS, crash detection, trusted network, context-aware guidance, and offline functionality - all working together to save lives."
+**Narration:** "Voice activation, silent SOS, crash detection, trusted network, context-aware guidance, offline functionality, and blockchain recording - all working together to save lives."
 
 ---
 
-## 🎬 **Scene 13: Technical Innovation (25 seconds)**
+## 🎬 **Scene 17: Technical Innovation (25 seconds)**
 
 **Visual:** Technical architecture diagram
 **Narration:** "Built with cutting-edge technology for maximum reliability."
 
 **Action:**
-- Show technology stack: Rust, Vosk, RNNoise, SQLite, Solana
+- Show technology stack: Rust, Vosk, RNNoise, SQLite, Solana, Android, Kotlin
 - Highlight offline-first architecture
 - Show hybrid online/offline capabilities
 - Display performance metrics
+- Show Solana Mobile Stack integration
 
-**Narration:** "Rust for reliability, Vosk for offline speech recognition, RNNoise for noise filtering, SQLite for local storage, and Solana for blockchain integration. Enterprise-grade technology for life-saving reliability."
+**Narration:** "Rust for reliability, Vosk for offline speech recognition, RNNoise for noise filtering, SQLite for local storage, Solana for blockchain integration, and native Android development. Enterprise-grade technology for life-saving reliability."
 
 ---
 
-## 🎬 **Scene 14: Market Impact (20 seconds)**
+## 🎬 **Scene 18: Market Impact (20 seconds)**
 
 **Visual:** Market statistics and projections
 **Narration:** "Over 7.3 billion potential users worldwide by 2025, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
 
 **Action:**
-- Show market size: $2.5B emergency response market
-- Display target users: 250M smartphone users
+- Show market size: $5.2B emergency response market by 2033
+- Display target users: 7.3B smartphone users by 2025
 - Show revenue projections: $50M ARR by 2026
 - Highlight social impact: Lives saved
+- Show Seeker device integration potential
 
 **Narration:** "Over 7.3 billion potential users worldwide by 2025, safety apps market growing from $1.5 billion to $5.2 billion by 2033, and the potential to save thousands of lives. This isn't just an app - it's a movement."
 
 ---
 
-## 🎬 **Scene 15: Call to Action (15 seconds)**
+## 🎬 **Scene 19: Call to Action (15 seconds)**
 
 **Visual:** App download screen
 **Narration:** "Solana SOS - Creating the phone you can't live without."
 
 **Action:**
-- Show app store download
+- Show Solana dApp Store download
 - Display "Coming Soon" with signup
 - Show website: solanasos.com
-- End with app logo
+- End with app logo and "BE A HERO" tagline
 
-**Narration:** "Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver."
+**Narration:** "Download Solana SOS today and join the revolution in emergency response. Because when seconds matter, you need the app that makes your phone a life saver. BE A HERO."
 
 ---
 
@@ -233,10 +298,10 @@
 
 ```bash
 # Test voice activation
-cargo run --bin voice_demo
+cargo run --bin voice_test
 
 # Test context-aware guidance
-cargo run --bin context_demo
+cargo run --bin demo_test
 
 # Test safety features
 cargo run --bin safety_features_test
@@ -258,8 +323,11 @@ cargo run --bin complete_walkthrough
 3. **Innovation**: Context-aware guidance
 4. **Safety**: Multiple activation methods
 5. **Technology**: Enterprise-grade stack
-6. **Impact**: Lives saved, market opportunity
-7. **Accessibility**: Works for everyone, everywhere
+6. **Solana Integration**: Blockchain recording and token rewards
+7. **Android Native**: Seeker device optimization
+8. **Gamification**: SOS Hero system with viral growth
+9. **Impact**: Lives saved, market opportunity
+10. **Accessibility**: Works for everyone, everywhere
 
 ## 📱 **Demo Tips**
 
@@ -268,7 +336,9 @@ cargo run --bin complete_walkthrough
 - **Emphasize innovation**: Context-aware guidance is unique
 - **Highlight safety**: Multiple ways to get help
 - **Demonstrate reliability**: Offline functionality
+- **Show Solana integration**: Blockchain and token features
+- **Display Android features**: Native app capabilities
 - **Show market potential**: Clear business opportunity
 - **End with impact**: Lives saved, social good
 
-This walkthrough demonstrates every working feature of Solana SOS and positions it as a revolutionary life-saving app with massive market potential. 
+This walkthrough demonstrates every working feature of Solana SOS and positions it as a revolutionary life-saving app with massive market potential, complete Solana integration, and native Android capabilities. 

@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityMainBinding
     private lateinit var speechRecognizer: SpeechRecognizer
-    private lateinit var solanaIntegration: SolanaIntegration
     private lateinit var solanaMobile: SolanaMobileIntegration
     private lateinit var rustBridge: RustBridge
     private var isListening = false
@@ -43,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         
         // Initialize Solana integration
-        solanaIntegration = SolanaIntegration(this)
         solanaMobile = SolanaMobileIntegration(this)
         
         // Initialize Rust bridge

@@ -3,7 +3,7 @@
 //! This module provides the public interface for voice recognition functionality.
 //! Implementation details are hidden to protect proprietary algorithms.
 
-use crate::error::{AppError, AppResult};
+use crate::error::AppResult;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use tokio::sync::RwLock;

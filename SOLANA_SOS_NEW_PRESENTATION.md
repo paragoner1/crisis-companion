@@ -34,6 +34,8 @@ That terrifying moment exposed a critical gap - in emergencies, shock paralyzes 
 ## Slide 5: Demo
 **Watch how "drowning help!" triggers instant CPR guidance**
 
+- **12 Emergency Types:** Drowning, Heart Attack, Stroke, Choking, Bleeding, Unconscious, Seizure, Poisoning, Severe Burns, Diabetic Emergency, Allergic Reaction, Trauma
+- **11 Direct Actions:** CPR, Heimlich, AED, Tourniquet, EpiPen, Rescue Breathing, First Aid, FAST Test, Poison Control, Cool Burn, Medical Alert
 - **Context-aware guidance** - "drowning help" then "out of water" skips rescue steps and goes straight into CPR guidance
 
 - **Other Features:**
