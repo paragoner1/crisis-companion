@@ -18,20 +18,26 @@ import kotlinx.coroutines.withContext
 
 class EmergencyService : Service() {
     
+    private lateinit var notificationManager: NotificationManager
+    private lateinit var locationManager: LocationManager
+    private lateinit var solanaMobile: SolanaMobileIntegration
+    private lateinit var rustBridge: RustBridge
+    
+    private var emergencyType: String = ""
+    private var isEmergencyActive = false
+    private var emergencyStartTime: Long = 0
+    
     companion object {
         private const val TAG = "EmergencyService"
-        private const val NOTIFICATION_ID = 1
+        private const val NOTIFICATION_ID = 1001
         private const val CHANNEL_ID = "emergency_channel"
     }
     
-    private lateinit var solanaIntegration: SolanaIntegration
-    private lateinit var locationManager: LocationManager
-    private var currentEmergency: String? = null
-    
     override fun onCreate() {
         super.onCreate()
-        solanaIntegration = SolanaIntegration(this)
+        solanaMobile = SolanaMobileIntegration(this)
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
+        notificationManager = getSystemService(NotificationManager::class.java)
         
         createNotificationChannel()
     }
@@ -40,10 +46,10 @@ class EmergencyService : Service() {
         Log.d(TAG, "Emergency service started")
         
         // Get emergency type from intent
-        currentEmergency = intent?.getStringExtra("emergency_type")
+        emergencyType = intent?.getStringExtra("emergency_type") ?: "Unknown"
         
-        if (currentEmergency != null) {
-            Log.d(TAG, "Processing emergency: $currentEmergency")
+        if (emergencyType != "Unknown") {
+            Log.d(TAG, "Processing emergency: $emergencyType")
             
             // Start foreground service with notification
             startForeground(NOTIFICATION_ID, createEmergencyNotification())
@@ -115,7 +121,7 @@ class EmergencyService : Service() {
             "Location unavailable"
         }
         
-        Log.d(TAG, "911 call initiated for $currentEmergency at $locationString")
+        Log.d(TAG, "911 call initiated for $emergencyType at $locationString")
         
         // Simulate call duration
         Thread.sleep(2000)
@@ -141,15 +147,15 @@ class EmergencyService : Service() {
     private suspend fun recordEmergencyOnBlockchain(location: Location?) = withContext(Dispatchers.IO) {
         Log.d(TAG, "Recording emergency on Solana blockchain...")
         
-        val emergencyData = EmergencyData(
-            emergencyType = currentEmergency ?: "Unknown",
+        val emergencyData = SolanaMobileIntegration.EmergencyData(
+            emergencyType = emergencyType,
             timestamp = System.currentTimeMillis(),
-            location = if (location != null) "${location.latitude},${location.longitude}" else null,
+            location = if (location != null) "${location.latitude},${location.longitude}" else "Unknown",
             actions = listOf("911_called", "location_shared", "emergency_service_activated"),
             outcome = "In Progress"
         )
         
-        val recordId = solanaIntegration.recordEmergencyOnBlockchain(emergencyData)
+        val recordId = solanaMobile.recordEmergencyOnBlockchain(emergencyData)
         
         if (recordId != null) {
             Log.d(TAG, "Emergency recorded on blockchain: $recordId")
@@ -161,7 +167,7 @@ class EmergencyService : Service() {
     private suspend fun awardEmergencyResponseTokens() = withContext(Dispatchers.IO) {
         Log.d(TAG, "Awarding emergency response tokens...")
         
-        val emergencyType = currentEmergency ?: "unknown"
+        val emergencyType = emergencyType
         
         // Award tokens for different emergency response actions
         val actions = listOf(
@@ -172,13 +178,13 @@ class EmergencyService : Service() {
         )
         
         for (action in actions) {
-            val rewarded = solanaIntegration.awardEmergencyRewards(emergencyType, action)
+            val rewarded = solanaMobile.awardEmergencyTokens(emergencyType, action)
             if (rewarded) {
                 Log.d(TAG, "Awarded tokens for $action")
             }
         }
         
-        val totalRewards = solanaIntegration.getTotalRewards()
+        val totalRewards = solanaMobile.getTotalRewards()
         Log.d(TAG, "Total emergency rewards: $totalRewards")
     }
     
@@ -194,13 +200,12 @@ class EmergencyService : Service() {
                 enableVibration(true)
             }
             
-            val notificationManager = getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel)
         }
     }
     
     private fun createEmergencyNotification(): Notification {
-        val emergencyType = currentEmergency ?: "Emergency"
+        val emergencyType = emergencyType
         
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("🚨 Solana SOS Emergency")
@@ -217,8 +222,5 @@ class EmergencyService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "Emergency service destroyed")
-        
-        // Disconnect from Solana wallet
-        solanaIntegration.disconnect()
     }
 } 

@@ -337,6 +337,36 @@ cargo run --bin safety_features_test
 
 ---
 
+## 🤝 **Contributing**
+
+We welcome contributions from the community! Whether you're fixing bugs, adding features, improving documentation, or helping with testing, your contributions help make the world safer.
+
+### **Quick Start for Contributors**
+- **Bug Reports** - Use [GitHub Issues](https://github.com/paragoner1/crisis-companion/issues)
+- **Feature Requests** - Start a [Discussion](https://github.com/paragoner1/crisis-companion/discussions)
+- **Code Contributions** - See our [Contributing Guidelines](CONTRIBUTING.md)
+- **Documentation** - Help improve guides and API docs
+- **Testing** - Test emergency scenarios and edge cases
+
+### **Areas We Need Help**
+- **Voice Recognition** - Improving accuracy and noise filtering
+- **Emergency Protocols** - Adding new emergency types and guidance
+- **Android Integration** - Enhancing mobile app features
+- **Solana Integration** - Blockchain and token functionality
+- **Testing** - Emergency scenario validation
+- **Documentation** - User guides and developer docs
+
+### **Community Guidelines**
+- **Safety First** - All contributions must prioritize user safety
+- **Privacy Respect** - Maintain user privacy and data protection
+- **Quality Code** - Follow Rust and Android best practices
+- **Inclusive** - Welcome contributors from all backgrounds
+- **Professional** - Maintain respectful, constructive communication
+
+*See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on code style, pull request process, and development setup.*
+
+---
+
 **Solana SOS** - Creating the phone you can't live without. 🚨
 
 ---
@@ -345,55 +375,66 @@ cargo run --bin safety_features_test
 
 ### **🏗️ Architecture Diagram**
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    SOLANA SOS ARCHITECTURE                 │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    │
-│  │   Voice     │    │  Context    │    │ Emergency   │    │
-│  │ Interface   │───▶│  Analysis   │───▶│  Response   │    │
-│  │ (Vosk)     │    │ (AI/ML)     │    │ (911/Local) │    │
-│  └─────────────┘    └─────────────┘    └─────────────┘    │
-│         │                   │                   │          │
-│         ▼                   ▼                   ▼          │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    │
-│  │   Audio     │    │  Gamification│    │  Safety     │    │
-│  │ Processing  │    │ (SOS Hero)  │    │  Features   │    │
-│  │ (RNNoise)   │    │ (XP/Tokens) │    │ (Silent/Crash)│  │
-│  └─────────────┘    └─────────────┘    └─────────────┘    │
-│         │                   │                   │          │
-│         └───────────────────┼───────────────────┘          │
-│                             ▼                              │
-│                    ┌─────────────┐                        │
-│                    │   Solana    │                        │
-│                    │ Blockchain  │                        │
-│                    │ (Verification)                       │
-│                    └─────────────┘                        │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+SOLANA SOS ARCHITECTURE
+========================
+
+Voice Interface     Context Analysis     Emergency Response
+(Vosk)             (AI/ML)             (911/Local)
+       |                    |                    |
+       v                    v                    v
+
+Audio Processing    Gamification        Safety Features
+(RNNoise)          (SOS Hero)         (Silent/Crash)
+                    (XP/Tokens)
+       |                    |                    |
+       +--------------------+--------------------+
+                             |
+                             v
+                    Solana Blockchain
+                    (Verification)
 ```
 
 ### **📱 Demo Screenshots**
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    TERMINAL DEMOS                          │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  🚨 Voice Activation Demo:                                 │
-│  $ cargo run --bin voice_test                              │
-│  ✅ "Hey SOS, drowning help!" → Instant CPR guidance      │
-│                                                             │
-│  🎮 Gamification Demo:                                     │
-│  $ cargo run --bin gamification_demo                       │
-│  ✅ Level up: Novice Hero → Trainee Hero                  │
-│  ✅ Earn: 150 XP + 300 BONK + 75 SKR                      │
-│                                                             │
-│  🛡️ Safety Features Demo:                                 │
-│  $ cargo run --bin safety_features_test                    │
-│  ✅ Silent SOS: Discreet activation with location          │
-│  ✅ Crash Detection: Auto 911 with GPS coordinates         │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+COMPLETE APP WALKTHROUGH DEMO
+==============================
+
+🎬 Scene 1: App Launch
+📱 "Solana SOS activated. Creating the phone you can't live without."
+📱 "Voice recognition active. Say 'Hey SOS' to activate."
+📱 "Android app ready for Solana Mobile Seeker deployment."
+
+🎬 Scene 2: Voice Activation
+👤 User: "Hey SOS"
+📱 App: "Listening for emergency phrase..."
+👤 User: "Drowning help!"
+📱 App: "Emergency detected: Drowning. Stay calm."
+
+🎬 Scene 3: Context-Aware Guidance
+📱 App: "Can you see the person? Are they conscious?"
+👤 User: "Yes, I can see them. They're not breathing!"
+📱 App: "Victim extracted and unconscious. Starting CPR guidance."
+
+🎬 Scene 12: Solana Mobile Wallet Integration
+📱 App: "Connecting to Solana Mobile Wallet..."
+📱 App: "Wallet connected successfully."
+📱 App: "Emergency response recorded on blockchain."
+📱 App: "Transaction: Emergency_Response_2025_08_01"
+
+🎬 Scene 13: Token Rewards System
+📱 App: "SOS Hero rewards activated!"
+📱 App: "BONK tokens earned: +100 (Life-saving action)"
+📱 App: "SKR tokens earned: +25 (Emergency response)"
+📱 App: "Achievement unlocked: First Responder"
+
+🎬 Scene 19: Call to Action
+📱 App: "Solana SOS - Creating the phone you can't live without."
+📱 App: "BE A HERO - Download on Solana dApp Store."
+
+$ cargo run --bin complete_walkthrough
+✅ 19 scenes demonstrating full emergency response capabilities
+✅ Voice recognition, context-aware guidance, safety features
+✅ Solana integration, token rewards, Android app features
 ```
 
 ---

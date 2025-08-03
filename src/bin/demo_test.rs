@@ -1,14 +1,10 @@
-use solana_sos::{
-    public::voice_interface::VoiceTrigger,
-    public::audio_interface::AudioProcessor,
-    public::emergency_interface::EmergencySystem,
-    public::types::EmergencyType,
-    error::AppResult,
-};
+use solana_sos::public::voice_interface::VoiceTrigger;
+use solana_sos::public::audio_interface::AudioProcessor;
+use solana_sos::public::emergency_interface::EmergencySystem;
+use solana_sos::public::types::EmergencyType;
+use solana_sos::error::AppResult;
 use tracing::{info, Level};
 use tracing_subscriber;
-use std::time::Duration;
-use tokio::time::sleep;
 
 #[tokio::main]
 async fn main() -> AppResult<()> {
@@ -18,18 +14,29 @@ async fn main() -> AppResult<()> {
         .init();
 
     info!("🚨 Solana SOS Demo Test");
-    info!("=======================");
+    info!("======================");
 
-    // Test voice trigger
-    info!("Testing voice trigger...");
-    let mut voice_trigger = VoiceTrigger::new();
-    voice_trigger.activate()?;
-    info!("✅ Voice trigger activated");
+    // Construct VoiceTrigger directly
+    let voice_trigger = VoiceTrigger {
+        wake_word: "hey sos".to_string(),
+        confidence_threshold: 0.8,
+        emergency_phrases: vec![
+            "drowning".to_string(),
+            "heart attack".to_string(),
+        ],
+        direct_actions: vec!["cpr".to_string()],
+    };
 
-    // Test audio processor
-    info!("Testing audio processor...");
-    let _audio_processor = AudioProcessor::new()?;
-    info!("✅ Audio processor initialized");
+    println!("VoiceTrigger: {:?}", voice_trigger);
+    // Demo: print the wake word and emergency phrases
+    println!("Wake word: {}", voice_trigger.wake_word);
+    println!("Emergency phrases: {:?}", voice_trigger.emergency_phrases);
+    println!("Direct actions: {:?}", voice_trigger.direct_actions);
+
+    // AudioProcessor now requires a cache_dir argument
+    let _audio_processor = AudioProcessor::new("/tmp");
+    println!("AudioProcessor created with cache_dir: /tmp");
+    // No static methods to call anymore
 
     // Test emergency system
     info!("Testing emergency system...");
@@ -38,13 +45,14 @@ async fn main() -> AppResult<()> {
     info!("✅ Emergency system activated");
 
     // Test emergency instructions
-    let instructions = emergency_system.get_emergency_instructions()?;
     info!("📋 Emergency instructions:");
+    let instructions = emergency_system.get_emergency_instructions()?;
     for instruction in instructions {
         info!("   • {}", instruction);
     }
 
-    sleep(Duration::from_secs(2)).await;
+    // Simulate some processing time
+    tokio::time::sleep(tokio::time::Duration::from_secs(2)).await;
 
     info!("🎉 Demo test completed successfully!");
     info!("All core components working correctly!");

@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class SettingsActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivitySettingsBinding
-    private lateinit var solanaIntegration: SolanaIntegration
+    private lateinit var solanaMobile: SolanaMobileIntegration
     
     companion object {
         private const val TAG = "SettingsActivity"
@@ -21,7 +21,7 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
-        solanaIntegration = SolanaIntegration(this)
+        solanaMobile = SolanaMobileIntegration(this)
         
         setupUI()
         loadSettings()
@@ -148,10 +148,10 @@ class SettingsActivity : AppCompatActivity() {
         binding.btnConnectWallet.text = "Connecting..."
         
         lifecycleScope.launch {
-            val connected = solanaIntegration.connectWallet()
+            val connected = solanaMobile.connectWallet()
             
             if (connected) {
-                val walletAddress = solanaIntegration.getWalletAddress()
+                val walletAddress = solanaMobile.getWalletAddress()
                 binding.btnConnectWallet.text = "Connected: ${walletAddress?.take(8)}..."
                 Toast.makeText(this@SettingsActivity, "Solana wallet connected!", Toast.LENGTH_SHORT).show()
             } else {
@@ -162,8 +162,8 @@ class SettingsActivity : AppCompatActivity() {
     }
     
     private fun updateWalletStatus() {
-        if (solanaIntegration.isWalletConnected()) {
-            val walletAddress = solanaIntegration.getWalletAddress()
+        if (solanaMobile.isWalletConnected()) {
+            val walletAddress = solanaMobile.getWalletAddress()
             binding.btnConnectWallet.text = "Connected: ${walletAddress?.take(8)}..."
         } else {
             binding.btnConnectWallet.text = "Connect Solana Wallet"

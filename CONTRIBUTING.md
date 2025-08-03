@@ -1,47 +1,50 @@
 # 🤝 Contributing to Solana SOS
 
-Thank you for your interest in contributing to Solana SOS! This project aims to save lives through innovative emergency response technology. We welcome contributions from developers, designers, testers, and anyone passionate about making the world safer.
+Thank you for your interest in contributing to Solana SOS! Your contributions help make the world safer by improving emergency response technology.
 
-## 🎯 **How to Contribute**
+## 📋 **Table of Contents**
+- [Getting Started](#getting-started)
+- [Development Setup](#development-setup)
+- [Code Style & Standards](#code-style--standards)
+- [Pull Request Process](#pull-request-process)
+- [Testing Guidelines](#testing-guidelines)
+- [Documentation](#documentation)
+- [Community Guidelines](#community-guidelines)
+- [Emergency Protocol Contributions](#emergency-protocol-contributions)
+- [Security & Privacy](#security--privacy)
 
-### **🐛 Reporting Bugs**
-- Use our [bug report template](.github/ISSUE_TEMPLATE/bug_report.md)
-- Include steps to reproduce, expected vs actual behavior
-- Provide device/OS information and error logs
-- Tag with appropriate labels (bug, emergency, voice, etc.)
+---
 
-### **💡 Suggesting Features**
-- Use our [feature request template](.github/ISSUE_TEMPLATE/feature_request.md)
-- Explain the problem you're solving
-- Describe your proposed solution
-- Consider impact on emergency response reliability
+## 🚀 **Getting Started**
 
-### **🔧 Code Contributions**
-- Fork the repository
-- Create a feature branch: `git checkout -b feature/amazing-feature`
-- Make your changes with clear commit messages
-- Add tests for new functionality
-- Ensure all tests pass: `cargo test`
-- Submit a pull request with detailed description
+### **Before You Begin**
+1. **Read the README** - Understand the project goals and architecture
+2. **Check Issues** - Look for existing issues or discussions
+3. **Join Discussions** - Introduce yourself in the community
+4. **Choose Your Area** - Pick something that matches your skills and interests
 
-### **📚 Documentation**
-- Improve README sections
-- Add code comments and examples
-- Create tutorials or guides
-- Translate documentation to other languages
+### **Types of Contributions We Welcome**
+- **🐛 Bug Fixes** - Fix issues and improve reliability
+- **✨ Features** - Add new emergency types or safety features
+- **📚 Documentation** - Improve guides, API docs, and examples
+- **🧪 Testing** - Test emergency scenarios and edge cases
+- **🔧 Tooling** - Improve development tools and CI/CD
+- **🌐 Localization** - Translate to other languages
+- **🎨 UI/UX** - Enhance Android app interface
+- **🔗 Integration** - Improve Solana blockchain integration
 
-### **🧪 Testing**
-- Test on different devices and scenarios
-- Report edge cases in emergency situations
-- Validate voice recognition accuracy
-- Test offline functionality
+---
 
-## 🏗️ **Development Setup**
+## 🛠️ **Development Setup**
 
 ### **Prerequisites**
-- Rust 1.70+ 
-- Cargo package manager
-- Git version control
+```bash
+# Required tools
+- Rust 1.70+ (https://rustup.rs/)
+- Android SDK (for mobile development)
+- Solana CLI (for blockchain features)
+- Git (for version control)
+```
 
 ### **Local Development**
 ```bash
@@ -55,153 +58,319 @@ cargo build
 # Run tests
 cargo test
 
-# Run specific demos
-cargo run --bin gamification_demo
+# Run demo
 cargo run --bin complete_walkthrough
 ```
 
-### **Code Style**
-- Follow Rust conventions and `rustfmt`
-- Use meaningful variable and function names
-- Add comments for complex logic
-- Keep functions focused and small
+### **Project Structure**
+```
+crisis-companion/
+├── src/
+│   ├── public/          # Public API interfaces
+│   ├── private/         # Internal implementation
+│   └── bin/            # Demo and test binaries
+├── android-app/         # Android application
+├── docs/               # Documentation
+└── tests/              # Integration tests
+```
 
-## 🚨 **Emergency Response Guidelines**
+---
 
-### **Critical Considerations**
-- **Reliability first** - All changes must maintain emergency response reliability
-- **Offline functionality** - Core features must work without internet
-- **Voice accuracy** - Changes to voice recognition must improve accuracy
-- **Response time** - Optimize for speed in emergency scenarios
+## 📝 **Code Style & Standards**
 
-### **Testing Requirements**
-- Test in noisy environments
-- Validate emergency protocols accuracy
-- Ensure crash detection reliability
-- Verify location sharing precision
+### **Rust Code Style**
+- **Follow Rust conventions** - Use `rustfmt` and `clippy`
+- **Meaningful names** - Clear, descriptive variable and function names
+- **Documentation** - Comment public APIs with `///` doc comments
+- **Error handling** - Use `Result<T, E>` and proper error types
+- **Testing** - Include unit tests for new functionality
 
-## 🎮 **Gamification Contributions**
+```rust
+/// Processes emergency voice input and returns guidance
+/// 
+/// # Arguments
+/// * `input` - Raw audio input from microphone
+/// * `emergency_type` - Type of emergency detected
+/// 
+/// # Returns
+/// * `Result<Guidance, Error>` - Emergency guidance or error
+pub fn process_emergency_input(
+    input: &[u8], 
+    emergency_type: EmergencyType
+) -> Result<Guidance, EmergencyError> {
+    // Implementation
+}
+```
 
-### **SOS Hero System**
-- Design new achievement categories
-- Balance XP and token rewards
-- Create engaging hero level progression
-- Develop community features
+### **Android/Kotlin Style**
+- **Follow Android conventions** - Use Android Studio formatting
+- **Material Design** - Follow Material Design guidelines
+- **Kotlin idioms** - Use Kotlin-specific features appropriately
+- **Documentation** - Comment public methods with KDoc
 
-### **Token Economics**
-- Propose BONK/SKR token mechanics
-- Design reward distribution algorithms
-- Create incentive structures
-- Balance engagement vs. spam
+```kotlin
+/**
+ * Handles emergency voice recognition and response
+ * @param audioData Raw audio data from microphone
+ * @return Emergency response with guidance
+ */
+fun processEmergencyVoice(audioData: ByteArray): EmergencyResponse {
+    // Implementation
+}
+```
 
-## 🔒 **Security & Privacy**
+### **General Standards**
+- **Safety first** - All code must prioritize user safety
+- **Privacy respect** - Maintain user privacy and data protection
+- **Performance** - Optimize for speed in emergency scenarios
+- **Reliability** - Ensure code works in offline scenarios
+- **Accessibility** - Make features accessible to all users
 
-### **Data Protection**
-- Follow privacy-by-design principles
-- Minimize data collection
-- Implement proper encryption
-- Respect user consent
+---
 
-### **Emergency Protocols**
-- Validate medical accuracy
-- Follow established emergency standards
-- Test with real emergency scenarios
-- Maintain protocol integrity
-
-## 📋 **Pull Request Process**
+## 🔄 **Pull Request Process**
 
 ### **Before Submitting**
-- [ ] Code follows Rust conventions
-- [ ] All tests pass
-- [ ] Documentation updated
-- [ ] Emergency functionality tested
-- [ ] Privacy implications considered
+1. **Check existing issues** - Don't duplicate work
+2. **Create feature branch** - Use descriptive branch names
+3. **Write tests** - Include tests for new functionality
+4. **Update documentation** - Update relevant docs
+5. **Test thoroughly** - Test in emergency scenarios
 
-### **PR Description Template**
+### **Branch Naming**
+```bash
+# Feature branches
+feature/voice-recognition-improvement
+feature/new-emergency-type
+feature/android-ui-enhancement
+
+# Bug fix branches
+fix/crash-detection-threshold
+fix/voice-recognition-accuracy
+fix/android-permissions
+
+# Documentation branches
+docs/api-documentation-update
+docs/user-guide-improvement
+```
+
+### **Commit Messages**
+```bash
+# Good commit messages
+feat: add drowning emergency protocol with CPR guidance
+fix: improve voice recognition accuracy in noisy environments
+docs: update API documentation for emergency response
+test: add integration tests for crash detection
+style: format code according to rustfmt guidelines
+
+# Avoid
+fixed stuff
+updated things
+wip
+```
+
+### **Pull Request Template**
 ```markdown
 ## Description
-Brief description of changes
+Brief description of changes and why they're needed
 
 ## Type of Change
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Documentation update
-- [ ] Emergency protocol improvement
-- [ ] Gamification enhancement
+- [ ] Test addition
+- [ ] Refactoring
 
 ## Testing
-- [ ] Local testing completed
-- [ ] Emergency scenarios tested
-- [ ] Voice recognition validated
+- [ ] Unit tests pass
+- [ ] Integration tests pass
+- [ ] Emergency scenario tested
+- [ ] Android app tested
 - [ ] Offline functionality verified
 
-## Impact
-- [ ] Improves emergency response reliability
-- [ ] Enhances user safety
-- [ ] Maintains performance
-- [ ] Preserves privacy
+## Safety Impact
+- [ ] No impact on emergency response
+- [ ] Improves emergency response
+- [ ] Requires safety review
+
+## Checklist
+- [ ] Code follows style guidelines
+- [ ] Documentation updated
+- [ ] Tests added/updated
+- [ ] No breaking changes
+- [ ] Emergency protocols reviewed
 ```
-
-## 🏆 **Recognition**
-
-### **Contributor Levels**
-- **Novice Contributor** - First successful PR
-- **Active Contributor** - 5+ merged PRs
-- **Core Contributor** - 20+ merged PRs
-- **Emergency Expert** - Specialized in emergency protocols
-- **Voice Specialist** - Expert in speech recognition
-- **Gamification Hero** - Master of engagement systems
-
-### **Recognition Benefits**
-- Listed in contributors section
-- Special badges and achievements
-- Early access to new features
-- Invitation to core team discussions
-
-## 📞 **Getting Help**
-
-### **Communication Channels**
-- **GitHub Issues** - Bug reports and feature requests
-- **Discussions** - General questions and ideas
-- **Emergency Protocol** - Medical accuracy questions
-- **Technical Support** - Development and setup help
-
-### **Code of Conduct**
-- Be respectful and inclusive
-- Focus on constructive feedback
-- Prioritize safety and reliability
-- Support fellow contributors
-
-## 🚀 **Quick Start for New Contributors**
-
-1. **Choose an issue** - Look for "good first issue" or "help wanted" labels
-2. **Set up environment** - Follow development setup above
-3. **Make small changes** - Start with documentation or simple fixes
-4. **Ask questions** - Don't hesitate to ask for help
-5. **Submit PR** - Follow the pull request process
-
-## 🎯 **Priority Areas**
-
-### **High Priority**
-- Emergency protocol accuracy
-- Voice recognition improvements
-- Offline reliability
-- Performance optimization
-
-### **Medium Priority**
-- Gamification features
-- UI/UX improvements
-- Documentation updates
-- Testing coverage
-
-### **Low Priority**
-- Cosmetic changes
-- Minor optimizations
-- Additional languages
-- Advanced features
 
 ---
 
-**Thank you for helping make the world safer! Every contribution brings us closer to saving lives.** 🚨💙
+## 🧪 **Testing Guidelines**
 
-*For questions about contributing, please open an issue or start a discussion.* 
+### **Unit Testing**
+```rust
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_emergency_voice_recognition() {
+        let input = b"Hey SOS drowning help";
+        let result = process_emergency_input(input, EmergencyType::Drowning);
+        assert!(result.is_ok());
+    }
+
+    #[test]
+    fn test_offline_functionality() {
+        // Test offline voice recognition
+        // Test offline emergency guidance
+        // Test offline safety features
+    }
+}
+```
+
+### **Integration Testing**
+```rust
+#[tokio::test]
+async fn test_complete_emergency_response() {
+    // Test full emergency scenario
+    // Test voice activation
+    // Test guidance generation
+    // Test safety features
+    // Test blockchain recording
+}
+```
+
+### **Emergency Scenario Testing**
+- **Voice Recognition** - Test in various noise conditions
+- **Emergency Protocols** - Validate all 12 emergency types
+- **Safety Features** - Test Silent SOS and crash detection
+- **Offline Functionality** - Test without internet connection
+- **Android Integration** - Test on actual Android devices
+
+### **Performance Testing**
+- **Response Time** - Ensure < 100ms voice recognition
+- **Memory Usage** - Monitor memory consumption
+- **Battery Impact** - Test battery usage on mobile devices
+- **Concurrent Users** - Test with multiple simultaneous users
+
+---
+
+## 📚 **Documentation**
+
+### **Code Documentation**
+- **Public APIs** - Document all public functions and types
+- **Examples** - Include usage examples in doc comments
+- **Error Handling** - Document error conditions and recovery
+- **Safety Notes** - Highlight safety-critical code sections
+
+### **User Documentation**
+- **Emergency Protocols** - Clear, step-by-step instructions
+- **Safety Features** - How to use Silent SOS and crash detection
+- **Setup Guides** - Installation and configuration instructions
+- **Troubleshooting** - Common issues and solutions
+
+### **Developer Documentation**
+- **Architecture** - System design and component interactions
+- **API Reference** - Complete API documentation
+- **Contributing Guide** - This document
+- **Deployment** - Production deployment instructions
+
+---
+
+## 👥 **Community Guidelines**
+
+### **Communication**
+- **Be respectful** - Treat all contributors with respect
+- **Be constructive** - Provide helpful, specific feedback
+- **Be inclusive** - Welcome contributors from all backgrounds
+- **Be patient** - Emergency response is complex, take time to understand
+
+### **Code Review**
+- **Safety first** - Prioritize user safety in all reviews
+- **Be thorough** - Review for bugs, performance, and security
+- **Be helpful** - Provide constructive feedback and suggestions
+- **Be timely** - Respond to pull requests within a reasonable time
+
+### **Issue Reporting**
+- **Be specific** - Provide detailed bug reports
+- **Include context** - Describe environment and steps to reproduce
+- **Include logs** - Share relevant error messages and logs
+- **Test first** - Verify the issue still exists before reporting
+
+---
+
+## 🚨 **Emergency Protocol Contributions**
+
+### **Adding New Emergency Types**
+1. **Research thoroughly** - Use authoritative medical sources
+2. **Validate protocols** - Ensure accuracy with medical professionals
+3. **Test scenarios** - Validate in realistic emergency situations
+4. **Document sources** - Include citations for all medical information
+
+### **Medical Information Standards**
+- **Authoritative sources** - Use WHO, AHA, Red Cross guidelines
+- **Current protocols** - Ensure information is up-to-date
+- **Regional variations** - Consider local emergency protocols
+- **Safety warnings** - Include appropriate disclaimers
+
+### **Emergency Protocol Template**
+```rust
+pub struct EmergencyProtocol {
+    pub emergency_type: EmergencyType,
+    pub symptoms: Vec<String>,
+    pub immediate_actions: Vec<String>,
+    pub medical_guidance: Vec<String>,
+    pub direct_actions: Vec<String>,
+    pub sources: Vec<String>,
+    pub last_updated: DateTime<Utc>,
+}
+```
+
+---
+
+## 🔒 **Security & Privacy**
+
+### **Security Guidelines**
+- **Input validation** - Validate all user inputs
+- **Data encryption** - Encrypt sensitive data at rest and in transit
+- **Access control** - Implement proper access controls
+- **Audit logging** - Log security-relevant events
+- **Vulnerability reporting** - Report security issues privately
+
+### **Privacy Guidelines**
+- **Data minimization** - Collect only necessary data
+- **User consent** - Get explicit consent for data collection
+- **Data retention** - Implement appropriate data retention policies
+- **User control** - Allow users to control their data
+- **Transparency** - Be transparent about data practices
+
+### **Emergency Data Handling**
+- **Local processing** - Process emergency data locally when possible
+- **Secure transmission** - Encrypt emergency data in transit
+- **Minimal sharing** - Share only necessary information
+- **User control** - Allow users to control data sharing
+- **Audit trail** - Maintain audit trail for emergency data
+
+---
+
+## 🎯 **Getting Help**
+
+### **Questions & Support**
+- **GitHub Issues** - For bugs and feature requests
+- **GitHub Discussions** - For questions and community chat
+- **Documentation** - Check the README and API docs first
+- **Code Examples** - Look at existing code for patterns
+
+### **Emergency Response**
+*For immediate emergency assistance, please call your local emergency services (911 in the US).*
+
+---
+
+## 🙏 **Thank You**
+
+Thank you for contributing to Solana SOS! Your contributions help make the world safer by improving emergency response technology. Together, we can save lives and build a safer future.
+
+**Remember: Every contribution, no matter how small, helps make the world a safer place.** 🚨
+
+---
+
+**Solana SOS** - Creating the phone you can't live without. 
