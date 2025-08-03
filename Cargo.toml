@@ -1,37 +1,80 @@
 [package]
 name = "solana-sos"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
-authors = ["Paragoner"]
-description = "Voice-activated emergency response app with hybrid offline/online architecture"
+authors = ["Paragoner <paragoner@solanasos.com>"]
+description = "Voice-activated emergency response system for Solana Mobile"
 license = "Apache-2.0"
+repository = "https://github.com/paragoner1/crisis-companion"
+keywords = ["emergency", "voice", "solana", "mobile", "safety"]
+categories = ["emergency", "voice-recognition", "blockchain"]
 
 [dependencies]
+# Core dependencies
 tokio = { version = "1.0", features = ["full"] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-chrono = { version = "0.4", features = ["serde"] }
-uuid = { version = "1.0", features = ["v4", "serde"] }
-thiserror = "1.0"
-log = "0.4"
-env_logger = "0.10"
-config = "0.13"
-rusqlite = { version = "0.29", features = ["bundled"] }
-rodio = "0.21"
-nnnoiseless = "0.5"
-marek_vosk_speech_recognition = "2.1"
-rand = "0.8"
-sms = "0.1"
 tracing = "0.1"
 tracing-subscriber = "0.3"
-clap = { version = "4.5", features = ["derive"] }
+clap = { version = "4.0", features = ["derive"] }
+
+# Voice recognition
+marek_vosk_speech_recognition = "0.1"
+
+# Audio processing
+nnnoiseless = "0.5"
+rodio = "0.17"
+
+# Database
+rusqlite = { version = "0.29", features = ["bundled"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Async utilities
+futures = "0.3"
+
+# JNI for Android integration
+jni = "0.21"
+
+# UUID for gamification
+uuid = { version = "1.0", features = ["v4"] }
+
+# Time utilities
+chrono = { version = "0.4", features = ["serde"] }
+
+# HTTP client for online features
+reqwest = { version = "0.11", features = ["json"] }
+
+# Configuration
+config = "0.13"
+
+# Logging
+env_logger = "0.10"
 
 [features]
-default = ["desktop"]
-desktop = []
-android = []
-jni = []
+default = []
 private = []
 
-[dev-dependencies]
-criterion = "0.5" 
+[[bin]]
+name = "solana-sos"
+path = "src/main.rs"
+
+[[bin]]
+name = "demo_test"
+path = "src/bin/demo_test.rs"
+
+[[bin]]
+name = "gamification_demo"
+path = "src/bin/gamification_demo.rs"
+
+[[bin]]
+name = "complete_walkthrough"
+path = "src/bin/complete_walkthrough.rs"
+
+[lib]
+name = "solana_sos"
+crate-type = ["cdylib", "rlib"] 
