@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var speechRecognizer: SpeechRecognizer
     private lateinit var solanaIntegration: SolanaIntegration
+    private lateinit var rustBridge: RustBridge
     private var isListening = false
     private var isEmergencyMode = false
     
@@ -42,6 +43,14 @@ class MainActivity : AppCompatActivity() {
         
         // Initialize Solana integration
         solanaIntegration = SolanaIntegration(this)
+        
+        // Initialize Rust bridge
+        rustBridge = RustBridge(this)
+        val backendInitialized = rustBridge.initializeBackend()
+        if (!backendInitialized) {
+            Log.e(TAG, "Failed to initialize Rust backend")
+            Toast.makeText(this, "Backend initialization failed", Toast.LENGTH_LONG).show()
+        }
         
         setupUI()
         setupVoiceRecognition()
@@ -143,29 +152,26 @@ class MainActivity : AppCompatActivity() {
         }
         startService(intent)
         
-        // Show emergency UI
+        // Show emergency UI with context-aware guidance
         showEmergencyUI(emergencyType)
         
-        // Award Solana rewards for emergency activation
+        // Award Solana rewards for emergency activation using Rust backend
         lifecycleScope.launch {
-            val rewarded = solanaIntegration.awardEmergencyRewards(emergencyType, "emergency_activation")
+            val rewarded = rustBridge.awardEmergencyTokens(emergencyType, "emergency_activation")
             if (rewarded) {
-                val totalRewards = solanaIntegration.getTotalRewards()
+                val totalRewards = rustBridge.getTotalRewards()
                 Toast.makeText(this@MainActivity, "Awarded SKR/BONK tokens! Total: $totalRewards", Toast.LENGTH_LONG).show()
             }
         }
         
-        // Record emergency on blockchain
+        // Record emergency on blockchain using Rust backend
         lifecycleScope.launch {
-            val emergencyData = EmergencyData(
+            val recordId = rustBridge.recordEmergencyData(
                 emergencyType = emergencyType,
-                timestamp = System.currentTimeMillis(),
                 location = "Current location", // Would get from GPS
                 actions = listOf("emergency_activation", "voice_recognition"),
                 outcome = "In Progress"
             )
-            
-            val recordId = solanaIntegration.recordEmergencyOnBlockchain(emergencyData)
             if (recordId != null) {
                 Log.d(TAG, "Emergency recorded on blockchain: $recordId")
             }
@@ -176,11 +182,23 @@ class MainActivity : AppCompatActivity() {
         binding.emergencyLayout.visibility = android.view.View.VISIBLE
         binding.tvEmergencyType.text = emergencyType
         
-        // Get emergency instructions from Rust library
-        val instructions = getEmergencyInstructions(emergencyType)
+        // Get emergency instructions from Rust library with context awareness
+        val instructions = getEmergencyInstructionsWithContext(emergencyType)
         binding.tvInstructions.text = instructions
         
         Log.d(TAG, "Emergency UI shown for: $emergencyType")
+    }
+    
+    private fun getEmergencyInstructionsWithContext(emergencyType: String): String {
+        // Use Rust backend for context-aware guidance
+        return try {
+            val userPhrase = "emergency activation" // Would be the actual user phrase
+            val location = "current location" // Would be actual GPS location
+            rustBridge.getEmergencyInstructionsWithContext(emergencyType, userPhrase, location)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error getting context-aware instructions, using fallback", e)
+            getEmergencyInstructions(emergencyType) // Fallback to basic instructions
+        }
     }
     
     private fun getEmergencyInstructions(emergencyType: String): String {

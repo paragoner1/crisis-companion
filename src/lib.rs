@@ -104,6 +104,9 @@ pub mod public {
 #[cfg(feature = "private")]
 pub mod private;
 
+// JNI Bridge for Android integration
+pub mod jni_bridge;
+
 // Core modules (always available)
 pub mod app;
 pub mod config;
