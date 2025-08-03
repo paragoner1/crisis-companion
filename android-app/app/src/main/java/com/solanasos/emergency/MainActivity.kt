@@ -23,10 +23,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var speechRecognizer: SpeechRecognizer
     private lateinit var solanaIntegration: SolanaIntegration
     private var isListening = false
+    private var isEmergencyMode = false
     
     companion object {
+        private const val TAG = "MainActivity"
         private const val PERMISSION_REQUEST_CODE = 123
         private const val WAKE_WORD = "hey sos"
+        private const val EMERGENCY_PHRASES = listOf(
+            "drowning", "heart attack", "choking", "bleeding", "unconscious",
+            "stroke", "seizure", "poisoning", "burn", "diabetic", "allergic", "trauma"
+        )
     }
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +46,8 @@ class MainActivity : AppCompatActivity() {
         setupUI()
         setupVoiceRecognition()
         requestPermissions()
+        
+        Log.d(TAG, "Solana SOS Android app initialized")
     }
     
     private fun setupUI() {
@@ -62,25 +70,31 @@ class MainActivity : AppCompatActivity() {
         binding.btnSettings.setOnClickListener {
             openSettings()
         }
+        
+        // Update initial status
+        updateStatus("Ready for emergency activation")
     }
     
     private fun setupVoiceRecognition() {
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
         speechRecognizer.setRecognitionListener(object : RecognitionListener {
             override fun onReadyForSpeech(params: Bundle?) {
-                binding.tvStatus.text = "Listening for 'Hey SOS'..."
+                updateStatus("Listening for 'Hey SOS'...")
                 isListening = true
+                Log.d(TAG, "Voice recognition started")
             }
             
             override fun onResults(results: Bundle?) {
                 val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 matches?.let { handleVoiceInput(it) }
                 isListening = false
+                Log.d(TAG, "Voice recognition results: $matches")
             }
             
             override fun onError(error: Int) {
-                binding.tvStatus.text = "Voice recognition error"
+                updateStatus("Voice recognition error")
                 isListening = false
+                Log.e(TAG, "Voice recognition error: $error")
             }
             
             // Other required methods
@@ -95,36 +109,33 @@ class MainActivity : AppCompatActivity() {
     
     private fun handleVoiceInput(matches: ArrayList<String>) {
         val input = matches[0].lowercase()
+        Log.d(TAG, "Processing voice input: $input")
         
         if (input.contains(WAKE_WORD)) {
             // Wake word detected - start listening for emergency
-            binding.tvStatus.text = "Wake word detected! Say emergency type..."
+            updateStatus("Wake word detected! Say emergency type...")
             startEmergencyListening()
-        } else if (isListening) {
+        } else if (isListening && isEmergencyMode) {
             // Check for emergency phrases
-            when {
-                input.contains("drowning") -> activateEmergency("Drowning")
-                input.contains("heart attack") -> activateEmergency("Heart Attack")
-                input.contains("choking") -> activateEmergency("Choking")
-                input.contains("bleeding") -> activateEmergency("Bleeding")
-                input.contains("unconscious") -> activateEmergency("Unconscious")
-                input.contains("stroke") -> activateEmergency("Stroke")
-                input.contains("seizure") -> activateEmergency("Seizure")
-                input.contains("poisoning") -> activateEmergency("Poisoning")
-                input.contains("burn") -> activateEmergency("Severe Burns")
-                input.contains("diabetic") -> activateEmergency("Diabetic Emergency")
-                input.contains("allergic") -> activateEmergency("Allergic Reaction")
-                input.contains("trauma") -> activateEmergency("Trauma")
-                else -> {
-                    binding.tvStatus.text = "Emergency not recognized. Try again."
-                    startVoiceRecognition()
-                }
+            val detectedEmergency = detectEmergencyType(input)
+            if (detectedEmergency != null) {
+                activateEmergency(detectedEmergency)
+            } else {
+                updateStatus("Emergency not recognized. Try again.")
+                startVoiceRecognition()
             }
         }
     }
     
+    private fun detectEmergencyType(input: String): String? {
+        return EMERGENCY_PHRASES.find { phrase ->
+            input.contains(phrase)
+        }
+    }
+    
     private fun activateEmergency(emergencyType: String) {
-        binding.tvStatus.text = "EMERGENCY: $emergencyType - Calling 911..."
+        updateStatus("EMERGENCY: $emergencyType - Calling 911...")
+        Log.d(TAG, "Emergency activated: $emergencyType")
         
         // Start emergency service
         val intent = Intent(this, EmergencyService::class.java).apply {
@@ -156,7 +167,7 @@ class MainActivity : AppCompatActivity() {
             
             val recordId = solanaIntegration.recordEmergencyOnBlockchain(emergencyData)
             if (recordId != null) {
-                Log.d("MainActivity", "Emergency recorded on blockchain: $recordId")
+                Log.d(TAG, "Emergency recorded on blockchain: $recordId")
             }
         }
     }
@@ -168,14 +179,25 @@ class MainActivity : AppCompatActivity() {
         // Get emergency instructions from Rust library
         val instructions = getEmergencyInstructions(emergencyType)
         binding.tvInstructions.text = instructions
+        
+        Log.d(TAG, "Emergency UI shown for: $emergencyType")
     }
     
     private fun getEmergencyInstructions(emergencyType: String): String {
         // This would call your Rust library via JNI
         return when (emergencyType) {
-            "Drowning" -> "1. Remove victim from water\n2. Check breathing\n3. Begin CPR if needed\n4. Call 911"
-            "Heart Attack" -> "1. Call 911 immediately\n2. Have victim sit down\n3. Loosen tight clothing\n4. Monitor breathing"
-            "Choking" -> "1. Perform Heimlich maneuver\n2. 5 back blows, 5 abdominal thrusts\n3. Call 911 if not resolved"
+            "drowning" -> "1. Remove victim from water\n2. Check breathing\n3. Begin CPR if needed\n4. Call 911"
+            "heart attack" -> "1. Call 911 immediately\n2. Have victim sit down\n3. Loosen tight clothing\n4. Monitor breathing"
+            "choking" -> "1. Perform Heimlich maneuver\n2. 5 back blows, 5 abdominal thrusts\n3. Call 911 if not resolved"
+            "bleeding" -> "1. Apply direct pressure\n2. Elevate if possible\n3. Use tourniquet if severe\n4. Call 911"
+            "unconscious" -> "1. Check breathing\n2. Begin CPR if needed\n3. Call 911 immediately\n4. Monitor for changes"
+            "stroke" -> "1. Remember FAST\n2. Face, Arm, Speech, Time\n3. Call 911 immediately\n4. Note time of onset"
+            "seizure" -> "1. Clear area of objects\n2. Don't restrain\n3. Time the seizure\n4. Call 911 if >5 minutes"
+            "poisoning" -> "1. Call Poison Control\n2. Don't induce vomiting\n3. Save container\n4. Call 911 if severe"
+            "burn" -> "1. Cool with water\n2. Don't use ice\n3. Cover with clean cloth\n4. Call 911 if severe"
+            "diabetic" -> "1. Check blood sugar\n2. Give sugar if low\n3. Call 911 if unconscious\n4. Monitor breathing"
+            "allergic" -> "1. Use EpiPen if available\n2. Call 911 immediately\n3. Monitor breathing\n4. Lie flat if dizzy"
+            "trauma" -> "1. Stop bleeding\n2. Immobilize injuries\n3. Call 911\n4. Monitor consciousness"
             else -> "Call 911 immediately and follow emergency dispatcher instructions"
         }
     }
@@ -198,16 +220,19 @@ class MainActivity : AppCompatActivity() {
         try {
             speechRecognizer.startListening(intent)
             binding.btnVoiceToggle.text = "Stop Listening"
+            Log.d(TAG, "Voice recognition started")
         } catch (e: Exception) {
             Toast.makeText(this, "Voice recognition not available", Toast.LENGTH_SHORT).show()
+            Log.e(TAG, "Voice recognition error", e)
         }
     }
     
     private fun stopVoiceRecognition() {
         speechRecognizer.stopListening()
         binding.btnVoiceToggle.text = "Start Voice Recognition"
-        binding.tvStatus.text = "Voice recognition stopped"
+        updateStatus("Voice recognition stopped")
         isListening = false
+        Log.d(TAG, "Voice recognition stopped")
     }
     
     private fun startEmergencyListening() {
@@ -219,37 +244,52 @@ class MainActivity : AppCompatActivity() {
         
         try {
             speechRecognizer.startListening(intent)
+            isEmergencyMode = true
+            Log.d(TAG, "Emergency listening started")
         } catch (e: Exception) {
             Toast.makeText(this, "Voice recognition error", Toast.LENGTH_SHORT).show()
+            Log.e(TAG, "Emergency listening error", e)
         }
     }
     
     private fun activateEmergencyMode() {
-        binding.tvStatus.text = "Emergency mode activated!"
+        updateStatus("Emergency mode activated!")
+        isEmergencyMode = true
         // Show emergency options
         binding.emergencyOptionsLayout.visibility = android.view.View.VISIBLE
+        Log.d(TAG, "Emergency mode activated")
     }
     
     private fun connectSolanaWallet() {
-        binding.tvStatus.text = "Connecting to Solana wallet..."
+        updateStatus("Connecting to Solana wallet...")
         
         lifecycleScope.launch {
             val connected = solanaIntegration.connectWallet()
             
             if (connected) {
                 val walletAddress = solanaIntegration.getWalletAddress()
-                binding.tvStatus.text = "Connected to Solana wallet: ${walletAddress?.take(8)}..."
+                updateStatus("Connected to Solana wallet: ${walletAddress?.take(8)}...")
                 Toast.makeText(this@MainActivity, "Solana wallet connected!", Toast.LENGTH_SHORT).show()
+                Log.d(TAG, "Solana wallet connected: $walletAddress")
             } else {
-                binding.tvStatus.text = "Failed to connect to Solana wallet"
+                updateStatus("Failed to connect to Solana wallet")
                 Toast.makeText(this@MainActivity, "Wallet connection failed", Toast.LENGTH_SHORT).show()
+                Log.w(TAG, "Solana wallet connection failed")
             }
         }
     }
     
     private fun openSettings() {
-        binding.tvStatus.text = "Opening settings..."
+        updateStatus("Opening settings...")
         // Open settings activity
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        Log.d(TAG, "Settings requested")
+    }
+    
+    private fun updateStatus(message: String) {
+        binding.tvStatus.text = message
+        Log.d(TAG, "Status updated: $message")
     }
     
     private fun requestPermissions() {
@@ -266,11 +306,13 @@ class MainActivity : AppCompatActivity() {
         
         if (permissionsToRequest.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permissionsToRequest, PERMISSION_REQUEST_CODE)
+            Log.d(TAG, "Requesting permissions: ${permissionsToRequest.joinToString()}")
         }
     }
     
     override fun onDestroy() {
         super.onDestroy()
         speechRecognizer.destroy()
+        Log.d(TAG, "MainActivity destroyed")
     }
 } 

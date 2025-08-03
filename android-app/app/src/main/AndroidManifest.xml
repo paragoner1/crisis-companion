@@ -34,6 +34,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Settings activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SolanaSOS" />
+
         <!-- Emergency service -->
         <service
             android:name=".EmergencyService"
