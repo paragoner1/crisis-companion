@@ -39,6 +39,11 @@ class InfoActivity : AppCompatActivity() {
         binding.challengesSection.setOnClickListener {
             showChallengesDetails()
         }
+
+        // Pitch Deck section click handler
+        binding.pitchDeckSection.setOnClickListener {
+            showPitchDeckDetails()
+        }
     }
 
     private fun showTrainingDetails() {
@@ -108,53 +113,42 @@ class InfoActivity : AppCompatActivity() {
         val dialog = AlertDialog.Builder(this)
             .setTitle("🔄 Cross-App Challenges")
             .setMessage("""
-                **COMMUNITY INTEGRATION FOR LIFE-SAVING NETWORK**
+                **COMMUNITY INTEGRATION CHALLENGES**
                 
                 **Available Challenges:**
                 
-                **🫀💎 CPR ↔ DeFi Challenge (100 BONK + 50 SKR)**
-                • Duration: 7 days
-                • CPR users learn DeFi basics
-                • DeFi users learn emergency response
-                • Cross-community skill sharing
-                • Expected growth: +500% engagement
+                **CPR ↔ DeFi Challenge (100 BONK + 50 SKR)**
+                • Complete CPR training + DeFi transaction
+                • Bridge emergency skills with financial literacy
+                • Duration: ~15 minutes
                 
-                **🚨🎮 Emergency ↔ Gaming Challenge (150 BONK + 75 SKR)**
-                • Duration: 14 days
-                • Gamers learn emergency response through games
-                • Emergency responders create gaming content
-                • Gaming mechanics for emergency training
-                • Expected growth: +300% engagement
+                **Emergency ↔ Gaming Challenge (150 BONK + 75 SKR)**
+                • Emergency response + gaming achievement
+                • Gamify life-saving skills
+                • Duration: ~20 minutes
                 
-                **🛡️📈 Safety ↔ Trading Challenge (120 BONK + 60 SKR)**
-                • Duration: 10 days
-                • Traders learn emergency safety protocols
-                • Emergency responders learn risk management
-                • Safety-first trading strategies
-                • Expected growth: +400% engagement
+                **Safety ↔ Trading Challenge (120 BONK + 60 SKR)**
+                • Safety training + trading activity
+                • Risk management in both domains
+                • Duration: ~18 minutes
                 
-                **💎🏆 Hero ↔ DeFi Challenge (200 BONK + 100 SKR)**
-                • Duration: 21 days
-                • Heroes earn DeFi rewards for emergency actions
-                • DeFi protocols fund emergency response initiatives
-                • Hero status unlocks DeFi privileges
-                • Expected growth: +600% engagement
+                **Hero ↔ DeFi Challenge (200 BONK + 100 SKR)**
+                • Hero level achievement + DeFi interaction
+                • Advanced skill combination
+                • Duration: ~25 minutes
                 
-                **🔄🌐 Community Swap Challenge (300 BONK + 150 SKR)**
-                • Duration: 30 days
-                • Communities swap users and tokens
-                • Cross-app feature integration
-                • Shared governance across apps
-                • Expected growth: +1000% engagement
+                **Community Swap Challenge (300 BONK + 150 SKR)**
+                • Community engagement + token swapping
+                • Build emergency response network
+                • Duration: ~30 minutes
                 
                 **Total Possible Rewards:** 870 BONK + 435 SKR
                 
-                **Why Cross-App Challenges Matter:**
-                These challenges expand the network of trained emergency responders across the Solana ecosystem. More trained responders = more lives saved. Every challenge completed means more people prepared to save lives when seconds count.
-                
-                **Purpose:** Expand emergency response network
+                **Purpose:** Expand emergency response network across Solana ecosystem
                 **Goal:** More trained responders = more lives saved
-                **Impact:** Building a world where no one dies from preventable emergencies
+                
+                **Why Cross-App Integration:**
+                By connecting emergency preparedness with other Solana activities, we create a comprehensive ecosystem where safety becomes a natural part of daily digital life.
             """.trimIndent())
             .setPositiveButton("Open Challenges") { dialog, _ ->
                 dialog.dismiss()
@@ -165,7 +159,91 @@ class InfoActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
             .create()
+        
+        dialog.show()
+    }
 
+    private fun showPitchDeckDetails() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("🎯 HACKATHON PITCH DECK")
+            .setMessage("""
+                **SOLANA SOS - BE A HERO**
+                Voice-Activated Emergency Response
+                Paragoner Founder | Developer
+                
+                **💔 MOTIVATION**
+                A few years ago, my 4-year-old son almost drowned. I performed CPR without knowing what I was doing. That's why I built Solana SOS.
+                
+                **🚨 THE PROBLEM**
+                3.8 million people die from preventable emergencies every year
+                • Traditional apps fail in crisis
+                • Manual input required / no voice activated steps
+                • Internet dependent
+                • 7-14 minute EMS delay
+                • 10% survival drop per minute
+                
+                **💡 THE SOLUTION**
+                Solana SOS responds to your voice in under 100 milliseconds, even without internet
+                • Voice-activated - "Hey SOS, drowning help!"
+                • Enterprise-grade noise filtering
+                • Enterprise-grade code architecture and reliability
+                • Expandable offline emergency database
+                
+                **🎬 DEMO**
+                Watch how "drowning help!" triggers instant CPR guidance
+                Context-aware: Skips rescue steps if "out of water"
+                
+                **Other Features:**
+                • Silent SOS: discreet location sharing and 911 calling
+                • Crash detection: auto 911 with GPS
+                • Trusted Network: Emergency contacts that can beat EMS
+                • SOS Hero: BONK/SKR rewards
+                
+                **📈 MARKET**
+                This is for everyone
+                • Safety apps: 1.5B → $5.2B by 2033
+                • 76% parents prioritize safety when buying phones
+                • 7.3B+ smartphone users in 2025
+                
+                **💰 BUSINESS MODEL**
+                Default app on every mobile Seeker device
+                • 40% Seeker sales uplift
+                • $50M revenue by Q4 2026
+                • Family subscriptions
+                • Enterprise
+                • Government
+                
+                **🏆 COMPETITIVE ADVANTAGE**
+                The only mobile device that will save your life by default
+                • Hybrid online-offline
+                • Blockchain secured
+                • Context-aware guidance
+                • Gamification for viral growth
+                
+                **📊 TRACTION**
+                Working prototype ready for Solana Mobile deployment
+                • Core tech: voice & response
+                • 12 emergency types: offline coverage
+                • Features: silent SOS, crash, gamification
+                • Solana: verification & rewards
+                • Multi-device sync: bluetooth
+                
+                **🗓️ ROADMAP**
+                FROM HACKATHON PROTOTYPE TO SAFETY REVOLUTION
+                • AUG 2025: HACKATHON SUBMISSION
+                • Q1 2026: APP LAUNCH ON SEEKER
+                • Q2 2026: EMERGENCY PARTNERSHIPS
+                • Q3 2026: GLOBAL EXPANSION & REWARDS
+                • Q4 2026: $50M+ REVENUE & CONTRACTS
+                
+                **🎯 CALL TO ACTION**
+                ARE YOU READY TO SAVE LIVES WITH SOLANA SOS?
+            """.trimIndent())
+            .setPositiveButton("Got It") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        
         dialog.show()
     }
 } 

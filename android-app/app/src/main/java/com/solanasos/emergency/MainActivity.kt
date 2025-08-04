@@ -304,10 +304,12 @@ class MainActivity : AppCompatActivity() {
                 if (rewarded) {
                     val totalRewards = rustBridge.getTotalRewards()
                     Toast.makeText(this@MainActivity, "Awarded SKR/BONK tokens! Total: $totalRewards", Toast.LENGTH_LONG).show()
+                    updateSOSHeroStatus() // Refresh token balances in UI
                 }
             } catch (e: Exception) {
                 Log.w(TAG, "Demo mode: Simulating token rewards", e)
                 Toast.makeText(this@MainActivity, "Demo: Awarded 100 BONK + 25 SKR tokens!", Toast.LENGTH_LONG).show()
+                updateSOSHeroStatus() // Refresh token balances in UI
             }
         }
         
@@ -981,10 +983,10 @@ class MainActivity : AppCompatActivity() {
             • Voice recognition: "Hey SOS" detected
             • Emergency type: $emergencyType identified
             • Immediate 911 call: Automatic emergency services contact
+            • Life-saving instructions: Provided step-by-step guidance
             • 911 dispatcher: Remains on standby for when you are ready to connect
             • Location sharing: Precise coordinates sent to emergency services
             • Trusted contacts: Notified via SMS with precise location
-            • Life-saving instructions: Provided step-by-step guidance
             • Blockchain logging: Emergency recorded on Solana
             • Token rewards: SOS Hero tokens awarded
             
@@ -1007,6 +1009,7 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("End Demo") { dialog, _ ->
                 Toast.makeText(this, "DEMO: Awarded SKR/BONK tokens! Total: 1,250", Toast.LENGTH_LONG).show()
                 updateStatus("Demo completed. Ready for emergency activation.")
+                updateSOSHeroStatus() // Refresh token balances in UI
                 dialog.dismiss()
             }
             .setCancelable(false)
