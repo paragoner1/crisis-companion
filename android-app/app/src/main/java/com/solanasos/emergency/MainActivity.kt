@@ -839,23 +839,6 @@ class MainActivity : AppCompatActivity() {
                 
                 // 10-second countdown for emergency response
                 
-                // Step 4: Simulate blockchain logging
-                Log.d(TAG, "Demo Step 4: Blockchain logging")
-                updateStatus("DEMO: Recording emergency response on Solana blockchain")
-                delay(1500)
-                
-                // Step 5: Simulate token rewards
-                Log.d(TAG, "Demo Step 5: Token rewards")
-                updateStatus("DEMO: Awarding SOS Hero tokens for emergency response")
-                delay(1000)
-                
-                // 10-second countdown before completion
-                updateStatus("DEMO: Preparing completion summary...")
-                
-                // Step 6: Show completion
-                Log.d(TAG, "Demo Step 6: Showing completion")
-                showDemoCompletion(emergencyType)
-                
             } catch (e: Exception) {
                 Log.e(TAG, "Error in comprehensive demo", e)
                 updateStatus("Demo completed with errors")
