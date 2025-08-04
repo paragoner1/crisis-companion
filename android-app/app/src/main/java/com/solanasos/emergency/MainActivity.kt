@@ -343,7 +343,7 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Log.e(TAG, "Error showing emergency UI", e)
             // Fallback to basic emergency display
-            updateStatus("Emergency: $emergencyType - Call 911 immediately")
+            updateStatus("Emergency: $emergencyType - App calls 911 immediately")
         }
     }
     
@@ -362,19 +362,19 @@ class MainActivity : AppCompatActivity() {
     private fun getEmergencyInstructions(emergencyType: String): String {
         // This would call your Rust library via JNI
         return when (emergencyType) {
-            "drowning" -> "1. Remove victim from water\n2. Check breathing\n3. Begin CPR if needed\n4. Call 911"
-            "heart attack" -> "1. Call 911 immediately\n2. Have victim sit down\n3. Loosen tight clothing\n4. Monitor breathing"
-            "choking" -> "1. Perform Heimlich maneuver\n2. 5 back blows, 5 abdominal thrusts\n3. Call 911 if not resolved"
-            "bleeding" -> "1. Apply direct pressure\n2. Elevate if possible\n3. Use tourniquet if severe\n4. Call 911"
-            "unconscious" -> "1. Check breathing\n2. Begin CPR if needed\n3. Call 911 immediately\n4. Monitor for changes"
-            "stroke" -> "1. Remember FAST\n2. Face, Arm, Speech, Time\n3. Call 911 immediately\n4. Note time of onset"
-            "seizure" -> "1. Clear area of objects\n2. Don't restrain\n3. Time the seizure\n4. Call 911 if >5 minutes"
-            "poisoning" -> "1. Call Poison Control\n2. Don't induce vomiting\n3. Save container\n4. Call 911 if severe"
-            "burn" -> "1. Cool with water\n2. Don't use ice\n3. Cover with clean cloth\n4. Call 911 if severe"
-            "diabetic" -> "1. Check blood sugar\n2. Give sugar if low\n3. Call 911 if unconscious\n4. Monitor breathing"
-            "allergic" -> "1. Use EpiPen if available\n2. Call 911 immediately\n3. Monitor breathing\n4. Lie flat if dizzy"
-            "trauma" -> "1. Stop bleeding\n2. Immobilize injuries\n3. Call 911\n4. Monitor consciousness"
-            else -> "Call 911 immediately and follow emergency dispatcher instructions"
+            "drowning" -> "1. Remove victim from water\n2. Check breathing\n3. Begin CPR if needed\n4. App calls 911"
+            "heart attack" -> "1. App calls 911 immediately\n2. Have victim sit down\n3. Loosen tight clothing\n4. Monitor breathing"
+            "choking" -> "1. Perform Heimlich maneuver\n2. 5 back blows, 5 abdominal thrusts\n3. App calls 911 if not resolved"
+            "bleeding" -> "1. Apply direct pressure\n2. Elevate if possible\n3. Use tourniquet if severe\n4. App calls 911"
+            "unconscious" -> "1. Check breathing\n2. Begin CPR if needed\n3. App calls 911 immediately\n4. Monitor for changes"
+            "stroke" -> "1. Remember FAST\n2. Face, Arm, Speech, Time\n3. App calls 911 immediately\n4. Note time of onset"
+            "seizure" -> "1. Clear area of objects\n2. Don't restrain\n3. Time the seizure\n4. App calls 911 if >5 minutes"
+            "poisoning" -> "1. Call Poison Control\n2. Don't induce vomiting\n3. Save container\n4. App calls 911 if severe"
+            "burn" -> "1. Cool with water\n2. Don't use ice\n3. Cover with clean cloth\n4. App calls 911 if severe"
+            "diabetic" -> "1. Check blood sugar\n2. Give sugar if low\n3. App calls 911 if unconscious\n4. Monitor breathing"
+            "allergic" -> "1. Use EpiPen if available\n2. App calls 911 immediately\n3. Monitor breathing\n4. Lie flat if dizzy"
+            "trauma" -> "1. Stop bleeding\n2. Immobilize injuries\n3. App calls 911\n4. Monitor consciousness"
+            else -> "App calls 911 immediately and follow emergency dispatcher instructions"
         }
     }
     
@@ -874,7 +874,7 @@ class MainActivity : AppCompatActivity() {
                 • Pain in arms, neck, jaw
                 
                 Step 2: Immediate actions
-                • Call 911 immediately
+                • App calls 911 immediately
                 • Have person sit or lie down
                 • Loosen tight clothing
                 
@@ -895,7 +895,7 @@ class MainActivity : AppCompatActivity() {
                 Step 2: If severe choking
                 • Perform Heimlich maneuver
                 • 5 back blows, 5 abdominal thrusts
-                • Call 911 if not resolved
+                • App calls 911 if not resolved
                 
                 Step 3: If mild choking
                 • Encourage coughing
@@ -917,7 +917,7 @@ class MainActivity : AppCompatActivity() {
                 • Elevate if possible
                 
                 Step 3: Severe bleeding
-                • Call 911 immediately
+                • App calls 911 immediately
                 • Apply tourniquet if needed
                 • Keep pressure until help arrives
                 
@@ -930,10 +930,10 @@ class MainActivity : AppCompatActivity() {
                 • Face: Is one side drooping?
                 • Arms: Can they raise both arms?
                 • Speech: Is speech slurred?
-                • Time: Call 911 immediately
+                • Time: App calls 911 immediately
                 
                 Step 2: Immediate actions
-                • Call 911 right away
+                • App calls 911 right away
                 • Note time symptoms started
                 • Keep person calm and still
                 
