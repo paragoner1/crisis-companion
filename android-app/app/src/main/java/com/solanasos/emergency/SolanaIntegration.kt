@@ -38,7 +38,7 @@ class SolanaIntegration(private val context: Context) {
             
             if (authorized) {
                 // Get user's wallet address
-                userWalletAddress = getWalletAddress()
+                userWalletAddress = getWalletAddressFromAdapter()
                 Log.d(TAG, "Connected to wallet: $userWalletAddress")
                 isConnected = true
                 return@withContext true
@@ -84,7 +84,7 @@ class SolanaIntegration(private val context: Context) {
         return true
     }
     
-    private suspend fun getWalletAddress(): String? {
+    private suspend fun getWalletAddressFromAdapter(): String? {
         // Get the user's wallet address
         // This would use Mobile Wallet Adapter
         
@@ -237,7 +237,7 @@ class SolanaIntegration(private val context: Context) {
             // )
             
             // For demo purposes, return sample records
-            return listOf(
+            return@withContext listOf(
                 EmergencyRecord("emergency_1", "Drowning", "2025-08-02", "Resolved"),
                 EmergencyRecord("emergency_2", "Heart Attack", "2025-08-01", "Resolved")
             )

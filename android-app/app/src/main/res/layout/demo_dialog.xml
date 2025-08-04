@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/deep_navy">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose an emergency scenario to test the app safely. This will simulate the full emergency response without making actual calls."
+        android:textSize="14sp"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnDrowning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💧 Drowning Emergency"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnHeartAttack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="❤️ Heart Attack Emergency"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnChoking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🤐 Choking Emergency"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnBleeding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🩸 Bleeding Emergency"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnStroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🧠 Stroke Emergency"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary" />
+
+</LinearLayout> 

@@ -3,136 +3,538 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/emergency_background">
+    android:background="@color/deep_navy">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
         <!-- Header -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🚨 Solana SOS"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/emergency_red"
-            android:gravity="center"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Status Display -->
-        <TextView
-            android:id="@+id/tvStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ready for emergency activation"
-            android:textSize="16sp"
-            android:textColor="@color/status_text"
-            android:gravity="center"
-            android:padding="12dp"
-            android:background="@drawable/status_background"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Main Controls -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="16dp">
+            android:gravity="center"
+            android:layout_marginBottom="24dp">
 
-            <!-- Emergency Button -->
-            <Button
-                android:id="@+id/btnEmergency"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="🚨 EMERGENCY ACTIVATION"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🛡️"
+                android:textSize="48sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Solana SOS"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/solana_purple"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Be A Hero"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:background="@drawable/emergency_button"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="8dp" />
-
-            <!-- Voice Recognition Toggle -->
-            <Button
-                android:id="@+id/btnVoiceToggle"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="🎤 Start Voice Recognition"
-                android:textSize="16sp"
-                android:background="@drawable/voice_button"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="8dp" />
-
-            <!-- Solana Wallet Connection -->
-            <Button
-                android:id="@+id/btnConnectWallet"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="🔗 Connect Solana Wallet"
-                android:textSize="16sp"
-                android:background="@drawable/wallet_button"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="8dp" />
-
-            <!-- Settings -->
-            <Button
-                android:id="@+id/btnSettings"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="⚙️ Settings"
-                android:textSize="16sp"
-                android:background="@drawable/settings_button"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/soft_green" />
 
         </LinearLayout>
 
-        <!-- Emergency Options (Hidden by default) -->
+        <!-- Status Card -->
         <LinearLayout
-            android:id="@+id/emergencyOptionsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:background="@drawable/emergency_options_background"
+            android:background="@drawable/features_card_background"
             android:padding="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ready for emergency activation"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Emergency Options:"
+                android:text="Voice recognition active • Location enabled • Contacts configured"
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Emergency Activation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emergency Activation"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/emergency_red"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Emergency Activation Button -->
+            <Button
+                android:id="@+id/btnEmergency"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="🚨 PRESS FOR EMERGENCY"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/emergency_button_calm"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Demo Mode Button -->
+            <Button
+                android:id="@+id/btnDemo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🎬 Demo Mode"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp" />
 
+            <!-- Training Center Button -->
             <Button
+                android:id="@+id/btnTraining"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="🆘 Call 911"
-                android:textSize="14sp"
-                android:background="@drawable/emergency_action_button"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="4dp" />
+                android:layout_height="50dp"
+                android:text="🎓 Training Center"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Cross-App Challenges Button -->
+            <Button
+                android:id="@+id/btnChallenges"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🔄 Cross-App Challenges"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Say &quot;Hey SOS&quot; or press Emergency button, then state emergency type for life-saving instructions"
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Settings & Help -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="📍 Share Location"
+                android:id="@+id/btnSettings"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="⚙️ Settings"
                 android:textSize="14sp"
-                android:background="@drawable/emergency_action_button"
-                android:textColor="@android:color/white"
-                android:layout_marginBottom="4dp" />
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="8dp" />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="📞 Alert Contacts"
+                android:id="@+id/btnHelp"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="📚 Help &amp; Info"
                 android:textSize="14sp"
-                android:background="@drawable/emergency_action_button"
-                android:textColor="@android:color/white" />
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+        <!-- Safety Features -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Safety Features Status"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="• Active"
+                    android:textSize="14sp"
+                    android:textColor="@color/status_success"
+                    android:layout_marginEnd="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✗ Inactive"
+                    android:textSize="14sp"
+                    android:textColor="@color/status_inactive" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/features_card_background"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvSilentSOS"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Silent SOS Power"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvSilentSOSVolume"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Silent SOS Volume"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvCrashDetection"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Crash Detection"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvVoiceRecognition"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Voice Recognition"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvTrustedNetwork"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Personalized Emergency Contacts"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvOfflineMode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Offline Only Mode"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/tvContextAware"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Context-Aware"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_success" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvHybridMode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Hybrid Offline/Online Mode"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_success" />
+
+                    <TextView
+                        android:id="@+id/tvLocationSharing"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Location Sharing"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_success" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvBlockchain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Blockchain Secure"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_success" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- SOS Hero Stats -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SOS Hero Status"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/features_card_background"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvHeroLevel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hero Level: 3"
+                            android:textSize="14sp"
+                            android:textColor="#00D4FF"
+                            android:layout_gravity="center" />
+
+                        <TextView
+                            android:id="@+id/tvHeroXP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="XP: 1,250"
+                            android:textSize="14sp"
+                            android:textColor="@color/soft_green"
+                            android:layout_gravity="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tvBonkBalance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BONK: 100"
+                            android:textSize="14sp"
+                            android:textColor="#F7931A" />
+
+                        <TextView
+                            android:id="@+id/tvSkrBalance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SKR: 25"
+                            android:textSize="14sp"
+                            android:textColor="@color/solana_purple" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Progress to Next Level -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/tvNextLevel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Next level: 250 XP needed"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_muted"
+                        android:gravity="center"
+                        android:layout_marginBottom="4dp" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="50"
+                        android:progressTint="@color/soft_green"
+                        android:backgroundTint="@color/status_inactive" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Manual Activations -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Manual Actions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:id="@+id/emergencyOptionsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:background="@drawable/features_card_background"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="🆘 Call 911"
+                    android:textSize="14sp"
+                    android:background="@drawable/emergency_action_button"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="4dp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="📍 Share Location"
+                    android:textSize="14sp"
+                    android:background="@drawable/emergency_action_button"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="4dp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="📞 Alert Contacts"
+                    android:textSize="14sp"
+                    android:background="@drawable/emergency_action_button"
+                    android:textColor="@color/text_primary" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -153,7 +555,7 @@
                 android:text="EMERGENCY TYPE"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/emergency_red"
+                android:textColor="@color/text_primary"
                 android:gravity="center"
                 android:layout_marginBottom="12dp" />
 
@@ -165,33 +567,6 @@
                 android:textSize="16sp"
                 android:textColor="@color/instruction_text"
                 android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Feature Highlights -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/features_background"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🚨 Features:"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/feature_title"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Voice-activated emergency response\n• 12 emergency types supported\n• Solana blockchain integration\n• SKR token rewards\n• Location sharing\n• Silent SOS activation"
-                android:textSize="14sp"
-                android:textColor="@color/feature_text"
-                android:lineSpacingExtra="2dp" />
 
         </LinearLayout>
 

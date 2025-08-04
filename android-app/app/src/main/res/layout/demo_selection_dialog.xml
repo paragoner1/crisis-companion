@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose an emergency type to simulate the full response:"
+        android:textSize="16sp"
+        android:textColor="@color/text_primary"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnDrowning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🏊 Drowning"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnHeartAttack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="❤️ Heart Attack"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnChoking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="😵 Choking"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnBleeding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🩸 Bleeding"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary"
+        android:layout_marginBottom="8dp" />
+
+    <Button
+        android:id="@+id/btnStroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🧠 Stroke"
+        android:textSize="16sp"
+        android:background="@drawable/action_button_background"
+        android:textColor="@color/text_primary" />
+
+</LinearLayout> 
