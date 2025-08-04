@@ -13,6 +13,7 @@ class InfoActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        android.widget.Toast.makeText(this, "InfoActivity onCreate!", android.widget.Toast.LENGTH_SHORT).show()
         
         // Set status bar color to match the deep navy background
         window.statusBarColor = ContextCompat.getColor(this, R.color.deep_navy)
