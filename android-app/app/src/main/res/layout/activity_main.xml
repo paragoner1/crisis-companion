@@ -114,28 +114,6 @@
                 android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Training Center Button -->
-            <Button
-                android:id="@+id/btnTraining"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="🎓 Training Center"
-                android:textSize="16sp"
-                android:background="@drawable/action_button_background"
-                android:textColor="@color/text_primary"
-                android:layout_marginBottom="8dp" />
-
-            <!-- Cross-App Challenges Button -->
-            <Button
-                android:id="@+id/btnChallenges"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="🔄 Cross-App Challenges"
-                android:textSize="16sp"
-                android:background="@drawable/action_button_background"
-                android:textColor="@color/text_primary"
-                android:layout_marginBottom="16dp" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -363,6 +341,37 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Training & Challenges -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <!-- Training Center Button -->
+            <Button
+                android:id="@+id/btnTraining"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🎓 Training Center"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Cross-App Challenges Button -->
+            <Button
+                android:id="@+id/btnChallenges"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="🔄 Cross-App Challenges"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
 
         </LinearLayout>
 
