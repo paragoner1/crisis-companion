@@ -137,7 +137,7 @@
 
         </LinearLayout>
 
-        <!-- Training & Skill Development Section -->
+        <!-- Training &amp; Skill Development Section -->
         <LinearLayout
             android:id="@+id/trainingSection"
             android:layout_width="match_parent"
@@ -152,7 +152,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🎓 TRAINING &amp; SKILL DEVELOPMENT"
+                android:text="🎓 TRAINING &amp;amp; SKILL DEVELOPMENT"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -451,7 +451,7 @@
 
         </LinearLayout>
 
-        <!-- Authoritative Sources & Credible Authorities -->
+        <!-- Authoritative Sources &amp; Credible Authorities -->
         <LinearLayout
             android:id="@+id/authoritativeSourcesSection"
             android:layout_width="match_parent"
@@ -466,7 +466,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="📚 Authoritative Sources &amp; Credible Authorities"
+                android:text="📚 Authoritative Sources &amp;amp; Credible Authorities"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -512,7 +512,7 @@
 
         </LinearLayout>
 
-        <!-- Privacy & Security -->
+        <!-- Privacy &amp; Security -->
         <LinearLayout
             android:id="@+id/privacySecuritySection"
             android:layout_width="match_parent"
@@ -527,7 +527,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🔒 Privacy &amp; Security"
+                android:text="🔒 Privacy &amp;amp; Security"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -672,6 +672,329 @@
                 android:textColor="@color/soft_green"
                 android:gravity="center"
                 android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+        <!-- MOTIVATION -->
+        <LinearLayout
+            android:id="@+id/motivationSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💔 MOTIVATION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="A few years ago, my 4-year-old son almost drowned. I performed CPR without knowing what I was doing. That is why I built Solana SOS."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- PROBLEM -->
+        <LinearLayout
+            android:id="@+id/problemSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 THE PROBLEM"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3.8 million people die from preventable emergencies every yearnn• Traditional apps fail in crisisn• Manual input required / no voice activated stepsn• Internet dependentn• 7-14 minute EMS delayn• 10% survival drop per minute"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- SOLUTION -->
+        <LinearLayout
+            android:id="@+id/solutionSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💡 THE SOLUTION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solana SOS responds to your voice in under 100 milliseconds, even without internetnn• Voice-activated - Hey SOS, drowning help!n• Enterprise-grade noise filteringn• Enterprise-grade code architecture and reliabilityn• Expandable offline emergency database"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- DEMO -->
+        <LinearLayout
+            android:id="@+id/demoSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎬 DEMO"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Watch how drowning help! triggers instant CPR guidancennContext-aware: Skips rescue steps if out of waternnOther Features:n• Silent SOS: discreet location sharing and 911 callingn• Crash detection: auto 911 with GPSn• Trusted Network: Emergency contacts that can beat EMSn• SOS Hero: BONK/SKR rewards"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- MARKET -->
+        <LinearLayout
+            android:id="@+id/marketSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📈 MARKET"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is for everyonenn• Safety apps: 1.5B → $5.2B by 2033n• 76% parents prioritize safety when buying phonesn• 7.3B+ smartphone users in 2025"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- BUSINESS MODEL -->
+        <LinearLayout
+            android:id="@+id/businessModelSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💰 BUSINESS MODEL"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Default app on every mobile Seeker devicenn• 40% Seeker sales upliftn• $50M revenue by Q4 2026n• Family subscriptionsn• Enterprisen• Government"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- COMPETITIVE ADVANTAGE -->
+        <LinearLayout
+            android:id="@+id/competitiveAdvantageSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🏆 COMPETITIVE ADVANTAGE"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The only mobile device that will save your life by defaultnn• Hybrid online-offlinen• Blockchain securedn• Context-aware guidancen• Gamification for viral growth"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- TRACTION -->
+        <LinearLayout
+            android:id="@+id/tractionSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📊 TRACTION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Working prototype ready for Solana Mobile deploymentnn• Core tech: voice &amp; responsen• 12 emergency types: offline coveragen• Features: silent SOS, crash, gamificationn• Solana: verification &amp; rewardsn• Multi-device sync: bluetooth"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- ROADMAP -->
+        <LinearLayout
+            android:id="@+id/roadmapSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🗓️ ROADMAP"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FROM HACKATHON PROTOTYPE TO SAFETY REVOLUTIONnn• AUG 2025: HACKATHON SUBMISSIONn• Q1 2026: APP LAUNCH ON SEEKERn• Q2 2026: EMERGENCY PARTNERSHIPSn• Q3 2026: GLOBAL EXPANSION &amp; REWARDSn• Q4 2026: $50M+ REVENUE &amp; CONTRACTS"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- CALL TO ACTION -->
+        <LinearLayout
+            android:id="@+id/callToActionSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎯 CALL TO ACTION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ARE YOU READY TO SAVE LIVES WITH SOLANA SOS?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:gravity="center" />
 
         </LinearLayout>
 
