@@ -879,7 +879,7 @@ class MainActivity : AppCompatActivity() {
                 • Begin CPR if needed
                 • Keep warm and monitor
                 
-                DEMO: App automatically calls 911, shares location, and notifies your trusted contacts with location
+                DEMO: App automatically calls 911 and shares location
                 DEMO: 911 operator stays on standby for when you are ready to connect
             """.trimIndent()
             
@@ -899,7 +899,7 @@ class MainActivity : AppCompatActivity() {
                 • Monitor breathing
                 • Be ready for CPR if needed
                 
-                DEMO: App automatically calls 911, shares location, and notifies your trusted contacts with location
+                DEMO: App automatically calls 911 and shares location
                 DEMO: 911 operator stays on standby for when you are ready to connect
             """.trimIndent()
             
@@ -918,7 +918,7 @@ class MainActivity : AppCompatActivity() {
                 • Monitor breathing
                 • Seek medical attention
                 
-                DEMO: App automatically calls 911, shares location, and notifies your trusted contacts with location
+                DEMO: App automatically calls 911 and shares location
                 DEMO: 911 operator stays on standby for when you are ready to connect
             """.trimIndent()
             
@@ -937,7 +937,7 @@ class MainActivity : AppCompatActivity() {
                 • Apply tourniquet if needed
                 • Keep pressure until help arrives
                 
-                DEMO: App automatically calls 911, shares location, and notifies your trusted contacts with location
+                DEMO: App automatically calls 911 and shares location
                 DEMO: 911 operator stays on standby for when you are ready to connect
             """.trimIndent()
             
@@ -958,7 +958,7 @@ class MainActivity : AppCompatActivity() {
                 • Don't give food or drink
                 • Be ready to provide information
                 
-                DEMO: App automatically calls 911, shares location, and notifies your trusted contacts with location
+                DEMO: App automatically calls 911 and shares location
                 DEMO: 911 operator stays on standby for when you are ready to connect
             """.trimIndent()
             
@@ -986,7 +986,6 @@ class MainActivity : AppCompatActivity() {
             • Life-saving instructions: Provided step-by-step guidance
             • 911 dispatcher: Remains on standby for when you are ready to connect
             • Location sharing: Precise coordinates sent to emergency services
-            • Trusted contacts: Notified via SMS with precise location
             • Blockchain logging: Emergency recorded on Solana
             • Token rewards: SOS Hero tokens awarded
             
