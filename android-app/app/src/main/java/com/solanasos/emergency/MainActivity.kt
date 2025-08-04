@@ -838,10 +838,6 @@ class MainActivity : AppCompatActivity() {
                 showEmergencyInstructions(emergencyType)
                 
                 // 10-second countdown for emergency response
-                for (i in 10 downTo 1) {
-                    updateStatus("DEMO: Emergency response in progress... $i seconds remaining")
-                    delay(1000)
-                }
                 
                 // Step 4: Simulate blockchain logging
                 Log.d(TAG, "Demo Step 4: Blockchain logging")
@@ -855,10 +851,6 @@ class MainActivity : AppCompatActivity() {
                 
                 // 10-second countdown before completion
                 updateStatus("DEMO: Preparing completion summary...")
-                for (i in 10 downTo 1) {
-                    updateStatus("DEMO: Demo ending in $i seconds...")
-                    delay(1000)
-                }
                 
                 // Step 6: Show completion
                 Log.d(TAG, "Demo Step 6: Showing completion")
