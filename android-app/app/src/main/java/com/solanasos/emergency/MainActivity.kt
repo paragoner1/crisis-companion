@@ -863,8 +863,8 @@ class MainActivity : AppCompatActivity() {
                 • Begin CPR if needed
                 • Keep warm and monitor
                 
-                DEMO: The app provides real-time voice guidance
-                DEMO: Additional voice input controls the instruction flow
+                DEMO: App automatically calls 911 and shares location
+                DEMO: 911 operator stays on standby for when you are ready
             """.trimIndent()
             
             "Heart Attack" -> """
@@ -883,8 +883,8 @@ class MainActivity : AppCompatActivity() {
                 • Monitor breathing
                 • Be ready for CPR if needed
                 
-                DEMO: The app provides real-time voice guidance
-                DEMO: Additional voice input controls the instruction flow
+                DEMO: App automatically calls 911 and shares location
+                DEMO: 911 operator stays on standby for when you are ready
             """.trimIndent()
             
             "Choking" -> """
@@ -902,8 +902,8 @@ class MainActivity : AppCompatActivity() {
                 • Monitor breathing
                 • Seek medical attention
                 
-                DEMO: The app provides real-time voice guidance
-                DEMO: Additional voice input controls the instruction flow
+                DEMO: App automatically calls 911 and shares location
+                DEMO: 911 operator stays on standby for when you are ready
             """.trimIndent()
             
             "Bleeding" -> """
@@ -921,8 +921,8 @@ class MainActivity : AppCompatActivity() {
                 • Apply tourniquet if needed
                 • Keep pressure until help arrives
                 
-                DEMO: The app provides real-time voice guidance
-                DEMO: Additional voice input controls the instruction flow
+                DEMO: App automatically calls 911 and shares location
+                DEMO: 911 operator stays on standby for when you are ready
             """.trimIndent()
             
             "Stroke" -> """
@@ -942,8 +942,8 @@ class MainActivity : AppCompatActivity() {
                 • Don't give food or drink
                 • Be ready to provide information
                 
-                DEMO: The app provides real-time voice guidance
-                DEMO: Additional voice input controls the instruction flow
+                DEMO: App automatically calls 911 and shares location
+                DEMO: 911 operator stays on standby for when you are ready
             """.trimIndent()
             
             else -> "DEMO: Emergency response simulation"

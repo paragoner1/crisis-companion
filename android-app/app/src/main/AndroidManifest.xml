@@ -52,7 +52,7 @@
             android:exported="false"
             android:theme="@style/Theme.SolanaSOS" />
         <activity android:name=".CrossAppChallengesActivity" />
-
+        <activity android:name=".HackathonPresentationActivity" />
         <!-- Emergency service -->
         <service
             android:name=".EmergencyService"
