@@ -1,15 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="emergency_red">#FF0000</color>
-    <color name="emergency_background">#F5F5F5</color>
-    <color name="status_text">#333333</color>
-    <color name="feature_title">#2C3E50</color>
-    <color name="feature_text">#34495E</color>
-    <color name="instruction_text">#2C3E50</color>
-    <color name="button_primary">#3498DB</color>
-    <color name="button_secondary">#95A5A6</color>
-    <color name="button_emergency">#E74C3C</color>
-    <color name="button_voice">#9B59B6</color>
-    <color name="button_wallet">#F39C12</color>
-    <color name="button_settings">#7F8C8D</color>
+    <!-- Solana Safety Pulse - Calmer Color Palette -->
+    
+    <!-- Primary (Dominant - 60% usage: backgrounds, settings menus) -->
+    <color name="deep_navy">#1E3A5F</color>
+    <color name="deep_navy_light">#2E4A7F</color>
+    <color name="deep_navy_dark">#0F2A4F</color>
+    
+    <!-- Secondary (30% usage: Text, icons, stats displays) -->
+    <color name="soft_green">#81C9C0</color>
+    <color name="soft_green_light">#A8D8D0</color>
+    <color name="soft_green_dark">#5AB8A8</color>
+    
+    <!-- Accent (10% usage: Buttons, alerts, rewards highlights) -->
+    <color name="solana_purple">#9B8AFB</color>
+    <color name="solana_purple_light">#B8A9FC</color>
+    <color name="solana_purple_dark">#7A6BDB</color>
+    
+    <!-- Neutrals -->
+    <color name="dark_background">#1E3A5F</color>
+    <color name="light_text">#F0F4F8</color>
+    <color name="subtle_gray">#B0C4DE</color>
+    <color name="muted_gray">#9CA3AF</color>
+    
+    <!-- Background Colors -->
+    <color name="background_primary">#1E3A5F</color>
+    <color name="background_secondary">#3D5270</color>
+    <color name="background_card">#2E4A7F</color>
+    <color name="background_surface">#3D5270</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#F0F4F8</color>
+    <color name="text_secondary">#B0C4DE</color>
+    <color name="text_muted">#9CA3AF</color>
+    <color name="text_disabled">#6B7280</color>
+    
+    <!-- Input Field Colors -->
+    <color name="input_background">#3D5270</color>
+    <color name="input_text">#F0F4F8</color>
+    <color name="input_hint">#B0C4DE</color>
+    <color name="input_border">#3D5270</color>
+    
+    <!-- Status Colors -->
+    <color name="status_success">#81C9C0</color>
+    <color name="status_warning">#E07A5F</color>
+    <color name="status_error">#E07A5F</color>
+    <color name="status_info">#9B8AFB</color>
+    <color name="status_inactive">#E07A5F</color>
+    
+    <!-- Emergency Colors (Calm) -->
+    <color name="emergency_primary">#E07A5F</color>
+    <color name="emergency_secondary">#F0F4F8</color>
+    <color name="emergency_background">#3D5270</color>
+    
+    <!-- Legacy colors (keeping for compatibility) -->
+    <color name="emergency_red">#E07A5F</color>
+    <color name="emergency_background_old">#1E3A5F</color>
+    <color name="status_text">#F0F4F8</color>
+    <color name="feature_title">#81C9C0</color>
+    <color name="feature_text">#B0C4DE</color>
+    <color name="instruction_text">#F0F4F8</color>
+    <color name="button_primary">#81C9C0</color>
+    <color name="button_secondary">#5AB8A8</color>
+    <color name="button_emergency">#E07A5F</color>
+    <color name="button_voice">#81C9C0</color>
+    <color name="button_wallet">#9B8AFB</color>
+    <color name="button_settings">#B0C4DE</color>
 </resources> 

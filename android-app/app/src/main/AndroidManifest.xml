@@ -40,6 +40,19 @@
             android:exported="false"
             android:theme="@style/Theme.SolanaSOS" />
 
+        <!-- Info activity -->
+        <activity
+            android:name=".InfoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SolanaSOS" />
+
+        <!-- Training activity -->
+        <activity
+            android:name=".TrainingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SolanaSOS" />
+        <activity android:name=".CrossAppChallengesActivity" />
+
         <!-- Emergency service -->
         <service
             android:name=".EmergencyService"

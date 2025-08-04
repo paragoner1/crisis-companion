@@ -44,11 +44,11 @@ android {
 }
 
 dependencies {
-    // Solana Mobile Stack - Real dependencies
-    implementation 'com.solana:mobile-wallet-adapter:1.0.0'
-    implementation 'com.solana:solana-sdk:1.0.0'
-    implementation 'com.solana:mobile-wallet-adapter-client:1.0.0'
-    implementation 'com.solana:mobile-wallet-adapter-server:1.0.0'
+    // Solana Mobile Stack - Placeholder for future integration
+    // implementation 'com.solana:mobile-wallet-adapter:1.0.0'
+    // implementation 'com.solana:solana-sdk:1.0.0'
+    // implementation 'com.solana:mobile-wallet-adapter-client:1.0.0'
+    // implementation 'com.solana:mobile-wallet-adapter-server:1.0.0'
     
     // Android core
     implementation 'androidx.core:core-ktx:1.12.0'
