@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_navy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="← Back"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="📚 App Guide"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Mission Statement -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 MISSION STATEMENT"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/status_error"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solana SOS is not a game. This is a serious emergency response application designed to prevent unnecessary deaths when lives could otherwise be saved.\n\nOur mission is to train users to recognize and respond to life-threatening emergencies, providing immediate guidance during critical moments and empowering ordinary people to save lives.\n\nThe gamification features exist solely to ensure users develop and maintain the skills necessary to take responsibility for saving someone's life when they're nearby."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Emergency Response Guide -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 EMERGENCY RESPONSE GUIDE"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/status_error"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**ACTIVATION:** Say 'Hey SOS' or press Emergency button\n**EMERGENCY TYPES:** Drowning, Heart Attack, Choking, Bleeding, Stroke, Seizure, Poisoning, Burn, Diabetic, Allergic, Trauma, Unconscious\n**RESPONSE:** App provides step-by-step life-saving instructions\n**LOCATION:** Automatically shares your location with emergency services\n**RECORDING:** Audio recorded for emergency responders\n**BLOCKCHAIN:** Emergency response logged on Solana for transparency"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Training Section -->
+        <LinearLayout
+            android:id="@+id/trainingSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎓 TRAINING &amp; SKILL DEVELOPMENT"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**Available Training Modules:**\n• CPR Training (50 BONK + 25 SKR)\n• First Aid Basics (30 BONK + 15 SKR)\n• Voice Recognition (25 BONK + 10 SKR)\n• App Features (20 BONK + 10 SKR)\n• Emergency Types (40 BONK + 20 SKR)\n\n**Daily Check-ins:** Maintain emergency readiness\n**Achievement System:** Motivate continuous learning\n**Progress Tracking:** Monitor skill development\n\nTap for detailed training information →"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Cross-App Challenges Section -->
+        <LinearLayout
+            android:id="@+id/challengesSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔄 CROSS-APP CHALLENGES"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**Community Integration Challenges:**\n• CPR ↔ DeFi Challenge (100 BONK + 50 SKR)\n• Emergency ↔ Gaming Challenge (150 BONK + 75 SKR)\n• Safety ↔ Trading Challenge (120 BONK + 60 SKR)\n• Hero ↔ DeFi Challenge (200 BONK + 100 SKR)\n• Community Swap Challenge (300 BONK + 150 SKR)\n\n**Purpose:** Expand emergency response network across Solana ecosystem\n**Goal:** More trained responders = more lives saved\n\nTap for detailed challenge information →"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Offline Mode Emergency Types -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📱 Offline Mode Emergency Types"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**Current Offline Database (12 Types):**\n• Drowning, Heart Attack, Choking, Bleeding, Stroke\n• Seizure, Poisoning, Burn, Diabetic, Allergic\n• Trauma, Unconscious\n\n**Database Expansion:** Additional life-threatening emergency types are planned to be added regularly to the offline database through app updates. This ensures offline users have access to more emergency protocols without requiring internet connectivity.\n\n**Context-Aware:** Each emergency type includes step-by-step life-saving instructions that work without internet connectivity."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Online Mode Enhanced Guidance -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌐 Online Mode Enhanced Guidance"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**AI-Powered Unlimited Types:** When hybrid online/offline mode is active, the app provides unlimited emergency types with enhanced AI-powered guidance. The AI can handle any emergency scenario without database limitations.\n\n**Enhanced Features:**\n• Real-time context analysis\n• Advanced voice recognition\n• Cloud-based emergency protocols\n• Enhanced location and contact services\n• Dynamic emergency response adaptation"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Offline Mode Emergency Types -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📱 Offline Mode Emergency Types"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**Current Offline Database (12 Types):**\n• Drowning, Heart Attack, Choking, Bleeding, Stroke\n• Seizure, Poisoning, Burn, Diabetic, Allergic\n• Trauma, Unconscious\n\n**Database Expansion:** Additional life-threatening emergency types are planned to be added regularly to the offline database through app updates. This ensures offline users have access to more emergency protocols without requiring internet connectivity.\n\n**Context-Aware:** Each emergency type includes step-by-step life-saving instructions that work without internet connectivity."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Online Mode Enhanced Guidance -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌐 Online Mode Enhanced Guidance"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="**AI-Powered Unlimited Types:** When hybrid online/offline mode is active, the app provides unlimited emergency types with enhanced AI-powered guidance. The AI can handle any emergency scenario without database limitations.\n\n**Enhanced Features:**\n• Real-time context analysis\n• Advanced voice recognition\n• Cloud-based emergency protocols\n• Enhanced location and contact services\n• Dynamic emergency response adaptation"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 
