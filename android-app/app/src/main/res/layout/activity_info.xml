@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Solana SOS is a voice-activated emergency response app that provides instant life-saving guidance. When you say 'Hey SOS, drowning help!' the app immediately provides step-by-step CPR instructions while automatically calling 911 and sharing your location.\n\nKey Features:\n• Voice-activated emergency response\n• Automatic 911 calling and location sharing\n• Life-saving instructions for 12+ emergency types\n• Works offline without internet connection\n• Blockchain-secured emergency logs\n• Gamification for skill development\n\nTap for detailed information →"
+                android:text="Solana SOS is a voice-activated emergency response app that provides instant life-saving guidance. When you say 'Hey SOS, drowning help!' the app immediately provides step-by-step CPR instructions while automatically calling 911 and sharing your location.\n\nKey Features:\n• Voice-activated emergency response\n• Automatic 911 calling and location sharing\n• Life-saving instructions for 12+ emergency types\n• Works offline without internet connection\n• Blockchain-secured emergency logs\n• Gamification for skill development\n\nCore Features:\n• Hey SOS wake word - Instant activation in under 100ms\n• Offline voice recognition via Vosk - Works anywhere, anytime\n• Noise filtering via RNNoise - Enterprise-grade audio processing\n• Silent SOS activation for dangerous situations\n• Crash detection &amp; auto-911 with GPS coordinates\n• Personal trusted network with emergency contacts\n• Real-time location tracking and sharing\n\nTap for detailed information →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
@@ -230,6 +230,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Monitor skill development"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SOS Hero Gamification"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10 Hero Levels:\n🆕 Novice Hero (0 XP) - 100 BONK + 25 SKR\n📚 Trainee Hero (100 XP) - 200 BONK + 50 SKR\n🚨 Emergency Responder (500 XP) - 500 BONK + 125 SKR\n🛡️ Safety Guardian (1,000 XP) - 1,000 BONK + 250 SKR\n💪 Life Protector (2,500 XP) - 2,500 BONK + 625 SKR\n🏘️ Community Defender (5,000 XP) - 5,000 BONK + 1,250 SKR\n👁️ Safety Sentinel (10,000 XP) - 10,000 BONK + 2,500 SKR\n🏆 Emergency Champion (25,000 XP) - 25,000 BONK + 6,250 SKR\n👼 Guardian Angel (50,000 XP) - 50,000 BONK + 12,500 SKR\n⭐ Life-Saving Legend (100,000 XP) - 100,000 BONK + 25,000 SKR"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reward Categories"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• App Setup &amp; Configuration Rewards\n• Learning &amp; Training Rewards\n• Feature Usage Rewards\n• Safety Features Rewards\n• Network &amp; Social Rewards\n• Feature Proficiency Rewards"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Achievement System"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Setup Achievements - App setup, permissions, network creation\n• Learning Achievements - CPR, first aid, AED, emergency types\n• Intervention Achievements - First response, successful rescues\n• Network Achievements - Community building, safety ambassador\n• Special Achievements - Offline hero, quick responder, team player"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
@@ -387,6 +444,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Each emergency type includes step-by-step life-saving instructions that work without internet connectivity."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Direct Actions (Skip Basic Steps)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Anyone can use these direct action phrases to skip initial steps and get immediate, specific guidance:\n• CPR - Immediate chest compressions and rescue breathing\n• Heimlich - Abdominal thrusts for choking\n• AED - Automated external defibrillator usage\n• Tourniquet - Bleeding control for severe injuries\n• EpiPen - Emergency epinephrine administration\n• Rescue Breathing - Artificial ventilation\n• First Aid - Basic emergency care\n• FAST Test - Stroke assessment (Face, Arm, Speech, Time)\n• Poison Control - Emergency poison management\n• Cool Burn - Burn treatment and cooling\n• Medical Alert - Medical identification check"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
@@ -569,6 +645,82 @@
                 android:text="• Secure voice recognition\n• Encrypted emergency logs on Solana blockchain\n• Anonymous emergency reporting\n• No tracking or profiling"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data Protection"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Local-first architecture - All data processed locally\n• Encrypted storage - SQLite database with AES-256 encryption\n• Minimal data collection - Only essential emergency information\n• User control - Complete data ownership and deletion rights"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Compliance &amp; Standards"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• HIPAA compliance - Medical information protection\n• GDPR compliance - European data protection standards\n• COPPA compliance - Children's privacy protection\n• Emergency services standards - 911 integration protocols"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location Privacy"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• On-device processing - GPS data never leaves device\n• Emergency-only sharing - Location only shared during emergencies\n• User consent - Explicit permission for location services\n• Temporary storage - Location data deleted after emergency"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Blockchain Security"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Immutable records - Emergency data stored on Solana blockchain\n• Tamper-proof verification - Cryptographic proof of emergency responses\n• Decentralized storage - No single point of failure\n• User anonymity - Personal data not stored on blockchain"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
@@ -652,6 +804,7 @@
                 android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
+
         <!-- HACKATHON PITCH DECK -->
         <LinearLayout
             android:id="@+id/pitchDeckSection"
@@ -671,6 +824,67 @@
                 android:textColor="@color/soft_green"
                 android:gravity="center"
                 android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+        <!-- Hackathon Alignment -->
+        <LinearLayout
+            android:id="@+id/hackathonAlignmentSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🏆 HACKATHON ALIGNMENT"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solana Ecosystem Integration"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• SKR Token Rewards - Users earn Seeker ecosystem tokens for emergency preparedness and community safety actions\n• Mobile Wallet Adapter - Seamless integration with Solana Mobile wallet for secure token transactions\n• Seeker Device Optimization - Built specifically for Solana Mobile Seeker with hardware acceleration\n• dApp Store Ready - Designed for immediate deployment on Solana Mobile dApp store"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solana-Specific Benefits"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Default App Potential - Positioned to become the default safety app on every Seeker device\n• Blockchain Verification - Emergency records stored on Solana blockchain for tamper-proof documentation\n• Community Safety Network - Leverages Solana fast, low-cost transactions for real-time safety coordination\n• Token Economics - BONK and SKR rewards create sustainable engagement and community building"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
 

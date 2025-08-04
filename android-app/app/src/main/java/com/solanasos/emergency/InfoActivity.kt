@@ -44,6 +44,11 @@ class InfoActivity : AppCompatActivity() {
         binding.pitchDeckSection.setOnClickListener {
             showPitchDeckDetails()
         }
+
+        // Hackathon Alignment section click handler
+        binding.hackathonAlignmentSection.setOnClickListener {
+            showHackathonAlignmentDetails()
+        }
     }
 
     private fun showTrainingDetails() {
@@ -238,6 +243,34 @@ class InfoActivity : AppCompatActivity() {
                 
                 **🎯 CALL TO ACTION**
                 ARE YOU READY TO SAVE LIVES WITH SOLANA SOS?
+            """.trimIndent())
+            .setPositiveButton("Got It") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        
+        dialog.show()
+    }
+
+    private fun showHackathonAlignmentDetails() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("🏆 HACKATHON ALIGNMENT")
+            .setMessage("""
+                **Solana Ecosystem Integration**
+                
+                • SKR Token Rewards - Users earn Seeker ecosystem tokens for emergency preparedness and community safety actions
+                • Mobile Wallet Adapter - Seamless integration with Solana Mobile wallet for secure token transactions
+                • Seeker Device Optimization - Built specifically for Solana Mobile Seeker with hardware acceleration
+                • dApp Store Ready - Designed for immediate deployment on Solana Mobile dApp store
+                
+                **Solana-Specific Benefits**
+                
+                • Default App Potential - Positioned to become the default safety app on every Seeker device
+                • Blockchain Verification - Emergency records stored on Solana blockchain for tamper-proof documentation
+                • Community Safety Network - Leverages Solana fast, low-cost transactions for real-time safety coordination
+                • Token Economics - BONK and SKR rewards create sustainable engagement and community building
+                
+                This app is specifically designed for the Solana ecosystem, leveraging blockchain technology to create a more secure and community-driven emergency response system.
             """.trimIndent())
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
