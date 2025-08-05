@@ -219,6 +219,9 @@ class MainActivity : AppCompatActivity() {
             activateEmergencyMode()
         }
         
+        // Ensure manual actions are visible
+        binding.emergencyOptionsLayout.visibility = android.view.View.VISIBLE
+        
         // Update status
         updateStatus("Ready for emergency activation")
     }
@@ -551,6 +554,8 @@ class MainActivity : AppCompatActivity() {
         updateSafetyFeaturesStatus()
         // Update SOS Hero Status with real data
         updateSOSHeroStatus()
+        // Ensure manual actions are visible
+        binding.emergencyOptionsLayout.visibility = android.view.View.VISIBLE
         Log.d(TAG, "MainActivity resumed - updated safety features status")
     }
     
