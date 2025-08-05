@@ -96,7 +96,7 @@
                 android:id="@+id/btnEmergency"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="🚨 PRESS FOR EMERGENCY"
+                android:text="🎤 TEST: Say Hey SOS"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:background="@drawable/emergency_button_calm"
