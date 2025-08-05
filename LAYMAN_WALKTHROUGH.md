@@ -1,6 +1,6 @@
 # 🚨 Solana SOS - Simple User Guide
 
-**Creating The Phone You Can't Live Without**
+**Anyone can be a Hero**
 
 ## 🎯 **What is Solana SOS?**
 
@@ -18,7 +18,9 @@ Imagine you're at the beach and someone starts drowning. You panic - what do you
 - The app thinks: "They're past the rescue phase, need medical care now"
 - Instead of telling you to call for help (you already did that), it jumps straight to checking if the person is breathing
 
-### **3. It Guides You Step by Step**
+### **3. It Calls 911 and Guides You**
+- **Automatically calls 911** and shares your exact location
+- **Keeps 911 dispatcher on standby** until you're ready to connect
 - Clear, simple instructions: "Check if they're breathing"
 - If they're not breathing: "Start rescue breathing now"
 - If they have a pulse: "Keep them warm and monitor their breathing"

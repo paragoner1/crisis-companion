@@ -448,7 +448,7 @@ $ cargo run --bin complete_walkthrough
 
 ### **👨‍💻 Developer Contact**
 - **Developer:** Paragoner
-- **Twitter:** [@paragoner1](https://twitter.com/paragoner1)
+- **X:** [@paragoner1](https://twitter.com/paragoner1)
 
 ### **🚨 Emergency Response**
 *For immediate emergency assistance, please call your local emergency services (911 in the US).*
