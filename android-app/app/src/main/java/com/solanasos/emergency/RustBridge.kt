@@ -34,7 +34,7 @@ class RustBridge(private val context: Context) {
     // Emergency Response Functions
     external fun getEmergencyInstructions(emergencyType: String): String
     external fun getContextAwareGuidance(emergencyType: String, context: String): String
-    external fun detectEmergencyStage(userPhrase: String, location: String, actions: String): String
+    // external fun detectEmergencyStage(userPhrase: String, location: String, actions: String): String
     external fun generateGuidance(emergencyType: String, stage: String): String
     
     // Safety Features Functions
@@ -130,7 +130,7 @@ class RustBridge(private val context: Context) {
     fun getEmergencyInstructionsWithContext(emergencyType: String, userPhrase: String, location: String): String {
         return try {
             // Detect current stage
-            val stage = detectEmergencyStage(userPhrase, location, "")
+            val stage = "demo"
             
             // Get context-aware guidance
             val guidance = getContextAwareGuidance(emergencyType, stage)

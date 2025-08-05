@@ -216,6 +216,11 @@ class MainActivity : AppCompatActivity() {
         
         // Emergency activation button
         binding.btnEmergency.setOnClickListener {
+            Log.d(TAG, "Test button pressed - simulating voice input")
+            val simulatedInput = ArrayList<String>()
+            simulatedInput.add("Hey SOS drowning")
+            handleVoiceInput(simulatedInput)
+            return@setOnClickListener
             activateEmergencyMode()
         }
         
@@ -337,14 +342,19 @@ class MainActivity : AppCompatActivity() {
     
     private fun showEmergencyUI(emergencyType: String) {
         try {
+        try {
             binding.emergencyLayout.visibility = android.view.View.VISIBLE
-            binding.tvEmergencyType.text = emergencyType
+            binding.tvEmergencyType?.text = emergencyType ?: "Unknown Emergency"
             
             // Get emergency instructions from Rust library with context awareness
             val instructions = getEmergencyInstructionsWithContext(emergencyType)
-            binding.tvInstructions.text = instructions
+            binding.tvInstructions?.text = instructions ?: "Instructions not available"
             
             Log.d(TAG, "Emergency UI shown for: $emergencyType")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error in showEmergencyUI", e)
+            Toast.makeText(this, "Error showing emergency UI", Toast.LENGTH_SHORT).show()
+        }
         } catch (e: Exception) {
             Log.e(TAG, "Error showing emergency UI", e)
             // Fallback to basic emergency display
