@@ -3,7 +3,6 @@
 
 **Because when seconds matter, anyone can be a Hero. Just say "Hey SOS" and save a life.**
 
-[![Demo Video](https://img.shields.io/badge/Watch%20Demo%20Video-Loom-blue?style=for-the-badge&logo=loom)](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)
 
 **🎬 [Watch the Full Demo Video](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)** - See Solana SOS in action with voice recognition, emergency response, and life-saving features demonstrated in real-time.
 
