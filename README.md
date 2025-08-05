@@ -1,7 +1,7 @@
 # 🚨 Solana SOS - The Voice-Activated Emergency Response App
 *Optimized for Solana Mobile devices, with broader platform expansion planned.*
 
-**Because when seconds matter, you need the app that makes your phone a life saver.**
+**Because when seconds matter, anyone can be a Hero. Just say "Hey SOS" and save a life.**
 
 [![Demo Video](https://img.shields.io/badge/Watch%20Demo%20Video-Loom-blue?style=for-the-badge&logo=loom)](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)
 
