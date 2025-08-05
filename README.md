@@ -11,7 +11,7 @@
 ## 📋 **Table of Contents**
 - [Project Overview](#project-overview)
 - [Core Features](#core-features)
-- [Emergency Types Supported](#emergency-types-supported)
+- [Offline Emergency Types Supported](#emergency-types-supported)
 - [Safety Features](#safety-features)
 - [SOS Hero Gamification](#sos-hero-gamification)
 - [Technology Stack](#technology-stack)
@@ -92,9 +92,11 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Continuous location tracking** for trusted contacts
 - **Viral growth engine** - estimated 2.5x referral rate through community safety
 
-## 🚨 **Emergency Types Supported**
+## 🚨 **Offline Emergency Types Supported**
 
-### **Critical Life-Threatening Emergencies**
+### **Comprehensive Life-Saving Instructions for Critical Emergencies**
+
+**All emergency protocols work offline with comprehensive life-saving instructions:**
 - **Drowning** - Water rescue and post-extraction care
 - **Heart Attack** - CPR and emergency response
 - **Stroke** - FAST test and immediate care
