@@ -64,6 +64,7 @@ src/ui_engine/
 *.sqlite3
 emergency.db
 user_profiles.db
+data/emergencies.db
 
 # Audio files with sensitive data
 *.wav
