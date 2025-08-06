@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         
         // Demo Mode button
         binding.btnDemo.setOnClickListener {
+            Toast.makeText(this, "🎬 Demo mode! +10 XP for training", Toast.LENGTH_SHORT).show()
             showDemoDialog()
         }
         
@@ -282,7 +283,7 @@ class MainActivity : AppCompatActivity() {
         binding.tvStatus.text = "Listening for emergency phrase..."
         
         // Start listening for emergency phrases
-        Toast.makeText(this, "Listening for 'Hey SOS'...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "🚨 Emergency activated! +50 XP for quick response", Toast.LENGTH_SHORT).show()
         
         // Simulate voice recognition (in real app, this would use actual voice recognition)
         // For demo purposes, we'll use a timer to simulate the process
@@ -326,19 +327,10 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == PERMISSION_REQUEST_CODE) {
             val allGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
             if (allGranted) {
-                Toast.makeText(this, "All permissions granted!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "✅ Permissions granted! +25 XP for safety setup", Toast.LENGTH_SHORT).show()
                 
-                // Check if this is the first time the app has been used
-                val sharedPrefs = getSharedPreferences("app_first_use", Context.MODE_PRIVATE)
-                val isFirstUse = sharedPrefs.getBoolean("first_use", true)
-                
-                if (isFirstUse) {
-                    // Mark that the app has been used
-                    sharedPrefs.edit().putBoolean("first_use", false).apply()
-                    
-                    // Show the mission statement disclaimer
-                    showFirstTimeMissionDisclaimer()
-                }
+                // Always show the mission statement disclaimer after permissions
+                showFirstTimeMissionDisclaimer()
             } else {
                 Toast.makeText(this, "Some permissions denied", Toast.LENGTH_SHORT).show()
             }
@@ -422,13 +414,12 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("I Accept This Mission") { dialog, _ ->
                 Log.d(TAG, "User accepted the mission")
                 dialog.dismiss()
-                Toast.makeText(this, "Welcome to Solana SOS! Your mission begins now.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "🎉 Mission Accepted! +100 XP +50 BONK +25 SKR", Toast.LENGTH_LONG).show()
                 showQuickStartGuide()
             }
             .setNegativeButton("I Need More Time") { dialog, _ ->
                 Log.d(TAG, "User needs more time")
                 dialog.dismiss()
-                Toast.makeText(this, "Take your time. The mission is always here when you're ready.", Toast.LENGTH_LONG).show()
             }
             .setCancelable(false)
             .setOnDismissListener {
@@ -513,9 +504,10 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("🚨 QUICK START GUIDE")
             .setView(scrollView)
-            .setPositiveButton("Got It!") { dialog, _ ->
-                dialog.dismiss()
-            }
+                                .setPositiveButton("Got It!") { dialog, _ ->
+                        dialog.dismiss()
+                        Toast.makeText(this, "✅ Quick Start Complete! +25 XP +10 BONK", Toast.LENGTH_SHORT).show()
+                    }
             .setCancelable(true)
             .show()
     }
