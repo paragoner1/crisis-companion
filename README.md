@@ -8,6 +8,41 @@
 
 ---
 
+## 📱 **App Screenshots**
+
+### **First-Time User Experience**
+![First Open Banner](screenshots/1BannerPageFirstOpen.Image%208-6-25%20at%2010.25%20AM.png)
+*Mission critical disclaimer and permission setup*
+
+![Quick Start Guide](screenshots/1BannerPageQuickStartGuide.Image%208-6-25%20at%2011.54%20AM.jpg)
+*Comprehensive app overview and getting started guide*
+
+### **Main Interface**
+![Main Page](screenshots/2.0MainPage.Image%208-6-25%20at%2010.32%20AM.jpg)
+*Primary emergency activation and safety features*
+
+![Safety Features Status](screenshots/2.1MainPageSafetyFeaturesSatus.Image%208-6-25%20at%2010.33%20AM.jpg)
+*Real-time status of all safety features*
+
+### **Information & Training**
+![Info Page](screenshots/3InfoPageImage%208-6-25%20at%2010.39%20AM.jpg)
+*Comprehensive app guide and emergency information*
+
+![Training Modules](screenshots/14TrainingModulesPageImage%208-6-25%20at%2010.44%20AM.jpg)
+*CPR, first aid, and emergency response training*
+
+![Cross-App Challenges](screenshots/16CrossAppChallengesPageImage%208-6-25%20at%2010.45%20AM.jpg)
+*Gamified challenges and community safety features*
+
+### **Emergency Demo**
+![Demo Mode](screenshots/18SimDemPageImage%208-6-25%20at%2011.08%20AM.jpg)
+*Interactive emergency response simulation*
+
+![Demo Steps](screenshots/19SimDemPageImage%208-6-25%20at%2011.09%20AM%20(1).jpg)
+*Step-by-step emergency guidance demonstration*
+
+---
+
 ## 📋 **Table of Contents**
 - [Project Overview](#project-overview)
 - [Core Features](#core-features)
