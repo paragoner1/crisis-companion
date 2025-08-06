@@ -10,36 +10,29 @@
 
 ## 📱 **App Screenshots**
 
-### **First-Time User Experience**
-![First Open Banner](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/1BannerPageFirstOpen.Image%208-6-25%20at%2010.25%20AM.png)
-*Mission critical disclaimer and permission setup*
+**📂 [View All Screenshots](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)**
 
-![Quick Start Guide](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/1BannerPageQuickStartGuide.Image%208-6-25%20at%2011.54%20AM.jpg)
-*Comprehensive app overview and getting started guide*
+### **App Interface Overview**
+The screenshots showcase the complete Solana SOS user experience:
 
-### **Main Interface**
-![Main Page](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/2.0MainPage.Image%208-6-25%20at%2010.32%20AM.jpg)
-*Primary emergency activation and safety features*
+**First-Time User Experience:**
+- Mission critical disclaimer and permission setup
+- Comprehensive app overview and getting started guide
 
-![Safety Features Status](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/2.1MainPageSafetyFeaturesSatus.Image%208-6-25%20at%2010.33%20AM.jpg)
-*Real-time status of all safety features*
+**Main Interface:**
+- Primary emergency activation and safety features
+- Real-time status of all safety features
 
-### **Information & Training**
-![Info Page](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/3InfoPageImage%208-6-25%20at%2010.39%20AM.jpg)
-*Comprehensive app guide and emergency information*
+**Information & Training:**
+- Comprehensive app guide and emergency information
+- CPR, first aid, and emergency response training
+- Gamified challenges and community safety features
 
-![Training Modules](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/14TrainingModulesPageImage%208-6-25%20at%2010.44%20AM.jpg)
-*CPR, first aid, and emergency response training*
+**Emergency Demo:**
+- Interactive emergency response simulation
+- Step-by-step emergency guidance demonstration
 
-![Cross-App Challenges](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/16CrossAppChallengesPageImage%208-6-25%20at%2010.45%20AM.jpg)
-*Gamified challenges and community safety features*
-
-### **Emergency Demo**
-![Demo Mode](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/18SimDemPageImage%208-6-25%20at%2011.08%20AM.jpg)
-*Interactive emergency response simulation*
-
-![Demo Steps](https://github.com/paragoner1/crisis-companion/raw/main/screenshots/19SimDemPageImage%208-6-25%20at%2011.09%20AM%20(1).jpg)
-*Step-by-step emergency guidance demonstration*
+*Click the link above to view all 24 app screenshots in the repository.*
 
 ---
 
