@@ -51,7 +51,11 @@
             android:name=".TrainingActivity"
             android:exported="false"
             android:theme="@style/Theme.SolanaSOS" />
-        <activity android:name=".CrossAppChallengesActivity" />
+        <!-- Cross-App Challenges activity -->
+        <activity
+            android:name=".CrossAppChallengesActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SolanaSOS" />
         <activity android:name=".HackathonPresentationActivity" />
         <!-- Emergency service -->
         <service
