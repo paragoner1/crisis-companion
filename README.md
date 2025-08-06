@@ -37,16 +37,14 @@ The screenshots showcase the complete Solana SOS user experience:
 ---
 
 ## 📋 **Table of Contents**
-- [Project Overview](#project-overview)
-- [Core Features](#core-features)
-- [Offline Emergency Types Supported](#emergency-types-supported)
-- [Safety Features](#safety-features)
-- [SOS Hero Gamification](#sos-hero-gamification)
-- [Technology Stack](#technology-stack)
-- [Getting Started](#getting-started)
-- [Demo Commands](#demo-commands)
-- [Privacy & Security](#privacy--security)
-- [For Developers](#for-developers)
+- [Project Overview](#-project-overview)
+- [Core Features](#-core-features)
+- [Offline Emergency Types Supported](#-offline-emergency-types-supported)
+- [Safety Features](#️-safety-features)
+- [SOS Hero Gamification](#-sos-hero-gamification)
+- [Getting Started](#️-getting-started)
+- [Privacy & Security](#-privacy--security)
+- [For Developers](#️-for-developers)
 
 ---
 
