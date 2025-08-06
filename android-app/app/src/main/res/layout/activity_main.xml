@@ -96,7 +96,7 @@
                 android:id="@+id/btnEmergency"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="🎤 TEST: Say Hey SOS"
+                android:text="🚨 Press for Emergency"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:background="@drawable/emergency_button_calm"
@@ -182,7 +182,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="• Active"
+                    android:text="• Active (4)"
                     android:textSize="14sp"
                     android:textColor="@color/status_success"
                     android:layout_marginEnd="16dp" />
@@ -190,7 +190,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="✗ Inactive"
+                    android:text="✗ Inactive (6)"
                     android:textSize="14sp"
                     android:textColor="@color/status_inactive" />
 
@@ -214,18 +214,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Silent SOS Power"
+                        android:text="✗ Silent SOS Power"
                         android:textSize="14sp"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/status_inactive" />
 
                     <TextView
                         android:id="@+id/tvSilentSOSVolume"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Silent SOS Volume"
+                        android:text="✗ Silent SOS Volume"
                         android:textSize="14sp"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/status_inactive" />
 
                 </LinearLayout>
 
@@ -240,18 +240,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Crash Detection"
+                        android:text="✗ Crash Detection"
                         android:textSize="14sp"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/status_inactive" />
 
                     <TextView
                         android:id="@+id/tvVoiceRecognition"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Voice Recognition"
+                        android:text="✗ Voice Recognition"
                         android:textSize="14sp"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/status_inactive" />
 
                 </LinearLayout>
 
@@ -260,65 +260,48 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/tvTrustedNetwork"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="• Personalized Emergency Contacts"
-                        android:textSize="14sp"
-                        android:textColor="@color/text_secondary" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/tvOfflineMode"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="• Offline Only Mode"
-                        android:textSize="14sp"
-                        android:textColor="@color/text_secondary" />
-
-                    <TextView
-                        android:id="@+id/tvContextAware"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="• Context-Aware"
-                        android:textSize="14sp"
-                        android:textColor="@color/status_success" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:id="@+id/tvHybridMode"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="• Hybrid Offline/Online Mode"
-                        android:textSize="14sp"
-                        android:textColor="@color/status_success" />
 
                     <TextView
                         android:id="@+id/tvLocationSharing"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Location Sharing"
+                        android:text="• Emergency GPS"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_success" />
+
+                    <TextView
+                        android:id="@+id/tvTrustedNetwork"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="✗ Trusted Contacts"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_inactive" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvBlockchain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Blockchain Secure"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_success" />
+
+                    <TextView
+                        android:id="@+id/tvOfflineMode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="• Offline Mode"
                         android:textSize="14sp"
                         android:textColor="@color/status_success" />
 
@@ -330,13 +313,22 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tvBlockchain"
+                        android:id="@+id/tvOnlineMode"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Blockchain Secure"
+                        android:text="• Online Mode"
                         android:textSize="14sp"
                         android:textColor="@color/status_success" />
+
+                    <TextView
+                        android:id="@+id/tvAutoDial911"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="✗ Auto-Dial 911"
+                        android:textSize="14sp"
+                        android:textColor="@color/status_inactive" />
 
                 </LinearLayout>
 
