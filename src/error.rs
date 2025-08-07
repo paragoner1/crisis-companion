@@ -66,6 +66,10 @@ pub enum AppError {
     /// Internal errors
     #[error("Internal error: {0}")]
     Internal(String),
+
+    /// Training errors
+    #[error("Training error: {0}")]
+    Training(String),
 }
 
 /// Result type for Solana SOS operations

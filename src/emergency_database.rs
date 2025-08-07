@@ -1,6 +1,15 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub enum EmergencySeverity {
+    Low,
+    Medium,
+    High,
+    Critical,
+    LifeThreatening,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EmergencyStep {
     pub step_number: u32,
@@ -9,6 +18,10 @@ pub struct EmergencyStep {
     pub time_estimate: u32, // seconds
     pub context_dependent: bool,
     pub context_conditions: Vec<String>,
+    pub severity: EmergencySeverity,
+    pub time_sensitive: bool,
+    pub requires_equipment: Option<String>,
+    pub alternative_instructions: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -20,6 +33,11 @@ pub struct EmergencyProtocol {
     pub warning: String,
     pub call_911_immediately: bool,
     pub estimated_ems_time: u32, // minutes
+    pub severity: EmergencySeverity,
+    pub time_critical: bool,
+    pub equipment_needed: Vec<String>,
+    pub alternative_protocols: Vec<String>,
+    pub follow_up_actions: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -66,6 +84,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -74,6 +96,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -82,6 +108,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["not_breathing".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -90,6 +120,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["breathing".to_string(), "unconscious".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -98,11 +132,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Low,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Drowning can cause delayed complications. Always seek medical attention even if victim appears fine.".to_string(),
             call_911_immediately: true,
             estimated_ems_time: 7,
+            severity: EmergencySeverity::High,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("drowning".to_string(), protocol);
@@ -121,6 +164,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -129,6 +176,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -137,6 +188,10 @@ impl EmergencyDatabase {
                     time_estimate: 15,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Low,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -145,6 +200,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["has_nitroglycerin".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: Some("nitroglycerin".to_string()),
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -153,11 +212,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Heart attack symptoms can vary. When in doubt, call 911 immediately.".to_string(),
             call_911_immediately: true,
             estimated_ems_time: 8,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("heart_attack".to_string(), protocol);
@@ -176,6 +244,10 @@ impl EmergencyDatabase {
                     time_estimate: 5,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -184,6 +256,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["cannot_speak".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -192,6 +268,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["back_blows_failed".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -200,6 +280,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["continuing_choking".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -208,11 +292,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["unconscious".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Call 911 if choking persists or victim becomes unconscious.".to_string(),
             call_911_immediately: false,
             estimated_ems_time: 6,
+            severity: EmergencySeverity::High,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("choking".to_string(), protocol);
@@ -231,6 +324,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: Some("bandage".to_string()),
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -239,6 +336,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Low,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -247,6 +348,10 @@ impl EmergencyDatabase {
                     time_estimate: 900,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -255,6 +360,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["bleeding_continues".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: Some("bandage".to_string()),
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -263,11 +372,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["severe_bleeding".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Severe bleeding can be life-threatening. Call 911 immediately if bleeding is heavy or doesn't stop.".to_string(),
             call_911_immediately: false,
             estimated_ems_time: 7,
+            severity: EmergencySeverity::High,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("bleeding".to_string(), protocol);
@@ -286,6 +404,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -294,6 +416,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -302,6 +428,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["not_breathing".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -310,6 +440,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["breathing".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -318,11 +452,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Unconsciousness can indicate serious medical emergency. Call 911 immediately.".to_string(),
             call_911_immediately: true,
             estimated_ems_time: 8,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("unconscious".to_string(), protocol);
@@ -341,6 +484,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -349,6 +496,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -357,6 +508,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -365,6 +520,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -373,11 +532,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Stroke is a medical emergency. Call 911 immediately - do not wait for symptoms to improve.".to_string(),
             call_911_immediately: true,
             estimated_ems_time: 7,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("stroke".to_string(), protocol);
@@ -396,6 +564,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -404,6 +576,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -412,6 +588,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -420,6 +600,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -428,11 +612,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["seizure_over_5_minutes".to_string(), "injury".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Call 911 if seizure lasts more than 5 minutes, person is injured, or this is their first seizure.".to_string(),
             call_911_immediately: false,
             estimated_ems_time: 8,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("seizure".to_string(), protocol);
@@ -451,6 +644,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -459,6 +656,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -467,6 +668,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -475,6 +680,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["unconscious".to_string(), "difficulty_breathing".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -483,11 +692,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Do not induce vomiting unless specifically directed by Poison Control.".to_string(),
             call_911_immediately: false,
             estimated_ems_time: 8,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("poisoning".to_string(), protocol);
@@ -506,6 +724,10 @@ impl EmergencyDatabase {
                     time_estimate: 1200,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -514,6 +736,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -522,6 +748,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Low,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -530,6 +760,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["severe_burn".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -538,11 +772,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Call 911 for burns larger than 3 inches, on face/hands/feet/genitals, or if person has difficulty breathing.".to_string(),
             call_911_immediately: false,
             estimated_ems_time: 8,
+            severity: EmergencySeverity::High,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("burn".to_string(), protocol);
@@ -561,6 +804,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -569,6 +816,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["conscious".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: Some("glucose tablets".to_string()),
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -577,6 +828,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["unconscious".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -585,6 +840,10 @@ impl EmergencyDatabase {
                     time_estimate: 900,
                     context_dependent: true,
                     context_conditions: vec!["conscious".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -593,11 +852,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["no_improvement".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Call 911 if person is unconscious or condition doesn't improve after giving sugar.".to_string(),
             call_911_immediately: false,
             estimated_ems_time: 7,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("diabetic".to_string(), protocol);
@@ -616,6 +884,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -624,6 +896,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: true,
                     context_conditions: vec!["has_epinephrine".to_string()],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: Some("epinephrine auto-injector".to_string()),
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -632,6 +908,10 @@ impl EmergencyDatabase {
                     time_estimate: 10,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -640,6 +920,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -648,11 +932,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["unconscious".to_string()],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Anaphylaxis is life-threatening. Call 911 immediately and use epinephrine if available.".to_string(),
             call_911_immediately: true,
             estimated_ems_time: 6,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("allergic".to_string(), protocol);
@@ -671,6 +964,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Critical,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -679,6 +976,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -687,6 +988,10 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: true,
                     context_conditions: vec!["bleeding".to_string()],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: Some("bandage".to_string()),
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -695,6 +1000,10 @@ impl EmergencyDatabase {
                     time_estimate: 30,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Low,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -703,11 +1012,20 @@ impl EmergencyDatabase {
                     time_estimate: 0,
                     context_dependent: false,
                     context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
                 },
             ],
             warning: "Serious trauma requires immediate medical attention. Do not move person unless absolutely necessary.".to_string(),
             call_911_immediately: true,
             estimated_ems_time: 8,
+            severity: EmergencySeverity::Critical,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec![],
+            follow_up_actions: vec![],
         };
         
         self.protocols.insert("trauma".to_string(), protocol);
@@ -743,6 +1061,71 @@ impl EmergencyDatabase {
     
     pub fn list_emergency_types(&self) -> Vec<&String> {
         self.protocols.keys().collect()
+    }
+    
+    /// Get protocols by severity level
+    pub fn get_protocols_by_severity(&self, severity: EmergencySeverity) -> Vec<&EmergencyProtocol> {
+        self.protocols.values()
+            .filter(|protocol| protocol.severity == severity)
+            .collect()
+    }
+    
+    /// Get time-critical protocols
+    pub fn get_time_critical_protocols(&self) -> Vec<&EmergencyProtocol> {
+        self.protocols.values()
+            .filter(|protocol| protocol.time_critical)
+            .collect()
+    }
+    
+    /// Get protocols requiring specific equipment
+    pub fn get_protocols_requiring_equipment(&self, equipment: &str) -> Vec<&EmergencyProtocol> {
+        self.protocols.values()
+            .filter(|protocol| protocol.equipment_needed.contains(&equipment.to_string()))
+            .collect()
+    }
+    
+    /// Get emergency statistics
+    pub fn get_emergency_stats(&self) -> HashMap<String, usize> {
+        let mut stats = HashMap::new();
+        stats.insert("total_protocols".to_string(), self.protocols.len());
+        
+        let critical_count = self.get_protocols_by_severity(EmergencySeverity::Critical).len();
+        let life_threatening_count = self.get_protocols_by_severity(EmergencySeverity::LifeThreatening).len();
+        stats.insert("critical_emergencies".to_string(), critical_count + life_threatening_count);
+        
+        let time_critical_count = self.get_time_critical_protocols().len();
+        stats.insert("time_critical".to_string(), time_critical_count);
+        
+        stats
+    }
+    
+    /// Get alternative protocols for a given emergency type
+    pub fn get_alternative_protocols(&self, emergency_type: &str) -> Vec<&EmergencyProtocol> {
+        if let Some(protocol) = self.get_protocol(emergency_type) {
+            protocol.alternative_protocols.iter()
+                .filter_map(|alt_type| self.get_protocol(alt_type))
+                .collect()
+        } else {
+            vec![]
+        }
+    }
+    
+    /// Check if protocol requires specific equipment
+    pub fn requires_equipment(&self, emergency_type: &str, equipment: &str) -> bool {
+        if let Some(protocol) = self.get_protocol(emergency_type) {
+            protocol.equipment_needed.contains(&equipment.to_string())
+        } else {
+            false
+        }
+    }
+    
+    /// Get follow-up actions for an emergency
+    pub fn get_follow_up_actions(&self, emergency_type: &str) -> Vec<String> {
+        if let Some(protocol) = self.get_protocol(emergency_type) {
+            protocol.follow_up_actions.clone()
+        } else {
+            vec![]
+        }
     }
 }
 
