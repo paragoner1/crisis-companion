@@ -72,7 +72,7 @@ class SettingsActivity : AppCompatActivity() {
         
         // Solana Integration
         binding.btnConnectWallet.setOnClickListener {
-            connectSolanaWallet()
+            showWalletSelectionDialog()
         }
         
         // Back button
@@ -290,7 +290,23 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
     
-    private fun connectSolanaWallet() {
+    private fun showWalletSelectionDialog() {
+        val dialog = WalletSelectionDialog.newInstance()
+        dialog.setListener(object : WalletSelectionDialog.WalletSelectionListener {
+            override fun onWalletSelected(walletType: String) {
+                Log.d(TAG, "🎯 User selected wallet: $walletType")
+                connectToSelectedWallet(walletType)
+            }
+
+            override fun onWalletSelectionCancelled() {
+                Log.d(TAG, "❌ User cancelled wallet selection")
+                Toast.makeText(this@SettingsActivity, "Wallet selection cancelled", Toast.LENGTH_SHORT).show()
+            }
+        })
+        dialog.show(supportFragmentManager, "wallet_selection")
+    }
+
+    private fun connectToSelectedWallet(walletType: String) {
         val settings = getSharedPreferences("settings", MODE_PRIVATE)
         val isCurrentlyConnected = settings.getBoolean("wallet_connected", false)
         
@@ -306,8 +322,8 @@ class SettingsActivity : AppCompatActivity() {
             Toast.makeText(this@SettingsActivity, "Wallet disconnected", Toast.LENGTH_SHORT).show()
             setResult(RESULT_OK)
         } else {
-            // Connect wallet
-            binding.btnConnectWallet.text = "Connecting..."
+            // Connect to selected wallet
+            binding.btnConnectWallet.text = "Connecting to $walletType..."
             binding.btnConnectWallet.setTextColor(resources.getColor(R.color.text_primary, null))
             
             lifecycleScope.launch {
@@ -318,7 +334,7 @@ class SettingsActivity : AppCompatActivity() {
                     val displayAddress = walletAddress?.take(8)?.let { "${it}..." } ?: "Unknown"
                     binding.btnConnectWallet.text = "Connected (${displayAddress})"
                     binding.btnConnectWallet.setTextColor(resources.getColor(R.color.soft_green, null))
-                    Toast.makeText(this@SettingsActivity, "✅ Wallet Connected! Earned 100 BONK for setup!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@SettingsActivity, "✅ $walletType Connected! Earned 100 BONK for setup!", Toast.LENGTH_LONG).show()
                     
                     // Save wallet connection state
                     settings.edit()
@@ -331,10 +347,15 @@ class SettingsActivity : AppCompatActivity() {
                 } else {
                     binding.btnConnectWallet.text = "Connect Solana Wallet"
                     binding.btnConnectWallet.setTextColor(resources.getColor(R.color.text_primary, null))
-                    Toast.makeText(this@SettingsActivity, "❌ Wallet connection failed. Please try again.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SettingsActivity, "❌ $walletType connection failed. Please try again.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private fun connectSolanaWallet() {
+        // Legacy method - now redirects to wallet selection
+        showWalletSelectionDialog()
     }
     
     private fun updateWalletStatus() {

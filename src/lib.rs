@@ -285,51 +285,51 @@ use jni::sys::jstring;
 #[cfg(target_os = "android")]
 #[no_mangle]
 pub extern "system" fn Java_com_solanasos_emergency_RustBridge_processEmergency(
-    _env: JNIEnv,
+    mut _env: JNIEnv,
     _class: JClass,
     emergency_type: JString,
     user_input: JString,
 ) -> jstring {
     // This would integrate with the SolanaSOS struct
     // For now, return a simple response
-    let response = format!("Emergency response for {}: {}", 
-        _env.get_string(emergency_type).unwrap().to_str().unwrap(),
-        _env.get_string(user_input).unwrap().to_str().unwrap()
-    );
+    let emergency_type_str = _env.get_string(&emergency_type).unwrap().to_str().unwrap().to_string();
+    let user_input_str = _env.get_string(&user_input).unwrap().to_str().unwrap().to_string();
     
-    _env.new_string(response).unwrap().into_inner()
+    let response = format!("Emergency response for {}: {}", emergency_type_str, user_input_str);
+    
+    _env.new_string(response).unwrap().into_raw()
 }
 
 #[cfg(target_os = "android")]
 #[no_mangle]
 pub extern "system" fn Java_com_solanasos_emergency_RustBridge_call911(
-    _env: JNIEnv,
+    mut _env: JNIEnv,
     _class: JClass,
     emergency_type: JString,
 ) -> jstring {
     // This would make the actual 911 call
-    let emergency_type_str = _env.get_string(emergency_type).unwrap().to_str().unwrap();
+    let emergency_type_str = _env.get_string(&emergency_type).unwrap().to_str().unwrap().to_string();
     let response = format!("911 call initiated for {}", emergency_type_str);
     
-    _env.new_string(response).unwrap().into_inner()
+    _env.new_string(response).unwrap().into_raw()
 }
 
 #[cfg(target_os = "android")]
 #[no_mangle]
 pub extern "system" fn Java_com_solanasos_emergency_RustBridge_awardEmergencyTokens(
-    _env: JNIEnv,
+    mut _env: JNIEnv,
     _class: JClass,
     emergency_type: JString,
     response_time: i32,
 ) -> jstring {
-    let emergency_type_str = _env.get_string(emergency_type).unwrap().to_str().unwrap();
+    let emergency_type_str = _env.get_string(&emergency_type).unwrap().to_str().unwrap().to_string();
     let sos = SolanaSOS::new();
-    let award = sos.award_emergency_tokens(emergency_type_str, response_time as u32);
+    let award = sos.award_emergency_tokens(&emergency_type_str, response_time as u32);
     
     let response = format!("Awarded {} BONK, {} SKR, {} XP", 
         award.bonk_tokens, award.skr_tokens, award.xp_points);
     
-    _env.new_string(response).unwrap().into_inner()
+    _env.new_string(response).unwrap().into_raw()
 }
 
 #[cfg(test)]
