@@ -86,6 +86,24 @@ class InfoActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Medical AI section click handler
+        binding.medicalAiSection.setOnClickListener {
+            showVisualFeedback(binding.medicalAiSection)
+            showMedicalAiDetails()
+        }
+
+        // Advanced Crash Detection section click handler
+        binding.advancedCrashDetectionSection.setOnClickListener {
+            showVisualFeedback(binding.advancedCrashDetectionSection)
+            showAdvancedCrashDetectionDetails()
+        }
+
+        // Enhanced Gamification section click handler
+        binding.enhancedGamificationSection.setOnClickListener {
+            showVisualFeedback(binding.enhancedGamificationSection)
+            showEnhancedGamificationDetails()
+        }
+
         // Challenges section click handler
         binding.challengesSection.setOnClickListener {
             showVisualFeedback(binding.challengesSection)
@@ -212,7 +230,7 @@ class InfoActivity : AppCompatActivity() {
     private fun showEmergencyTypesDetails() {
         val messageView = TextView(this).apply {
             text = """
-                EMERGENCY TYPES SUPPORTED
+                EMERGENCY PROTOCOLS SUPPORTED
 
                 MEDICAL EMERGENCIES:
                 • Heart Attack - Immediate CPR guidance
@@ -231,6 +249,11 @@ class InfoActivity : AppCompatActivity() {
                 • Drowning - Water rescue and post-extraction care
                 • Poisoning - Poison control and emergency care
                 • Seizure - Safety measures and monitoring
+
+                CRITICAL SELF-RESCUE PROTOCOLS:
+                • Suicide Prevention - Crisis intervention and safety planning
+                • Overdose Reversal - Naloxone administration and emergency response
+                • Hypothermia Self-Rescue - Environmental emergency survival techniques
 
                 DIRECT ACTION PHRASES
 
@@ -642,13 +665,14 @@ class InfoActivity : AppCompatActivity() {
                 • Sub-100ms voice activation time
                 • Works in noisy environments
                 • Offline functionality for reliability
-                • 12 emergency types supported
+                • 15 emergency protocols supported
 
                 SAFETY FEATURES:
                 • 11 direct action phrases available
                 • Silent SOS for dangerous situations
-                • Crash detection for automatic response
+                • Advanced crash detection for automatic response
                 • Real-time location tracking
+                • Medical AI analysis capabilities
 
                 COMMUNITY IMPACT:
                 • Trusted network activation in seconds
@@ -708,7 +732,7 @@ class InfoActivity : AppCompatActivity() {
                 • Duration: ~8 minutes
                 
                 **🚨 Emergency Types (40 BONK + 20 SKR)**
-                • Recognition of 12 emergency types
+                • Recognition of 15 emergency protocols
                 • Context-aware response protocols
                 • Future emergency type expansion
                 • Duration: ~12 minutes
@@ -850,8 +874,8 @@ class InfoActivity : AppCompatActivity() {
                 **📊 TRACTION**
                 Working prototype ready for Solana Mobile deployment
                 • Core tech: voice & response
-                • 12 emergency types: offline coverage
-                • Features: silent SOS, crash, gamification
+                • 15 emergency protocols: offline coverage
+                • Features: silent SOS, advanced crash detection, medical AI, gamification
                 • Solana: verification & rewards
                 • Multi-device sync: bluetooth
                 
@@ -893,6 +917,242 @@ class InfoActivity : AppCompatActivity() {
                 • Token Economics - BONK and SKR rewards create sustainable engagement and community building
                 
                 This app is specifically designed for the Solana ecosystem, leveraging blockchain technology to create a more secure and community-driven emergency response system.
+            """.trimIndent())
+            .setPositiveButton("Got It") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        
+        dialog.show()
+    }
+
+    private fun showMedicalAiDetails() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("🤖 MEDICAL AI INTEGRATION")
+            .setMessage("""
+                **AI-POWERED EMERGENCY RESPONSE**
+                
+                Advanced artificial intelligence enhances emergency response with intelligent symptom analysis and triage capabilities.
+                
+                **CORE AI FEATURES:**
+                
+                **Symptom Analysis:**
+                • AI-powered triage and assessment
+                • Real-time symptom evaluation
+                • Confidence scoring for medical decisions
+                • Intelligent emergency prioritization
+                
+                **Medical Assessment:**
+                • Comprehensive symptom database
+                • Evidence-based triage rules
+                • Emergency severity classification
+                • Time-sensitive action identification
+                
+                **Offline Processing:**
+                • Works without internet connection
+                • Local AI analysis capabilities
+                • Instant response in emergencies
+                • Reliable when connectivity fails
+                
+                **Training Integration:**
+                • AI-enhanced learning modules
+                • Personalized training recommendations
+                • Adaptive difficulty based on performance
+                • Medical content validation
+                
+                **EMERGENCY SEVERITY LEVELS:**
+                • Low - Minor injuries, basic first aid
+                • Medium - Moderate injuries, monitoring required
+                • High - Serious injuries, immediate attention
+                • Critical - Life-threatening, immediate action
+                • Life-Threatening - Emergency protocols activated
+                
+                **AI CONFIDENCE SCORING:**
+                • High Confidence (90%+) - Clear diagnosis
+                • Medium Confidence (70-89%) - Probable diagnosis
+                • Low Confidence (<70%) - Seek professional help
+                
+                **INTEGRATION BENEFITS:**
+                • Faster emergency assessment
+                • More accurate triage decisions
+                • Reduced response time
+                • Enhanced user confidence
+                • Continuous learning and improvement
+                
+                The Medical AI module works seamlessly with the core emergency protocols to provide intelligent, evidence-based guidance when seconds count.
+            """.trimIndent())
+            .setPositiveButton("Got It") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        
+        dialog.show()
+    }
+
+    private fun showAdvancedCrashDetectionDetails() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("🚗 ADVANCED CRASH DETECTION")
+            .setMessage("""
+                **MULTI-SENSOR CRASH ANALYSIS**
+                
+                Advanced crash detection system using multiple device sensors for accurate accident detection and automatic emergency response.
+                
+                **DETECTION TECHNOLOGY:**
+                
+                **Multi-Sensor Analysis:**
+                • Accelerometer - Impact force measurement
+                • GPS - Speed and location tracking
+                • Gyroscope - Vehicle orientation changes
+                • Magnetometer - Directional changes
+                • Barometer - Altitude and pressure changes
+                
+                **Impact Thresholds:**
+                • Configurable sensitivity settings
+                • Speed-based detection (25mph+)
+                • Force-based detection (3g+ impact)
+                • Time-based analysis windows
+                • False positive prevention
+                
+                **Crash Severity Classification:**
+                • Minor Impact - Low-speed collisions
+                • Moderate Impact - Medium-speed accidents
+                • Severe Impact - High-speed crashes
+                • Critical Impact - Life-threatening accidents
+                • Fatal Impact - Maximum severity response
+                
+                **AUTOMATIC RESPONSE SYSTEM:**
+                
+                **Immediate Actions:**
+                • Automatic 911 calling with crash context
+                • GPS location sharing with emergency services
+                • Trusted network notification
+                • Real-time location tracking
+                • Crash data logging for medical teams
+                
+                **Response Timing:**
+                • 30-second cancellation window
+                • Immediate emergency activation
+                • Continuous monitoring post-crash
+                • Automatic follow-up coordination
+                
+                **INTEGRATION FEATURES:**
+                • Seamless 911 operator integration
+                • Medical team coordination
+                • Insurance claim documentation
+                • Legal evidence preservation
+                • Family notification system
+                
+                **SAFETY BENEFITS:**
+                • Faster emergency response
+                • Automatic help when unconscious
+                • Reduced response time
+                • Enhanced survival rates
+                • Peace of mind for drivers
+                
+                The Advanced Crash Detection system provides automatic emergency response when you can't call for help yourself.
+            """.trimIndent())
+            .setPositiveButton("Got It") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+        
+        dialog.show()
+    }
+
+    private fun showEnhancedGamificationDetails() {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("🏆 ENHANCED GAMIFICATION SYSTEM")
+            .setMessage("""
+                **ADVANCED ENGAGEMENT & MOTIVATION**
+                
+                Comprehensive gamification system designed to drive emergency preparedness through engaging rewards and community features.
+                
+                **ACHIEVEMENT SYSTEM:**
+                
+                **Level Progression:**
+                • Bronze Hero - Basic emergency skills
+                • Silver Hero - Intermediate preparedness
+                • Gold Hero - Advanced emergency response
+                • Platinum Hero - Expert life-saving skills
+                • Diamond Hero - Master emergency responder
+                
+                **Achievement Categories:**
+                • Training Master - Complete all modules
+                • Emergency Responder - Real emergency assistance
+                • Community Leader - Help others prepare
+                • Consistency Champion - Daily engagement
+                • Skill Specialist - Master specific techniques
+                
+                **XP & PROGRESS SYSTEM:**
+                
+                **Experience Points:**
+                • Training completion rewards
+                • Emergency response actions
+                • Community engagement
+                • Daily check-ins
+                • Skill mastery bonuses
+                
+                **Progress Tracking:**
+                • Comprehensive skill development
+                • Performance analytics
+                • Improvement recommendations
+                • Goal setting and achievement
+                • Personalized learning paths
+                
+                **COMMUNITY FEATURES:**
+                
+                **Leaderboards:**
+                • Global emergency preparedness rankings
+                • Community safety challenges
+                • Regional competitions
+                • Skill-based matchmaking
+                • Achievement showcases
+                
+                **Daily Challenges:**
+                • Engaging emergency scenarios
+                • Skill-building activities
+                • Community safety tasks
+                • Learning opportunities
+                • Reward-earning activities
+                
+                **Streak Tracking:**
+                • Consistency rewards
+                • Engagement motivation
+                • Habit formation
+                • Progress maintenance
+                • Community recognition
+                
+                **Mentor Status:**
+                • Community leadership recognition
+                • Teaching opportunities
+                • Advanced privileges
+                • Special rewards
+                • Influence on platform
+                
+                **TOKEN REWARDS:**
+                
+                **BONK Tokens:**
+                • Training completion rewards
+                • Emergency response actions
+                • Community engagement
+                • Daily challenges
+                • Achievement bonuses
+                
+                **SKR Tokens:**
+                • Seeker ecosystem integration
+                • Advanced skill development
+                • Community leadership
+                • Emergency preparedness
+                • Long-term engagement
+                
+                **ENGAGEMENT BENEFITS:**
+                • Increased emergency preparedness
+                • Community safety awareness
+                • Skill development motivation
+                • Long-term user retention
+                • Viral growth through sharing
+                
+                The Enhanced Gamification system transforms emergency preparedness into an engaging, rewarding experience that saves lives.
             """.trimIndent())
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()

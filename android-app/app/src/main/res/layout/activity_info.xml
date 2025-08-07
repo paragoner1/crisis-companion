@@ -453,6 +453,189 @@
 
         </LinearLayout>
 
+        <!-- Medical AI Integration Section -->
+        <LinearLayout
+            android:id="@+id/medicalAiSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🤖 MEDICAL AI INTEGRATION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Advanced AI-powered symptom analysis and triage capabilities for enhanced emergency response."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AI Features"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Symptom Analysis - AI-powered triage\n• Medical Assessment - Confidence scoring\n• Emergency Severity - Intelligent prioritization\n• Offline Processing - Works without internet\n• Training Integration - AI-enhanced learning"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap for detailed AI capabilities →"
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Advanced Crash Detection Section -->
+        <LinearLayout
+            android:id="@+id/advancedCrashDetectionSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚗 ADVANCED CRASH DETECTION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Multi-sensor analysis for accurate crash detection and automatic emergency response."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detection Features"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Multi-Sensor Analysis - Accelerometer, GPS, gyroscope\n• Impact Threshold - Configurable sensitivity\n• Speed Calculation - Real-time velocity monitoring\n• Crash Severity - Intelligent response prioritization\n• Auto-911 Integration - Automatic emergency calling"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap for detailed crash detection →"
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
+        <!-- Enhanced Gamification Section -->
+        <LinearLayout
+            android:id="@+id/enhancedGamificationSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🏆 ENHANCED GAMIFICATION"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Advanced XP system, achievements, and community features to drive emergency preparedness."
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gamification Features"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Achievement Levels - Bronze to Diamond\n• XP System - Comprehensive progress tracking\n• Daily Challenges - Engaging activities\n• Leaderboards - Community competition\n• Streak Tracking - Consistency rewards\n• Mentor Status - Community leadership"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap for detailed gamification →"
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:gravity="center"
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+
         <!-- Cross-App Challenges Section -->
         <LinearLayout
             android:id="@+id/challengesSection"
