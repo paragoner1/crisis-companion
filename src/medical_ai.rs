@@ -38,6 +38,7 @@ pub enum EmergencySeverity {
 }
 
 /// Medical AI interface
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MedicalAI {
     symptom_database: HashMap<String, Vec<String>>,
     triage_rules: Vec<TriageRule>,
@@ -45,7 +46,7 @@ pub struct MedicalAI {
 }
 
 /// Triage rule for medical assessment
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TriageRule {
     pub symptoms: Vec<String>,
     pub severity: EmergencySeverity,
