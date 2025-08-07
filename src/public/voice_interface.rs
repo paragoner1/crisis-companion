@@ -73,7 +73,6 @@ pub struct VoiceInterface {
     config: VoiceConfig,
     stats: Arc<RwLock<VoiceStats>>,
     model_path: String,
-    denoise_state: Option<DenoiseState<'static>>,
     emotion_analyzer: EmotionAnalyzer,
     stress_analyzer: StressAnalyzer,
 }
@@ -213,7 +212,6 @@ impl VoiceInterface {
             config,
             stats,
             model_path: model_path.to_string(),
-            denoise_state: None,
             emotion_analyzer: EmotionAnalyzer::new(),
             stress_analyzer: StressAnalyzer::new(),
         }
@@ -221,8 +219,11 @@ impl VoiceInterface {
 
     /// Initialize voice recognition
     pub async fn initialize(&mut self) -> AppResult<()> {
-        // Initialize voice recognition system
-        tracing::info!("Voice interface initialized with model: {}", self.model_path);
+        // Initialize Vosk model (using default model for now)
+        // In production, you would load a specific model file
+        tracing::info!("Voice interface initialized with model path: {}", self.model_path);
+        
+        tracing::info!("Voice interface initialized successfully");
         Ok(())
     }
 

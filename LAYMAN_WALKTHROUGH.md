@@ -161,12 +161,12 @@ Trusted contacts get immediate alert with your location
 **Solana SOS:**
 - Voice-activated (hands-free)
 - Works offline
-- Understands context (saves 45 seconds)
+- Understands context and provides relevant guidance
 - Calls 911 automatically
 - Alerts your personal network
 
 ### **Real Impact**
-- **45 seconds saved** per emergency
+- **Immediate guidance** per emergency
 - **5-10 minute advantage** over emergency services
 - **Community safety** - friends arrive before EMS
 - **Confidence building** - you know what to do

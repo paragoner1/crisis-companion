@@ -467,13 +467,7 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 - **Documentation** - Help improve guides and API docs
 - **Testing** - Test emergency scenarios and edge cases
 
-### **Areas We Need Help**
-- **Voice Recognition** - Improving accuracy and noise filtering
-- **Emergency Protocols** - Adding new emergency types and guidance
-- **Android Integration** - Enhancing mobile app features
-- **Solana Integration** - Blockchain and token functionality
-- **Testing** - Emergency scenario validation
-- **Documentation** - User guides and developer docs
+
 
 ### **Community Guidelines**
 - **Safety First** - All contributions must prioritize user safety
