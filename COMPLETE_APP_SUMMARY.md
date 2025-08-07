@@ -161,7 +161,7 @@
 - **Location Sharing**: Real-time location updates to trusted contacts
 - **Emergency Status**: Live status updates during emergency response
 
-### **14. Offline Mode**
+### **14. Core Features (offline)**
 **Functionality**: Core emergency protocols work without internet connection
 **Source**: `src/emergency_database.rs`
 - **Offline Protocols**: All 12 emergency protocols available offline

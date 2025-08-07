@@ -67,11 +67,11 @@
 
 ## **Scene 9: Emergency Types & Direct Actions (3:44-4:40)**
 
-**Narration:** "Showing the various offline mode of emergency types that are currently supported."
+**Narration:** "Showing the various core features (offline) of emergency types that are currently supported."
 
 **Narration:** "Here are our direct actions that anyone can use, uhm, to skip ahead and, ah, get immediate specific guidance for CPR."
 
-**Narration:** "Heimlich, and the rest. Here it explains online mode enhanced guidance, which is AI-powered, uhm, unlimited types of emergencies, and those features."
+**Narration:** "Heimlich, and the rest. Here it explains enhanced mode (hybrid) guidance, which is AI-powered, uhm, unlimited types of emergencies, and those features."
 
 **Narration:** "Here are the authoritative sources and credible authorities, uhm, that we use for the database. And of course, uh, privacy and security."
 

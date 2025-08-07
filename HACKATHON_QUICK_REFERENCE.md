@@ -115,7 +115,7 @@
 - "Hybrid online-offline voice recognition"
 - "Context-aware guidance even offline"
 - "12 emergency types with direct physical interventions"
-- "AI-powered assistance built in for online mode"
+- "AI-powered assistance built in for enhanced mode (hybrid)"
 - "Because when seconds matter, anyone can be a Hero. Just say "Hey SOS" and save a life."
 
 ## ❓ Judge Q&A Preparation (`JUDGE_Q&A.md`)

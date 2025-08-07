@@ -216,6 +216,8 @@
                         android:layout_weight="1"
                         android:text="✗ Silent SOS Power"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_inactive" />
 
                     <TextView
@@ -225,6 +227,8 @@
                         android:layout_weight="1"
                         android:text="✗ Silent SOS Volume"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_inactive" />
 
                 </LinearLayout>
@@ -242,6 +246,8 @@
                         android:layout_weight="1"
                         android:text="✗ Crash Detection"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_inactive" />
 
                     <TextView
@@ -251,6 +257,8 @@
                         android:layout_weight="1"
                         android:text="✗ Voice Recognition"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_inactive" />
 
                 </LinearLayout>
@@ -268,6 +276,8 @@
                         android:layout_weight="1"
                         android:text="• Emergency GPS"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_success" />
 
                     <TextView
@@ -277,6 +287,8 @@
                         android:layout_weight="1"
                         android:text="✗ Trusted Contacts"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_inactive" />
 
                 </LinearLayout>
@@ -294,6 +306,8 @@
                         android:layout_weight="1"
                         android:text="• Blockchain Secure"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_success" />
 
                     <TextView
@@ -301,8 +315,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Offline Mode"
+                        android:text="• Core Features (offline)"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_success" />
 
                 </LinearLayout>
@@ -317,8 +333,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="• Online Mode"
+                        android:text="• Enhanced Mode (hybrid)"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_success" />
 
                     <TextView
@@ -328,6 +346,8 @@
                         android:layout_weight="1"
                         android:text="✗ Auto-Dial 911"
                         android:textSize="14sp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
                         android:textColor="@color/status_inactive" />
 
                 </LinearLayout>

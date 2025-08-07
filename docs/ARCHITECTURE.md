@@ -33,14 +33,14 @@ Solana SOS is built with a hybrid offline/online architecture that ensures relia
 
 The system operates in three modes:
 
-#### 1. Offline Mode
+#### 1. Core Features (offline)
 - **Voice Recognition**: Vosk offline speech recognition
 - **Context Analysis**: Local emergency stage detection
 - **Guidance Generation**: Pre-loaded emergency instructions
 - **Safety Features**: Silent SOS, crash detection
 - **Gamification**: Local XP tracking and achievements
 
-#### 2. Online Mode
+#### 2. Enhanced Mode (hybrid)
 - **AI Enhancement**: LLM integration for natural conversation
 - **Real-time Updates**: Live emergency data and instructions
 - **Cloud Sync**: User profiles and emergency history
@@ -129,11 +129,11 @@ Emergency Detected
         ↓
 Is it critical? (Drowning, Choking)
         ↓
-Yes → Offline Mode (Speed)
+Yes → Core Features (offline) (Speed)
 No → Check Connectivity
         ↓
 Online Available? → Hybrid Mode
-No → Offline Mode
+No → Core Features (offline)
 ```
 
 ## Security Architecture
