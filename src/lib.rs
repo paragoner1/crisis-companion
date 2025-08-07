@@ -118,13 +118,16 @@ pub use error::AppResult;
 pub use public::types::{EmergencyType, EmergencyStage, DirectAction, ConnectivityMode, GuidanceMode};
 
 // Re-export interface types
-pub use public::voice_interface::{VoiceTrigger, VoiceConfig, VoiceStats};
+pub use public::voice_interface::{VoiceTrigger, VoiceStats};
+pub use config::VoiceConfig;
 pub use public::audio_interface::{AudioProcessor, AudioConfig, AudioStats};
 pub use public::emergency_interface::{EmergencySystem, EmergencyConfig, EmergencyStats};
 
 pub mod emergency_database;
 pub mod context_analysis;
 pub mod emergency_calling;
+pub mod medical_ai;
+pub mod crash_detection;
 
 use emergency_database::EmergencyDatabase;
 use context_analysis::{ContextAnalyzer, EmergencyContext};
