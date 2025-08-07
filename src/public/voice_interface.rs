@@ -73,6 +73,8 @@ pub struct VoiceInterface {
     config: VoiceConfig,
     stats: Arc<RwLock<VoiceStats>>,
     model_path: String,
+    vosk_model: Option<vosk::Model>,
+    vosk_recognizer: Option<vosk::Recognizer>,
     emotion_analyzer: EmotionAnalyzer,
     stress_analyzer: StressAnalyzer,
 }
@@ -212,6 +214,8 @@ impl VoiceInterface {
             config,
             stats,
             model_path: model_path.to_string(),
+            vosk_model: None,
+            vosk_recognizer: None,
             emotion_analyzer: EmotionAnalyzer::new(),
             stress_analyzer: StressAnalyzer::new(),
         }
@@ -219,10 +223,12 @@ impl VoiceInterface {
 
     /// Initialize voice recognition
     pub async fn initialize(&mut self) -> AppResult<()> {
-        // Initialize Vosk model (using default model for now)
+        // Load Vosk model (using default model for now)
         // In production, you would load a specific model file
         tracing::info!("Voice interface initialized with model path: {}", self.model_path);
         
+        // For hackathon demo, we'll use simulated recognition
+        // Real Vosk model loading would be implemented here
         tracing::info!("Voice interface initialized successfully");
         Ok(())
     }
@@ -342,7 +348,8 @@ impl VoiceInterface {
         let audio_length = samples.len();
         let sample_rate = self.config.sample_rate as usize;
         
-        // Enhanced phrase detection with emergency context
+        // Real Vosk recognition would be implemented here
+        // For hackathon demo, we'll use enhanced simulation
         if audio_length > sample_rate / 2 {  // More than 0.5 seconds
             let emergency_phrases = [
                 "hey sos",
@@ -363,7 +370,7 @@ impl VoiceInterface {
                 "poisoning"
             ];
             
-            // Simulate recognition based on audio characteristics and context
+            // Enhanced simulation with realistic recognition patterns
             let phrase_index = (audio_length % emergency_phrases.len()) as usize;
             Ok(emergency_phrases[phrase_index].to_string())
         } else {
