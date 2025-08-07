@@ -285,3 +285,4 @@ cache/
 # Private directory for sensitive files
 private/
 
+android-app/local.properties
