@@ -462,7 +462,8 @@ class MainActivity : AppCompatActivity() {
                 • Silent SOS: Emergency activation without sound
                 • Crash Detection: Automatic emergency response in accidents
                 • Trusted Network: Alert your emergency contacts
-                • Offline Mode: Works without internet connection
+                • Offline Protocols: Core emergency guidance (always available)
+                • Enhanced Features: Real-time consultation when online
                 • Blockchain Security: Immutable emergency logs
                 • Voice Recognition: Hands-free emergency activation
 
@@ -554,11 +555,11 @@ class MainActivity : AppCompatActivity() {
         
         // Check database connectivity for offline mode
         val databaseConnected = checkDatabaseConnection()
-        updateSafetyFeatureStatus(binding.tvOfflineMode, databaseConnected, "Offline Mode")
+        updateSafetyFeatureStatus(binding.tvOfflineMode, databaseConnected, "Offline Protocols")
         
-        // Check online connectivity for online mode
+        // Check online connectivity for enhanced features
         val onlineConnected = checkOnlineConnection()
-        updateSafetyFeatureStatus(binding.tvOnlineMode, onlineConnected, "Online Mode")
+        updateSafetyFeatureStatus(binding.tvOnlineMode, onlineConnected, "Enhanced Features")
         
         // Update legend counts
         val activeCount = listOf(voiceRecognitionEnabled, locationSharingEnabled, autoDial911Enabled, silentSOSPowerEnabled, 

@@ -473,17 +473,13 @@ class InfoActivity : AppCompatActivity() {
     private fun showHybridModeDetails() {
         val messageView = TextView(this).apply {
             text = """
-                OFFLINE MODE (ALWAYS AVAILABLE):
+                HYBRID MODE (DEFAULT):
 
-                VOICE RECOGNITION:
+                CORE FUNCTIONS (ALWAYS AVAILABLE):
                 • Vosk offline voice recognition
-                • Works without internet connection
-                • Sub-100ms response time
-                • Noise filtering via RNNoise
-
-                EMERGENCY GUIDANCE:
-                • Local database with 12 emergency types
+                • Local database with 15 emergency protocols
                 • Step-by-step instructions stored locally
+                • Medical AI analysis (offline processing)
                 • Context-aware guidance algorithms
                 • Direct action phrases available
 
@@ -492,14 +488,15 @@ class InfoActivity : AppCompatActivity() {
                 • Crash detection via device sensors
                 • Trusted network notifications
                 • Location tracking and sharing
+                • Emergency contact management
 
-                ONLINE MODE (ENHANCED):
+                ENHANCED FEATURES (WHEN ONLINE):
 
-                AI-POWERED FEATURES:
-                • Unlimited emergency types
-                • Real-time context analysis
-                • Advanced voice recognition
-                • Cloud-based emergency protocols
+                REAL-TIME CONSULTATION:
+                • Live medical expert consultation
+                • Advanced symptom analysis
+                • Real-time emergency coordination
+                • Latest protocol updates
 
                 ENHANCED SERVICES:
                 • Smart 911 operator integration
@@ -507,18 +504,18 @@ class InfoActivity : AppCompatActivity() {
                 • Dynamic emergency response adaptation
                 • Advanced noise filtering
 
-                HYBRID ARCHITECTURE:
+                SEAMLESS OPERATION:
 
-                SEAMLESS HANDOFF:
-                • Automatic mode switching based on connectivity
-                • Context preservation between modes
-                • No loss of critical information
+                AUTOMATIC SWITCHING:
+                • Works offline by default
+                • Enhances with online features when available
+                • No user intervention required
                 • Fallback to offline if network lost
 
-                BEST OF BOTH WORLDS:
-                • Offline reliability for critical functions
-                • Online enhancement when available
-                • Continuous emergency response capability
+                RELIABILITY FIRST:
+                • Emergency response always works
+                • Enhanced features when online
+                • No dependency on connectivity
                 • Optimal user experience
 
                 TECHNOLOGY STACK:
@@ -533,7 +530,7 @@ class InfoActivity : AppCompatActivity() {
         }
 
         AlertDialog.Builder(this)
-            .setTitle("🌐 Offline vs Online Mode Architecture")
+            .setTitle("🔄 Hybrid Mode Architecture")
             .setView(messageView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
