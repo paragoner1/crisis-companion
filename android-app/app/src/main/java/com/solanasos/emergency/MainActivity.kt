@@ -455,7 +455,16 @@ class MainActivity : AppCompatActivity() {
                 • Press "Press for Emergency" button (backup to voice activation)
                 • Say "Hey SOS" followed by emergency type (e.g., "heart attack")
                 • App provides real-time step-by-step guidance
-                • Automatically calls 911 and shares your location
+                • Keeps 911 dispatcher on standby until you're ready to connect
+                • Automatically calls 911 and shares your location when activated
+
+                SAFETY FEATURES:
+                • Silent SOS: Emergency activation without sound
+                • Crash Detection: Automatic emergency response in accidents
+                • Trusted Network: Alert your emergency contacts
+                • Offline Mode: Works without internet connection
+                • Blockchain Security: Immutable emergency logs
+                • Voice Recognition: Hands-free emergency activation
 
                 SAFETY FEATURES STATUS:
                 • View which safety features are active/inactive

@@ -128,6 +128,7 @@ pub mod context_analysis;
 pub mod emergency_calling;
 pub mod medical_ai;
 pub mod crash_detection;
+pub mod training_interface;
 
 use emergency_database::EmergencyDatabase;
 use context_analysis::{ContextAnalyzer, EmergencyContext};
