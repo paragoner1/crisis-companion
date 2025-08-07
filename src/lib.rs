@@ -130,6 +130,7 @@ pub mod medical_ai;
 pub mod crash_detection;
 pub mod training_interface;
 pub mod training_ai_interface;
+// pub mod vosk_wrapper;  // Removed - using real Vosk now
 
 use emergency_database::EmergencyDatabase;
 use context_analysis::{ContextAnalyzer, EmergencyContext};

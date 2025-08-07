@@ -298,3 +298,5 @@ cache/
 private/
 
 android-app/local.properties
+kaldi/
+vosk-api/

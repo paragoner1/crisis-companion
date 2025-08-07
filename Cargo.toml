@@ -33,7 +33,7 @@ futures = "0.3"
 jni = "0.21"
 jni-sys = "0.3"
 
-# Voice recognition (temporarily disabled for Android build)
+# Voice recognition (optional - will use enhanced pattern recognition if not available)
 # vosk = "0.3.1"
 
 # Audio processing (temporarily disabled for Android build)
@@ -48,8 +48,8 @@ jni-sys = "0.3"
 # HTTP client for API calls (temporarily disabled for Android build)
 # reqwest = { version = "0.11", features = ["json"] }
 
-# Noise reduction (temporarily disabled for Android build)
-# nnnoiseless = "0.5"
+# Noise reduction
+nnnoiseless = "0.5"
 
 # Android NDK support
 ndk = "0.8"
