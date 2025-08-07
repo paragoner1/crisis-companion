@@ -87,9 +87,10 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 
 ### **Voice-Activated Emergency Response**
 - **"Hey SOS" wake word** - Instant activation in under 100ms
+- **Core Features (offline)** - 15 emergency protocols stored locally, always available
+- **Enhanced Mode (hybrid)** - Real-time consultation and advanced features when online
 - **Offline voice recognition** via Vosk - Works anywhere, anytime
 - **Enhanced noise filtering** via RNNoise - Enterprise-grade audio processing
-- **12 emergency types** - Comprehensive coverage with expandable database
 - **Context-aware guidance** - Understands emergency stages and provides intelligent instructions
 - **Medical AI integration** - Symptom analysis and triage capabilities
 - **Advanced crash detection** - Multi-sensor analysis for accurate crash detection

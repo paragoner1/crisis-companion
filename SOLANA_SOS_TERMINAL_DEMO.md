@@ -59,8 +59,8 @@
 - **12 Emergency Types:** Drowning, Heart Attack, Stroke, Choking, Bleeding, Unconscious, Seizure, Poisoning, Severe Burns, Diabetic Emergency, Allergic Reaction, Trauma
 - **11 Direct Actions:** CPR, Heimlich, AED, Tourniquet, EpiPen, Rescue Breathing, First Aid, FAST Test, Poison Control, Cool Burn, Medical Alert
 - **Context-Aware Guidance:** Understands emergency stages and provides intelligent instructions
-- **Offline Mode:** All guidance currently available without internet
-- **Online Enhancement:** AI-powered assistance built in for online mode
+- **Core Features (offline):** All guidance currently available without internet
+- **Enhanced Mode (hybrid):** AI-powered assistance built in for enhanced mode
 
 ---
 

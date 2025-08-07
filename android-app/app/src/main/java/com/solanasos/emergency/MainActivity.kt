@@ -462,8 +462,8 @@ class MainActivity : AppCompatActivity() {
                 • Silent SOS: Emergency activation without sound
                 • Crash Detection: Automatic emergency response in accidents
                 • Trusted Network: Alert your emergency contacts
-                • Offline Protocols: Core emergency guidance (always available)
-                • Enhanced Features: Real-time consultation when online
+                • Core Features (offline): Life-saving guidance (always available)
+                • Enhanced Mode (hybrid): Real-time consultation when online
                 • Blockchain Security: Immutable emergency logs
                 • Voice Recognition: Hands-free emergency activation
 
@@ -553,13 +553,13 @@ class MainActivity : AppCompatActivity() {
         
         // Context-aware is always active (core feature) - not shown in status
         
-        // Check database connectivity for offline mode
+        // Check database connectivity for core features
         val databaseConnected = checkDatabaseConnection()
-        updateSafetyFeatureStatus(binding.tvOfflineMode, databaseConnected, "Offline Protocols")
+        updateSafetyFeatureStatus(binding.tvOfflineMode, databaseConnected, "Core Features (offline)")
         
-        // Check online connectivity for enhanced features
+        // Check online connectivity for enhanced mode
         val onlineConnected = checkOnlineConnection()
-        updateSafetyFeatureStatus(binding.tvOnlineMode, onlineConnected, "Enhanced Features")
+        updateSafetyFeatureStatus(binding.tvOnlineMode, onlineConnected, "Enhanced Mode (hybrid)")
         
         // Update legend counts
         val activeCount = listOf(voiceRecognitionEnabled, locationSharingEnabled, autoDial911Enabled, silentSOSPowerEnabled, 
@@ -587,8 +587,14 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun checkOnlineConnection(): Boolean {
-        // For demo purposes, assume online is connected
-        // In real implementation, this would check internet connectivity
-        return true
+        // Check for internet connectivity
+        try {
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+            val networkInfo = connectivityManager.activeNetworkInfo
+            return networkInfo?.isConnected == true
+        } catch (e: Exception) {
+            Log.e(TAG, "Error checking online connectivity", e)
+            return false
+        }
     }
 }

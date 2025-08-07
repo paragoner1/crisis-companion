@@ -30,7 +30,7 @@ A clear and concise description of what actually happened.
 ## 🚨 **Emergency Context**
 - **Emergency Type:** [e.g. Drowning, Heart Attack, None]
 - **Voice Command Used:** [e.g. "Hey SOS, drowning help!"]
-- **Offline Mode:** [Yes/No]
+- **Core Features (offline):** [Yes/No]
 - **Location Services:** [Enabled/Disabled]
 
 ## 📋 **Additional Context**
