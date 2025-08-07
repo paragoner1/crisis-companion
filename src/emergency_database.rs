@@ -69,6 +69,10 @@ impl EmergencyDatabase {
         self.add_diabetic_protocol();
         self.add_allergic_protocol();
         self.add_trauma_protocol();
+        // Critical self-rescue protocols
+        self.add_suicide_prevention_protocol();
+        self.add_overdose_reversal_protocol();
+        self.add_hypothermia_self_rescue_protocol();
     }
     
     fn add_drowning_protocol(&mut self) {
@@ -1031,6 +1035,246 @@ impl EmergencyDatabase {
         self.protocols.insert("trauma".to_string(), protocol);
     }
     
+    fn add_suicide_prevention_protocol(&mut self) {
+        let protocol = EmergencyProtocol {
+            emergency_type: "suicide_prevention".to_string(),
+            description: "Crisis intervention for suicidal thoughts and self-harm prevention".to_string(),
+            immediate_action: "Connect to crisis hotline and create safety plan".to_string(),
+            steps: vec![
+                EmergencyStep {
+                    step_number: 1,
+                    instruction: "Call National Suicide Prevention Lifeline: 988 or 1-800-273-8255".to_string(),
+                    critical: true,
+                    time_estimate: 0,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Text HOME to 741741 for Crisis Text Line".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 2,
+                    instruction: "Remove access to lethal means immediately".to_string(),
+                    critical: true,
+                    time_estimate: 30,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Ask someone to remove dangerous items".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 3,
+                    instruction: "Contact trusted person from your emergency contacts".to_string(),
+                    critical: true,
+                    time_estimate: 60,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Call family member or close friend".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 4,
+                    instruction: "Use distraction techniques: deep breathing, counting, grounding exercises".to_string(),
+                    critical: false,
+                    time_estimate: 120,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Listen to music".to_string(), "Take a walk".to_string(), "Call a friend".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 5,
+                    instruction: "Create a safety plan with crisis hotline counselor".to_string(),
+                    critical: true,
+                    time_estimate: 300,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Write down coping strategies".to_string()],
+                },
+            ],
+            warning: "You are not alone. Help is available 24/7. Your life has value.".to_string(),
+            call_911_immediately: false,
+            estimated_ems_time: 0,
+            severity: EmergencySeverity::LifeThreatening,
+            time_critical: true,
+            equipment_needed: vec![],
+            alternative_protocols: vec!["mental_health_crisis".to_string()],
+            follow_up_actions: vec!["Schedule therapy appointment".to_string(), "Create ongoing safety plan".to_string(), "Join support group".to_string()],
+        };
+        
+        self.protocols.insert("suicide_prevention".to_string(), protocol);
+    }
+    
+    fn add_overdose_reversal_protocol(&mut self) {
+        let protocol = EmergencyProtocol {
+            emergency_type: "overdose_reversal".to_string(),
+            description: "Opioid overdose reversal and emergency response".to_string(),
+            immediate_action: "Administer naloxone if available and call 911".to_string(),
+            steps: vec![
+                EmergencyStep {
+                    step_number: 1,
+                    instruction: "Call 911 immediately - opioid overdose is life-threatening".to_string(),
+                    critical: true,
+                    time_estimate: 0,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
+                },
+                EmergencyStep {
+                    step_number: 2,
+                    instruction: "Administer naloxone (Narcan) if available - spray in nostril or inject".to_string(),
+                    critical: true,
+                    time_estimate: 30,
+                    context_dependent: true,
+                    context_conditions: vec!["naloxone_available".to_string()],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: Some("naloxone".to_string()),
+                    alternative_instructions: vec!["Call 911 for naloxone guidance".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 3,
+                    instruction: "Place person in recovery position on their side".to_string(),
+                    critical: true,
+                    time_estimate: 30,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
+                },
+                EmergencyStep {
+                    step_number: 4,
+                    instruction: "Monitor breathing - if not breathing, begin rescue breathing".to_string(),
+                    critical: true,
+                    time_estimate: 0,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Call 911 for CPR guidance".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 5,
+                    instruction: "Stay with person until EMS arrives - overdose can recur".to_string(),
+                    critical: true,
+                    time_estimate: 0,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec![],
+                },
+            ],
+            warning: "Opioid overdose is life-threatening. Naloxone can reverse effects but medical attention is still required.".to_string(),
+            call_911_immediately: true,
+            estimated_ems_time: 5,
+            severity: EmergencySeverity::LifeThreatening,
+            time_critical: true,
+            equipment_needed: vec!["naloxone".to_string()],
+            alternative_protocols: vec!["unconscious".to_string()],
+            follow_up_actions: vec!["Seek addiction treatment".to_string(), "Get naloxone training".to_string(), "Create harm reduction plan".to_string()],
+        };
+        
+        self.protocols.insert("overdose_reversal".to_string(), protocol);
+    }
+    
+    fn add_hypothermia_self_rescue_protocol(&mut self) {
+        let protocol = EmergencyProtocol {
+            emergency_type: "hypothermia_self_rescue".to_string(),
+            description: "Self-rescue from cold exposure and hypothermia".to_string(),
+            immediate_action: "Get to warm shelter and begin rewarming process".to_string(),
+            steps: vec![
+                EmergencyStep {
+                    step_number: 1,
+                    instruction: "Get out of cold environment immediately - find shelter".to_string(),
+                    critical: true,
+                    time_estimate: 60,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Build emergency shelter if no building available".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 2,
+                    instruction: "Remove wet clothing and replace with dry layers".to_string(),
+                    critical: true,
+                    time_estimate: 120,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: Some("dry_clothing".to_string()),
+                    alternative_instructions: vec!["Use emergency blanket or plastic bags".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 3,
+                    instruction: "Begin gradual rewarming - use body heat, warm drinks, heating pads".to_string(),
+                    critical: true,
+                    time_estimate: 300,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::High,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Use warm water bottles".to_string(), "Share body heat with others".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 4,
+                    instruction: "Call 911 if severe hypothermia (confusion, loss of consciousness)".to_string(),
+                    critical: true,
+                    time_estimate: 0,
+                    context_dependent: true,
+                    context_conditions: vec!["severe_symptoms".to_string()],
+                    severity: EmergencySeverity::LifeThreatening,
+                    time_sensitive: true,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Signal for help if in remote location".to_string()],
+                },
+                EmergencyStep {
+                    step_number: 5,
+                    instruction: "Monitor for frostbite - do not rub affected areas".to_string(),
+                    critical: false,
+                    time_estimate: 0,
+                    context_dependent: false,
+                    context_conditions: vec![],
+                    severity: EmergencySeverity::Medium,
+                    time_sensitive: false,
+                    requires_equipment: None,
+                    alternative_instructions: vec!["Seek medical attention for severe frostbite".to_string()],
+                },
+            ],
+            warning: "Hypothermia can be fatal. Gradual rewarming is crucial - avoid rapid temperature changes.".to_string(),
+            call_911_immediately: false,
+            estimated_ems_time: 15,
+            severity: EmergencySeverity::LifeThreatening,
+            time_critical: true,
+            equipment_needed: vec!["dry_clothing".to_string(), "emergency_blanket".to_string()],
+            alternative_protocols: vec!["cold_exposure".to_string()],
+            follow_up_actions: vec!["Seek medical evaluation".to_string(), "Learn cold weather safety".to_string(), "Carry emergency supplies".to_string()],
+        };
+        
+        self.protocols.insert("hypothermia_self_rescue".to_string(), protocol);
+    }
+    
     pub fn get_protocol(&self, emergency_type: &str) -> Option<&EmergencyProtocol> {
         self.protocols.get(emergency_type)
     }
@@ -1136,7 +1380,7 @@ mod tests {
     #[test]
     fn test_database_initialization() {
         let db = EmergencyDatabase::new();
-        assert_eq!(db.protocols.len(), 12);
+        assert_eq!(db.protocols.len(), 15);
     }
     
     #[test]

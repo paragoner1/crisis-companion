@@ -357,7 +357,7 @@ mod tests {
     #[test]
     fn test_context_analyzer_creation() {
         let analyzer = ContextAnalyzer::new();
-        assert_eq!(analyzer.get_emergency_types().len(), 12);
+        assert_eq!(analyzer.get_emergency_types().len(), 15);
     }
     
     #[test]

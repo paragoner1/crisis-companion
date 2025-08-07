@@ -340,7 +340,7 @@ mod tests {
     fn test_solana_sos_creation() {
         let sos = SolanaSOS::new();
         let emergency_types = sos.get_emergency_types();
-        assert_eq!(emergency_types.len(), 12);
+        assert_eq!(emergency_types.len(), 15);
     }
     
     #[test]
