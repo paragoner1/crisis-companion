@@ -215,7 +215,8 @@ class MobileWalletAdapter(private val context: Context) {
                 // In production: val transferInstruction = TokenTransferInstruction(...)
                 // In production: val signature = connection.sendTransaction(transaction)
                 
-                // For demo purposes, simulate the transaction
+                // For demo purposes, simulate the transaction with realistic timing
+                Thread.sleep(500) // Simulate network delay
                 val signature = "5J7X9K2M4N6P8Q1R3S5T7U9V2W4X6Y8Z0A1B3C5D7E9F"
                 
                 Log.d(TAG, "Transaction sent: $signature")
@@ -223,6 +224,23 @@ class MobileWalletAdapter(private val context: Context) {
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to create transaction", e)
                 null
+            }
+        }
+    }
+    
+    /**
+     * Verify transaction on Solana blockchain
+     */
+    suspend fun verifyTransaction(transactionHash: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            try {
+                // Real blockchain verification would be implemented here
+                // For demo purposes, simulate verification
+                Thread.sleep(200) // Simulate verification time
+                true
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to verify transaction", e)
+                false
             }
         }
     }
