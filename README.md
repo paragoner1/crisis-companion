@@ -163,6 +163,11 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Allergic Reaction** - EpiPen administration
 - **Trauma** - Assessment and stabilization
 
+### **🆘 Critical Self-Rescue Protocols (NEW)**
+- **Suicide Prevention** - Crisis intervention and safety planning
+- **Overdose Reversal** - Naloxone administration and emergency response
+- **Hypothermia Self-Rescue** - Environmental emergency survival techniques
+
 ### **Direct Actions (Skip Basic Steps)**
 - **CPR** - Immediate chest compressions and rescue breathing
 - **Heimlich** - Abdominal thrusts for choking
