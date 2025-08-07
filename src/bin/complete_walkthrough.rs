@@ -147,7 +147,7 @@ async fn main() -> AppResult<()> {
     info!("\n🎬 Scene 15: Real Emergency Response");
     info!("====================================");
     info!("📱 App: 'Emergency response completed successfully.'");
-    info!("📱 App: 'Time saved: 45 seconds'");
+    info!("📱 App: 'Voice activation provides immediate guidance'");
     info!("📱 App: 'Lives saved: 1'");
     info!("📱 App: 'Emergency recorded on blockchain.'");
     info!("📱 App: 'Tokens rewarded for life-saving action.'");

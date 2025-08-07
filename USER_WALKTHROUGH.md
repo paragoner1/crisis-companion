@@ -169,7 +169,7 @@ The app automatically detects severe crashes:
 User: "drowning help out of water"
 App: "Stay calm and assess the scene..."
 App: "Look for lifeguard or trained help nearby..."
-[45 seconds wasted on irrelevant instructions]
+[Time wasted on irrelevant instructions]
 ```
 
 #### **After (Solana SOS)**
@@ -177,7 +177,7 @@ App: "Look for lifeguard or trained help nearby..."
 User: "drowning help out of water"
 App: "Check if victim is breathing and has a pulse"
 App: "If not breathing, begin rescue breathing immediately"
-[Immediate relevant guidance - 45 seconds saved]
+[Immediate relevant guidance - time saved]
 ```
 
 ### **Heart Attack Emergency**

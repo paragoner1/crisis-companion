@@ -98,7 +98,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="12 Emergency Types Supported:\n• Drowning, Heart Attack, Stroke\n• Choking, Bleeding, Unconscious\n• Seizure, Poisoning, Severe Burns\n• Diabetic Emergency, Allergic Reaction, Trauma\n\n11 Direct Action Phrases:\n• CPR, Heimlich, AED, Tourniquet\n• EpiPen, Rescue Breathing, First Aid\n• FAST Test, Poison Control, Cool Burn, Medical Alert\n\nAnyone can use these direct action phrases to skip initial context assessment and get immediate, specific guidance.\n\nTap for complete emergency guide →"
+                android:text="15 Emergency Protocols Supported:\n• Drowning, Heart Attack, Stroke\n• Choking, Bleeding, Unconscious\n• Seizure, Poisoning, Severe Burns\n• Diabetic Emergency, Allergic Reaction, Trauma\n• Suicide Prevention, Overdose Reversal, Hypothermia\n\n11 Direct Action Phrases:\n• CPR, Heimlich, AED, Tourniquet\n• EpiPen, Rescue Breathing, First Aid\n• FAST Test, Poison Control, Cool Burn, Medical Alert\n\nAnyone can use these direct action phrases to skip initial context assessment and get immediate, specific guidance.\n\nTap for complete emergency guide →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
@@ -162,7 +162,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Level Up Like a Video Game:\n• Start as Novice Hero\n• Complete training to become Trainee Hero\n• Respond to emergencies to become Emergency Responder\n• Keep going until you're a Life-Saving Legend\n\nEarn Rewards:\n• Experience Points for learning and helping\n• BONK Tokens for emergency responses\n• SKR Tokens for building your safety network\n• Badges for achievements like 'CPR Master'\n\nTraining Modules:\n• CPR Training (50 BONK + 25 SKR)\n• First Aid Basics (30 BONK + 15 SKR)\n• Voice Recognition (25 BONK + 10 SKR)\n• App Features (20 BONK + 10 SKR)\n• Emergency Types (40 BONK + 20 SKR)\n\nTap for gamification details →"
+                android:text="Level Up Like a Video Game:\n• Start as Novice Hero\n• Complete training to become Trainee Hero\n• Respond to emergencies to become Emergency Responder\n• Keep going until you're a Life-Saving Legend\n\nEarn Rewards:\n• Experience Points for learning and helping\n• BONK Tokens for emergency responses\n• SKR Tokens for building your safety network\n• Badges for achievements like 'CPR Master'\n\nTraining Modules:\n• CPR Training (50 BONK + 25 SKR)\n• First Aid Basics (30 BONK + 15 SKR)\n• Voice Recognition (25 BONK + 10 SKR)\n• App Features (20 BONK + 10 SKR)\n• Emergency Protocols (40 BONK + 20 SKR)\n\nTap for gamification details →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
@@ -290,7 +290,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Response Time Improvement:\n• 45 seconds saved per emergency\n• Users who complete training respond 3x faster\n• Regular practice reduces panic\n• Prepared users save lives\n\nCommunity Safety:\n• 5-10 minute advantage over emergency services\n• Trusted contacts arrive before EMS\n• Community safety network\n• Real-time location tracking\n\nTraining Impact:\n• Gamification increases training completion by 400%\n• Every completed module means better preparedness\n• Awards motivate continuous learning\n• Critical skills practiced regularly\n\nTap for impact statistics →"
+                android:text="Response Time Improvement:\n• Voice activation eliminates manual app opening\n• Context-aware guidance provides immediate help\n• Direct action phrases skip irrelevant steps\n• Every second counts in life-threatening situations\n\nCommunity Safety:\n• Trusted contacts can arrive before EMS\n• Real-time location sharing with contacts\n• Community safety network activation\n• Multiple responders can coordinate\n\nTraining Impact:\n• Structured training improves emergency skills\n• Regular practice builds confidence\n• Gamification encourages continuous learning\n• Prepared users are more effective responders\n\nTap for impact statistics →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
