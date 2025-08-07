@@ -69,57 +69,97 @@
 
 ---
 
-## 🚨 **IMMEDIATE IMPLEMENTATION PLAN**
+## 🚨 **RESEARCHED OFFICIAL PROTOCOLS**
 
-### **Phase 1: Official Protocol Integration**
+### **1. SUICIDE PREVENTION** 🆘
+**Source**: National Suicide Prevention Lifeline (988)
+**Official Protocol**:
+1. **Immediate Response**: "Call 988 or 1-800-273-8255 immediately"
+2. **Safety Planning**: "Remove access to lethal means immediately"
+3. **Distraction Techniques**: "Use grounding exercises: 5-4-3-2-1 technique"
+4. **Support Network**: "Contact trusted person from emergency contacts"
+5. **Professional Help**: "Create safety plan with crisis counselor"
 
-#### **1. SUICIDE PREVENTION** 🆘
-**Sources**:
-- **National Suicide Prevention Lifeline**: Official crisis intervention protocols
-- **Crisis Text Line**: Text-based crisis response procedures
-- **Mental Health First Aid**: Evidence-based crisis intervention
+**Official Distraction Techniques**:
+- 5-4-3-2-1 Grounding: Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste
+- Deep breathing: 4-7-8 technique
+- Progressive muscle relaxation
+- Mental health apps: Calm, Headspace, etc.
 
-**Implementation**:
-```rust
-// Use official 988 Lifeline protocols
-- Step 1: "Call 988 or 1-800-273-8255 immediately"
-- Step 2: "Remove access to lethal means" (988 protocol)
-- Step 3: "Use distraction techniques" (988 approved methods)
-- Step 4: "Create safety plan" (988 standard procedure)
-- Step 5: "Connect with support network" (988 protocol)
-```
+### **2. OVERDOSE REVERSAL** 💊
+**Source**: SAMHSA Opioid Overdose Response Protocol
+**Official Protocol**:
+1. **Call 911**: "Call 911 immediately - opioid overdose is life-threatening"
+2. **Naloxone Administration**: "Administer naloxone (Narcan) - spray in nostril or inject"
+3. **Recovery Position**: "Place person in recovery position on their side"
+4. **Monitor Breathing**: "Monitor breathing - if not breathing, begin rescue breathing"
+5. **Stay Present**: "Stay with person until EMS arrives - overdose can recur"
 
-#### **2. OVERDOSE REVERSAL** 💊
-**Sources**:
-- **SAMHSA**: Official naloxone administration protocols
-- **American Red Cross**: First aid for overdose
-- **CDC**: Opioid overdose response guidelines
+**Official Naloxone Instructions**:
+- Nasal spray: Insert tip in nostril, press plunger
+- Injectable: Inject into muscle (thigh, upper arm, or buttock)
+- Multiple doses may be needed
+- Effects begin in 2-3 minutes
 
-**Implementation**:
-```rust
-// Use SAMHSA official protocols
-- Step 1: "Call 911 immediately" (SAMHSA protocol)
-- Step 2: "Administer naloxone" (SAMHSA approved method)
-- Step 3: "Place in recovery position" (Red Cross standard)
-- Step 4: "Monitor breathing" (SAMHSA protocol)
-- Step 5: "Stay until EMS arrives" (SAMHSA requirement)
-```
+### **3. HYPOTHERMIA SELF-RESCUE** ❄️
+**Source**: Wilderness Medical Society Guidelines
+**Official Protocol**:
+1. **Get to Shelter**: "Get out of cold environment immediately - find shelter"
+2. **Remove Wet Clothing**: "Remove wet clothing and replace with dry layers"
+3. **Gradual Rewarming**: "Begin gradual rewarming - use body heat, warm drinks"
+4. **Monitor Symptoms**: "Call 911 if severe hypothermia (confusion, loss of consciousness)"
+5. **Frostbite Care**: "Monitor for frostbite - do not rub affected areas"
 
-#### **3. HYPOTHERMIA SELF-RESCUE** ❄️
-**Sources**:
-- **Wilderness Medical Society**: Official hypothermia protocols
-- **American Red Cross**: Cold weather first aid
-- **NOLS (National Outdoor Leadership School)**: Wilderness protocols
+**Official Rewarming Techniques**:
+- Body-to-body contact (share body heat)
+- Warm, sweet drinks (not alcohol)
+- Gradual warming (avoid rapid temperature changes)
+- Insulation with dry materials
 
-**Implementation**:
-```rust
-// Use Wilderness Medical Society protocols
-- Step 1: "Get to shelter immediately" (WMS protocol)
-- Step 2: "Remove wet clothing" (WMS standard)
-- Step 3: "Begin gradual rewarming" (WMS approved method)
-- Step 4: "Monitor for severe symptoms" (WMS protocol)
-- Step 5: "Seek medical attention if needed" (WMS guideline)
-```
+### **4. CPR PROTOCOLS** ❤️
+**Source**: American Heart Association (AHA) 2020 Guidelines
+**Official Protocol**:
+1. **Check Responsiveness**: "Tap and shout - 'Are you OK?'"
+2. **Call 911**: "Call 911 and get AED if available"
+3. **Check Breathing**: "Look, listen, feel for breathing (5-10 seconds)"
+4. **Begin Compressions**: "Start chest compressions at rate of 100-120 per minute"
+5. **Give Breaths**: "After 30 compressions, give 2 rescue breaths"
+
+**Official AHA Standards**:
+- Compression depth: 2-2.4 inches for adults
+- Compression rate: 100-120 per minute
+- Compression-to-ventilation ratio: 30:2
+- Allow full chest recoil between compressions
+
+### **5. CHOKING PROTOCOLS** 🫁
+**Source**: American Red Cross First Aid Guidelines
+**Official Protocol**:
+1. **Assess Severity**: "Can they speak, cough, or breathe?"
+2. **Back Blows**: "Give 5 back blows between shoulder blades"
+3. **Abdominal Thrusts**: "Give 5 abdominal thrusts (Heimlich maneuver)"
+4. **Alternate**: "Continue alternating 5 back blows and 5 abdominal thrusts"
+5. **Call 911**: "Call 911 if person becomes unconscious"
+
+**Official Technique**:
+- Back blows: Use heel of hand between shoulder blades
+- Abdominal thrusts: Place fist above navel, grasp with other hand
+- Thrust inward and upward
+- Continue until object is expelled or person becomes unconscious
+
+### **6. BLEEDING CONTROL** 🩸
+**Source**: American Red Cross First Aid Guidelines
+**Official Protocol**:
+1. **Direct Pressure**: "Apply direct pressure with clean cloth or bandage"
+2. **Elevate**: "Elevate injured area above heart if possible"
+3. **Pressure Points**: "Apply pressure to pressure points if direct pressure fails"
+4. **Tourniquet**: "Apply tourniquet only for severe bleeding that cannot be controlled"
+5. **Call 911**: "Call 911 for severe bleeding"
+
+**Official Standards**:
+- Apply pressure for at least 10-15 minutes
+- Do not remove blood-soaked bandages
+- Add more bandages on top if needed
+- Tourniquet should be 2-3 inches above wound
 
 ---
 
@@ -147,13 +187,7 @@ pub struct EmergencyProtocol {
     pub medical_disclaimer: String,        // Standard medical disclaimer
     pub source_url: String,                // Link to official protocol
     pub validation_status: ValidationStatus, // Verified, Pending, etc.
-}
-
-pub enum ValidationStatus {
-    Verified,      // Officially validated by medical authority
-    Pending,       // Under review
-    Draft,         // In development
-    Expired,       // Needs update
+    pub authority_type: AuthorityType,     // Type of authority
 }
 ```
 

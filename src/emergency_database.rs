@@ -132,7 +132,7 @@ impl EmergencyDatabase {
                 },
                 EmergencyStep {
                     step_number: 3,
-                    instruction: "If not breathing, begin CPR immediately".to_string(),
+                    instruction: "If not breathing, begin CPR: Start chest compressions at rate of 100-120 per minute, depth 2-2.4 inches".to_string(),
                     critical: true,
                     time_estimate: 0,
                     context_dependent: true,
@@ -140,7 +140,7 @@ impl EmergencyDatabase {
                     severity: EmergencySeverity::Critical,
                     time_sensitive: true,
                     requires_equipment: None,
-                    alternative_instructions: vec![],
+                    alternative_instructions: vec!["After 30 compressions, give 2 rescue breaths".to_string(), "Allow full chest recoil between compressions".to_string()],
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -296,7 +296,7 @@ impl EmergencyDatabase {
                 },
                 EmergencyStep {
                     step_number: 2,
-                    instruction: "If unable to speak, perform 5 back blows between shoulder blades".to_string(),
+                    instruction: "If unable to speak, perform 5 back blows: Use heel of hand between shoulder blades".to_string(),
                     critical: true,
                     time_estimate: 30,
                     context_dependent: true,
@@ -308,7 +308,7 @@ impl EmergencyDatabase {
                 },
                 EmergencyStep {
                     step_number: 3,
-                    instruction: "If back blows fail, perform 5 abdominal thrusts (Heimlich)".to_string(),
+                    instruction: "If back blows fail, perform 5 abdominal thrusts: Place fist above navel, grasp with other hand, thrust inward and upward".to_string(),
                     critical: true,
                     time_estimate: 30,
                     context_dependent: true,
@@ -372,7 +372,7 @@ impl EmergencyDatabase {
             steps: vec![
                 EmergencyStep {
                     step_number: 1,
-                    instruction: "Apply direct pressure to wound with clean cloth or bandage".to_string(),
+                    instruction: "Apply direct pressure to wound with clean cloth or bandage - apply pressure for at least 10-15 minutes".to_string(),
                     critical: true,
                     time_estimate: 0,
                     context_dependent: false,
@@ -380,7 +380,7 @@ impl EmergencyDatabase {
                     severity: EmergencySeverity::High,
                     time_sensitive: false,
                     requires_equipment: Some("bandage".to_string()),
-                    alternative_instructions: vec![],
+                    alternative_instructions: vec!["Do not remove blood-soaked bandages".to_string(), "Add more bandages on top if needed".to_string()],
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -1164,7 +1164,7 @@ impl EmergencyDatabase {
             steps: vec![
                 EmergencyStep {
                     step_number: 1,
-                    instruction: "Call National Suicide Prevention Lifeline: 988 or 1-800-273-8255".to_string(),
+                    instruction: "Call 988 or 1-800-273-8255 immediately - National Suicide Prevention Lifeline".to_string(),
                     critical: true,
                     time_estimate: 0,
                     context_dependent: false,
@@ -1200,7 +1200,7 @@ impl EmergencyDatabase {
                 },
                 EmergencyStep {
                     step_number: 4,
-                    instruction: "Use distraction techniques: deep breathing, counting, grounding exercises".to_string(),
+                    instruction: "Use 5-4-3-2-1 grounding technique: Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste".to_string(),
                     critical: false,
                     time_estimate: 120,
                     context_dependent: false,
@@ -1208,7 +1208,7 @@ impl EmergencyDatabase {
                     severity: EmergencySeverity::Medium,
                     time_sensitive: false,
                     requires_equipment: None,
-                    alternative_instructions: vec!["Listen to music".to_string(), "Take a walk".to_string(), "Call a friend".to_string()],
+                    alternative_instructions: vec!["Deep breathing: 4-7-8 technique".to_string(), "Progressive muscle relaxation".to_string(), "Mental health apps: Calm, Headspace".to_string()],
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -1264,7 +1264,7 @@ impl EmergencyDatabase {
                 },
                 EmergencyStep {
                     step_number: 2,
-                    instruction: "Administer naloxone (Narcan) if available - spray in nostril or inject".to_string(),
+                    instruction: "Administer naloxone (Narcan): Insert tip in nostril and press plunger, or inject into muscle (thigh, upper arm, or buttock)".to_string(),
                     critical: true,
                     time_estimate: 30,
                     context_dependent: true,
@@ -1272,7 +1272,7 @@ impl EmergencyDatabase {
                     severity: EmergencySeverity::LifeThreatening,
                     time_sensitive: true,
                     requires_equipment: Some("naloxone".to_string()),
-                    alternative_instructions: vec!["Call 911 for naloxone guidance".to_string()],
+                    alternative_instructions: vec!["Call 911 for naloxone guidance".to_string(), "Multiple doses may be needed - effects begin in 2-3 minutes".to_string()],
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -1364,7 +1364,7 @@ impl EmergencyDatabase {
                 },
                 EmergencyStep {
                     step_number: 3,
-                    instruction: "Begin gradual rewarming - use body heat, warm drinks, heating pads".to_string(),
+                    instruction: "Begin gradual rewarming: Use body-to-body contact, warm sweet drinks (not alcohol), avoid rapid temperature changes".to_string(),
                     critical: true,
                     time_estimate: 300,
                     context_dependent: false,
@@ -1372,7 +1372,7 @@ impl EmergencyDatabase {
                     severity: EmergencySeverity::High,
                     time_sensitive: false,
                     requires_equipment: None,
-                    alternative_instructions: vec!["Use warm water bottles".to_string(), "Share body heat with others".to_string()],
+                    alternative_instructions: vec!["Use body-to-body contact (share body heat)".to_string(), "Warm, sweet drinks (not alcohol)".to_string(), "Insulation with dry materials".to_string()],
                 },
                 EmergencyStep {
                     step_number: 4,
