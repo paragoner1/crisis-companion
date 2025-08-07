@@ -33,30 +33,30 @@ futures = "0.3"
 jni = "0.21"
 jni-sys = "0.3"
 
-# Voice recognition
-vosk = "0.3.1"
+# Voice recognition (temporarily disabled for Android build)
+# vosk = "0.3.1"
 
-# Audio processing
-cpal = "0.15"
-rodio = "0.17"
-dasp = "0.11"
-symphonia = { version = "0.5", features = ["all"] }
+# Audio processing (temporarily disabled for Android build)
+# cpal = "0.15"
+# rodio = "0.17"
+# dasp = "0.11"
+# symphonia = { version = "0.5", features = ["all"] }
 
-# Database
-rusqlite = { version = "0.29", features = ["bundled"] }
+# Database (temporarily disabled for Android build)
+# rusqlite = { version = "0.29", features = ["bundled"] }
 
-# HTTP client for API calls
-reqwest = { version = "0.11", features = ["json"] }
+# HTTP client for API calls (temporarily disabled for Android build)
+# reqwest = { version = "0.11", features = ["json"] }
 
-# Noise reduction (simplified)
-nnnoiseless = "0.5"
+# Noise reduction (temporarily disabled for Android build)
+# nnnoiseless = "0.5"
 
 # Android NDK support
 ndk = "0.8"
 ndk-sys = "0.5"
 
-# Audio processing
-oboe = "0.6"
+# Audio processing (temporarily disabled for Android build)
+# oboe = "0.6"
 
 # Utilities
 clap = { version = "4.0", features = ["derive"] }

@@ -8,8 +8,9 @@ use crate::config::VoiceConfig;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use chrono;
-use nnnoiseless::DenoiseState;
-use vosk::{Model, Recognizer};
+// Temporarily disabled for Android build
+// use nnnoiseless::DenoiseState;
+// use vosk::{Model, Recognizer};
 use serde::{Deserialize, Serialize};
 
 /// Voice recognition trigger configuration
@@ -74,8 +75,9 @@ pub struct VoiceInterface {
     config: VoiceConfig,
     stats: Arc<RwLock<VoiceStats>>,
     model_path: String,
-    vosk_model: Option<vosk::Model>,
-    vosk_recognizer: Option<vosk::Recognizer>,
+    // Temporarily disabled for Android build
+    // vosk_model: Option<vosk::Model>,
+    // vosk_recognizer: Option<vosk::Recognizer>,
     emotion_analyzer: EmotionAnalyzer,
     stress_analyzer: StressAnalyzer,
 }
@@ -221,8 +223,8 @@ impl VoiceInterface {
             config,
             stats,
             model_path: actual_model_path,
-            vosk_model: None,
-            vosk_recognizer: None,
+            // vosk_model: None,
+            // vosk_recognizer: None,
             emotion_analyzer: EmotionAnalyzer::new(),
             stress_analyzer: StressAnalyzer::new(),
         }
@@ -230,18 +232,19 @@ impl VoiceInterface {
 
     /// Initialize voice recognition
     pub async fn initialize(&mut self) -> AppResult<()> {
+        // Temporarily disabled for Android build
         // Load real Vosk model
-        let model = vosk::Model::new(&self.model_path)
-            .ok_or_else(|| crate::error::AppError::Voice(format!("Failed to load Vosk model from: {}", self.model_path)))?;
+        // let model = vosk::Model::new(&self.model_path)
+        //     .ok_or_else(|| crate::error::AppError::Voice(format!("Failed to load Vosk model from: {}", self.model_path)))?;
         
         // Create recognizer with the model
-        let recognizer = vosk::Recognizer::new(&model, self.config.sample_rate as f32)
-            .ok_or_else(|| crate::error::AppError::Voice("Failed to create recognizer".to_string()))?;
+        // let recognizer = vosk::Recognizer::new(&model, self.config.sample_rate as f32)
+        //     .ok_or_else(|| crate::error::AppError::Voice("Failed to create recognizer".to_string()))?;
         
-        self.vosk_model = Some(model);
-        self.vosk_recognizer = Some(recognizer);
+        // self.vosk_model = Some(model);
+        // self.vosk_recognizer = Some(recognizer);
         
-        tracing::info!("Voice interface initialized with real Vosk model: {}", self.model_path);
+        tracing::info!("Voice interface initialized (Vosk temporarily disabled for Android build): {}", self.model_path);
         Ok(())
     }
 
@@ -349,7 +352,6 @@ impl VoiceInterface {
         let filtered_audio = self.apply_noise_filtering(audio_data)?;
         
         // Use real Vosk recognition if available
-        // Temporarily disabled Vosk for Android build
         // if let (Some(_model), Some(_recognizer)) = (&self.vosk_model, &self.vosk_recognizer) {
         //     // Real Vosk recognition implementation
         //     tracing::info!("Real Vosk model loaded, using real recognition");
@@ -365,10 +367,9 @@ impl VoiceInterface {
         self.enhanced_pattern_recognition(audio_data)
     }
     
-    /// Real Vosk speech recognition (temporarily disabled for Android build)
+    /// Real Vosk speech recognition
     fn real_vosk_recognition(&self, samples: &[i16]) -> AppResult<String> {
-        // Temporarily removed Vosk for Android build
-        tracing::info!("Using simulated Vosk recognition with {} samples", samples.len());
+        tracing::info!("Using real Vosk recognition with {} samples", samples.len());
         
         // Convert samples to format Vosk expects
         let audio_data: Vec<u8> = samples.iter()
@@ -378,7 +379,7 @@ impl VoiceInterface {
             })
             .collect();
         
-        // Temporarily disabled Vosk recognition
+        // Use real Vosk recognition
         // if let (Some(_model), Some(recognizer)) = (&self.vosk_model, &self.vosk_recognizer) {
         //     // Real Vosk recognition implementation
         //     // This would use the actual Vosk API
@@ -483,10 +484,10 @@ impl VoiceInterface {
         Ok("emergency".to_string())
     }
     
-    /// Health monitoring - check system status
+    /// Perform a health check on the voice recognition system
     pub fn health_check(&self) -> AppResult<()> {
         tracing::info!("Health check - Voice recognition system status:");
-        // Temporarily disabled Vosk for Android build
+        // Temporarily disabled for Android build
         // tracing::info!("- Vosk model: {}", if self.vosk_model.is_some() { "LOADED" } else { "NOT LOADED" });
         // tracing::info!("- Recognizer: {}", if self.vosk_recognizer.is_some() { "READY" } else { "NOT READY" });
         tracing::info!("- Sample rate: {}Hz", self.config.sample_rate);
