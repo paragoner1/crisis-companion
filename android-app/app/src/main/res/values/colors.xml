@@ -66,4 +66,7 @@
     <color name="button_voice">#81C9C0</color>
     <color name="button_wallet">#9B8AFB</color>
     <color name="button_settings">#B0C4DE</color>
+    
+    <!-- Additional colors for wallet selection dialog -->
+    <color name="primary_color">#9B8AFB</color>
 </resources> 

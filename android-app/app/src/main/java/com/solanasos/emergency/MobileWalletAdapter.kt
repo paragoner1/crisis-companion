@@ -69,8 +69,10 @@ class MobileWalletAdapter(private val context: Context) {
                 // Connect to wallet and get authorization
                 val connectResult = walletAdapter.connect(ActivityResultSender(context as ComponentActivity))
                 if (connectResult is TransactionResult.Success) {
-                    val publicKey = "DemoWalletAddress123456789" // For demo purposes
-                    Log.d(TAG, "Successfully connected to wallet")
+                    // Get the actual wallet address from the connection
+                    val authResult = connectResult.authResult
+                    val publicKey = authResult.publicKey.toString()
+                    Log.d(TAG, "Successfully connected to wallet: $publicKey")
                     
                     connectedWallet = WalletInfo(
                         address = publicKey,

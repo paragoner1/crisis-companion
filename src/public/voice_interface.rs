@@ -9,6 +9,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use chrono;
 use nnnoiseless::DenoiseState;
+use vosk::{Model, Recognizer};
 use serde::{Deserialize, Serialize};
 
 /// Voice recognition trigger configuration
@@ -348,25 +349,26 @@ impl VoiceInterface {
         let filtered_audio = self.apply_noise_filtering(audio_data)?;
         
         // Use real Vosk recognition if available
-        if let (Some(_model), Some(_recognizer)) = (&self.vosk_model, &self.vosk_recognizer) {
-            // Real Vosk recognition implementation
-            tracing::info!("Real Vosk model loaded, using real recognition");
+        // Temporarily disabled Vosk for Android build
+        // if let (Some(_model), Some(_recognizer)) = (&self.vosk_model, &self.vosk_recognizer) {
+        //     // Real Vosk recognition implementation
+        //     tracing::info!("Real Vosk model loaded, using real recognition");
             
-            // Convert audio to PCM samples for Vosk
-            let samples = self.convert_audio_to_pcm(audio_data)?;
+        //     // Convert audio to PCM samples for Vosk
+        //     let samples = self.convert_audio_to_pcm(audio_data)?;
             
-            // Use real Vosk recognition
-            return self.real_vosk_recognition(&samples);
-        }
+        //     // Use real Vosk recognition
+        //     return self.real_vosk_recognition(&samples);
+        // }
         
         // Fallback to enhanced pattern recognition if Vosk fails
         self.enhanced_pattern_recognition(audio_data)
     }
     
-    /// Real Vosk speech recognition
+    /// Real Vosk speech recognition (temporarily disabled for Android build)
     fn real_vosk_recognition(&self, samples: &[i16]) -> AppResult<String> {
-        // Use real Vosk API for speech recognition
-        tracing::info!("Using real Vosk recognition with {} samples", samples.len());
+        // Temporarily removed Vosk for Android build
+        tracing::info!("Using simulated Vosk recognition with {} samples", samples.len());
         
         // Convert samples to format Vosk expects
         let audio_data: Vec<u8> = samples.iter()
@@ -376,16 +378,16 @@ impl VoiceInterface {
             })
             .collect();
         
-        // Use real Vosk recognition if available
-        if let (Some(_model), Some(recognizer)) = (&self.vosk_model, &self.vosk_recognizer) {
-            // Real Vosk recognition implementation
-            // This would use the actual Vosk API
-            tracing::info!("Real Vosk recognition active");
+        // Temporarily disabled Vosk recognition
+        // if let (Some(_model), Some(recognizer)) = (&self.vosk_model, &self.vosk_recognizer) {
+        //     // Real Vosk recognition implementation
+        //     // This would use the actual Vosk API
+        //     tracing::info!("Real Vosk recognition active");
             
-            // For now, use enhanced pattern recognition with Vosk context
-            // The real Vosk API would be: recognizer.accept_waveform(&samples)
-            return self.enhanced_pattern_recognition_with_vosk_context(samples);
-        }
+        //     // For now, use enhanced pattern recognition with Vosk context
+        //     // The real Vosk API would be: recognizer.accept_waveform(&samples)
+        //     return self.enhanced_pattern_recognition_with_vosk_context(samples);
+        // }
         
         // Fallback to enhanced pattern recognition
         self.enhanced_pattern_recognition_with_vosk_context(samples)
@@ -484,8 +486,9 @@ impl VoiceInterface {
     /// Health monitoring - check system status
     pub fn health_check(&self) -> AppResult<()> {
         tracing::info!("Health check - Voice recognition system status:");
-        tracing::info!("- Vosk model: {}", if self.vosk_model.is_some() { "LOADED" } else { "NOT LOADED" });
-        tracing::info!("- Recognizer: {}", if self.vosk_recognizer.is_some() { "READY" } else { "NOT READY" });
+        // Temporarily disabled Vosk for Android build
+        // tracing::info!("- Vosk model: {}", if self.vosk_model.is_some() { "LOADED" } else { "NOT LOADED" });
+        // tracing::info!("- Recognizer: {}", if self.vosk_recognizer.is_some() { "READY" } else { "NOT READY" });
         tracing::info!("- Sample rate: {}Hz", self.config.sample_rate);
         tracing::info!("- Model path: {}", self.model_path);
         
