@@ -332,12 +332,42 @@ All data, statistics, and life-saving instructions in Solana SOS are sourced fro
 
 ## 🛠️ **Getting Started**
 
-### **Prerequisites**
+### **For Judges - Quick Android Setup**
+
+**Prerequisites:**
+- Android Studio (latest version)
+- Android SDK with API level 24+
+- Android Emulator or physical device
+
+**Quick Setup for Testing:**
+```bash
+# Clone the repository
+git clone https://github.com/paragoner1/crisis-companion.git
+cd crisis-companion/android-app
+
+# Build the Android app
+./gradlew assembleDebug
+
+# Install on connected device/emulator
+adb install app/build/outputs/apk/debug/app-debug.apk
+
+# Launch the app
+adb shell am start -n com.solanasos.emergency/.MainActivity
+```
+
+**Alternative: Direct APK Installation**
+1. Download the latest APK from the releases
+2. Enable "Install from Unknown Sources" on your device
+3. Install the APK directly
+
+### **For Developers - Full Setup**
+
+**Prerequisites:**
 - Rust 1.70+ ([Install Rust](https://rustup.rs/))
 - Android SDK (for mobile deployment)
 - Solana CLI (for blockchain integration)
 
-### **Quick Start**
+**Quick Start:**
 ```bash
 # Clone the repository
 git clone https://github.com/paragoner1/crisis-companion.git
@@ -353,7 +383,7 @@ cargo test
 cargo run
 ```
 
-### **Demo Commands**
+**Demo Commands:**
 ```bash
 # Voice recognition demo
 cargo run --bin voice_test
