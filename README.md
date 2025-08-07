@@ -90,8 +90,8 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Enhanced noise filtering** via RNNoise - Enterprise-grade audio processing
 - **12 emergency types** - Comprehensive coverage with expandable database
 - **Context-aware guidance** - Understands emergency stages and provides intelligent instructions
-- **Medical AI integration** - Symptom analysis and triage capabilities (Premium)
-- **Advanced crash detection** - Multi-sensor analysis for accurate crash detection (Premium)
+- **Medical AI integration** - Symptom analysis and triage capabilities
+- **Advanced crash detection** - Multi-sensor analysis for accurate crash detection
 
 ### **Silent SOS Activation**
 - **Hold button** (3 seconds) for discreet activation with location sharing
@@ -246,7 +246,7 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Solana Mobile Integration** - Launch on Seeker with mobile wallet
 - **Emergency Partnerships** - 911 centers and hospital integrations
 - **Gamification Launch** - SOS Hero system with BONK/SKR rewards
-- **Premium Features Launch** - Medical AI and Advanced Crash Detection
+- **Advanced Features Launch** - Medical AI and Advanced Crash Detection
 ## 📚 **Citations & Sources**
 
 All data, statistics, and life-saving instructions in Solana SOS are sourced from recognized authorities. See [CITATIONS.md](CITATIONS.md) for complete source documentation.
@@ -275,23 +275,23 @@ All data, statistics, and life-saving instructions in Solana SOS are sourced fro
 
 ---
 
-## 💎 **Premium Features**
+## 💎 **Advanced Features**
 
-### **Medical AI Integration** ($9.99/month)
+### **Medical AI Integration**
 - **Symptom Analysis** - Real-time medical symptom assessment
-- **Triage Engine** - Emergency severity determination (Low → LifeThreatening)
-- **Medical Database** - 8 emergency types with detailed symptom mapping
-- **Confidence Scoring** - Assessment reliability calculation (0.0-1.0)
-- **Recommended Actions** - Specific medical guidance for each scenario
+- **Triage Engine** - Emergency severity determination
+- **Medical Database** - Comprehensive emergency type coverage
+- **Confidence Scoring** - Assessment reliability calculation
+- **Recommended Actions** - Specific medical guidance
 
-### **Advanced Crash Detection** ($9.99/month)
+### **Advanced Crash Detection**
 - **Multi-Sensor Analysis** - Accelerometer, gyroscope, GPS speed
-- **Impact Detection** - Crash severity analysis (Minor → Critical)
+- **Impact Detection** - Crash severity analysis
 - **Real-time Processing** - Continuous sensor data analysis
 - **Automatic Response** - Appropriate emergency actions generation
 - **Confidence Scoring** - Crash detection reliability assessment
 
-### **Professional Tier** ($19.99/month)
+### **Professional Features**
 - **Emergency Response Coordination** - Community-based safety network
 - **Environmental Hazard Detection** - Air quality and weather monitoring
 - **Real-time Communication** - WebRTC emergency channels
