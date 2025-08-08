@@ -373,9 +373,9 @@ class MainActivity : AppCompatActivity() {
             R.drawable.ic_mic_listening, 0, 0, 0
         )
         
-        // Change button text to show activated state with red color
+        // Change button text to show activated state with red background
         binding.btnEmergency.text = "Emergency Activated"
-        binding.btnEmergency.setTextColor(ContextCompat.getColor(this, R.color.status_error))
+        binding.btnEmergency.setBackgroundColor(ContextCompat.getColor(this, R.color.status_error))
         
         // Show listening message with confidence
         binding.tvStatus.text = "🎤 Listening for emergency phrases..."
@@ -397,9 +397,9 @@ class MainActivity : AppCompatActivity() {
             R.drawable.emergency_button, 0, 0, 0
         )
         
-        // Reset button text to normal with normal color
+        // Reset button text to normal with normal background
         binding.btnEmergency.text = "Press for Emergency"
-        binding.btnEmergency.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
+        binding.btnEmergency.setBackgroundResource(R.drawable.emergency_button)
         
         // Reset status
         binding.tvStatus.text = "Ready for emergency"
@@ -561,9 +561,9 @@ class MainActivity : AppCompatActivity() {
             R.drawable.emergency_button, 0, 0, 0
         )
         
-        // Reset button text to normal with normal color
+        // Reset button text to normal with normal background
         binding.btnEmergency.text = "Press for Emergency"
-        binding.btnEmergency.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
+        binding.btnEmergency.setBackgroundResource(R.drawable.emergency_button)
         
         // Return to ready state
         binding.tvStatus.text = "Ready for emergency activation"
