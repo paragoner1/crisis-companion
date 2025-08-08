@@ -554,6 +554,14 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun stopEmergencyListening() {
+        // Reset button to normal state
+        binding.btnEmergency.setCompoundDrawablesWithIntrinsicBounds(
+            R.drawable.emergency_button, 0, 0, 0
+        )
+        
+        // Reset button text to normal
+        binding.btnEmergency.text = "Press for Emergency"
+        
         // Return to ready state
         binding.tvStatus.text = "Ready for emergency activation"
         
