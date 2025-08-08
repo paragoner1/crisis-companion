@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var rustBridge: RustBridge
     private lateinit var mobileWalletAdapter: MobileWalletAdapter
+    private var pulseAnimation: android.animation.ObjectAnimator? = null
     
     companion object {
         private const val TAG = "MainActivity"
@@ -307,8 +308,8 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun startEmergencyListening() {
-        // Update status to show listening
-        binding.tvStatus.text = "Listening for emergency phrase..."
+        // Show emergency activated immediately
+        binding.tvStatus.text = "🚨 Emergency activated!"
         
         // Start real voice recognition using Rust backend
         Toast.makeText(this, "🚨 Emergency activated! +50 XP for quick response", Toast.LENGTH_SHORT).show()
@@ -369,10 +370,10 @@ class MainActivity : AppCompatActivity() {
         )
         
         // Pulsing animation
-        val pulseAnimation = android.animation.ObjectAnimator.ofFloat(binding.btnEmergency, "scaleX", 1f, 1.2f, 1f)
-        pulseAnimation.duration = 1000
-        pulseAnimation.repeatCount = android.animation.ObjectAnimator.INFINITE
-        pulseAnimation.start()
+        pulseAnimation = android.animation.ObjectAnimator.ofFloat(binding.btnEmergency, "scaleX", 1f, 1.2f, 1f)
+        pulseAnimation?.duration = 1000
+        pulseAnimation?.repeatCount = android.animation.ObjectAnimator.INFINITE
+        pulseAnimation?.start()
         
         // Show listening message with confidence
         binding.tvStatus.text = "🎤 Listening for emergency phrases..."
@@ -389,7 +390,8 @@ class MainActivity : AppCompatActivity() {
         )
         
         // Stop pulsing animation
-        binding.btnEmergency.clearAnimation()
+        pulseAnimation?.cancel()
+        pulseAnimation = null
         
         // Reset status
         binding.tvStatus.text = "Ready for emergency"
