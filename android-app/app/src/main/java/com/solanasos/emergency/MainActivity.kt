@@ -373,9 +373,10 @@ class MainActivity : AppCompatActivity() {
             R.drawable.ic_mic_listening, 0, 0, 0
         )
         
-        // Change button text to show activated state with red background
+        // Change button text to show activated state with red background and red text
         binding.btnEmergency.text = "Emergency Activated"
-        binding.btnEmergency.setBackgroundColor(ContextCompat.getColor(this, R.color.status_error))
+        binding.btnEmergency.backgroundTintList = ContextCompat.getColorStateList(this, R.color.status_error)
+        binding.btnEmergency.setTextColor(ContextCompat.getColor(this, R.color.white))
         
         // Show listening message with confidence
         binding.tvStatus.text = "🎤 Listening for emergency phrases..."
@@ -397,9 +398,10 @@ class MainActivity : AppCompatActivity() {
             R.drawable.emergency_button, 0, 0, 0
         )
         
-        // Reset button text to normal with normal background
+        // Reset button text to normal with normal background and text color
         binding.btnEmergency.text = "Press for Emergency"
-        binding.btnEmergency.setBackgroundResource(R.drawable.emergency_button)
+        binding.btnEmergency.backgroundTintList = null
+        binding.btnEmergency.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
         
         // Reset status
         binding.tvStatus.text = "Ready for emergency"
@@ -561,9 +563,10 @@ class MainActivity : AppCompatActivity() {
             R.drawable.emergency_button, 0, 0, 0
         )
         
-        // Reset button text to normal with normal background
+        // Reset button text to normal with normal background and text color
         binding.btnEmergency.text = "Press for Emergency"
-        binding.btnEmergency.setBackgroundResource(R.drawable.emergency_button)
+        binding.btnEmergency.backgroundTintList = null
+        binding.btnEmergency.setTextColor(ContextCompat.getColor(this, R.color.text_primary))
         
         // Return to ready state
         binding.tvStatus.text = "Ready for emergency activation"
