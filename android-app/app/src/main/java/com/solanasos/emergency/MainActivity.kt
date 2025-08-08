@@ -364,16 +364,17 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun showVoiceRecognitionFeedback() {
+        // Stop any existing animations first
+        pulseAnimation?.cancel()
+        binding.btnEmergency.clearAnimation()
+        
         // Animated microphone icon
         binding.btnEmergency.setCompoundDrawablesWithIntrinsicBounds(
             R.drawable.ic_mic_listening, 0, 0, 0
         )
         
-        // Pulsing animation
-        pulseAnimation = android.animation.ObjectAnimator.ofFloat(binding.btnEmergency, "scaleX", 1f, 1.2f, 1f)
-        pulseAnimation?.duration = 1000
-        pulseAnimation?.repeatCount = android.animation.ObjectAnimator.INFINITE
-        pulseAnimation?.start()
+        // Change button text to show activated state
+        binding.btnEmergency.text = "Emergency Activated"
         
         // Show listening message with confidence
         binding.tvStatus.text = "🎤 Listening for emergency phrases..."
@@ -384,14 +385,19 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun hideVoiceRecognitionFeedback() {
+        // Stop all animations immediately
+        pulseAnimation?.cancel()
+        pulseAnimation?.end()
+        pulseAnimation = null
+        binding.btnEmergency.clearAnimation()
+        
         // Reset button to normal state
         binding.btnEmergency.setCompoundDrawablesWithIntrinsicBounds(
             R.drawable.emergency_button, 0, 0, 0
         )
         
-        // Stop pulsing animation
-        pulseAnimation?.cancel()
-        pulseAnimation = null
+        // Reset button text to normal
+        binding.btnEmergency.text = "Press for Emergency"
         
         // Reset status
         binding.tvStatus.text = "Ready for emergency"
@@ -416,6 +422,12 @@ class MainActivity : AppCompatActivity() {
     
     private fun processRealEmergencyPhrase(phrase: String) {
         Log.d(TAG, "🎤 Detected emergency phrase: $phrase")
+        
+        // Stop animation immediately when processing starts
+        pulseAnimation?.cancel()
+        pulseAnimation?.end()
+        pulseAnimation = null
+        binding.btnEmergency.clearAnimation()
         
         // Show real-time processing feedback
         binding.tvStatus.text = "🚨 Processing emergency with real Rust backend..."
@@ -506,6 +518,12 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun showEmergencyResponse(emergencyType: String) {
+        // Stop any ongoing animations
+        pulseAnimation?.cancel()
+        pulseAnimation?.end()
+        pulseAnimation = null
+        binding.btnEmergency.clearAnimation()
+        
         val walletInfo = mobileWalletAdapter.getConnectedWallet()
         val walletAddress = walletInfo?.address ?: "Not connected"
         
