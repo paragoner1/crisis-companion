@@ -54,7 +54,7 @@
     <color name="emergency_background">#3D5270</color>
     
     <!-- Legacy colors (keeping for compatibility) -->
-    <color name="emergency_red">#E07A5F</color>
+    <color name="emergency_red">#FFE53935</color>
     <color name="emergency_background_old">#1E3A5F</color>
     <color name="status_text">#F0F4F8</color>
     <color name="feature_title">#81C9C0</color>
@@ -69,4 +69,13 @@
     
     <!-- Additional colors for wallet selection dialog -->
     <color name="primary_color">#9B8AFB</color>
+    
+    <!-- Standard Android colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources> 
