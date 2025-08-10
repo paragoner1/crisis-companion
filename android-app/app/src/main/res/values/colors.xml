@@ -17,6 +17,9 @@
     <color name="solana_purple_light">#B8A9FC</color>
     <color name="solana_purple_dark">#7A6BDB</color>
     
+    <!-- Solana brand colors -->
+    <color name="solana_green">#81C9C0</color>
+    
     <!-- Neutrals -->
     <color name="dark_background">#1E3A5F</color>
     <color name="light_text">#F0F4F8</color>
@@ -52,6 +55,7 @@
     <color name="emergency_primary">#E07A5F</color>
     <color name="emergency_secondary">#F0F4F8</color>
     <color name="emergency_background">#3D5270</color>
+    <color name="emergency_accent">#E07A5F</color>
     
     <!-- Legacy colors (keeping for compatibility) -->
     <color name="emergency_red">#FFE53935</color>
