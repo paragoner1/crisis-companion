@@ -3,6 +3,9 @@
 
 **Because when seconds matter, anyone can be a Hero. Just say "Hey SOS" and save a life.**
 
+### 🚨 **Save Your Loved Ones - Keep Them Alive Until Help Arrives**
+**This app gives you the power to take immediate action in life-threatening emergencies. Whether you are alone and need to save yourself, or you are a bystander who can save someone else life, Solana SOS provides the guidance and emergency response you need to keep people alive until professional help arrives.**
+
 
 **🎬 [Watch the Full Demo Video](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)** - See Solana SOS in action with voice recognition, emergency response, and life-saving features demonstrated in real-time.
 
