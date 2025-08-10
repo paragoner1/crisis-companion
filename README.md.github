@@ -35,7 +35,7 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 ### **Key Statistics:**
 - **236,000+ drowning deaths annually** (WHO, 2021)
 - **356,000+ out-of-hospital cardiac arrests** in the US annually
-- **12 critical emergency types** supported with expandable database
+- **15 critical emergency types** supported with comprehensive offline coverage
 
 ## 🏆 **Hackathon Alignment**
 
@@ -62,7 +62,7 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **"Hey SOS" wake word** - Instant activation in under 100ms
 - **Offline voice recognition** via Vosk - Works anywhere, anytime
 - **Noise filtering** via RNNoise - Enterprise-grade audio processing
-- **12 emergency types** - Comprehensive coverage with expandable database
+- **15 emergency types** - Comprehensive coverage with offline database
 - **Context-aware guidance** - Understands emergency stages and provides intelligent instructions
 
 ### **Silent SOS Activation**
