@@ -109,45 +109,43 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 
 ---
 
-## 🚨 **Core Features**
+## 🚨 **Core Features - What the App Does**
 
-### **Voice-Activated Emergency Response**
-- **"Hey SOS" wake word** - Instant activation in under 100ms
-- **Core Features (offline)** - 15 emergency protocols stored locally, always available
-- **Enhanced Mode (hybrid)** - Real-time consultation and advanced features when online
-- **Real Vosk voice recognition** - Production-ready offline speech recognition
-- **Real Solana MWA integration** - Actual wallet connection and token rewards
-- **Enhanced noise filtering** via RNNoise - Enterprise-grade audio processing
-- **Context-aware guidance** - Understands emergency stages and provides intelligent instructions
-- **Medical AI integration** - Symptom analysis and triage capabilities
-- **Advanced crash detection** - Multi-sensor analysis for accurate crash detection
+### **🎤 Voice-Activated Emergency Response**
+**What happens when you say "Hey SOS, [emergency] help!":**
+- **Instantly activates** (under 100ms) and starts recording your emergency
+- **Auto-dials 911** within 3 seconds with your exact GPS location
+- **Sends emergency alert** to all trusted contacts with real-time location
+- **Provides step-by-step guidance** for your specific emergency (15 protocols available offline)
+- **Keeps 911 dispatcher on standby** until you are ready to connect
+- **Works completely offline** - no internet required for core emergency response
 
-### **Silent SOS Activation**
-- **Hold button** (3 seconds) for discreet activation with location sharing
-- **Power button sequence** (5 rapid presses) with GPS coordinates
-- **Volume button sequence** for alternative activation
-- **Screen tap patterns** for motion-based activation
-- **Automatic location sharing** with emergency services and trusted contacts
-- **Real-time location tracking** for continuous updates
-- **Perfect for rideshares, domestic violence, abduction scenarios**
+### **🔇 Silent SOS Activation**
+**What happens when you hold the button for 3 seconds:**
+- **Silent activation** - no voice required, perfect for dangerous situations
+- **Immediately alerts trusted contacts** with your location and emergency status
+- **Auto-dials 911** with pre-recorded message and GPS coordinates
+- **Provides silent guidance** through text/visual instructions
+- **Keeps emergency services on standby** for immediate response
+- **Ideal for rideshares, domestic violence, abduction scenarios**
 
-### **Crash Detection & Auto-911**
-- **Accelerometer monitoring** for impact detection
-- **GPS speed calculation** for vehicle crashes
-- **Configurable thresholds** (25mph + 3g force)
-- **30-second cancellation window** for false positives
-- **Automatic 911 calling** with crash context and location (works offline)
-- **Real-time location sharing** with emergency services
-- **Trusted network notification** with precise coordinates
+### **🚗 Crash Detection & Auto-911**
+**What happens when the app detects a crash:**
+- **Automatically triggers** emergency response (25mph + 3g force threshold)
+- **Immediately calls 911** with crash location and context (works offline)
+- **Alerts all trusted contacts** with precise GPS coordinates
+- **Provides crash-specific guidance** - first aid, extraction, safety protocols
+- **30-second cancellation window** to prevent false positives
+- **Maintains emergency connection** until help arrives
 
-### **Personal Trusted Network**
-- **Emergency contact management** with granular permissions
-- **Community safety** - friends arrive before EMS (estimated 5-10 minute advantage based on location sharing)
-- **Location sharing controls** per contact with real-time updates
-- **Relationship-based alerts** (spouse, parent, emergency contact)
-- **Automatic location sharing** during emergencies
-- **Continuous location tracking** for trusted contacts
-- **Viral growth engine** - estimated 2.5x referral rate through community safety
+### **👥 Personal Trusted Network**
+**What happens when you activate any emergency:**
+- **Instant notification** to all emergency contacts with your real-time location
+- **Community safety advantage** - friends/family arrive 5-10 minutes before EMS
+- **Two-way communication** - contacts can respond and coordinate help
+- **Continuous location tracking** during the entire emergency
+- **Viral growth** - estimated 2.5x referral rate through community safety benefits
+- **Granular permissions** - control who gets what information
 
 ## 🏥 **Medical Credibility & Authority Sources**
 
@@ -213,21 +211,49 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 
 ## 🛡️ **Safety Features**
 
-### **Multi-Activation Methods**
-- **Voice activation** - "Hey SOS, [emergency] help!"
-- **Silent SOS** - Discreet activation for dangerous situations
-- **Crash detection** - Automatic activation for vehicle accidents
-- **Trusted network** - Personal emergency contacts
-- **Manual activation** - Emergency button interface
+### **Multi-Activation Methods - What Happens When You Activate**
 
-### **Location & Communication**
-- **GPS coordinates** - Precise location sharing with emergency services
-- **Real-time tracking** - Continuous location updates during emergencies
-- **Trusted contacts** - Automatic notification with location
-- **Emergency services** - Direct 911 integration with context
-- **Blockchain verification** - Tamper-proof emergency records
+**🎤 Voice Activation** - "Hey SOS, [emergency] help!"
+- **Immediately**: App starts voice recording and emergency protocols
+- **Within 3 seconds**: Auto-dials 911 with your exact location
+- **Simultaneously**: Sends location to all trusted contacts
+- **Keeps dispatcher on standby** until you are ready to connect
+- **Provides step-by-step guidance** for the emergency
 
----
+**🔇 Silent SOS** - Discreet activation for dangerous situations
+- **Hold button 3 seconds**: Silent activation without voice
+- **Immediately**: Sends emergency alert to trusted contacts with location
+- **Auto-dials 911** with pre-recorded message and location
+- **Provides silent guidance** through text/visual instructions
+- **Keeps emergency services on standby** for immediate response
+
+**🚗 Crash Detection** - Automatic activation for vehicle accidents
+- **Detects impact**: Automatically triggers emergency response
+- **Immediately**: Auto-dials 911 with crash location and context
+- **Simultaneously**: Alerts all trusted contacts with GPS coordinates
+- **Provides crash-specific guidance**: First aid, extraction, safety protocols
+- **Maintains connection** until help arrives
+
+**👥 Trusted Network** - Personal emergency contacts
+- **Instant notification**: All contacts receive emergency alert with location
+- **Real-time updates**: Continuous location tracking during emergency
+- **Two-way communication**: Contacts can respond and coordinate
+- **Community response**: Friends/family can arrive before EMS (5-10 min advantage)
+
+**🔘 Manual Activation** - Emergency button interface
+- **One-touch activation**: Immediate emergency response
+- **Auto-dials 911** with location and emergency type
+- **Alerts trusted network** with real-time location sharing
+- **Provides emergency-specific guidance** based on selected type
+- **Maintains emergency connection** until resolved
+
+### **What the App Does During Every Emergency**
+- **📍 Location Sharing**: GPS coordinates sent to 911 and trusted contacts (works offline)
+- **📞 911 Integration**: Auto-dials emergency services with context and location (works offline)
+- **👥 Trusted Network**: Instant alert to all emergency contacts with real-time location
+- **🎯 Emergency Guidance**: Step-by-step protocols for the specific emergency
+- **🔒 Connection Maintenance**: Keeps emergency services on standby until ready to connect
+- **📱 Continuous Updates**: Real-time location tracking and status updates
 
 ## 🏆 **SOS Hero Gamification**
 
