@@ -128,8 +128,10 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Silent activation** - no voice required, perfect for dangerous situations
 - **Immediately alerts trusted contacts** with your location and emergency status
 - **Auto-dials 911** with pre-recorded message and GPS coordinates
-- **Provides silent guidance** through text/visual instructions
-- **Keeps emergency services on standby** for immediate response
+- **Completely silent operation** - no visual cues or obvious indicators
+- **Discreet emergency response** - appears as normal phone usage
+- **Completely silent operation** - no visual cues or obvious indicators
+- **Discreet emergency response** - appears as normal phone usage
 - **Ideal for rideshares, domestic violence, abduction scenarios**
 
 ### **🚗 Crash Detection & Auto-911**
@@ -227,8 +229,10 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **Hold button 3 seconds**: Silent activation without voice
 - **Immediately**: Sends emergency alert to trusted contacts with location
 - **Auto-dials 911** with pre-recorded message and location
-- **Provides silent guidance** through text/visual instructions
-- **Keeps emergency services on standby** for immediate response
+- **Completely silent operation** - no visual cues or obvious indicators
+- **Discreet emergency response** - appears as normal phone usage
+- **Completely silent operation** - no visual cues or obvious indicators
+- **Discreet emergency response** - appears as normal phone usage
 
 **🚗 Crash Detection** - Automatic activation for vehicle accidents
 - **Detects impact**: Automatically triggers emergency response
