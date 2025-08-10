@@ -136,7 +136,7 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 - **GPS speed calculation** for vehicle crashes
 - **Configurable thresholds** (25mph + 3g force)
 - **30-second cancellation window** for false positives
-- **Automatic 911 calling** with crash context and location
+- **Automatic 911 calling** with crash context and location (works offline)
 - **Real-time location sharing** with emergency services
 - **Trusted network notification** with precise coordinates
 
@@ -311,28 +311,6 @@ All data, statistics, and life-saving instructions in Solana SOS are sourced fro
 
 ---
 
-## 🗓️ **Roadmap**
-
-### **Q3 2026**
-- **International Expansion** - Country-specific emergency protocols
-- **BONK Integration** - Emergency response token rewards
-- **SKR Ecosystem** - Seeker ecosystem token integration
-- **Advanced AI** - Natural language processing for guidance
-
-### **Q4 2026**
-- **Government Contracts** - Municipal and federal emergency systems
-- **$50M Revenue Target** - Enterprise and government partnerships
-- **Global Deployment** - Worldwide emergency response network
-- **AI Enhancement** - Advanced context-aware guidance
-
-### **2027+**
-- **Natural Disasters** - Earthquake, hurricane, wildfire protocols
-- **Medical AI** - Symptom analysis and triage assistance
-- **Global Network** - International emergency response coordination
-- **Advanced Features** - Predictive emergency detection
-
----
-
 ## 💎 **Advanced Features**
 
 ### **Medical AI Integration**
@@ -355,30 +333,6 @@ All data, statistics, and life-saving instructions in Solana SOS are sourced fro
 - **Real-time Communication** - WebRTC emergency channels
 - **Blockchain Emergency Records** - Immutable emergency documentation
 
----
-
-## 🛠️ **Getting Started**
-
-### **For Judges - Quick Android Setup**
-
-**Prerequisites:**
-- Android Studio (latest version)
-- Android SDK with API level 24+
-- Android Emulator or physical device
-
-**Quick Setup for Testing:**
-```bash
-# Clone the repository
-git clone https://github.com/paragoner1/crisis-companion.git
-cd crisis-companion/android-app
-
-# Build the Android app
-./gradlew assembleDebug
-
-# Install on connected device/emulator
-adb install app/build/outputs/apk/debug/app-debug.apk
-
-# Launch the app
 adb shell am start -n com.solanasos.emergency/.MainActivity
 ```
 
