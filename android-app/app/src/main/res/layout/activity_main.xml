@@ -180,6 +180,7 @@
                 android:layout_marginBottom="8dp">
 
                 <TextView
+                    android:id="@+id/tvActiveCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="• Active (4)"
@@ -188,6 +189,7 @@
                     android:layout_marginEnd="16dp" />
 
                 <TextView
+                    android:id="@+id/tvInactiveCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="✗ Inactive (6)"
@@ -354,34 +356,7 @@
 
             </LinearLayout>
 
-            <!-- Safety Features Legend -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/tvActiveCount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Active (4)"
-                    android:textSize="12sp"
-                    android:textColor="@color/status_success"
-                    android:gravity="left" />
-
-                <TextView
-                    android:id="@+id/tvInactiveCount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Inactive (6)"
-                    android:textSize="12sp"
-                    android:textColor="@color/status_inactive"
-                    android:gravity="right" />
-
-            </LinearLayout>
+            
 
         </LinearLayout>
 
