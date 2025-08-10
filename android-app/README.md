@@ -9,7 +9,7 @@ This Android app provides the mobile interface for Solana SOS, the voice-activat
 ### ✅ Implemented
 - **Voice Recognition** - Android SpeechRecognizer for "Hey SOS" wake word
 - **Emergency UI** - Touch-friendly emergency interface
-- **Emergency Types** - Support for 12 emergency types
+- **Emergency Types** - Support for 15 emergency types
 - **Permissions** - Audio, location, phone, SMS permissions
 - **Solana Integration** - Mobile Wallet Adapter ready
 
