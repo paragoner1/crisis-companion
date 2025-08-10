@@ -73,7 +73,7 @@
 
         </LinearLayout>
 
-        <!-- Emergency Types & Direct Actions -->
+        <!-- Emergency Types & Direct Actions (MOST IMPORTANT) -->
         <LinearLayout
             android:id="@+id/emergencyTypesSection"
             android:layout_width="match_parent"
@@ -88,7 +88,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🚨 Emergency Types &amp; Direct Actions"
+                android:text="🚨 Emergency Types &amp; Direct Actions (Offline)"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -98,14 +98,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="15 Emergency Protocols Supported:\n• Drowning, Heart Attack, Stroke\n• Choking, Bleeding, Unconscious\n• Seizure, Poisoning, Severe Burns\n• Diabetic Emergency, Allergic Reaction, Trauma\n• Suicide Prevention, Overdose Reversal, Hypothermia\n\n11 Direct Action Phrases:\n• CPR, Heimlich, AED, Tourniquet\n• EpiPen, Rescue Breathing, First Aid\n• FAST Test, Poison Control, Cool Burn, Medical Alert\n\nAnyone can use these direct action phrases to skip initial context assessment and get immediate, specific guidance.\n\nTap for complete emergency guide →"
+                android:text="15 Emergency Protocols Supported (Offline):\n• Drowning, Heart Attack, Stroke\n• Choking, Bleeding, Unconscious\n• Seizure, Poisoning, Severe Burns\n• Diabetic Emergency, Allergic Reaction, Trauma\n• Suicide Prevention, Overdose Reversal, Hypothermia\n\n11 Direct Action Phrases:\n• CPR, Heimlich, AED, Tourniquet\n• EpiPen, Rescue Breathing, First Aid\n• FAST Test, Poison Control, Cool Burn, Medical Alert\n\nAnyone can use these direct action phrases to skip initial context assessment and get immediate, specific guidance.\n\nTap for complete emergency guide →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
 
-        <!-- Safety Features Deep Dive -->
+        <!-- Safety Features Deep Dive (SECOND MOST IMPORTANT) -->
         <LinearLayout
             android:id="@+id/safetyFeaturesSection"
             android:layout_width="match_parent"
@@ -131,6 +131,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Silent SOS (Dangerous Situations):\n• Hold power button 3 seconds\n• No visible indication\n• Trusted contacts alerted immediately\n• 911 called automatically\n• Perfect for rideshares, domestic violence\n\nCrash Detection:\n• Automatically detects severe crashes\n• Calls 911 with GPS coordinates\n• Alerts trusted contacts\n• 30-second window to cancel false alarms\n\nTrusted Network:\n• Personal emergency contacts notified\n• Real-time location tracking\n• Contacts arrive 5-10 minutes before EMS\n• Blockchain-secured emergency records\n\nTap for detailed safety features →"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- App Permissions & Setup (THIRD MOST IMPORTANT) -->
+        <LinearLayout
+            android:id="@+id/permissionsSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/clickable_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📱 App Permissions &amp; Setup"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="left"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Offline Mode (Always Available):\n• Voice recognition via Vosk\n• Emergency guidance from local database\n• Safety features operational\n• No internet required\n\nOnline Mode (Enhanced):\n• AI-powered unlimited emergency types\n• Real-time context analysis\n• Cloud-based emergency protocols\n• Enhanced location and contact services\n• Dynamic emergency response adaptation\n\nRequired Permissions:\n• Microphone - Voice recognition\n• Location - Emergency services\n• Contacts - Trusted network\n• Phone - Emergency calls\n• Storage - Offline database\n\nTap for setup instructions →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
@@ -169,9 +201,9 @@
 
         </LinearLayout>
 
-        <!-- App Permissions & Setup -->
+        <!-- Cross-App Challenges -->
         <LinearLayout
-            android:id="@+id/permissionsSection"
+            android:id="@+id/crossAppChallengesSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -184,7 +216,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="📱 App Permissions &amp; Setup"
+                android:text="🔄 Cross-App Challenges"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -194,16 +226,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Required Permissions:\n• Microphone - For voice recognition and emergency activation\n• Location - For GPS coordinates during emergencies\n• Contacts - For trusted network setup\n• Phone - For automatic 911 calling\n\nGetting Started:\n1. Download from Solana Mobile dApp store\n2. Grant essential permissions\n3. Create your Hero profile\n4. Add trusted contacts\n5. Complete initial training\n\nDaily Use:\n• Always listening in background\n• No battery drain\n• Privacy focused\n• Works offline\n\nTap for setup guide →"
+                android:text="Complete challenges across Solana ecosystem apps to earn rewards and build emergency response skills:\n\nAvailable Challenges:\n• CPR ↔ DeFi Challenge (100 BONK + 50 SKR)\n• Emergency ↔ Gaming Challenge (150 BONK + 75 SKR)\n• Safety ↔ Trading Challenge (120 BONK + 60 SKR)\n• Hero ↔ DeFi Challenge (200 BONK + 100 SKR)\n• Community Swap Challenge (300 BONK + 150 SKR)\n\nPurpose: Expand emergency response network across Solana ecosystem\nGoal: More trained responders = more lives saved\n\nTap for detailed challenge information →"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
 
-        <!-- Offline vs Online Mode -->
+        <!-- Technical Deep Dive -->
         <LinearLayout
-            android:id="@+id/hybridModeSection"
+            android:id="@+id/technicalDeepDiveSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -216,7 +248,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🌐 Offline vs Online Mode"
+                android:text="🔧 Technical Deep Dive"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -226,103 +258,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Offline Mode (Always Available):\n• Voice recognition via Vosk\n• Emergency guidance from local database\n• Safety features operational\n• No internet required\n\nOnline Mode (Enhanced):\n• AI-powered unlimited emergency types\n• Real-time context analysis\n• Cloud-based emergency protocols\n• Enhanced voice recognition\n\nHybrid Architecture:\n• Seamless handoff between modes\n• Context preservation\n• Best of both worlds\n• Fallback to offline if network lost\n\nTap for technical details →"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Solana Integration -->
-        <LinearLayout
-            android:id="@+id/solanaIntegrationSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="⚡ Solana Integration"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mobile Wallet Adapter:\n• Seamless Solana Mobile wallet integration\n• Secure token transactions\n• SKR token rewards for emergency preparedness\n• BONK tokens for community safety actions\n\nBlockchain Features:\n• Emergency records stored on Solana\n• Tamper-proof documentation\n• Real-time safety coordination\n• Community safety network\n\nSeeker Device Optimization:\n• Built specifically for Solana Mobile Seeker\n• Hardware acceleration\n• dApp Store ready\n• Default app potential\n\nTap for Solana details →"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Real-World Impact -->
-        <LinearLayout
-            android:id="@+id/impactSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="📊 Real-World Impact"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Response Time Improvement:\n• Voice activation eliminates manual app opening\n• Context-aware guidance provides immediate help\n• Direct action phrases skip irrelevant steps\n• Every second counts in life-threatening situations\n\nCommunity Safety:\n• Trusted contacts can arrive before EMS\n• Real-time location sharing with contacts\n• Community safety network activation\n• Multiple responders can coordinate\n\nTraining Impact:\n• Structured training improves emergency skills\n• Regular practice builds confidence\n• Gamification encourages continuous learning\n• Prepared users are more effective responders\n\nTap for impact statistics →"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Training & Skill Development Section -->
-        <LinearLayout
-            android:id="@+id/trainingSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🎓 TRAINING &amp; SKILL DEVELOPMENT"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Available Training Modules"
+                android:text="Current Offline Database (15 Types)"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -332,423 +268,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="• CPR Training (50 BONK + 25 SKR)\n• First Aid Basics (30 BONK + 15 SKR)\n• Voice Recognition (25 BONK + 10 SKR)\n• App Features (20 BONK + 10 SKR)\n• Emergency Types (40 BONK + 20 SKR)"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Daily Check-ins"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Maintain emergency readiness"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Achievement System"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Motivate continuous learning"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Progress Tracking"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Monitor skill development"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SOS Hero Gamification"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="10 Hero Levels:\n🆕 Novice Hero (0 XP) - 100 BONK + 25 SKR\n📚 Trainee Hero (100 XP) - 200 BONK + 50 SKR\n🚨 Emergency Responder (500 XP) - 500 BONK + 125 SKR\n🛡️ Safety Guardian (1,000 XP) - 1,000 BONK + 250 SKR\n💪 Life Protector (2,500 XP) - 2,500 BONK + 625 SKR\n🏘️ Community Defender (5,000 XP) - 5,000 BONK + 1,250 SKR\n👁️ Safety Sentinel (10,000 XP) - 10,000 BONK + 2,500 SKR\n🏆 Emergency Champion (25,000 XP) - 25,000 BONK + 6,250 SKR\n👼 Guardian Angel (50,000 XP) - 50,000 BONK + 12,500 SKR\n⭐ Life-Saving Legend (100,000 XP) - 100,000 BONK + 25,000 SKR"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Reward Categories"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• App Setup &amp; Configuration Rewards\n• Learning &amp; Training Rewards\n• Feature Usage Rewards\n• Safety Features Rewards\n• Network &amp; Social Rewards\n• Feature Proficiency Rewards"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Achievement System"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Setup Achievements - App setup, permissions, network creation\n• Learning Achievements - CPR, first aid, AED, emergency types\n• Intervention Achievements - First response, successful rescues\n• Network Achievements - Community building, safety ambassador\n• Special Achievements - Offline hero, quick responder, team player"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Medical AI Integration Section -->
-        <LinearLayout
-            android:id="@+id/medicalAiSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🤖 MEDICAL AI INTEGRATION"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Advanced AI-powered symptom analysis and triage capabilities for enhanced emergency response."
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="AI Features"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Symptom Analysis - AI-powered triage\n• Medical Assessment - Confidence scoring\n• Emergency Severity - Intelligent prioritization\n• Offline Processing - Works without internet\n• Training Integration - AI-enhanced learning"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tap for detailed AI capabilities →"
-                android:textSize="12sp"
-                android:textColor="@color/text_muted"
-                android:gravity="center"
-                android:layout_marginTop="8dp" />
-
-        </LinearLayout>
-
-        <!-- Advanced Crash Detection Section -->
-        <LinearLayout
-            android:id="@+id/advancedCrashDetectionSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🚗 ADVANCED CRASH DETECTION"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Multi-sensor analysis for accurate crash detection and automatic emergency response."
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Detection Features"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Multi-Sensor Analysis - Accelerometer, GPS, gyroscope\n• Impact Threshold - Configurable sensitivity\n• Speed Calculation - Real-time velocity monitoring\n• Crash Severity - Intelligent response prioritization\n• Auto-911 Integration - Automatic emergency calling"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tap for detailed crash detection →"
-                android:textSize="12sp"
-                android:textColor="@color/text_muted"
-                android:gravity="center"
-                android:layout_marginTop="8dp" />
-
-        </LinearLayout>
-
-        <!-- Enhanced Gamification Section -->
-        <LinearLayout
-            android:id="@+id/enhancedGamificationSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🏆 ENHANCED GAMIFICATION"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Advanced XP system, achievements, and community features to drive emergency preparedness."
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Gamification Features"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Achievement Levels - Bronze to Diamond\n• XP System - Comprehensive progress tracking\n• Daily Challenges - Engaging activities\n• Leaderboards - Community competition\n• Streak Tracking - Consistency rewards\n• Mentor Status - Community leadership"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tap for detailed gamification →"
-                android:textSize="12sp"
-                android:textColor="@color/text_muted"
-                android:gravity="center"
-                android:layout_marginTop="8dp" />
-
-        </LinearLayout>
-
-        <!-- Cross-App Challenges Section -->
-        <LinearLayout
-            android:id="@+id/challengesSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🔄 CROSS-APP CHALLENGES"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Community Integration Challenges"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• CPR ↔ DeFi Challenge (100 BONK + 50 SKR)\n• Emergency ↔ Gaming Challenge (150 BONK + 75 SKR)\n• Safety ↔ Trading Challenge (120 BONK + 60 SKR)\n• Hero ↔ DeFi Challenge (200 BONK + 100 SKR)\n• Community Swap Challenge (300 BONK + 150 SKR)"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Purpose"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Expand emergency response network across Solana ecosystem"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Goal"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="More trained responders = more lives saved"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Offline Mode Emergency Types -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="📱 Offline Mode Emergency Types"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Current Offline Database (12 Types)"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1. Drowning\n2. Heart Attack\n3. Choking\n4. Bleeding\n5. Stroke\n6. Seizure\n7. Poisoning\n8. Burn\n9. Diabetic\n10. Allergic\n11. Trauma\n12. Unconscious"
+                android:text="1. Drowning\n2. Heart Attack\n3. Choking\n4. Bleeding\n5. Stroke\n6. Seizure\n7. Poisoning\n8. Severe Burns\n9. Diabetic Emergency\n10. Allergic Reaction\n11. Trauma\n12. Unconscious\n13. Suicide Prevention\n14. Overdose Reversal\n15. Hypothermia"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp"
@@ -834,45 +354,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="AI-Powered Unlimited Types"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="When hybrid online/offline mode is active, the app provides unlimited emergency types with enhanced AI-powered guidance. The AI can handle any emergency scenario without database limitations."
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enhanced Features"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Smart 911 operator integration\n• Real-time context analysis\n• Advanced voice recognition\n• Cloud-based emergency protocols\n• Enhanced location and contact services\n• Dynamic emergency response adaptation"
+                android:text="AI-Powered Unlimited Types: When hybrid online/offline mode is active, the app provides unlimited emergency types with enhanced AI-powered guidance. The AI can handle any emergency scenario without database limitations.\n\nEnhanced Features:\n• Smart 911 operator integration\n• Real-time context analysis\n• Advanced voice recognition\n• Cloud-based emergency protocols\n• Enhanced location and contact services\n• Dynamic emergency response adaptation"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
 
-        <!-- Authoritative Sources & Credible Authorities -->
+        <!-- Medical Standards & Compliance -->
         <LinearLayout
-            android:id="@+id/authoritativeSourcesSection"
+            android:id="@+id/medicalStandardsSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -885,7 +376,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="📚 Authoritative Sources &amp; Credible Authorities"
+                android:text="🏥 Medical Standards &amp; Compliance"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -895,17 +386,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Life-Saving Guidance Sources"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• American Heart Association (AHA) - CPR guidelines\n• American Red Cross - Emergency response protocols\n• Centers for Disease Control (CDC) - Medical guidelines\n• World Health Organization (WHO) - International standards\n• National Institutes of Health (NIH) - Medical research\n• Emergency Medical Services (EMS) - Professional protocols"
+                android:text="Emergency Protocols Based On:\n• American Heart Association (AHA) - CPR guidelines\n• American Red Cross - Emergency response protocols\n• Centers for Disease Control (CDC) - Medical guidelines\n• World Health Organization (WHO) - International standards\n• National Institutes of Health (NIH) - Medical research\n• Emergency Medical Services (EMS) - Field protocols\n• National Safety Council (NSC) - Safety standards\n• American College of Emergency Physicians (ACEP) - Emergency medicine\n• International Liaison Committee on Resuscitation (ILCOR) - Global standards\n• National Association of Emergency Medical Technicians (NAEMT) - Prehospital care"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp"
@@ -914,106 +395,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Protocol Verification"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="All emergency response instructions are verified against current medical standards and regularly updated to reflect the latest best practices from these authoritative sources."
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        <!-- Privacy & Security -->
-        <LinearLayout
-            android:id="@+id/privacySecuritySection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/clickable_card_background"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="🔒 Privacy &amp; Security"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Your Privacy Matters"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Voice data processed locally on your device\n• Location shared only during emergencies\n• No personal data stored in the cloud\n• Blockchain logs contain only emergency metadata\n• End-to-end encryption for all communications"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Security Features"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Secure voice recognition\n• Encrypted emergency logs on Solana blockchain\n• Anonymous emergency reporting\n• No tracking or profiling"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Data Protection"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Local-first architecture - All data processed locally\n• Encrypted storage - SQLite database with AES-256 encryption\n• Minimal data collection - Only essential emergency information\n• User control - Complete data ownership and deletion rights"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Compliance &amp; Standards"
+                android:text="Privacy &amp; Security Compliance"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -1026,51 +408,13 @@
                 android:text="• HIPAA compliance - Medical information protection\n• GDPR compliance - European data protection standards\n• COPPA compliance - Children's privacy protection\n• Emergency services standards - 911 integration protocols"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Location Privacy"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• On-device processing - GPS data never leaves device\n• Emergency-only sharing - Location only shared during emergencies\n• User consent - Explicit permission for location services\n• Temporary storage - Location data deleted after emergency"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Blockchain Security"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Immutable records - Emergency data stored on Solana blockchain\n• Tamper-proof verification - Cryptographic proof of emergency responses\n• Decentralized storage - No single point of failure\n• User anonymity - Personal data not stored on blockchain"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
 
         </LinearLayout>
 
-        <!-- Developer Information -->
+        <!-- Development Status -->
         <LinearLayout
-            android:id="@+id/developerInfoSection"
+            android:id="@+id/developmentStatusSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -1083,7 +427,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="👨‍💻 Developer Information"
+                android:text="🚀 Development Status"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -1093,55 +437,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Open Source Project"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• GitHub: https://github.com/paragoner1/crisis-companion\n• License: Apache 2.0\n• Contributions Welcome"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contact"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Email: paragoner.dev@gmail.com\n• X: @paragoner1\n• GitHub: @paragoner1"
-                android:textSize="14sp"
-                android:textColor="@color/text_primary"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Development"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/soft_green"
-                android:gravity="left"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="• Built for Solana ecosystem\n• Expandable to other platforms\n• Community-driven development"
+                android:text="Working prototype ready for Solana Mobile deployment\n\n• Core tech: voice &amp; response\n• 15 emergency types: offline coverage\n• Features: silent SOS, crash, gamification\n• Solana: verification &amp; rewards\n• Multi-device sync: bluetooth"
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
