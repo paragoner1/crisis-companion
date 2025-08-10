@@ -842,9 +842,9 @@ class MainActivity : AppCompatActivity() {
                                 .count { it }
         val inactiveCount = 10 - activeCount
         
-        // Update legend text (we'll need to add these TextViews to the layout)
-        // For now, we'll just update the status in the log
-        Log.d(TAG, "Active features: $activeCount, Inactive features: $inactiveCount")
+        // Update legend text
+        binding.tvActiveCount.text = "Active ($activeCount)"
+        binding.tvInactiveCount.text = "Inactive ($inactiveCount)"
     }
     
     private fun updateSafetyFeatureStatus(textView: android.widget.TextView, isEnabled: Boolean, featureName: String) {

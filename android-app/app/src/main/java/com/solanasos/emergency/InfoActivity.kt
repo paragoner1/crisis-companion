@@ -109,7 +109,7 @@ class InfoActivity : AppCompatActivity() {
         val scrollView = android.widget.ScrollView(this).apply {
             layoutParams = android.view.ViewGroup.LayoutParams(
                 android.view.ViewGroup.LayoutParams.MATCH_PARENT,
-                500
+                600
             )
         }
 
@@ -152,6 +152,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showEmergencyTypesDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 COMPLETE EMERGENCY GUIDE:
@@ -268,9 +275,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("🚨 Complete Emergency Guide")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -279,6 +288,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showSafetyFeaturesDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 COMPREHENSIVE SAFETY FEATURES:
@@ -335,9 +351,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("🛡️ Safety Features Deep Dive")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -346,6 +364,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showPermissionsDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 APP PERMISSIONS & SETUP GUIDE:
@@ -420,9 +445,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("📱 App Permissions & Setup")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -431,6 +458,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showGamificationDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 SOS HERO GAMIFICATION SYSTEM:
@@ -528,9 +562,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("🎮 SOS Hero Gamification")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -539,6 +575,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showTechnicalDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 TECHNICAL ARCHITECTURE:
@@ -621,9 +664,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("🔧 Technical Deep Dive")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -632,6 +677,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showMedicalStandardsDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 MEDICAL STANDARDS & COMPLIANCE:
@@ -731,9 +783,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("🏥 Medical Standards & Compliance")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }
@@ -742,6 +796,13 @@ class InfoActivity : AppCompatActivity() {
     }
     
     private fun showDevelopmentDetails() {
+        val scrollView = android.widget.ScrollView(this).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                600
+            )
+        }
+
         val messageView = TextView(this).apply {
             text = """
                 DEVELOPMENT STATUS:
@@ -789,9 +850,11 @@ class InfoActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@InfoActivity, android.R.color.black))
         }
 
+        scrollView.addView(messageView)
+
         AlertDialog.Builder(this)
             .setTitle("🚀 Development Status")
-            .setView(messageView)
+            .setView(scrollView)
             .setPositiveButton("Got It") { dialog, _ ->
                 dialog.dismiss()
             }

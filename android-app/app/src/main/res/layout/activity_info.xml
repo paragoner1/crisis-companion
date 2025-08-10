@@ -344,7 +344,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🌐 Online Mode Enhanced Guidance"
+                android:text="🌐 Enhanced Mode (Coming Soon)"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/soft_green"
@@ -354,7 +354,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="AI-Powered Unlimited Types: When hybrid online/offline mode is active, the app provides unlimited emergency types with enhanced AI-powered guidance. The AI can handle any emergency scenario without database limitations.\n\nEnhanced Features:\n• Smart 911 operator integration\n• Real-time context analysis\n• Advanced voice recognition\n• Cloud-based emergency protocols\n• Enhanced location and contact services\n• Dynamic emergency response adaptation"
+                android:text="Currently in development, Enhanced Mode will provide:\n\n• AI-powered unlimited emergency types\n• Real-time medical consultation\n• Smart 911 operator integration\n• Advanced voice recognition\n• Cloud-based emergency protocols\n• Dynamic emergency response adaptation\n\nNote: The app's core offline functionality provides comprehensive emergency coverage for 15 critical life-threatening situations, ensuring you're always protected even without internet connectivity."
                 android:textSize="14sp"
                 android:textColor="@color/text_primary"
                 android:lineSpacingExtra="4dp" />
