@@ -631,23 +631,6 @@ $ cargo run --bin complete_walkthrough
 - 🔄 **Advanced voice recognition** - Enhanced accuracy and noise filtering
 - 🔄 **Cloud-based emergency protocols** - Real-time updates and community features
 
-## �� **Business Model**
-
-### **Revenue Streams**
-- **Default app** on Solana Mobile Seeker devices
-- **Family subscriptions** for comprehensive protection
-- **Enterprise solutions** for workplace safety
-- **Government contracts** for emergency services
-
-### **Market Opportunity**
-- **Safety apps market**: $1.5B → $5.2B by 2033
-- **76% of parents** prioritize safety when buying phones
-- **7.3B+ smartphone users** in 2025
-- **Solana Mobile ecosystem** - 40% Seeker sales uplift potential
-
-## 🎯 **Call to Action**
-
-**Ready to become a life-saving hero?** 
 
 Solana SOS is the only emergency response app that:
 - ✅ **Works offline** - No internet required
