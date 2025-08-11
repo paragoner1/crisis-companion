@@ -214,71 +214,18 @@ A few years ago, my world stopped when I found my four-year-old son underwater. 
 
 *Anyone can use these direct action phrases to skip initial steps and get immediate, specific guidance.*
 
+### **Reward Categories**
 ## 🛡️ **Safety Features**
 
-### **Multi-Activation Methods - What Happens When You Activate**
-
-**🎤 Voice Activation** - "Hey SOS, [emergency] help!"
-- **Immediately**: App starts voice recording and emergency protocols
-- **Within 3 seconds**: Auto-dials 911 with your exact location
-- **Simultaneously**: Sends location to all trusted contacts
-- **Keeps dispatcher on standby** until you are ready to connect
-- **Provides step-by-step guidance** for the emergency
-
-**🔇 Silent SOS** - Discreet activation for dangerous situations
-- **Hold button 3 seconds**: Silent activation without voice
-- **Immediately**: Sends emergency alert to trusted contacts with location
-- **Auto-dials 911** with pre-recorded message and location
-- **Completely silent operation** - no visual cues or obvious indicators
-- **Discreet emergency response** - appears as normal phone usage
-- **Completely silent operation** - no visual cues or obvious indicators
-- **Discreet emergency response** - appears as normal phone usage
-
-**🚗 Crash Detection** - Automatic activation for vehicle accidents
-- **Detects impact**: Automatically triggers emergency response
-- **Immediately**: Auto-dials 911 with crash location and context
-- **Simultaneously**: Alerts all trusted contacts with GPS coordinates
-- **Provides crash-specific guidance**: First aid, extraction, safety protocols
-- **Maintains connection** until help arrives
-
-**👥 Trusted Network** - Personal emergency contacts
-- **Instant notification**: All contacts receive emergency alert with location
-- **Real-time updates**: Continuous location tracking during emergency
-- **Two-way communication**: Contacts can respond and coordinate
-- **Community response**: Friends/family can arrive before EMS (5-10 min advantage)
-
-**🔘 Manual Activation** - Emergency button interface
-- **One-touch activation**: Immediate emergency response
-- **Auto-dials 911** with location and emergency type
-- **Alerts trusted network** with real-time location sharing
-- **Provides emergency-specific guidance** based on selected type
-- **Maintains emergency connection** until resolved
-
-### **What the App Does During Every Emergency**
-- **📍 Location Sharing**: GPS coordinates sent to 911 and trusted contacts (works offline)
-- **📞 911 Integration**: Auto-dials emergency services with context and location (works offline)
-- **👥 Trusted Network**: Instant alert to all emergency contacts with real-time location
-- **🎯 Emergency Guidance**: Step-by-step protocols for the specific emergency
-- **🔒 Connection Maintenance**: Keeps emergency services on standby until ready to connect
-- **📱 Continuous Updates**: Real-time location tracking and status updates
-
-## 🏆 **SOS Hero Gamification**
-
-### **10 Hero Levels**
-| Level | XP Required | Rewards | Achievements |
-|-------|-------------|---------|--------------|
-| 🆕 **Novice Hero** | 0 XP | 100 BONK + 25 SKR | First Response |
-| 📚 **Trainee Hero** | 100 XP | 200 BONK + 50 SKR | Learning Module |
-| 🚨 **Emergency Responder** | 500 XP | 500 BONK + 125 SKR | First Intervention |
-| 🛡️ **Safety Guardian** | 1,000 XP | 1,000 BONK + 250 SKR | Network Builder |
-| 💪 **Life Protector** | 2,500 XP | 2,500 BONK + 625 SKR | Safety Sentinel |
-| 🏘️ **Community Defender** | 5,000 XP | 5,000 BONK + 1,250 SKR | Community Hero |
-| 👁️ **Safety Sentinel** | 10,000 XP | 10,000 BONK + 2,500 SKR | Feature Master |
-| 🏆 **Emergency Champion** | 25,000 XP | 25,000 BONK + 6,250 SKR | Emergency Expert |
-| 👼 **Guardian Angel** | 50,000 XP | 50,000 BONK + 12,500 SKR | Life Saver |
-| ⭐ **Life-Saving Legend** | 100,000 XP | 100,000 BONK + 25,000 SKR | Ultimate Hero |
-
-### **Reward Categories**
+### **Additional Safety Capabilities**
+- **🔒 Privacy Protection** - Your data stays secure with blockchain verification
+- **🔄 Offline Reliability** - Core features work without internet connection
+- **⚡ Battery Optimization** - Minimal impact on device battery life
+- **🛡️ False Positive Prevention** - 30-second cancellation window for crash detection
+- **🔐 Granular Permissions** - Control exactly who gets what information
+- **📱 Cross-Platform Compatibility** - Works on all Android devices
+- **🔄 Automatic Updates** - Emergency protocols stay current
+- **🛡️ Medical Accuracy** - All protocols verified by authoritative sources
 
 #### **App Setup & Configuration Rewards**
 - **Initial Setup** - 50 XP + 100 BONK + 25 SKR
