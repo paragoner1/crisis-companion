@@ -123,18 +123,12 @@ pub use config::VoiceConfig;
 pub use public::audio_interface::{AudioProcessor, AudioConfig, AudioStats};
 pub use public::emergency_interface::{EmergencySystem, EmergencyConfig, EmergencyStats};
 
-pub mod emergency_database;
-pub mod context_analysis;
-pub mod emergency_calling;
-pub mod medical_ai;
-pub mod crash_detection;
-pub mod training_interface;
-pub mod training_ai_interface;
-// pub mod vosk_wrapper;  // Removed - using real Vosk now
+// Note: Implementation modules moved to src/private/ for IP protection
+// These are now accessed through the public interfaces above
 
-use emergency_database::EmergencyDatabase;
-use context_analysis::{ContextAnalyzer, EmergencyContext};
-use emergency_calling::{EmergencyCaller, EmergencyContact, EmergencyCallError};
+use crate::private::emergency_database::EmergencyDatabase;
+use crate::private::context_analysis::{ContextAnalyzer, EmergencyContext};
+use crate::private::emergency_calling::{EmergencyCaller, EmergencyContact, EmergencyCallError};
 use std::collections::HashMap;
 
 pub struct SolanaSOS {
