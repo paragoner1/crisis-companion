@@ -161,4 +161,4 @@ pub enum AuthorityType {
 3. **Add proper medical disclaimers** and legal protection
 4. **Implement regular update system** for protocol maintenance
 
-**This foundation will make your app truly credible and legally protected!** 🏥 
+**This foundation makes the app truly credible and legally protected!** 🏥 

@@ -175,7 +175,7 @@ suspend fun connectWallet(): Boolean {
 
 ## **🎯 Current Demo Status:**
 
-**Your app is currently in ENHANCED demo mode with:**
+**The app is currently in ENHANCED demo mode with:**
 - ✅ **Enhanced Vosk Simulation** - Improved pattern recognition with Vosk context
 - ✅ **Enhanced MWA Simulation** - Realistic wallet connection with production structure
 - ✅ **Working Emergency Response** - All 15 protocols functional
@@ -205,7 +205,7 @@ suspend fun connectWallet(): Boolean {
 
 ## **🎯 Summary:**
 
-**You've successfully enhanced your app from basic demo mode to production-ready framework!**
+**The app has been enhanced from basic demo mode to production-ready framework!**
 
 **Current Status: Enhanced Demo Mode**
 - ✅ **Framework Complete** - All production structures in place
@@ -222,4 +222,4 @@ suspend fun connectWallet(): Boolean {
 5. Add emergency override
 6. Deploy to production
 
-**Your app is now in enhanced demo mode with production-ready framework!** 🚀 
+**The app is now in enhanced demo mode with production-ready framework!** 🚀 
