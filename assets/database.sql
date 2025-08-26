@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS emergency_types (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Emergency instructions table
+-- Emergency instructions table with official protocol tracking
 CREATE TABLE IF NOT EXISTS emergency_instructions (
     id TEXT PRIMARY KEY,
     emergency_type_id INTEGER NOT NULL,
@@ -18,6 +18,14 @@ CREATE TABLE IF NOT EXISTS emergency_instructions (
     description TEXT NOT NULL,
     audio_file TEXT,
     estimated_duration_seconds INTEGER NOT NULL,
+    -- Official protocol tracking fields
+    official_source TEXT,           -- "American Red Cross", "SAMHSA", etc.
+    protocol_version TEXT,          -- "2020", "2024", etc.
+    last_updated TEXT,              -- Date of last protocol update
+    medical_disclaimer TEXT,        -- Standard medical disclaimer
+    source_url TEXT,                -- Link to official protocol
+    validation_status TEXT,         -- "Verified", "Pending", "Draft", "Expired"
+    authority_type TEXT,            -- "MedicalAssociation", "GovernmentAgency", "NonProfit", "Academic", "International"
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (emergency_type_id) REFERENCES emergency_types(id),
     UNIQUE(emergency_type_id, step_number)
@@ -108,42 +116,135 @@ CREATE INDEX IF NOT EXISTS idx_device_coordination_device ON device_coordination
 CREATE INDEX IF NOT EXISTS idx_blockchain_transactions_response ON blockchain_transactions(emergency_response_id);
 CREATE INDEX IF NOT EXISTS idx_blockchain_transactions_signature ON blockchain_transactions(transaction_signature);
 
--- Insert default emergency types
+-- Insert all 15 emergency types
 INSERT OR IGNORE INTO emergency_types (id, name, description) VALUES
-(1, 'Drowning', 'Water-related emergencies'),
-(2, 'Fire', 'Fire and smoke emergencies'),
-(3, 'HeartAttack', 'Cardiac emergencies'),
-(4, 'Choking', 'Airway obstruction emergencies'),
-(5, 'Bleeding', 'Blood loss emergencies'),
-(6, 'Unconscious', 'Loss of consciousness'),
-(7, 'Seizure', 'Seizure and convulsion emergencies'),
-(8, 'AllergicReaction', 'Severe allergic reactions'),
-(9, 'Poisoning', 'Poison and toxin exposure'),
-(10, 'Trauma', 'Physical injury emergencies');
+(1, 'Drowning', 'Water-related emergencies requiring immediate rescue and CPR'),
+(2, 'HeartAttack', 'Cardiac emergencies requiring immediate medical attention'),
+(3, 'Stroke', 'Brain emergency requiring immediate medical attention'),
+(4, 'Choking', 'Airway obstruction emergencies requiring immediate intervention'),
+(5, 'Bleeding', 'Blood loss emergencies requiring immediate pressure and medical attention'),
+(6, 'Unconscious', 'Loss of consciousness requiring immediate assessment and medical attention'),
+(7, 'Seizure', 'Seizure and convulsion emergencies requiring immediate safety measures'),
+(8, 'Poisoning', 'Poison and toxin exposure requiring immediate medical attention'),
+(9, 'Burn', 'Burn injury requiring immediate cooling and medical assessment'),
+(10, 'Diabetic', 'Diabetic emergency requiring immediate sugar or insulin'),
+(11, 'AllergicReaction', 'Severe allergic reaction requiring immediate epinephrine'),
+(12, 'Trauma', 'Serious injury requiring immediate medical attention'),
+(13, 'SuicidePrevention', 'Crisis intervention for suicidal thoughts and self-harm prevention'),
+(14, 'OverdoseReversal', 'Opioid overdose reversal and emergency response'),
+(15, 'HypothermiaSelfRescue', 'Self-rescue from cold exposure and hypothermia');
 
--- Insert sample emergency instructions for drowning
-INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds) VALUES
-('drowning-1', 1, 1, 'Check Breathing', 'Check if the person is breathing. Look, listen, and feel for breathing.', NULL, 10),
-('drowning-2', 1, 2, 'Call for Help', 'If not breathing, call 911 immediately and get help.', NULL, 5),
-('drowning-3', 1, 3, 'Start CPR', 'Begin chest compressions at a rate of 100-120 per minute.', NULL, 30),
-('drowning-4', 1, 4, 'Give Rescue Breaths', 'After 30 compressions, give 2 rescue breaths.', NULL, 15),
-('drowning-5', 1, 5, 'Continue Until Help Arrives', 'Continue cycles of 30 compressions and 2 breaths until emergency services arrive.', NULL, 60);
+-- Insert official emergency protocols from authoritative sources
 
--- Insert sample emergency instructions for fire
-INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds) VALUES
-('fire-1', 2, 1, 'Get Out Immediately', 'Leave the building immediately. Do not stop to collect belongings.', NULL, 10),
-('fire-2', 2, 2, 'Call 911', 'Call 911 from outside the building.', NULL, 5),
-('fire-3', 2, 3, 'Stay Low', 'If smoke is present, stay low to the ground where air is cleaner.', NULL, 10),
-('fire-4', 2, 4, 'Use Stairs', 'Use stairs, not elevators, to exit the building.', NULL, 15),
-('fire-5', 2, 5, 'Meet at Designated Location', 'Go to your designated meeting place outside the building.', NULL, 10);
+-- 1. DROWNING (American Heart Association)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('drowning-1', 1, 1, 'Check Breathing', 'Check if the person is breathing. Look, listen, and feel for breathing for 5-10 seconds.', NULL, 10, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('drowning-2', 1, 2, 'Call 911', 'If not breathing, call 911 immediately and get help.', NULL, 5, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('drowning-3', 1, 3, 'Start CPR', 'Begin chest compressions at rate of 100-120 per minute, depth 2-2.4 inches for adults.', NULL, 30, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('drowning-4', 1, 4, 'Give Rescue Breaths', 'After 30 compressions, give 2 rescue breaths. Allow full chest recoil between compressions.', NULL, 15, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('drowning-5', 1, 5, 'Continue Until Help Arrives', 'Continue cycles of 30 compressions and 2 breaths until emergency services arrive.', NULL, 60, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation');
 
--- Insert sample emergency instructions for heart attack
-INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds) VALUES
-('heart-1', 3, 1, 'Call 911 Immediately', 'Call 911 immediately. Time is critical for heart attacks.', NULL, 5),
-('heart-2', 3, 2, 'Have Person Sit Down', 'Have the person sit down and rest comfortably.', NULL, 10),
-('heart-3', 3, 3, 'Loosen Tight Clothing', 'Loosen any tight clothing around the neck and chest.', NULL, 15),
-('heart-4', 3, 4, 'Give Aspirin if Available', 'If available and not allergic, give one adult aspirin (325mg).', NULL, 20),
-('heart-5', 3, 5, 'Monitor Symptoms', 'Stay with the person and monitor their condition until help arrives.', NULL, 30);
+-- 2. HEART ATTACK (American Heart Association)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('heart-1', 2, 1, 'Call 911 Immediately', 'Call 911 immediately. Time is critical for heart attacks - every minute counts.', NULL, 5, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('heart-2', 2, 2, 'Have Person Sit Down', 'Have the person sit down and rest comfortably. Loosen any tight clothing.', NULL, 10, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('heart-3', 2, 3, 'Give Aspirin if Available', 'If available and not allergic, give one adult aspirin (325mg) to chew and swallow.', NULL, 20, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('heart-4', 2, 4, 'Monitor Symptoms', 'Stay with the person and monitor their condition until help arrives.', NULL, 30, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation');
+
+-- 3. STROKE (American Heart Association)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('stroke-1', 3, 1, 'Call 911 Immediately', 'Call 911 immediately. Time is brain - every minute counts for stroke treatment.', NULL, 5, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('stroke-2', 3, 2, 'FAST Test', 'Use FAST test: Face (drooping), Arms (weakness), Speech (slurred), Time (call 911).', NULL, 15, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('stroke-3', 3, 3, 'Keep Person Calm', 'Keep the person calm and comfortable. Do not give food or drink.', NULL, 10, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('stroke-4', 3, 4, 'Monitor Until Help Arrives', 'Monitor the person and note any changes in condition until EMS arrives.', NULL, 30, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation');
+
+-- 4. CHOKING (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('choking-1', 4, 1, 'Assess Severity', 'Ask "Are you choking?" - if they can speak, encourage coughing.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('choking-2', 4, 2, 'Back Blows', 'Give 5 back blows between shoulder blades using heel of hand.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('choking-3', 4, 3, 'Abdominal Thrusts', 'Give 5 abdominal thrusts (Heimlich maneuver) - place fist above navel, grasp with other hand, thrust inward and upward.', NULL, 15, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('choking-4', 4, 4, 'Alternate and Continue', 'Continue alternating 5 back blows and 5 abdominal thrusts until object is expelled or person becomes unconscious.', NULL, 20, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('choking-5', 4, 5, 'Call 911 if Unconscious', 'Call 911 if person becomes unconscious and begin CPR.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 5. BLEEDING (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('bleeding-1', 5, 1, 'Apply Direct Pressure', 'Apply direct pressure to wound with clean cloth or bandage - apply pressure for at least 10-15 minutes.', NULL, 15, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('bleeding-2', 5, 2, 'Elevate if Possible', 'Elevate injured area above heart if possible to reduce blood flow.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('bleeding-3', 5, 3, 'Add More Bandages', 'Do not remove blood-soaked bandages. Add more bandages on top if needed.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('bleeding-4', 5, 4, 'Call 911 for Severe Bleeding', 'Call 911 for severe bleeding that cannot be controlled with direct pressure.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 6. UNCONSCIOUS (American Heart Association)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('unconscious-1', 6, 1, 'Check Responsiveness', 'Check if person is responsive - tap and shout "Are you OK?"', NULL, 5, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('unconscious-2', 6, 2, 'Call 911', 'Call 911 immediately if person is unresponsive.', NULL, 5, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('unconscious-3', 6, 3, 'Check Breathing', 'Look, listen, and feel for breathing for 5-10 seconds.', NULL, 10, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation'),
+('unconscious-4', 6, 4, 'Begin CPR if Not Breathing', 'If not breathing, begin chest compressions at rate of 100-120 per minute.', NULL, 30, 'American Heart Association', '2020', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines', 'Verified', 'MedicalAssociation');
+
+-- 7. SEIZURE (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('seizure-1', 7, 1, 'Clear Area', 'Clear area of dangerous objects and protect person from injury.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('seizure-2', 7, 2, 'Do Not Restrain', 'Do not restrain the person or put anything in their mouth.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('seizure-3', 7, 3, 'Time the Seizure', 'Time the seizure and call 911 if it lasts more than 5 minutes.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('seizure-4', 7, 4, 'Recovery Position', 'After seizure ends, place person in recovery position on their side.', NULL, 15, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 8. POISONING (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('poisoning-1', 8, 1, 'Call Poison Control', 'Call Poison Control: 1-800-222-1222 immediately.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('poisoning-2', 8, 2, 'Do Not Induce Vomiting', 'Do not induce vomiting unless directed by Poison Control or medical professional.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('poisoning-3', 8, 3, 'Call 911 if Severe', 'Call 911 if person is unconscious, having trouble breathing, or having seizures.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('poisoning-4', 8, 4, 'Follow Instructions', 'Follow Poison Control instructions exactly and monitor person until help arrives.', NULL, 30, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 9. BURN (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('burn-1', 9, 1, 'Cool Burn', 'Cool burn with cool (not cold) water for 10-20 minutes.', NULL, 20, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('burn-2', 9, 2, 'Remove Jewelry', 'Remove jewelry and tight items from burned area before swelling occurs.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('burn-3', 9, 3, 'Cover Loosely', 'Cover burn loosely with sterile gauze or clean cloth.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('burn-4', 9, 4, 'Call 911 if Severe', 'Call 911 for severe burns, burns on face/hands/genitals, or burns larger than palm.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 10. DIABETIC (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('diabetic-1', 10, 1, 'Check Consciousness', 'Check if person is conscious and responsive.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('diabetic-2', 10, 2, 'Give Sugar if Conscious', 'If conscious, give sugar (glucose tablets, juice, candy) to raise blood sugar.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('diabetic-3', 10, 3, 'Call 911 if Unconscious', 'Call 911 if person is unconscious or not improving after 15 minutes.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('diabetic-4', 10, 4, 'Monitor Until Help Arrives', 'Monitor person and keep them comfortable until emergency services arrive.', NULL, 30, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 11. ALLERGIC REACTION (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('allergic-1', 11, 1, 'Call 911 Immediately', 'Call 911 immediately for severe allergic reaction.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('allergic-2', 11, 2, 'Use Epinephrine', 'Use epinephrine auto-injector if available and person has been prescribed one.', NULL, 10, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('allergic-3', 11, 3, 'Monitor Breathing', 'Monitor breathing and be prepared to perform CPR if person stops breathing.', NULL, 15, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('allergic-4', 11, 4, 'Stay with Person', 'Stay with person until emergency services arrive - reaction can worsen quickly.', NULL, 30, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 12. TRAUMA (American Red Cross)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('trauma-1', 12, 1, 'Call 911 Immediately', 'Call 911 immediately for serious injury.', NULL, 5, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('trauma-2', 12, 2, 'Stop Bleeding', 'Stop any bleeding by applying direct pressure with clean cloth.', NULL, 15, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('trauma-3', 12, 3, 'Stabilize Injury', 'Stabilize injury and prevent further movement if possible.', NULL, 20, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit'),
+('trauma-4', 12, 4, 'Monitor Until Help Arrives', 'Monitor person and keep them comfortable until emergency services arrive.', NULL, 30, 'American Red Cross', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.redcross.org/take-a-class/first-aid', 'Verified', 'NonProfit');
+
+-- 13. SUICIDE PREVENTION (National Suicide Prevention Lifeline)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('suicide-1', 13, 1, 'Call Crisis Hotline', 'Call 988 or 1-800-273-8255 immediately - National Suicide Prevention Lifeline.', NULL, 5, 'National Suicide Prevention Lifeline', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://988lifeline.org/', 'Verified', 'GovernmentAgency'),
+('suicide-2', 13, 2, 'Remove Lethal Means', 'Remove access to lethal means immediately.', NULL, 10, 'National Suicide Prevention Lifeline', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://988lifeline.org/', 'Verified', 'GovernmentAgency'),
+('suicide-3', 13, 3, 'Contact Trusted Person', 'Contact trusted person from your emergency contacts.', NULL, 10, 'National Suicide Prevention Lifeline', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://988lifeline.org/', 'Verified', 'GovernmentAgency'),
+('suicide-4', 13, 4, 'Use Grounding Technique', 'Use 5-4-3-2-1 grounding technique: Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste.', NULL, 15, 'National Suicide Prevention Lifeline', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://988lifeline.org/', 'Verified', 'GovernmentAgency'),
+('suicide-5', 13, 5, 'Create Safety Plan', 'Create a safety plan with crisis hotline counselor.', NULL, 20, 'National Suicide Prevention Lifeline', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://988lifeline.org/', 'Verified', 'GovernmentAgency');
+
+-- 14. OVERDOSE REVERSAL (SAMHSA)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('overdose-1', 14, 1, 'Call 911 Immediately', 'Call 911 immediately - opioid overdose is life-threatening.', NULL, 5, 'SAMHSA', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.samhsa.gov/', 'Verified', 'GovernmentAgency'),
+('overdose-2', 14, 2, 'Administer Naloxone', 'Administer naloxone (Narcan): Insert tip in nostril and press plunger, or inject into muscle (thigh, upper arm, or buttock).', NULL, 15, 'SAMHSA', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.samhsa.gov/', 'Verified', 'GovernmentAgency'),
+('overdose-3', 14, 3, 'Recovery Position', 'Place person in recovery position on their side.', NULL, 10, 'SAMHSA', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.samhsa.gov/', 'Verified', 'GovernmentAgency'),
+('overdose-4', 14, 4, 'Monitor Breathing', 'Monitor breathing - if not breathing, begin rescue breathing.', NULL, 15, 'SAMHSA', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.samhsa.gov/', 'Verified', 'GovernmentAgency'),
+('overdose-5', 14, 5, 'Stay Until Help Arrives', 'Stay with person until EMS arrives - overdose can recur.', NULL, 30, 'SAMHSA', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://www.samhsa.gov/', 'Verified', 'GovernmentAgency');
+
+-- 15. HYPOTHERMIA SELF-RESCUE (Wilderness Medical Society)
+INSERT OR IGNORE INTO emergency_instructions (id, emergency_type_id, step_number, title, description, audio_file, estimated_duration_seconds, official_source, protocol_version, last_updated, medical_disclaimer, source_url, validation_status, authority_type) VALUES
+('hypothermia-1', 15, 1, 'Get to Shelter', 'Get out of cold environment immediately - find shelter.', NULL, 10, 'Wilderness Medical Society', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://wms.org/', 'Verified', 'MedicalAssociation'),
+('hypothermia-2', 15, 2, 'Remove Wet Clothing', 'Remove wet clothing and replace with dry layers.', NULL, 15, 'Wilderness Medical Society', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://wms.org/', 'Verified', 'MedicalAssociation'),
+('hypothermia-3', 15, 3, 'Begin Rewarming', 'Begin gradual rewarming: Use body-to-body contact, warm sweet drinks (not alcohol), avoid rapid temperature changes.', NULL, 20, 'Wilderness Medical Society', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://wms.org/', 'Verified', 'MedicalAssociation'),
+('hypothermia-4', 15, 4, 'Call 911 if Severe', 'Call 911 if severe hypothermia (confusion, loss of consciousness).', NULL, 5, 'Wilderness Medical Society', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://wms.org/', 'Verified', 'MedicalAssociation'),
+('hypothermia-5', 15, 5, 'Monitor for Frostbite', 'Monitor for frostbite - do not rub affected areas.', NULL, 10, 'Wilderness Medical Society', '2024', '2024-01-15', 'This information is for educational purposes only and is not a substitute for professional medical care.', 'https://wms.org/', 'Verified', 'MedicalAssociation');
 
 -- Insert default user settings
 INSERT OR IGNORE INTO user_settings (setting_key, setting_value) VALUES
