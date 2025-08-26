@@ -85,16 +85,8 @@ name = "solana-sos"
 path = "src/main.rs"
 
 [[bin]]
-name = "demo_test"
-path = "src/bin/demo_test.rs"
-
-[[bin]]
-name = "gamification_demo"
-path = "src/bin/gamification_demo.rs"
-
-[[bin]]
-name = "complete_walkthrough"
-path = "src/bin/complete_walkthrough.rs"
+name = "judge_demo"
+path = "src/bin/judge_demo.rs"
 
 
 
