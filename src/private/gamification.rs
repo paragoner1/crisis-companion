@@ -480,18 +480,33 @@ impl GamificationSystem {
     }
     
     fn check_achievements(&mut self) -> Result<(), String> {
-        for achievement in self.achievements.values_mut() {
+        let mut achievements_to_award = Vec::new();
+        
+        for achievement in self.achievements.values() {
             if achievement.earned_at.is_some() {
                 continue; // Already earned
             }
             
             if self.has_met_requirements(achievement) {
-                achievement.earned_at = Some(Utc::now());
-                self.user_profile.achievements_earned.push(achievement.id.clone());
-                
-                // Award XP for achievement
-                self.award_xp("achievement", achievement.xp_reward)?;
+                achievements_to_award.push(achievement.id.clone());
             }
+        }
+        
+        // Now award the achievements
+        for achievement_id in achievements_to_award {
+            let xp_reward = if let Some(achievement) = self.achievements.get(&achievement_id) {
+                achievement.xp_reward
+            } else {
+                continue;
+            };
+            
+            if let Some(achievement) = self.achievements.get_mut(&achievement_id) {
+                achievement.earned_at = Some(Utc::now());
+                self.user_profile.achievements_earned.push(achievement_id.clone());
+            }
+            
+            // Award XP for achievement
+            self.award_xp("achievement", xp_reward)?;
         }
         
         Ok(())

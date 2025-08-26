@@ -139,7 +139,7 @@ impl EmergencyCaller {
     }
     
     /// Notify emergency contacts
-    async fn notify_emergency_contacts(&self, emergency_type: &str, location: &Location, context_flags: &[String]) -> Result<(), String> {
+    async fn notify_emergency_contacts(&mut self, emergency_type: &str, location: &Location, context_flags: &[String]) -> Result<(), String> {
         for contact in &self.contacts {
             if contact.notification_enabled {
                 let message = format!(

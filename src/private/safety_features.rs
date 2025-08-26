@@ -147,7 +147,7 @@ impl SafetyFeatures {
         let activation = SilentSOSActivation {
             activated_at: Utc::now(),
             activation_method: method,
-            location,
+            location: location.clone(),
             contacts_notified: Vec::new(),
             status: SilentSOSStatus::Activated,
         };
@@ -182,8 +182,8 @@ impl SafetyFeatures {
             
             let crash_detection = CrashDetection {
                 detected_at: Utc::now(),
-                crash_severity: severity,
-                location,
+                crash_severity: severity.clone(),
+                location: location.clone(),
                 sensor_data,
                 auto_911_called: false,
                 cancellation_window_expires: Utc::now() + chrono::Duration::seconds(30),
