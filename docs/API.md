@@ -1,294 +1,272 @@
-# 📚 Solana SOS API Documentation
+# API Documentation
 
 ## Overview
 
-This document provides comprehensive API documentation for Solana SOS, covering all public interfaces and their usage.
+This document provides comprehensive API documentation for the Solana SOS emergency response system. The API is designed for reliability, performance, and safety in emergency situations.
 
-## Core Interfaces
+## Core Components
 
-### Voice Interface
+### Voice Interface (`src/public/voice_interface.rs`)
 
-The voice interface handles emergency phrase detection and voice recognition.
+The voice interface handles all voice recognition and audio processing functionality.
 
-#### VoiceTrigger
+#### Key Functions
 
 ```rust
-pub struct VoiceTrigger {
-    pub is_active: bool,
-    pub confidence_threshold: f32,
-    pub current_confidence: f32,
-}
+/// Processes emergency voice input and returns guidance
+/// 
+/// # Arguments
+/// * `input` - Raw audio input from microphone
+/// * `emergency_type` - Type of emergency detected
+/// 
+/// # Returns
+/// * `Result<Guidance, Error>` - Emergency guidance or error
+pub fn process_emergency_input(
+    input: &[u8], 
+    emergency_type: EmergencyType
+) -> Result<Guidance, EmergencyError>
+
+/// Activates voice recognition for emergency detection
+/// 
+/// # Returns
+/// * `Result<(), VoiceError>` - Success or error
+pub fn activate_voice_recognition() -> Result<(), VoiceError>
+
+/// Processes voice input for emergency phrase detection
+/// 
+/// # Arguments
+/// * `audio_data` - Raw audio data from microphone
+/// 
+/// # Returns
+/// * `Result<EmergencyType, VoiceError>` - Detected emergency type or error
+pub fn detect_emergency_phrase(audio_data: &[u8]) -> Result<EmergencyType, VoiceError>
 ```
 
-**Methods:**
-
-- `new() -> Self` - Creates a new voice trigger instance
-- `detect_emergency_phrase(&mut self, phrase: &str) -> AppResult<bool>` - Detects emergency phrases
-- `activate(&mut self) -> AppResult<()>` - Activates voice trigger
-- `deactivate(&mut self) -> AppResult<()>` - Deactivates voice trigger
-- `set_confidence_threshold(&mut self, threshold: f32)` - Sets confidence threshold
-- `generate_audio_hash(phrase: &str) -> String` - Generates audio hash
-- `simulate_phrase_detection(phrase: &str) -> AppResult<EmergencyType>` - Simulates phrase detection
-
-#### VoiceConfig
+#### Voice Recognition Configuration
 
 ```rust
 pub struct VoiceConfig {
-    pub wake_word: String,
-    pub emergency_phrases: Vec<String>,
-    pub noise_filter_enabled: bool,
+    pub activation_phrase: String,        // "Hey SOS"
+    pub recognition_threshold: f32,       // Confidence threshold
+    pub noise_reduction: bool,            // Enable RNNoise filtering
+    pub offline_mode: bool,               // Use offline Vosk recognition
 }
 ```
 
-### Audio Interface
+### Emergency System (`src/public/emergency_interface.rs`)
 
-The audio interface manages audio input/output and processing.
+The emergency system manages all emergency response protocols and coordination.
 
-#### AudioProcessor
+#### Key Functions
 
 ```rust
-pub struct AudioProcessor {
-    pub is_active: bool,
-    pub sample_rate: u32,
-    pub buffer_size: usize,
+/// Initiates emergency response for detected emergency
+/// 
+/// # Arguments
+/// * `emergency_type` - Type of emergency detected
+/// * `location` - GPS coordinates
+/// 
+/// # Returns
+/// * `Result<EmergencyResponse, EmergencyError>` - Response or error
+pub fn initiate_emergency_response(
+    emergency_type: EmergencyType,
+    location: Location
+) -> Result<EmergencyResponse, EmergencyError>
+
+/// Provides step-by-step guidance for emergency
+/// 
+/// # Arguments
+/// * `emergency_type` - Type of emergency
+/// * `step_number` - Current step in protocol
+/// 
+/// # Returns
+/// * `Result<Guidance, EmergencyError>` - Guidance or error
+pub fn get_emergency_guidance(
+    emergency_type: EmergencyType,
+    step_number: u32
+) -> Result<Guidance, EmergencyError>
+
+/// Records emergency response on blockchain
+/// 
+/// # Arguments
+/// * `emergency_data` - Emergency response data
+/// 
+/// # Returns
+/// * `Result<Transaction, BlockchainError>` - Transaction or error
+pub fn record_emergency_response(
+    emergency_data: EmergencyData
+) -> Result<Transaction, BlockchainError>
+```
+
+#### Emergency Response Structure
+
+```rust
+pub struct EmergencyResponse {
+    pub emergency_type: EmergencyType,
+    pub guidance: Vec<GuidanceStep>,
+    pub contacts_notified: Vec<Contact>,
+    pub emergency_services_called: bool,
+    pub blockchain_recorded: bool,
+    pub timestamp: DateTime<Utc>,
+}
+
+pub struct GuidanceStep {
+    pub step_number: u32,
+    pub title: String,
+    pub description: String,
+    pub estimated_duration: Duration,
+    pub audio_file: Option<String>,
 }
 ```
 
-**Methods:**
+### Gamification (`src/public/gamification_interface.rs`)
 
-- `new() -> AppResult<Self>` - Creates new audio processor
-- `initialize_streams(&mut self) -> AppResult<()>` - Initializes audio streams
-- `process_audio_input(&self, audio_data: &[u8]) -> AppResult<Vec<f32>>` - Processes audio input
-- `play_audio_data(&self, audio_data: &[f32]) -> AppResult<Sink>` - Plays audio data
-- `generate_tts(&self, text: &str) -> AppResult<Vec<f32>>` - Generates text-to-speech
-- `apply_noise_filter(&self, audio_data: &[f32]) -> AppResult<Vec<f32>>` - Applies noise filtering
+The gamification system manages SOS Hero rewards and achievements.
 
-### Emergency Interface
-
-The emergency interface handles emergency response coordination.
-
-#### EmergencySystem
+#### Key Functions
 
 ```rust
-pub struct EmergencySystem {
-    pub is_active: bool,
-    pub current_emergency: Option<EmergencyType>,
-    pub response_status: EmergencyStatus,
-}
+/// Awards tokens for emergency preparedness actions
+/// 
+/// # Arguments
+/// * `action` - Type of action performed
+/// * `user_wallet` - User's Solana wallet
+/// 
+/// # Returns
+/// * `Result<TokenReward, GamificationError>` - Reward or error
+pub fn award_tokens(
+    action: PreparednessAction,
+    user_wallet: Wallet
+) -> Result<TokenReward, GamificationError>
+
+/// Unlocks achievement for user
+/// 
+/// # Arguments
+/// * `achievement` - Achievement to unlock
+/// * `user_id` - User identifier
+/// 
+/// # Returns
+/// * `Result<Achievement, GamificationError>` - Achievement or error
+pub fn unlock_achievement(
+    achievement: AchievementType,
+    user_id: String
+) -> Result<Achievement, GamificationError>
+
+/// Gets user's SOS Hero level and progress
+/// 
+/// # Arguments
+/// * `user_id` - User identifier
+/// 
+/// # Returns
+/// * `Result<HeroLevel, GamificationError>` - Level or error
+pub fn get_hero_level(user_id: String) -> Result<HeroLevel, GamificationError>
 ```
 
-**Methods:**
-
-- `new() -> Self` - Creates new emergency system
-- `initiate_emergency_response(&mut self, emergency_type: EmergencyType) -> AppResult<()>` - Initiates emergency response
-- `call_911(&self, location: &str) -> AppResult<()>` - Makes emergency call
-- `share_location(&self, latitude: f64, longitude: f64) -> AppResult<()>` - Shares location
-- `record_emergency_call(&self, call_data: EmergencyCallData) -> AppResult<()>` - Records emergency call
-- `get_emergency_instructions(&self) -> AppResult<Vec<String>>` - Gets emergency instructions
-
-#### EmergencyStatus
+#### Gamification Structures
 
 ```rust
-pub enum EmergencyStatus {
-    Idle,
-    Active,
-    ServicesContacted,
-    Resolved,
-    Failed,
+pub struct TokenReward {
+    pub bonk_tokens: u64,
+    pub skr_tokens: u64,
+    pub xp_points: u32,
+    pub reason: String,
+    pub timestamp: DateTime<Utc>,
 }
-```
 
-### Gamification Interface
+pub struct Achievement {
+    pub achievement_type: AchievementType,
+    pub title: String,
+    pub description: String,
+    pub tokens_awarded: TokenReward,
+    pub unlocked_at: DateTime<Utc>,
+}
 
-The gamification interface manages the SOS Hero system.
-
-#### GamificationManager
-
-```rust
-pub struct GamificationManager {
-    pub hero_profiles: RwLock<HashMap<String, HeroProfile>>,
+pub struct HeroLevel {
+    pub level: u32,
+    pub xp_current: u32,
+    pub xp_required: u32,
     pub achievements: Vec<Achievement>,
-    pub rewards: Vec<Reward>,
+    pub total_tokens: TokenReward,
 }
 ```
 
-**Methods:**
+### Safety Features (`src/public/safety_interface.rs`)
 
-- `new() -> AppResult<Self>` - Creates new gamification manager
-- `initialize_achievements(&mut self) -> AppResult<()>` - Initializes achievements
-- `initialize_rewards(&mut self) -> AppResult<()>` - Initializes rewards
-- `get_or_create_profile(&self, user_id: &str) -> AppResult<HeroProfile>` - Gets or creates hero profile
-- `award_experience(&self, user_id: &str, xp: u32) -> AppResult<()>` - Awards experience points
-- `complete_learning_module(&self, user_id: &str, module_name: &str) -> AppResult<()>` - Records learning completion
-- `record_intervention(&self, user_id: &str, emergency_type: &str) -> AppResult<()>` - Records emergency intervention
-- `expand_network(&self, user_id: &str, contact_count: u32) -> AppResult<()>` - Expands trusted network
+The safety features system manages Silent SOS, crash detection, and trusted network functionality.
 
-#### HeroLevel
+#### Key Functions
 
 ```rust
-pub enum HeroLevel {
-    Novice = 1,
-    Trainee = 2,
-    Responder = 3,
-    Guardian = 4,
-    Protector = 5,
-    Defender = 6,
-    Sentinel = 7,
-    Champion = 8,
-    GuardianAngel = 9,
-    Legend = 10,
-}
+/// Activates Silent SOS for dangerous situations
+/// 
+/// # Arguments
+/// * `duration` - How long to hold button
+/// * `location` - Current GPS location
+/// 
+/// # Returns
+/// * `Result<SilentSOSResponse, SafetyError>` - Response or error
+pub fn activate_silent_sos(
+    duration: Duration,
+    location: Location
+) -> Result<SilentSOSResponse, SafetyError>
+
+/// Detects potential crash based on sensor data
+/// 
+/// # Arguments
+/// * `sensor_data` - Accelerometer and GPS data
+/// 
+/// # Returns
+/// * `Result<CrashDetection, SafetyError>` - Detection or error
+pub fn detect_crash(sensor_data: SensorData) -> Result<CrashDetection, SafetyError>
+
+/// Notifies trusted contacts of emergency
+/// 
+/// # Arguments
+/// * `emergency_data` - Emergency information
+/// * `contacts` - List of trusted contacts
+/// 
+/// # Returns
+/// * `Result<NotificationResponse, SafetyError>` - Response or error
+pub fn notify_trusted_contacts(
+    emergency_data: EmergencyData,
+    contacts: Vec<Contact>
+) -> Result<NotificationResponse, SafetyError>
 ```
 
-### Safety Interface
-
-The safety interface manages advanced safety features.
-
-#### SilentSOS
+#### Safety Feature Structures
 
 ```rust
-pub struct SilentSOS {
-    pub is_active: bool,
-    pub hold_duration: std::time::Duration,
-    pub activation_method: SilentSOSMethod,
+pub struct SilentSOSResponse {
+    pub activated: bool,
+    pub contacts_notified: Vec<Contact>,
+    pub emergency_services_called: bool,
+    pub location_shared: bool,
+    pub timestamp: DateTime<Utc>,
 }
-```
 
-**Methods:**
-
-- `new() -> Self` - Creates new silent SOS instance
-- `activate(&mut self, method: SilentSOSMethod) -> AppResult<()>` - Activates silent SOS
-- `deactivate(&mut self) -> AppResult<()>` - Deactivates silent SOS
-- `should_trigger(&self, hold_time: std::time::Duration) -> bool` - Checks if SOS should trigger
-
-#### CrashDetection
-
-```rust
 pub struct CrashDetection {
-    pub is_active: bool,
-    pub speed_threshold: f32,
-    pub impact_threshold: f32,
-    pub sensitivity: CrashSensitivity,
+    pub detected: bool,
+    pub severity: CrashSeverity,
+    pub location: Location,
+    pub speed_at_impact: f32,
+    pub force_measurement: f32,
+    pub timestamp: DateTime<Utc>,
+}
+
+pub struct NotificationResponse {
+    pub contacts_notified: Vec<Contact>,
+    pub messages_sent: u32,
+    pub responses_received: u32,
+    pub timestamp: DateTime<Utc>,
 }
 ```
 
-**Methods:**
+## Data Types
 
-- `new() -> Self` - Creates new crash detection instance
-- `activate(&mut self) -> AppResult<()>` - Activates crash detection
-- `deactivate(&mut self) -> AppResult<()>` - Deactivates crash detection
-- `process_sensor_data(&self, accelerometer_data: &[f32], gps_data: &GPSData) -> AppResult<bool>` - Processes sensor data
-- `trigger_crash_response(&self, crash_data: CrashData) -> AppResult<()>` - Triggers crash response
-
-### Blockchain Interface
-
-The blockchain interface manages Solana integration.
-
-#### SolanaConnection
+### Emergency Types
 
 ```rust
-pub struct SolanaConnection {
-    pub is_connected: bool,
-    pub endpoint: String,
-    pub status: ConnectionStatus,
-}
-```
-
-**Methods:**
-
-- `new(endpoint: &str) -> AppResult<Self>` - Creates new Solana connection
-- `connect(&mut self) -> AppResult<()>` - Connects to Solana network
-- `disconnect(&mut self) -> AppResult<()>` - Disconnects from Solana network
-- `get_status(&self) -> ConnectionStatus` - Gets connection status
-
-#### TransactionManager
-
-```rust
-pub struct TransactionManager {
-    pub is_active: bool,
-    pub transaction_fee: u64,
-    pub gas_limit: u64,
-}
-```
-
-**Methods:**
-
-- `new() -> AppResult<Self>` - Creates new transaction manager
-- `record_emergency(&self, emergency_data: EmergencyData) -> AppResult<String>` - Records emergency on blockchain
-- `get_emergency_record(&self, record_id: &str) -> AppResult<EmergencyRecord>` - Retrieves emergency record
-- `verify_record(&self, record: &EmergencyRecord) -> AppResult<bool>` - Verifies record authenticity
-
-### Database Interface
-
-The database interface manages local data storage.
-
-#### DatabaseManager
-
-```rust
-pub struct DatabaseManager {
-    pub is_connected: bool,
-    pub database_path: String,
-    pub status: DatabaseStatus,
-}
-```
-
-**Methods:**
-
-- `new(database_path: &str) -> AppResult<Self>` - Creates new database manager
-- `connect(&mut self) -> AppResult<()>` - Connects to database
-- `disconnect(&mut self) -> AppResult<()>` - Disconnects from database
-- `get_status(&self) -> DatabaseStatus` - Gets connection status
-
-#### QueryManager
-
-```rust
-pub struct QueryManager {
-    pub is_active: bool,
-    pub query_timeout: std::time::Duration,
-}
-```
-
-**Methods:**
-
-- `new() -> AppResult<Self>` - Creates new query manager
-- `get_emergency_instructions(&self, emergency_type: &str, stage: &str) -> AppResult<Vec<EmergencyInstruction>>` - Gets emergency instructions
-- `get_user_profile(&self, user_id: &str) -> AppResult<UserProfile>` - Gets user profile
-- `save_user_profile(&self, profile: &UserProfile) -> AppResult<()>` - Saves user profile
-- `record_emergency_history(&self, history: &EmergencyHistory) -> AppResult<()>` - Records emergency history
-- `get_emergency_history(&self, user_id: &str, limit: u32) -> AppResult<Vec<EmergencyHistory>>` - Gets emergency history
-- `search_instructions(&self, query: &str) -> AppResult<Vec<EmergencyInstruction>>` - Searches instructions
-
-### UI Interface
-
-The UI interface manages user interface interactions.
-
-#### UIManager
-
-```rust
-pub struct UIManager {
-    pub is_active: bool,
-    pub current_state: UIState,
-    pub config: UIConfig,
-}
-```
-
-**Methods:**
-
-- `new() -> AppResult<Self>` - Creates new UI manager
-- `initialize(&mut self) -> AppResult<()>` - Initializes user interface
-- `show_emergency_interface(&mut self, emergency_type: &str, instructions: &[String]) -> AppResult<()>` - Shows emergency interface
-- `show_voice_interface(&mut self) -> AppResult<()>` - Shows voice interface
-- `show_gamification_interface(&mut self, hero_profile: &str) -> AppResult<()>` - Shows gamification interface
-- `show_settings_interface(&mut self) -> AppResult<()>` - Shows settings interface
-- `show_safety_interface(&mut self) -> AppResult<()>` - Shows safety interface
-- `update_ui(&mut self, data: &UIData) -> AppResult<()>` - Updates UI with new data
-- `handle_input(&mut self, input: &UIInput) -> AppResult<UIResponse>` - Handles user input
-
-## Common Types
-
-### EmergencyType
-
-```rust
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum EmergencyType {
     Drowning,
     HeartAttack,
@@ -302,187 +280,265 @@ pub enum EmergencyType {
     DiabeticEmergency,
     AllergicReaction,
     Trauma,
+    SuicidePrevention,
+    OverdoseReversal,
+    HypothermiaSelfRescue,
 }
 ```
 
-### EmergencyStage
+### Location Data
 
 ```rust
-pub enum EmergencyStage {
-    InitialDetection,
-    VictimExtracted,
-    Unconscious,
-    ConsciousButInjured,
-    BreathingButUnresponsive,
-    ServicesEnRoute,
-    PostEmergency,
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Location {
+    pub latitude: f64,
+    pub longitude: f64,
+    pub accuracy: f32,
+    pub timestamp: DateTime<Utc>,
 }
 ```
 
-### DirectAction
+### Contact Information
 
 ```rust
-pub enum DirectAction {
-    CPR,
-    Heimlich,
-    AED,
-    Tourniquet,
-    EpiPen,
-    RescueBreathing,
-    FirstAid,
-    FASTTest,
-    PoisonControl,
-    CoolBurn,
-    MedicalAlert,
-}
-```
-
-### ConnectivityMode
-
-```rust
-pub enum ConnectivityMode {
-    Offline,
-    Online,
-    Hybrid,
-}
-```
-
-### GuidanceMode
-
-```rust
-pub enum GuidanceMode {
-    Offline,
-    Online,
-    Hybrid,
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Contact {
+    pub name: String,
+    pub phone: String,
+    pub email: Option<String>,
+    pub relationship: String,
+    pub notification_preferences: NotificationPreferences,
 }
 ```
 
 ## Error Handling
 
-All API methods return `AppResult<T>` which is an alias for `Result<T, AppError>`. The `AppError` enum includes:
+### Error Types
 
 ```rust
-pub enum AppError {
-    Voice(String),
-    Audio(String),
-    Emergency(String),
-    Database(String),
-    Blockchain(String),
-    Gamification(String),
-    Safety(String),
-    UI(String),
-    Config(String),
-    Network(String),
-    Timeout(String),
-    InvalidInput(String),
-    NotFound(String),
-    PermissionDenied(String),
-    Internal(String),
+#[derive(Debug, thiserror::Error)]
+pub enum EmergencyError {
+    #[error("Voice recognition failed: {0}")]
+    VoiceRecognitionError(String),
+    
+    #[error("Emergency protocol not found: {0}")]
+    ProtocolNotFound(EmergencyType),
+    
+    #[error("Database error: {0}")]
+    DatabaseError(#[from] rusqlite::Error),
+    
+    #[error("Blockchain error: {0}")]
+    BlockchainError(#[from] solana_sdk::transaction::TransactionError),
+    
+    #[error("Network error: {0}")]
+    NetworkError(String),
 }
 ```
 
-## Usage Examples
+### Error Handling Patterns
+
+```rust
+// Example error handling
+match process_emergency_input(audio_data, emergency_type) {
+    Ok(guidance) => {
+        // Process guidance
+        display_emergency_guidance(guidance);
+    }
+    Err(EmergencyError::VoiceRecognitionError(msg)) => {
+        // Handle voice recognition failure
+        fallback_to_manual_activation();
+    }
+    Err(EmergencyError::ProtocolNotFound(emergency_type)) => {
+        // Handle missing protocol
+        request_online_protocol(emergency_type);
+    }
+    Err(e) => {
+        // Handle other errors
+        log_error(&e);
+        activate_fallback_mode();
+    }
+}
+```
+
+## Performance Requirements
+
+### Response Times
+
+- **Voice Recognition**: < 500ms
+- **Emergency Activation**: < 100ms
+- **Guidance Generation**: < 200ms
+- **Contact Notification**: < 1 second
+- **Blockchain Recording**: < 2 seconds
+
+### Memory Usage
+
+- **Voice Recognition**: < 50MB
+- **Emergency Protocols**: < 10MB
+- **Database**: < 5MB
+- **Total App Memory**: < 100MB
+
+### Battery Impact
+
+- **Background Monitoring**: < 1% per hour
+- **Voice Recognition**: < 5% per hour
+- **Crash Detection**: < 2% per hour
+- **Total Battery Impact**: < 8% per hour
+
+## Security Considerations
+
+### Data Encryption
+
+- All sensitive data encrypted with AES-256
+- Database encrypted at rest
+- Network communications encrypted with TLS
+- Private keys never leave device
+
+### Access Control
+
+- Biometric authentication for sensitive features
+- PIN protection for emergency bypass
+- Granular permissions for data access
+- Emergency-only data sharing
+
+### Privacy Protection
+
+- Local-first data processing
+- Minimal data collection
+- User-controlled data sharing
+- Automatic data deletion
+
+## Testing
+
+### Unit Tests
+
+```rust
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_emergency_voice_recognition() {
+        let input = b"Hey SOS drowning help";
+        let result = process_emergency_input(input, EmergencyType::Drowning);
+        assert!(result.is_ok());
+    }
+
+    #[test]
+    fn test_silent_sos_activation() {
+        let location = Location {
+            latitude: 40.7128,
+            longitude: -74.0060,
+            accuracy: 10.0,
+            timestamp: Utc::now(),
+        };
+        let result = activate_silent_sos(Duration::from_secs(3), location);
+        assert!(result.is_ok());
+    }
+}
+```
+
+### Integration Tests
+
+```rust
+#[tokio::test]
+async fn test_complete_emergency_response() {
+    // Test full emergency scenario
+    let audio_data = load_test_audio("drowning_emergency.wav");
+    let emergency_type = EmergencyType::Drowning;
+    
+    let response = initiate_emergency_response(emergency_type, test_location()).await;
+    assert!(response.is_ok());
+    
+    let guidance = get_emergency_guidance(emergency_type, 1).await;
+    assert!(guidance.is_ok());
+}
+```
+
+## Examples
 
 ### Basic Emergency Response
 
 ```rust
-use solana_sos::{VoiceTrigger, EmergencySystem, EmergencyType};
+// Detect emergency from voice input
+let emergency_type = detect_emergency_phrase(audio_data)?;
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Create voice trigger
-    let mut voice_trigger = VoiceTrigger::new();
-    voice_trigger.activate()?;
+// Get current location
+let location = get_current_location()?;
+
+// Initiate emergency response
+let response = initiate_emergency_response(emergency_type, location)?;
+
+// Display guidance
+for step in response.guidance {
+    display_guidance_step(step);
+    wait_for_user_confirmation();
+}
+
+// Record on blockchain
+record_emergency_response(response.emergency_data)?;
+```
+
+### Silent SOS Activation
+
+```rust
+// Monitor button press duration
+let press_duration = monitor_button_press();
+
+if press_duration >= Duration::from_secs(3) {
+    let location = get_current_location()?;
+    let response = activate_silent_sos(press_duration, location)?;
     
-    // Create emergency system
-    let mut emergency_system = EmergencySystem::new();
-    
-    // Detect emergency phrase
-    if voice_trigger.detect_emergency_phrase("drowning help")? {
-        // Initiate emergency response
-        emergency_system.initiate_emergency_response(EmergencyType::Drowning)?;
+    if response.activated {
+        // Notify contacts silently
+        notify_trusted_contacts(emergency_data, trusted_contacts)?;
         
-        // Get emergency instructions
-        let instructions = emergency_system.get_emergency_instructions()?;
-        println!("Emergency instructions: {:?}", instructions);
+        // Call emergency services
+        call_emergency_services(location)?;
     }
-    
-    Ok(())
 }
 ```
 
-### Gamification Integration
+### Crash Detection
 
 ```rust
-use solana_sos::{GamificationManager, HeroLevel};
+// Monitor sensor data
+let sensor_data = get_sensor_data();
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Create gamification manager
-    let gamification_manager = GamificationManager::new()?;
-    
-    // Get or create user profile
-    let profile = gamification_manager.get_or_create_profile("user123").await?;
-    println!("Hero level: {:?}", profile.hero_level);
-    
-    // Award experience for emergency response
-    gamification_manager.award_experience("user123", 200).await?;
-    
-    // Record emergency intervention
-    gamification_manager.record_intervention("user123", "drowning").await?;
-    
-    Ok(())
-}
-```
-
-### Safety Features
-
-```rust
-use solana_sos::{SilentSOS, CrashDetection, SilentSOSMethod};
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Create silent SOS
-    let mut silent_sos = SilentSOS::new();
-    
-    // Create crash detection
-    let mut crash_detection = CrashDetection::new();
-    crash_detection.activate()?;
-    
-    // Check if silent SOS should trigger
-    let hold_time = std::time::Duration::from_secs(5);
-    if silent_sos.should_trigger(hold_time) {
-        silent_sos.activate(SilentSOSMethod::HoldButton)?;
+if let Ok(crash) = detect_crash(sensor_data) {
+    if crash.detected && crash.severity >= CrashSeverity::Moderate {
+        // Initiate emergency response
+        let response = initiate_emergency_response(
+            EmergencyType::Trauma,
+            crash.location
+        )?;
+        
+        // Notify contacts
+        notify_trusted_contacts(emergency_data, trusted_contacts)?;
+        
+        // Call emergency services
+        call_emergency_services(crash.location)?;
     }
-    
-    Ok(())
 }
 ```
 
-## Best Practices
+## Versioning
 
-### Error Handling
-- Always check return values from API calls
-- Use proper error propagation with `?` operator
-- Implement graceful fallbacks for critical operations
+The API follows semantic versioning (SemVer):
 
-### Performance
-- Reuse interface instances when possible
-- Use async/await for I/O operations
-- Implement proper cleanup in drop implementations
+- **Major version**: Breaking changes
+- **Minor version**: New features, backward compatible
+- **Patch version**: Bug fixes, backward compatible
 
-### Security
-- Validate all input parameters
-- Use secure random number generation
-- Implement proper access controls
-- Encrypt sensitive data
+Current version: **1.0.0**
 
-### Testing
-- Write unit tests for all public methods
-- Use integration tests for complex workflows
-- Mock external dependencies
-- Test error conditions and edge cases
+## Support
 
-## Conclusion
+For API questions or issues:
 
-The Solana SOS API provides a comprehensive interface for voice-activated emergency response. All interfaces are designed for reliability, performance, and ease of use. The modular architecture allows for easy integration and extension of functionality. 
+- **GitHub Issues**: [Report bugs](https://github.com/paragoner1/crisis-companion/issues)
+- **Documentation**: [Complete guides](https://github.com/paragoner1/crisis-companion/tree/main/docs)
+- **Examples**: [Code examples](https://github.com/paragoner1/crisis-companion/tree/main/examples)
+
+---
+
+**Remember**: This API is designed for emergency situations. All functions prioritize reliability and safety over performance optimization. 

@@ -1,8 +1,13 @@
+#[cfg(feature = "android")]
 use jni::JNIEnv;
+#[cfg(feature = "android")]
 use jni::objects::{JClass, JString};
+#[cfg(feature = "android")]
 use jni::sys::{jboolean, jint, jstring, JNI_TRUE, JNI_FALSE};
+#[cfg(feature = "android")]
 use std::ffi::CString;
 
+#[cfg(feature = "android")]
 /// Initialize Android-specific paths and interfaces
 #[no_mangle]
 pub extern "C" fn Java_com_solanasos_emergency_RustBridge_initializeAndroidPaths(
