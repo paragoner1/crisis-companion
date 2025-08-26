@@ -100,7 +100,7 @@ pub mod public {
     pub mod types;
 }
 
-// Private modules (implementation details - hidden by .gitignore)
+// Private modules (implementation details - protected by feature flag)
 #[cfg(feature = "private")]
 pub mod private;
 
