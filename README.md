@@ -7,7 +7,7 @@
 **Mission**: When seconds matter, anyone can be a hero. Just say "Hey SOS" and save a life.
 
 ### Personal Motivation
-A few years ago, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes us. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
+A few years ago, my world stopped when I found my four-year-old son underwater. In sheer panic, I performed CPR blindly, praying it worked. That terrifying moment exposed a critical gap - in emergencies, shock paralyzes people. That's why I created **Solana SOS**, to guide anyone through life-saving actions, hands-free and instantly.
 
 ---
 
@@ -22,7 +22,7 @@ Solana SOS transforms ordinary people into life-saving heroes through voice-acti
 
 ---
 
-## The Problem We Solve
+## The Problem to Solve
 
 ### Critical Statistics
 - **3.8 million people** die from preventable emergencies annually
@@ -30,7 +30,7 @@ Solana SOS transforms ordinary people into life-saving heroes through voice-acti
 - **7-14 minute EMS delay** - every second counts in life-threatening situations
 - **10% survival drop** per minute without immediate intervention
 
-### Our Solution
+### The Solution
 - **Voice activation** eliminates manual app opening during emergencies
 - **Offline operation** ensures reliability in any situation, even without connectivity
 - **15 emergency protocols** cover most life-threatening situations
