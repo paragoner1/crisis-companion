@@ -1,0 +1,78 @@
+[package]
+name = "solana-sos"
+version = "1.0.0"
+edition = "2021"
+authors = ["Paragoner <paragoner@solanasos.com>"]
+description = "Voice-activated emergency response system for Solana Mobile"
+license = "Apache-2.0"
+repository = "https://github.com/paragoner1/crisis-companion"
+keywords = ["emergency", "voice", "solana", "mobile", "safety"]
+categories = ["emergency", "voice-recognition", "blockchain"]
+
+[lib]
+name = "solana_sos"
+crate-type = ["cdylib"]
+
+[dependencies]
+# Core dependencies
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.10"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4"] }
+config = "0.13"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+futures = "0.3"
+
+# JNI for Android integration
+jni = "0.21"
+jni-sys = "0.3"
+
+# Voice recognition (optional - will use enhanced pattern recognition if not available)
+# vosk = "0.3.1"
+
+# Audio processing (temporarily disabled for Android build)
+# cpal = "0.15"
+# rodio = "0.17"
+# dasp = "0.11"
+# symphonia = { version = "0.5", features = ["all"] }
+
+# Database (temporarily disabled for Android build)
+# rusqlite = { version = "0.29", features = ["bundled"] }
+
+# HTTP client for API calls (temporarily disabled for Android build)
+# reqwest = { version = "0.11", features = ["json"] }
+
+# Noise reduction
+nnnoiseless = "0.5"
+
+# Android NDK support
+ndk = "0.8"
+ndk-sys = "0.5"
+
+# Audio processing (temporarily disabled for Android build)
+# oboe = "0.6"
+
+# Utilities
+clap = { version = "4.0", features = ["derive"] }
+
+[[bin]]
+name = "solana-sos"
+path = "src/main.rs"
+
+[[bin]]
+name = "demo_test"
+path = "src/bin/demo_test.rs"
+
+[[bin]]
+name = "gamification_demo"
+path = "src/bin/gamification_demo.rs"
+
+[[bin]]
+name = "complete_walkthrough"
+path = "src/bin/complete_walkthrough.rs" 

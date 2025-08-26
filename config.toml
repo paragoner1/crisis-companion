@@ -1,0 +1,91 @@
+[voice]
+model_path = "models/vosk-model-small-en-us-0.15"
+confidence_threshold = 0.8
+emergency_phrases = ["drowning help", "fire help", "heart attack help", "choking help", "bleeding help"]
+sample_rate = 16000
+buffer_size = 1024
+continuous_listening = true
+detection_timeout = 30
+
+[audio]
+default_volume = 0.7
+emergency_volume = 1.0
+tts_voice = "en-US-Standard-A"
+output_device = ""
+enable_recording = true
+recording_sample_rate = 44100
+recording_format = "wav"
+
+[database]
+path = "emergency.db"
+emergency_instructions_path = "instructions.db"
+user_profiles_path = "profiles.db"
+emergency_history_path = "history.db"
+
+[coordination]
+service_uuid = "YOUR_SERVICE_UUID_HERE"
+coordination_timeout = 10
+max_nearby_devices = 5
+enable_discovery = true
+device_name = "Solana SOS"
+battery_threshold = 0.2
+
+[emergency]
+auto_dial_911 = true
+enable_location_sharing = true
+enable_audio_recording = true
+recording_duration = 300
+emergency_contacts = ["911"]
+enable_family_alerts = true
+alert_timeout = 30
+
+# Silent SOS Configuration
+enable_silent_sos = true
+silent_sos_method = "hold_button"  # hold_button, power_sequence, volume_sequence, screen_tap, motion_gesture
+silent_sos_hold_duration = 3
+silent_sos_power_sequence = [1, 1, 1, 1, 1]  # 5 rapid presses
+silent_sos_volume_sequence = [1, -1, 1, -1, 1]  # up, down, up, down, up
+
+# Crash Detection Configuration
+enable_crash_detection = true
+crash_speed_threshold = 25.0  # mph
+crash_impact_threshold = 3.0  # g-force
+crash_response_window = 30  # seconds
+crash_cancel_phrase = "I'm okay"
+
+# Trusted Network Configuration
+enable_trusted_network = true
+max_trusted_contacts = 10
+default_location_sharing = true
+default_notification_preferences = ["silent_sos", "crash_detection", "emergency_activation"]
+
+[ui]
+theme = "emergency"
+enable_animations = true
+refresh_rate = 60
+enable_accessibility = true
+language = "en"
+
+[blockchain]
+rpc_endpoint = "YOUR_SOLANA_RPC_ENDPOINT"
+wallet_path = "YOUR_WALLET_PATH"
+program_id = "YOUR_PROGRAM_ID"
+enable_blockchain = false
+gas_fee_limit = 5000
+
+[connectivity]
+user_preference = "hybrid"
+network_timeout = 10
+check_interval = 60
+auto_switch = true
+offline_fallback = true
+llm_endpoints = ["YOUR_LLM_ENDPOINT"]
+api_keys = {} 
+
+# Solana SOS Configuration
+
+[app]
+name = "Solana SOS"
+version = "0.1.0"
+description = "Voice-activated emergency response app for Solana Mobile Seeker"
+device_name = "Solana SOS" 

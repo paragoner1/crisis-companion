@@ -26,6 +26,8 @@ Solana SOS transforms ordinary people into life-saving heroes through voice-acti
 
 ### Critical Statistics
 - **3.8 million people** die from preventable emergencies annually
+- **236,000+ drowning deaths annually** (WHO, 2021)
+- **356,000+ out-of-hospital cardiac arrests** in the US annually
 - **Traditional apps fail** in crisis situations requiring manual interaction
 - **7-14 minute EMS delay** - every second counts in life-threatening situations
 - **10% survival drop** per minute without immediate intervention
@@ -287,6 +289,24 @@ For detailed technical information, development setup, and contribution guidelin
 **Repository**: [crisis-companion](https://github.com/paragoner1/crisis-companion)  
 **Demo Video**: [Full Demo](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)  
 **Screenshots**: [Complete Gallery](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)
+
+### Demo Commands
+```bash
+# Voice recognition demo
+cargo run --bin voice_test
+
+# Complete walkthrough demo
+cargo run --bin complete_walkthrough
+
+# Gamification demo
+cargo run --bin gamification_demo
+```
+
+### Additional Documentation
+- **[Development Guide](DEVELOPMENT.md)** - Setup, build, and deployment instructions
+- **[Privacy & Security](PRIVACY.md)** - Data protection and compliance details
+- **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute to the project
+- **[API Documentation](docs/API.md)** - Complete developer API reference
 
 ---
 

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_navy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="← Back"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🔄 Cross-App Challenges"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Progress Overview -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cross-App Progress: 0%"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:progress="0"
+                android:progressTint="@color/soft_green"
+                android:backgroundTint="@color/status_inactive" />
+
+        </LinearLayout>
+
+        <!-- Cross-App Challenges -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌐 Active Cross-App Challenges"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- CPR ↔ DeFi Challenge -->
+            <Button android:id="@+id/btnCprDeFiChallenge" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🫀💎 CPR ↔ DeFi Challenge" android:textSize="16sp" android:background="@drawable/action_button_background" android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+            <TextView android:id="@+id/tvCprDefiStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="CPR ↔ DeFi Challenge: ⏳ Available" android:textSize="14sp" android:textColor="@color/soft_green" android:layout_marginBottom="16dp" />
+
+            <!-- Emergency ↔ Gaming Challenge -->
+            <Button android:id="@+id/btnEmergencyGamingChallenge" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🚨🎮 Emergency ↔ Gaming Challenge" android:textSize="16sp" android:background="@drawable/action_button_background" android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+            <TextView android:id="@+id/tvEmergencyGamingStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Emergency ↔ Gaming Challenge: ⏳ Available" android:textSize="14sp" android:textColor="@color/soft_green" android:layout_marginBottom="16dp" />
+
+            <!-- Safety ↔ Trading Challenge -->
+            <Button android:id="@+id/btnSafetyTradingChallenge" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🛡️📈 Safety ↔ Trading Challenge" android:textSize="16sp" android:background="@drawable/action_button_background" android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+            <TextView android:id="@+id/tvSafetyTradingStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Safety ↔ Trading Challenge: ⏳ Available" android:textSize="14sp" android:textColor="@color/soft_green" android:layout_marginBottom="16dp" />
+
+            <!-- Hero ↔ DeFi Challenge -->
+            <Button android:id="@+id/btnHeroDefiChallenge" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="💎🏆 Hero ↔ DeFi Challenge" android:textSize="16sp" android:background="@drawable/action_button_background" android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+            <TextView android:id="@+id/tvHeroDefiStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Hero ↔ DeFi Challenge: ⏳ Available" android:textSize="14sp" android:textColor="@color/soft_green" android:layout_marginBottom="16dp" />
+
+            <!-- Community Swap Challenge -->
+            <Button android:id="@+id/btnCommunitySwapChallenge" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🔄🌐 Community Swap Challenge" android:textSize="16sp" android:background="@drawable/action_button_background" android:textColor="@color/text_primary" android:layout_marginBottom="8dp" />
+            <TextView android:id="@+id/tvCommunitySwapStatus" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Community Swap Challenge: ⏳ Available" android:textSize="14sp" android:textColor="@color/soft_green" android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+        <!-- Cross-App Rewards -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💰 Cross-App Rewards"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• CPR ↔ DeFi: 100 BONK + 50 SKR + DeFi tokens\n• Emergency ↔ Gaming: 150 BONK + 75 SKR + Gaming NFTs\n• Safety ↔ Trading: 120 BONK + 60 SKR + Trading bonuses\n• Hero ↔ DeFi: 200 BONK + 100 SKR + DeFi governance\n• Community Swap: 300 BONK + 150 SKR + Cross-app tokens\n\nTotal Possible: 870 BONK + 435 SKR + Partner tokens"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Ecosystem Benefits -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚀 Ecosystem Benefits"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Cross-community skill sharing\n• Unified token economics\n• Shared governance structures\n• Cross-app feature integration\n• Community growth acceleration\n• Emergency ecosystem expansion\n• DeFi integration for emergency funding\n• Gaming mechanics for emergency training"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 

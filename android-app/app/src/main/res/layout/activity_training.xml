@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_navy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="← Back"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🎓 Training Center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Progress Overview -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Training Progress: 0%"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:progress="0"
+                android:progressTint="@color/soft_green"
+                android:backgroundTint="@color/status_inactive" />
+
+        </LinearLayout>
+
+        <!-- Training Modules -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📚 Available Training Modules"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- CPR Training -->
+            <Button
+                android:id="@+id/btnCprTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🫀 CPR Training"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvCprStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CPR Training: ⏳ Not Started"
+                android:textSize="14sp"
+                android:textColor="@color/status_inactive"
+                android:layout_marginBottom="16dp" />
+
+            <!-- First Aid Training -->
+            <Button
+                android:id="@+id/btnFirstAidTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🩹 First Aid Basics"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvFirstAidStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="First Aid Basics: ⏳ Not Started"
+                android:textSize="14sp"
+                android:textColor="@color/status_inactive"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Voice Training -->
+            <Button
+                android:id="@+id/btnVoiceTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎤 Voice Recognition"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvVoiceStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Voice Recognition: ⏳ Not Started"
+                android:textSize="14sp"
+                android:textColor="@color/status_inactive"
+                android:layout_marginBottom="16dp" />
+
+            <!-- App Features Training -->
+            <Button
+                android:id="@+id/btnAppFeaturesTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚙️ App Features"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvFeaturesStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Features: ⏳ Not Started"
+                android:textSize="14sp"
+                android:textColor="@color/status_inactive"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Emergency Types Training -->
+            <Button
+                android:id="@+id/btnEmergencyTypesTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🚨 Emergency Types"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvEmergencyTypesStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emergency Types: ⏳ Not Started"
+                android:textSize="14sp"
+                android:textColor="@color/status_inactive"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+        <!-- Rewards Information -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💰 Training Rewards"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• CPR Training: 50 BONK + 25 SKR\n• First Aid Basics: 30 BONK + 15 SKR\n• Voice Recognition: 25 BONK + 10 SKR\n• App Features: 20 BONK + 10 SKR\n• Emergency Types: 40 BONK + 20 SKR\n\nTotal Possible: 165 BONK + 80 SKR"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+        <!-- Training Benefits -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_card_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎯 Training Benefits"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/soft_green"
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Improve emergency response skills\n• Earn tokens for learning\n• Build confidence in crisis situations\n• Master app features for better safety\n• Contribute to community safety\n• Track progress and achievements"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 

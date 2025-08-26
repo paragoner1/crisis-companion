@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SolanaSOS" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+            <item name="colorPrimary">@color/solana_purple</item>
+    <item name="colorPrimaryVariant">@color/solana_purple_dark</item>
+    <item name="colorOnPrimary">@android:color/white</item>
+    <item name="colorSecondary">@color/soft_green</item>
+    <item name="colorSecondaryVariant">@color/soft_green_dark</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        <!-- Switch colors -->
+        <item name="colorControlActivated">@color/soft_green</item>
+    </style>
+</resources> 

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/deep_navy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Settings"
+            android:textSize="24sp"
+            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="← Back"
+            android:textSize="16sp"
+                            android:background="@drawable/action_button_background"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Emergency Contacts Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Emergency Contacts"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Contact Name Input -->
+            <EditText
+                android:id="@+id/etContactName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Contact Name"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/input_background"
+                android:textColor="@color/input_text"
+                android:textColorHint="@color/input_hint" />
+
+            <!-- Contact Phone Input -->
+            <EditText
+                android:id="@+id/etContactPhone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/input_background"
+                android:textColor="@color/input_text"
+                android:textColorHint="@color/input_hint" />
+
+            <!-- Add Contact Button -->
+            <Button
+                android:id="@+id/btnAddContact"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Add Emergency Contact"
+                android:textSize="14sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/soft_green"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Remove Contact Button -->
+            <Button
+                android:id="@+id/btnRemoveContact"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Remove Emergency Contact"
+                android:textSize="14sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your trusted contacts below will be notified via SMS text in certain emergency activations (Silent SOS and Crash Detection) with precise location sharing."
+                android:textSize="12sp"
+                android:textColor="@color/text_muted"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Contacts List -->
+            <TextView
+                android:id="@+id/tvEmergencyContacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/input_background"
+                android:padding="12dp"
+                android:text="No emergency contacts added"
+                android:textSize="12sp"
+                android:textColor="@color/input_text"
+                android:minHeight="80dp"
+                android:lineSpacingExtra="2dp" />
+
+        </LinearLayout>
+
+        <!-- App Settings Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Settings"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Auto-dial 911 Setting -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🎤 Voice Recognition"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchVoiceRecognition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/soft_green"
+                    android:trackTint="@color/soft_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="📍 Location Sharing (emergency activated)"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchLocationSharing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/soft_green"
+                    android:trackTint="@color/soft_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🚨 Auto-dial 911"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchAutoDial911"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/soft_green"
+                    android:trackTint="@color/soft_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔇 Silent SOS (Hold Power 3s)"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchSilentSOSPower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/soft_green"
+                    android:trackTint="@color/soft_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🔇 Silent SOS (Press Vol 5x)"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchSilentSOSVolume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:thumbTint="@color/soft_green"
+                    android:trackTint="@color/soft_green" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="🚗 Crash Detection"
+                    android:textSize="14sp"
+                    android:textColor="@color/text_primary" />
+
+                <Switch
+                    android:id="@+id/switchCrashDetection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/soft_green"
+                    android:trackTint="@color/soft_green" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Solana Integration Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_background"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solana Integration"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Wallet Connection -->
+            <Button
+                android:id="@+id/btnConnectWallet"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Connect Solana Wallet"
+                android:textSize="16sp"
+                android:background="@drawable/action_button_background"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+        </LinearLayout>
+
+        <!-- App Information -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/features_background"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="App Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4FC3F7"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Version: 1.0.0\nBuild: 2025.08.02\nEmergency Types: 12\nVoice Recognition: Enabled\nSolana Integration: Active"
+                android:textSize="14sp"
+                android:textColor="@color/feature_text"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView> 
