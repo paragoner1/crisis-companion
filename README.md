@@ -195,3 +195,4 @@ For questions about the project structure or development:
 
 *Ready for Solana Mobile dApp Store deployment and judge's evaluation.*
 
+# Production Ready
