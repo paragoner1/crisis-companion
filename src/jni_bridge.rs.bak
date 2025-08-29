@@ -1,4 +1,5 @@
 #[cfg(feature = "android")]
+#[cfg(feature = "android")]
 use jni::JNIEnv;
 #[cfg(feature = "android")]
 use jni::objects::{JClass, JString};

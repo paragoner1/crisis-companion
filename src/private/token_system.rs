@@ -105,7 +105,7 @@ impl TokenSystem {
         // Create BONK reward
         if bonk_amount > 0 {
             let bonk_reward = TokenReward {
-                id: uuid::Uuid::new_v4().to_string(),
+                id: uuid::Uuid::new_v4().to_string().to_string(),
                 user_id: self.user_wallet.user_id.clone(),
                 token_type: TokenType::BONK,
                 amount: bonk_amount,
@@ -122,7 +122,7 @@ impl TokenSystem {
         // Create SKR reward
         if skr_amount > 0 {
             let skr_reward = TokenReward {
-                id: uuid::Uuid::new_v4().to_string(),
+                id: uuid::Uuid::new_v4().to_string().to_string(),
                 user_id: self.user_wallet.user_id.clone(),
                 token_type: TokenType::SKR,
                 amount: skr_amount,
@@ -142,7 +142,7 @@ impl TokenSystem {
         // Return the larger reward (or BONK if equal)
         if bonk_amount >= skr_amount {
             Ok(TokenReward {
-                id: uuid::Uuid::new_v4().to_string(),
+                id: uuid::Uuid::new_v4().to_string().to_string(),
                 user_id: self.user_wallet.user_id.clone(),
                 token_type: TokenType::BONK,
                 amount: bonk_amount,
@@ -153,7 +153,7 @@ impl TokenSystem {
             })
         } else {
             Ok(TokenReward {
-                id: uuid::Uuid::new_v4().to_string(),
+                id: uuid::Uuid::new_v4().to_string().to_string(),
                 user_id: self.user_wallet.user_id.clone(),
                 token_type: TokenType::SKR,
                 amount: skr_amount,
@@ -281,11 +281,11 @@ impl TokenSystem {
         }
         
         // In real implementation, this would create a blockchain transaction
-        let transaction_hash = format!("tx_{}", uuid::Uuid::new_v4().to_string().replace("-", ""));
+        let transaction_hash = format!("tx_{}", uuid::Uuid::new_v4().to_string().to_string().replace("-", ""));
         
         // Update reward history
         let transfer_reward = TokenReward {
-            id: uuid::Uuid::new_v4().to_string(),
+            id: uuid::Uuid::new_v4().to_string().to_string(),
             user_id: self.user_wallet.user_id.clone(),
             token_type,
             amount,

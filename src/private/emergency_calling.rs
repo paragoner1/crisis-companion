@@ -1,289 +1,323 @@
-//! Emergency Calling Module
-//! 
-//! Handles emergency 911 calls, emergency contact management,
-//! and communication systems for emergency response.
-
-use crate::error::AppResult;
-use chrono::{DateTime, Utc};
 use std::collections::HashMap;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EmergencyContact {
     pub name: String,
     pub phone_number: String,
     pub relationship: String,
     pub notification_enabled: bool,
-    pub last_notified: Option<DateTime<Utc>>,
 }
 
-#[derive(Debug, Clone)]
-pub struct EmergencyCall {
-    pub id: String,
-    pub emergency_type: String,
-    pub timestamp: DateTime<Utc>,
-    pub location: Option<Location>,
-    pub status: CallStatus,
-    pub duration_seconds: Option<u32>,
-    pub notes: Option<String>,
-}
-
-#[derive(Debug, Clone)]
-pub struct Location {
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct LocationData {
     pub latitude: f64,
     pub longitude: f64,
     pub accuracy: f64,
-    pub timestamp: DateTime<Utc>,
+    pub address: Option<String>,
+    pub timestamp: u64,
 }
 
-#[derive(Debug, Clone, PartialEq)]
-pub enum CallStatus {
-    Initiated,
-    Connected,
-    Completed,
-    Failed,
-    Cancelled,
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct EmergencyCall {
+    pub emergency_type: String,
+    pub location: LocationData,
+    pub caller_info: CallerInfo,
+    pub emergency_contacts: Vec<EmergencyContact>,
+    pub context_flags: Vec<String>,
+    pub timestamp: u64,
+    pub call_id: String,
 }
 
-#[derive(Debug, thiserror::Error)]
-pub enum EmergencyCallError {
-    #[error("Failed to initiate 911 call: {0}")]
-    CallInitiationFailed(String),
-    #[error("Location service unavailable: {0}")]
-    LocationUnavailable(String),
-    #[error("Contact notification failed: {0}")]
-    NotificationFailed(String),
-    #[error("Invalid phone number: {0}")]
-    InvalidPhoneNumber(String),
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CallerInfo {
+    pub name: String,
+    pub phone_number: String,
+    pub emergency_contacts: Vec<EmergencyContact>,
+    pub medical_info: Option<MedicalInfo>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct MedicalInfo {
+    pub allergies: Vec<String>,
+    pub medications: Vec<String>,
+    pub conditions: Vec<String>,
+    pub blood_type: Option<String>,
 }
 
 pub struct EmergencyCaller {
     contacts: Vec<EmergencyContact>,
-    call_history: Vec<EmergencyCall>,
     location_service: LocationService,
-    notification_service: NotificationService,
+    call_history: Vec<EmergencyCall>,
 }
 
 impl EmergencyCaller {
     pub fn new() -> Self {
         EmergencyCaller {
             contacts: Vec::new(),
-            call_history: Vec::new(),
             location_service: LocationService::new(),
-            notification_service: NotificationService::new(),
+            call_history: Vec::new(),
         }
     }
     
-    /// Make an emergency 911 call
-    pub async fn call_911(&mut self, emergency_type: &str, context_flags: &[String]) -> Result<String, EmergencyCallError> {
-        // Get current location
-        let location = self.location_service.get_current_location()
-            .await
-            .map_err(|e| EmergencyCallError::LocationUnavailable(e.to_string()))?;
-        
-        // Create emergency call record
-        let call = EmergencyCall {
-            id: uuid::Uuid::new_v4().to_string(),
-            emergency_type: emergency_type.to_string(),
-            timestamp: Utc::now(),
-            location: Some(location.clone()),
-            status: CallStatus::Initiated,
-            duration_seconds: None,
-            notes: Some(format!("Context flags: {:?}", context_flags)),
-        };
-        
-        // Add to call history
-        self.call_history.push(call.clone());
-        
-        // Notify emergency contacts
-        self.notify_emergency_contacts(emergency_type, &location, context_flags)
-            .await
-            .map_err(|e| EmergencyCallError::NotificationFailed(e.to_string()))?;
-        
-        // Simulate 911 call initiation
-        let call_result = self.initiate_911_call(emergency_type, &location, context_flags).await;
-        
-        match call_result {
-            Ok(_) => {
-                // Update call status
-                if let Some(last_call) = self.call_history.last_mut() {
-                    last_call.status = CallStatus::Connected;
-                }
-                
-                Ok(format!("911 call initiated for {} emergency at location: {:.6}, {:.6}", 
-                    emergency_type, location.latitude, location.longitude))
-            },
-            Err(e) => {
-                // Update call status
-                if let Some(last_call) = self.call_history.last_mut() {
-                    last_call.status = CallStatus::Failed;
-                }
-                
-                Err(EmergencyCallError::CallInitiationFailed(e.to_string()))
-            }
-        }
-    }
-    
-    /// Add emergency contact
     pub fn add_emergency_contact(&mut self, contact: EmergencyContact) {
         self.contacts.push(contact);
     }
     
-    /// Get all emergency contacts
+    pub fn remove_emergency_contact(&mut self, phone_number: &str) {
+        self.contacts.retain(|contact| contact.phone_number != phone_number);
+    }
+    
     pub fn get_emergency_contacts(&self) -> &Vec<EmergencyContact> {
         &self.contacts
     }
     
-    /// Get call history
-    pub fn get_call_history(&self) -> &Vec<EmergencyCall> {
-        &self.call_history
+    pub async fn call_911(&mut self, emergency_type: &str, context_flags: &[String]) -> Result<String, EmergencyCallError> {
+        // Get current location
+        let location = self.location_service.get_current_location().await?;
+        
+        // Create emergency call record
+        let call = EmergencyCall {
+            emergency_type: emergency_type.to_string(),
+            location: location.clone(),
+            caller_info: self.get_caller_info(),
+            emergency_contacts: self.contacts.clone(),
+            context_flags: context_flags.to_vec(),
+            timestamp: std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_secs(),
+            call_id: self.generate_call_id(),
+        };
+        
+        // Store call record
+        self.call_history.push(call.clone());
+        
+        // Make the actual 911 call
+        self.make_emergency_call(&call).await?;
+        
+        Ok(call.call_id)
     }
     
-    /// Notify emergency contacts
-    async fn notify_emergency_contacts(&self, emergency_type: &str, location: &Location, context_flags: &[String]) -> Result<(), String> {
-        for contact in &self.contacts {
-            if contact.notification_enabled {
-                let message = format!(
-                    "EMERGENCY: {} emergency detected. Location: {:.6}, {:.6}. Context: {:?}",
-                    emergency_type, location.latitude, location.longitude, context_flags
-                );
-                
-                self.notification_service.send_notification(&contact.phone_number, &message)
-                    .await
-                    .map_err(|e| format!("Failed to notify {}: {}", contact.name, e))?;
+    async fn make_emergency_call(&self, call: &EmergencyCall) -> Result<(), EmergencyCallError> {
+        // This would integrate with Android's emergency calling system
+        // For now, we'll simulate the call process
+        
+        // 1. Check if device has emergency calling capability
+        if !self.has_emergency_calling_capability() {
+            return Err(EmergencyCallError::NoEmergencyCallingCapability);
+        }
+        
+        // 2. Prepare emergency call data
+        let call_data = self.prepare_emergency_call_data(call);
+        
+        // 3. Make the call with location data
+        self.dial_911_with_location(&call_data).await?;
+        
+        // 4. Notify emergency contacts if appropriate
+        if self.should_notify_contacts(call) {
+            self.notify_emergency_contacts(call).await?;
+        }
+        
+        Ok(())
+    }
+    
+    fn has_emergency_calling_capability(&self) -> bool {
+        // Check if device supports emergency calling
+        // This would check Android's emergency calling permissions
+        true // For demo purposes
+    }
+    
+    fn prepare_emergency_call_data(&self, call: &EmergencyCall) -> EmergencyCallData {
+        EmergencyCallData {
+            emergency_type: call.emergency_type.clone(),
+            location: call.location.clone(),
+            caller_name: call.caller_info.name.clone(),
+            caller_phone: call.caller_info.phone_number.clone(),
+            medical_info: call.caller_info.medical_info.clone(),
+            context_flags: call.context_flags.clone(),
+        }
+    }
+    
+    async fn dial_911_with_location(&self, call_data: &EmergencyCallData) -> Result<(), EmergencyCallError> {
+        // This would use Android's emergency calling API
+        // For now, we'll simulate the process
+        
+        // 1. Format location data for emergency services
+        let location_string = self.format_location_for_emergency(&call_data.location);
+        
+        // 2. Prepare emergency message
+        let emergency_message = self.format_emergency_message(call_data);
+        
+        // 3. Initiate emergency call
+        // In real implementation, this would use Android's emergency calling system
+        println!("🚨 EMERGENCY CALL INITIATED");
+        println!("Emergency Type: {}", call_data.emergency_type);
+        println!("Location: {}", location_string);
+        println!("Message: {}", emergency_message);
+        
+        Ok(())
+    }
+    
+    fn format_location_for_emergency(&self, location: &LocationData) -> String {
+        if let Some(address) = &location.address {
+            format!("{} (GPS: {:.6}, {:.6})", address, location.latitude, location.longitude)
+        } else {
+            format!("GPS Coordinates: {:.6}, {:.6}", location.latitude, location.longitude)
+        }
+    }
+    
+    fn format_emergency_message(&self, call_data: &EmergencyCallData) -> String {
+        let mut message = format!("Emergency: {} emergency", call_data.emergency_type);
+        
+        if !call_data.context_flags.is_empty() {
+            message.push_str(&format!(" - Context: {}", call_data.context_flags.join(", ")));
+        }
+        
+        if let Some(medical_info) = &call_data.medical_info {
+            if !medical_info.allergies.is_empty() {
+                message.push_str(&format!(" - Allergies: {}", medical_info.allergies.join(", ")));
             }
         }
         
+        message
+    }
+    
+    async fn notify_emergency_contacts(&self, call: &EmergencyCall) -> Result<(), EmergencyCallError> {
+        for contact in &call.emergency_contacts {
+            if contact.notification_enabled {
+                self.send_emergency_notification(contact, call).await?;
+            }
+        }
         Ok(())
     }
     
-    /// Initiate 911 call
-    async fn initiate_911_call(&self, emergency_type: &str, location: &Location, context_flags: &[String]) -> Result<(), String> {
-        // In a real implementation, this would integrate with the phone's dialer
-        // For now, we'll simulate the call initiation
+    async fn send_emergency_notification(&self, contact: &EmergencyContact, call: &EmergencyCall) -> Result<(), EmergencyCallError> {
+        // This would send SMS/notification to emergency contact
+        let message = self.format_contact_notification(call);
         
-        let call_data = format!(
-            "Emergency: {} | Location: {:.6}, {:.6} | Context: {:?}",
-            emergency_type, location.latitude, location.longitude, context_flags
-        );
+        println!("📱 Sending emergency notification to {}: {}", contact.name, message);
         
-        // Simulate call processing
-        tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
-        
-        // Simulate success (in real implementation, this would check if call was actually made)
+        // In real implementation, this would use Android's SMS API
         Ok(())
     }
     
-    /// Get emergency contact by name
-    pub fn get_contact_by_name(&self, name: &str) -> Option<&EmergencyContact> {
-        self.contacts.iter().find(|c| c.name == name)
+    fn format_contact_notification(&self, call: &EmergencyCall) -> String {
+        let location = self.format_location_for_emergency(&call.location);
+        format!(
+            "EMERGENCY: {} emergency at {}. Call 911 immediately if needed.",
+            call.emergency_type.replace("_", " "),
+            location
+        )
     }
     
-    /// Update contact notification settings
-    pub fn update_contact_notification(&mut self, name: &str, enabled: bool) -> Result<(), String> {
-        if let Some(contact) = self.contacts.iter_mut().find(|c| c.name == name) {
-            contact.notification_enabled = enabled;
-            Ok(())
-        } else {
-            Err(format!("Contact '{}' not found", name))
+    fn should_notify_contacts(&self, call: &EmergencyCall) -> bool {
+        // Only notify contacts for certain emergency types or conditions
+        matches!(call.emergency_type.as_str(), "silent_sos" | "crash_detection")
+    }
+    
+    fn get_caller_info(&self) -> CallerInfo {
+        // This would get caller info from app settings
+        CallerInfo {
+            name: "Emergency User".to_string(),
+            phone_number: "911".to_string(), // This would be the actual phone number
+            emergency_contacts: self.contacts.clone(),
+            medical_info: None, // This would be populated from user settings
         }
     }
     
-    /// Remove emergency contact
-    pub fn remove_contact(&mut self, name: &str) -> Result<(), String> {
-        let initial_len = self.contacts.len();
-        self.contacts.retain(|c| c.name != name);
-        
-        if self.contacts.len() == initial_len {
-            Err(format!("Contact '{}' not found", name))
-        } else {
-            Ok(())
-        }
-    }
-}
-
-/// Location service for getting current GPS coordinates
-pub struct LocationService {
-    last_location: Option<Location>,
-}
-
-impl LocationService {
-    pub fn new() -> Self {
-        LocationService {
-            last_location: None,
-        }
+    fn generate_call_id(&self) -> String {
+        use std::time::{SystemTime, UNIX_EPOCH};
+        let timestamp = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_millis();
+        format!("EMG_{}", timestamp)
     }
     
-    /// Get current location
-    pub async fn get_current_location(&mut self) -> Result<Location, String> {
-        // In a real implementation, this would use the device's GPS
-        // For now, we'll return a simulated location
-        
-        let location = Location {
-            latitude: 40.7128, // New York City coordinates as example
-            longitude: -74.0060,
-            accuracy: 10.0, // 10 meters accuracy
-            timestamp: Utc::now(),
-        };
-        
-        self.last_location = Some(location.clone());
-        Ok(location)
-    }
-    
-    /// Get last known location
-    pub fn get_last_location(&self) -> Option<&Location> {
-        self.last_location.as_ref()
-    }
-}
-
-/// Notification service for sending SMS/notifications
-pub struct NotificationService {
-    notification_history: Vec<Notification>,
-}
-
-impl NotificationService {
-    pub fn new() -> Self {
-        NotificationService {
-            notification_history: Vec::new(),
-        }
-    }
-    
-    /// Send notification to phone number
-    pub async fn send_notification(&mut self, phone_number: &str, message: &str) -> Result<(), String> {
-        // In a real implementation, this would send SMS or push notification
-        // For now, we'll simulate the notification
-        
-        let notification = Notification {
-            phone_number: phone_number.to_string(),
-            message: message.to_string(),
-            timestamp: Utc::now(),
-            status: NotificationStatus::Sent,
-        };
-        
-        self.notification_history.push(notification);
-        
-        // Simulate notification delay
-        tokio::time::sleep(tokio::time::Duration::from_millis(50)).await;
-        
-        Ok(())
-    }
-    
-    /// Get notification history
-    pub fn get_notification_history(&self) -> &Vec<Notification> {
-        &self.notification_history
+    pub fn get_call_history(&self) -> &Vec<EmergencyCall> {
+        &self.call_history
     }
 }
 
 #[derive(Debug, Clone)]
-struct Notification {
-    phone_number: String,
-    message: String,
-    timestamp: DateTime<Utc>,
-    status: NotificationStatus,
+pub struct EmergencyCallData {
+    pub emergency_type: String,
+    pub location: LocationData,
+    pub caller_name: String,
+    pub caller_phone: String,
+    pub medical_info: Option<MedicalInfo>,
+    pub context_flags: Vec<String>,
 }
 
-#[derive(Debug, Clone, PartialEq)]
-enum NotificationStatus {
-    Sent,
-    Delivered,
-    Failed,
+pub struct LocationService {
+    // This would integrate with Android's location services
 }
+
+impl LocationService {
+    pub fn new() -> Self {
+        LocationService {}
+    }
+    
+    pub async fn get_current_location(&self) -> Result<LocationData, EmergencyCallError> {
+        // This would use Android's location services
+        // For demo purposes, return a mock location
+        Ok(LocationData {
+            latitude: 37.7749,
+            longitude: -122.4194,
+            accuracy: 10.0,
+            address: Some("123 Main St, San Francisco, CA".to_string()),
+            timestamp: std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap()
+                .as_secs(),
+        })
+    }
+}
+
+#[derive(Debug, thiserror::Error)]
+pub enum EmergencyCallError {
+    #[error("No emergency calling capability")]
+    NoEmergencyCallingCapability,
+    #[error("Location service unavailable")]
+    LocationServiceUnavailable,
+    #[error("Emergency call failed")]
+    EmergencyCallFailed,
+    #[error("Contact notification failed")]
+    ContactNotificationFailed,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    
+    #[test]
+    fn test_emergency_caller_creation() {
+        let caller = EmergencyCaller::new();
+        assert_eq!(caller.get_emergency_contacts().len(), 0);
+    }
+    
+    #[test]
+    fn test_add_emergency_contact() {
+        let mut caller = EmergencyCaller::new();
+        let contact = EmergencyContact {
+            name: "Mom".to_string(),
+            phone_number: "555-1234".to_string(),
+            relationship: "Mother".to_string(),
+            notification_enabled: true,
+        };
+        
+        caller.add_emergency_contact(contact);
+        assert_eq!(caller.get_emergency_contacts().len(), 1);
+    }
+    
+    #[tokio::test]
+    async fn test_location_service() {
+        let location_service = LocationService::new();
+        let location = location_service.get_current_location().await.unwrap();
+        
+        assert_eq!(location.latitude, 37.7749);
+        assert_eq!(location.longitude, -122.4194);
+        assert!(location.address.is_some());
+    }
+} 
