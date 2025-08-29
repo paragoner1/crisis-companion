@@ -1,6 +1,6 @@
 # Backup Strategy for Crisis Companion Enhanced
 
-## **🔒 Current Backup Locations**
+## ** Current Backup Locations**
 
 ### **Local Backups (Safe)**
 - `~/projects/crisis-companion-enhanced-backup-20250828-224644/` - Latest timestamped backup
@@ -10,7 +10,7 @@
 ### **Current Working Directory**
 - `~/projects/crisis-companion-enhanced/` - **ACTIVE WORKING VERSION**
 
-## **📋 Before Making Changes**
+## ** Before Making Changes**
 
 ### **Always Create Backup First**
 ```bash
@@ -30,7 +30,7 @@ cargo check --lib --features "voice,monitoring,private,rodio"
 git status
 ```
 
-## **📁 Project Organization**
+## ** Project Organization**
 
 ### **Key Directories**
 - **Working Version**: `crisis-companion-enhanced/` - Always work here
@@ -43,7 +43,7 @@ git status
 - `src/` - All source code
 - `private/emergency.db` - SQLite database
 
-## **🚨 Emergency Recovery**
+## ** Emergency Recovery**
 
 ### **If Work is Lost**
 1. **Check backups**: Look for timestamped backup folders
@@ -56,7 +56,7 @@ git status
 2. **Reinitialize git**: `git init && git add . && git commit -m "Restored from backup"`
 3. **Push to new repository**: Create new GitHub repository
 
-## **💡 Best Practices**
+## ** Best Practices**
 
 ### **Before Each Session**
 1. **Create backup**: Always backup before starting work
@@ -73,7 +73,7 @@ git status
 2. **Commit and push**: Save to git repository
 3. **Update documentation**: Keep `PROJECT_STATUS.md` current
 
-## **🎯 Quick Commands**
+## ** Quick Commands**
 
 ### **Daily Workflow**
 ```bash
@@ -102,11 +102,11 @@ cp -r crisis-companion-enhanced-backup-YYYYMMDD-HHMMSS/ crisis-companion-enhance
 cargo check --lib --features "voice,monitoring,private,rodio"
 ```
 
-## **⚠️ Important Notes**
+## ** Important Notes**
 
 - **Never work directly in backup folders** - Always work in `crisis-companion-enhanced/`
 - **Always backup before major changes** - Timestamped backups are your safety net
 - **Keep documentation updated** - `PROJECT_STATUS.md` is your project memory
 - **Test frequently** - Compilation errors are easier to fix when caught early
 
-**Remember**: This is a world-class emergency response system. Protect your work like lives depend on it! 🚀
+**Remember**: This is a world-class emergency response system. Protect your work like lives depend on it! 
