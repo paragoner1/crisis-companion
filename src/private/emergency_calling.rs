@@ -7,6 +7,7 @@ pub struct EmergencyContact {
     pub phone_number: String,
     pub relationship: String,
     pub notification_enabled: bool,
+    pub last_notified: Option<u64>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
