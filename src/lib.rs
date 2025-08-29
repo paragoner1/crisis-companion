@@ -204,6 +204,7 @@ impl SolanaSOS {
             phone_number: phone.to_string(),
             relationship: relationship.to_string(),
             notification_enabled: true,
+            last_notified: None,
         };
         self.emergency_caller.add_emergency_contact(contact);
     }
