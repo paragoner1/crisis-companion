@@ -303,9 +303,9 @@ mod tests {
         let preferences = NotificationPreferences {
             silent_sos: true,
             crash_detection: true,
-            emergency_activation: true,
-            location_sharing: true,
-            status_updates: true,
+            emergency_alerts: true,
+            safety_warnings: true,
+            training_reminders: true,
         };
 
         let contact_id = manager.add_trusted_contact(
