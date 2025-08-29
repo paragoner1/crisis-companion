@@ -3,19 +3,19 @@
 ## **🔒 Current Backup Locations**
 
 ### **Local Backups (Safe)**
-- `/Users/ryanomeara/projects/crisis-companion-enhanced-backup-20250828-224644/` - Latest timestamped backup
-- `/Users/ryanomeara/projects/crisis-companion-backup-20250826/` - Previous backup
-- `/Users/ryanomeara/projects/crisis-companion-original/` - Original version
+- `~/projects/crisis-companion-enhanced-backup-20250828-224644/` - Latest timestamped backup
+- `~/projects/crisis-companion-backup-20250826/` - Previous backup
+- `~/projects/crisis-companion-original/` - Original version
 
 ### **Current Working Directory**
-- `/Users/ryanomeara/projects/crisis-companion-enhanced/` - **ACTIVE WORKING VERSION**
+- `~/projects/crisis-companion-enhanced/` - **ACTIVE WORKING VERSION**
 
 ## **📋 Before Making Changes**
 
 ### **Always Create Backup First**
 ```bash
 # Navigate to projects directory
-cd /Users/ryanomeara/projects
+cd ~/projects
 
 # Create timestamped backup
 cp -r crisis-companion-enhanced crisis-companion-enhanced-backup-$(date +%Y%m%d-%H%M%S)
@@ -78,7 +78,7 @@ git status
 ### **Daily Workflow**
 ```bash
 # Start work
-cd /Users/ryanomeara/projects/crisis-companion-enhanced
+cd ~/projects/crisis-companion-enhanced
 
 # Create backup
 cd .. && cp -r crisis-companion-enhanced crisis-companion-enhanced-backup-$(date +%Y%m%d-%H%M%S)
