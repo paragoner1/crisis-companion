@@ -23,6 +23,14 @@ pub enum AppError {
     #[error("Blockchain error: {0}")]
     Blockchain(String),
 
+    /// Confirmation timeout errors
+    #[error("Confirmation timeout")]
+    ConfirmationTimeout,
+
+    /// Invalid voice response errors
+    #[error("Invalid voice response")]
+    InvalidVoiceResponse,
+
     /// Gamification errors
     #[error("Gamification error: {0}")]
     Gamification(String),
@@ -94,15 +102,14 @@ impl From<serde_json::Error> for AppError {
     }
 }
 
-// Temporarily disabled for Android build
-// impl From<rusqlite::Error> for AppError {
-//     fn from(err: rusqlite::Error) -> Self {
-//         AppError::Database(err.to_string())
-//     }
-// }
+impl From<rusqlite::Error> for AppError {
+    fn from(err: rusqlite::Error) -> Self {
+        AppError::Database(err.to_string())
+    }
+}
 
 impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
     fn from(err: Box<dyn std::error::Error + Send + Sync>) -> Self {
         AppError::Internal(err.to_string())
     }
-} 
+}

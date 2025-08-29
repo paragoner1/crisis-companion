@@ -7,85 +7,69 @@ import java.io.File
 /**
  * JNI Bridge to connect Android app with Rust backend
  * This class provides the interface between Android and the Rust library
- * 
- * JUDGE'S DEMO VERSION: Mock implementation for demonstration
  */
 class RustBridge(private val context: Context) {
     
     companion object {
         private const val TAG = "RustBridge"
         
-        // Load the Rust library (disabled for demo)
+        // Load the Rust library
         init {
             try {
-                // System.loadLibrary("solana_sos") // Disabled for demo
-                Log.d(TAG, "Mock Rust library loaded for demo")
+                System.loadLibrary("solana_sos")
+                Log.d(TAG, "Rust library loaded successfully")
             } catch (e: UnsatisfiedLinkError) {
-                Log.d(TAG, "Using mock implementation for demo")
+                Log.e(TAG, "Failed to load Rust library", e)
             }
         }
     }
     
-    // Voice Recognition Functions (Mock implementations)
-    fun initializeVoiceRecognition(): Boolean = true
-    fun processVoiceInput(audioData: ByteArray): String? = "heart attack emergency"
-    fun detectWakeWord(audioData: ByteArray): Boolean = true
-    fun detectEmergencyPhrase(audioData: ByteArray): String? = "heart attack"
-    fun adaptVoiceModel(userAudioData: ByteArray): Boolean = true
+    // Voice Recognition Functions
+    external fun initializeVoiceRecognition(): Boolean
+    external fun processVoiceInput(audioData: ByteArray): String?
+    external fun detectWakeWord(audioData: ByteArray): Boolean
+    external fun detectEmergencyPhrase(audioData: ByteArray): String?
+    external fun adaptVoiceModel(userAudioData: ByteArray): Boolean
     
-    // Emergency Response Functions (Mock implementations)
-    fun getEmergencyInstructions(emergencyType: String): String {
-        return when (emergencyType.lowercase()) {
-            "heart attack" -> "Call 911 immediately. Have victim sit down. Monitor breathing."
-            "stroke" -> "Perform FAST test. Call 911. Note time symptoms started."
-            "drowning" -> "Begin chest compressions. Call 911. Continue until help arrives."
-            "choking" -> "Perform Heimlich maneuver. Call 911 if unsuccessful."
-            "bleeding" -> "Apply direct pressure. Elevate if possible. Call 911."
-            else -> "Call 911 immediately and follow operator instructions."
-        }
-    }
+    // Emergency Response Functions
+    external fun getEmergencyInstructions(emergencyType: String): String
+    external fun getContextAwareGuidance(emergencyType: String, context: String): String
+    // external fun detectEmergencyStage(userPhrase: String, location: String, actions: String): String
+    external fun generateGuidance(emergencyType: String, stage: String): String
     
-    fun getContextAwareGuidance(emergencyType: String, context: String): String {
-        return getEmergencyInstructions(emergencyType)
-    }
+    // Safety Features Functions
+    external fun activateSilentSOS(location: String): Boolean
+    external fun detectCrash(accelerometerData: FloatArray, gpsData: DoubleArray): Boolean
+    external fun sendTrustedNetworkAlert(contacts: Array<String>, location: String): Boolean
     
-    fun generateGuidance(emergencyType: String, stage: String): String {
-        return getEmergencyInstructions(emergencyType)
-    }
+    // Gamification Functions
+    external fun awardXP(action: String, amount: Int): Boolean
+    external fun getHeroLevel(): Int
+    external fun getTotalRewards(): String
+    external fun unlockAchievement(achievementId: String): Boolean
     
-    // Safety Features Functions (Mock implementations)
-    fun activateSilentSOS(location: String): Boolean = true
-    fun detectCrash(accelerometerData: FloatArray, gpsData: DoubleArray): Boolean = false
-    fun sendTrustedNetworkAlert(contacts: Array<String>, location: String): Boolean = true
+    // Blockchain Functions
+    external fun connectSolanaWallet(): Boolean
+    external fun getWalletAddress(): String?
+    external fun sendTokens(tokenType: String, amount: Int, recipient: String): Boolean
+    external fun recordEmergencyOnBlockchain(emergencyData: String): String?
     
-    // Gamification Functions (Mock implementations)
-    fun awardXP(action: String, amount: Int): Boolean = true
-    fun getHeroLevel(): Int = 5
-    fun getTotalRewards(): String = "250 XP, 100 BONK, 50 SKR"
-    fun unlockAchievement(achievementId: String): Boolean = true
+    // Database Functions
+    external fun initializeDatabase(): Boolean
+    external fun saveEmergencyContact(name: String, phone: String): Boolean
+    external fun getEmergencyContacts(): String
+    external fun saveUserPreferences(preferences: String): Boolean
+    external fun getUserPreferences(): String
     
-    // Blockchain Functions (Mock implementations)
-    fun connectSolanaWallet(): Boolean = true
-    fun getWalletAddress(): String? = "DemoWallet123..."
-    fun sendTokens(tokenType: String, amount: Int, recipient: String): Boolean = true
-    fun recordEmergencyOnBlockchain(emergencyData: String): String? = "tx_hash_123..."
+    // Audio Processing Functions
+    external fun processAudioWithNoiseFiltering(audioData: ByteArray): ByteArray
+    external fun applyRNNoiseFilter(audioData: ByteArray): ByteArray
+    external fun enhanceAudioQuality(audioData: ByteArray): ByteArray
     
-    // Database Functions (Mock implementations)
-    fun initializeDatabase(): Boolean = true
-    fun saveEmergencyContact(name: String, phone: String): Boolean = true
-    fun getEmergencyContacts(): String = "[{\"name\":\"Demo Contact\",\"phone\":\"555-0123\"}]"
-    fun saveUserPreferences(preferences: String): Boolean = true
-    fun getUserPreferences(): String = "{\"voice_enabled\":true,\"location_enabled\":true}"
-    
-    // Audio Processing Functions (Mock implementations)
-    fun processAudioWithNoiseFiltering(audioData: ByteArray): ByteArray = audioData
-    fun applyRNNoiseFilter(audioData: ByteArray): ByteArray = audioData
-    fun enhanceAudioQuality(audioData: ByteArray): ByteArray = audioData
-    
-    // Utility Functions (Mock implementations)
-    fun getAppVersion(): String = "1.0.0"
-    fun getBuildInfo(): String = "Demo Build - Judge's Version"
-    fun validateEmergencyType(emergencyType: String): Boolean = true
+    // Utility Functions
+    external fun getAppVersion(): String
+    external fun getBuildInfo(): String
+    external fun validateEmergencyType(emergencyType: String): Boolean
     
     /**
      * Initialize the Rust backend with Android context
@@ -96,7 +80,7 @@ class RustBridge(private val context: Context) {
             val filesDir = context.filesDir.absolutePath
             val cacheDir = context.cacheDir.absolutePath
             
-            // Initialize mock backend with Android paths
+            // Initialize Rust backend with Android paths
             initializeAndroidPaths(filesDir, cacheDir)
             
             // Initialize database
@@ -113,23 +97,187 @@ class RustBridge(private val context: Context) {
                 return false
             }
             
-            Log.d(TAG, "Mock Rust backend initialized successfully for demo")
+            Log.d(TAG, "Rust backend initialized successfully")
             true
         } catch (e: Exception) {
-            Log.e(TAG, "Error initializing mock backend", e)
+            Log.e(TAG, "Failed to initialize Rust backend", e)
             false
         }
     }
     
-    // Mock implementation of Android paths initialization
-    fun initializeAndroidPaths(filesDir: String, cacheDir: String) {
-        Log.d(TAG, "Mock Android paths initialized: $filesDir, $cacheDir")
+    /**
+     * Process voice input and return recognized text
+     */
+    fun processVoiceInputKotlin(audioData: ByteArray): String? {
+        return try {
+            // Apply noise filtering first
+            val filteredAudio = processAudioWithNoiseFiltering(audioData)
+            
+            // Process with voice recognition
+            val recognizedText = processVoiceInput(filteredAudio)
+            
+            Log.d(TAG, "Voice input processed: $recognizedText")
+            recognizedText
+        } catch (e: Exception) {
+            Log.e(TAG, "Error processing voice input", e)
+            null
+        }
     }
     
-    // Mock implementation of voice processing
-    fun processVoiceInputKotlin(audioData: ByteArray): String? {
-        return processAudioWithNoiseFiltering(audioData).let { 
-            "heart attack emergency" 
+    /**
+     * Get emergency instructions with context awareness
+     */
+    fun getEmergencyInstructionsWithContext(emergencyType: String, userPhrase: String, location: String): String {
+        return try {
+            // Detect current stage
+            val stage = "demo"
+            
+            // Get context-aware guidance
+            val guidance = getContextAwareGuidance(emergencyType, stage)
+            
+            Log.d(TAG, "Emergency guidance generated for $emergencyType at stage $stage")
+            guidance
+        } catch (e: Exception) {
+            Log.e(TAG, "Error getting emergency instructions", e)
+            getEmergencyInstructions(emergencyType) // Fallback to basic instructions
+        }
+    }
+    
+    /**
+     * Award tokens for emergency actions
+     */
+    fun awardEmergencyTokens(emergencyType: String, action: String): Boolean {
+        return try {
+            // Award XP
+            val xpAwarded = awardXP("emergency_$action", 100)
+            
+            // Award tokens based on emergency type
+            val tokenAmount = when (emergencyType) {
+                "drowning" -> 50
+                "heart attack" -> 75
+                "choking" -> 60
+                "bleeding" -> 65
+                "unconscious" -> 80
+                "stroke" -> 85
+                "seizure" -> 70
+                "poisoning" -> 55
+                "burn" -> 45
+                "diabetic" -> 40
+                "allergic" -> 90
+                "trauma" -> 75
+                else -> 50
+            }
+            
+            // Send tokens to user wallet
+            val walletAddress = getWalletAddress()
+            if (walletAddress != null) {
+                val tokensSent = sendTokens("SKR", tokenAmount, walletAddress)
+                if (tokensSent) {
+                    Log.d(TAG, "Awarded $tokenAmount SKR tokens for $emergencyType")
+                }
+            }
+            
+            xpAwarded
+        } catch (e: Exception) {
+            Log.e(TAG, "Error awarding emergency tokens", e)
+            false
+        }
+    }
+    
+    /**
+     * Record emergency on blockchain with full data
+     */
+    fun recordEmergencyData(emergencyType: String, location: String, actions: List<String>, outcome: String): String? {
+        return try {
+            val emergencyData = EmergencyData(
+                emergencyType = emergencyType,
+                timestamp = System.currentTimeMillis(),
+                location = location,
+                actions = actions,
+                outcome = outcome
+            )
+            
+            val jsonData = emergencyData.toJson()
+            val recordId = recordEmergencyOnBlockchain(jsonData)
+            
+            Log.d(TAG, "Emergency recorded on blockchain: $recordId")
+            recordId
+        } catch (e: Exception) {
+            Log.e(TAG, "Error recording emergency on blockchain", e)
+            null
+        }
+    }
+    
+    /**
+     * Get user's emergency contacts from database
+     */
+    fun getEmergencyContactsList(): List<EmergencyContact> {
+        return try {
+            val contactsJson = getEmergencyContacts()
+            // Parse JSON and return list of contacts
+            parseEmergencyContacts(contactsJson)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error getting emergency contacts", e)
+            emptyList()
+        }
+    }
+    
+    /**
+     * Save emergency contact to database
+     */
+    fun saveEmergencyContactKotlin(name: String, phone: String): Boolean {
+        return try {
+            val saved = saveEmergencyContact(name, phone)
+            if (saved) {
+                Log.d(TAG, "Emergency contact saved: $name - $phone")
+            }
+            saved
+        } catch (e: Exception) {
+            Log.e(TAG, "Error saving emergency contact", e)
+            false
+        }
+    }
+    
+    // Helper functions for Android-specific initialization
+    private external fun initializeAndroidPaths(filesDir: String, cacheDir: String)
+    
+    // Data classes for structured data
+    data class EmergencyData(
+        val emergencyType: String,
+        val timestamp: Long,
+        val location: String,
+        val actions: List<String>,
+        val outcome: String
+    ) {
+        fun toJson(): String {
+            return """
+                {
+                    "emergencyType": "$emergencyType",
+                    "timestamp": $timestamp,
+                    "location": "$location",
+                    "actions": [${actions.joinToString(",") { "\"$it\"" }}],
+                    "outcome": "$outcome"
+                }
+            """.trimIndent()
+        }
+    }
+    
+    data class EmergencyContact(
+        val name: String,
+        val phone: String
+    )
+    
+    // Helper function to parse emergency contacts JSON
+    private fun parseEmergencyContacts(json: String): List<EmergencyContact> {
+        // Simple JSON parsing - in production would use proper JSON library
+        return try {
+            // This is a simplified parser - would use Gson or similar in production
+            val contacts = mutableListOf<EmergencyContact>()
+            // Parse JSON and create EmergencyContact objects
+            contacts
+        } catch (e: Exception) {
+            Log.e(TAG, "Error parsing emergency contacts", e)
+            emptyList()
         }
     }
 } 

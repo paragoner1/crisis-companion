@@ -49,19 +49,22 @@ Solana SOS transforms ordinary people into life-saving heroes through voice-acti
 - **Blockchain Integration**: Secure, decentralized emergency response system
 
 ### Key Features
-- **Voice Activation**: "Hey SOS" trigger for immediate response
-- **Emergency Protocols**: 15 comprehensive life-saving procedures
+- **Voice Activation**: "Hey SOS" trigger with advanced noise filtering and confidence scoring
+- **Emergency Protocols**: 15 comprehensive life-saving procedures with specialized routing
 - **Offline Operation**: Full functionality without internet connection
 - **Safety Features**: Comprehensive user protection and guidance
 - **Gamification**: User engagement and training features
 
+- **Smart 911 Integration**: Intelligent handoff timing and dispatcher context sharing
+
+- **Advanced Audio Management**: Emergency volume override and input optimization
 ---
 
 ## Technical Deep Dive
 
 ### Performance Specifications
 - **Voice Activation Speed**: Under 100ms response time
-- **Emergency Protocols**: 15 comprehensive life-saving procedures with offline coverage
+- **Emergency Protocols**: 15 comprehensive life-saving procedures with specialized routing with offline coverage
 - **Crash Detection**: Automatic trigger at 25mph + 3g force threshold
 - **Silent SOS**: 3-second button hold for dangerous situations
 - **Trusted Network**: Community safety with 5-10 minute advantage over EMS
@@ -72,6 +75,22 @@ Solana SOS transforms ordinary people into life-saving heroes through voice-acti
 - **Personal Trusted Network**: Instant notification to emergency contacts with real-time location
 - **Two-Way Communication**: Coordinated emergency response with community support
 
+
+### Advanced Emergency Protocols
+
+**Specialized routing and coordination for critical scenarios:**
+
+- **Suicide Prevention**: Immediate connection to 988 hotline with human specialist coordination
+
+- **Drug Overdose Response**: Harm reduction specialist integration with naloxone guidance
+
+- **Hypothermia Management**: Cold weather emergency protocols with gradual rewarming guidance
+
+- **Smart Handoff Timing**: Determines optimal moments to transfer to emergency dispatchers
+
+- **Dispatcher Context Sharing**: Provides comprehensive emergency context for enhanced coordination
+
+- **Audio Monitoring**: Allows dispatchers to hear emergency situations for real-time assessment
 ### Medical Credibility & Authority Sources
 All emergency protocols are based on official medical guidelines from recognized authorities:
 - **American Heart Association (AHA)**: Cardiovascular protocols and CPR guidelines
@@ -131,7 +150,7 @@ All emergency protocols are based on official medical guidelines from recognized
 
 ### Technology Stack
 - **Rust**: Reliability and performance for critical emergency systems
-- **Vosk**: Offline speech recognition for voice activation
+- **Vosk**: Offline speech recognition with RNNoise filtering for voice activation
 - **RNNoise**: Enterprise-grade noise filtering for voice clarity
 - **SQLite**: Local data storage with encrypted database
 - **Solana**: Blockchain integration for verification and token rewards
@@ -158,11 +177,11 @@ All emergency protocols are based on official medical guidelines from recognized
 
 ### Voice-Activated Emergency Response
 **Complete emergency response flow when user says "Hey SOS, [emergency] help!":**
-- **Instant Activation**: Responds in under 100ms and begins emergency recording
+- **Instant Activation**: Responds in under 100ms with confidence scoring and begins emergency recording
 - **Automatic 911 Dialing**: Calls emergency services within 3 seconds with precise GPS location
 - **Trusted Network Alert**: Immediately notifies all emergency contacts with real-time location
 - **Step-by-Step Guidance**: Provides specific emergency protocol guidance (15 protocols available offline)
-- **911 Coordination**: Maintains emergency dispatcher connection until user is ready
+- **911 Coordination**: Maintains emergency dispatcher connection with intelligent handoff timing and context sharing
 - **Offline Operation**: Full functionality without internet connection
 
 ### Silent SOS Activation

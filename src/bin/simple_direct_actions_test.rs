@@ -1,4 +1,4 @@
-use crate::{
+use solana_sos::{
     public::types::{EmergencyType, DirectAction},
     error::AppResult,
 };

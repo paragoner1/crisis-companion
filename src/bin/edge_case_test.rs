@@ -1,5 +1,5 @@
-use crate::emergency_database::EmergencyDatabase;
-use crate::public::voice_interface::VoiceInterface;
+use solana_sos::emergency_database::EmergencyDatabase;
+use solana_sos::public::voice_interface::VoiceInterface;
 use std::time::Instant;
 
 #[tokio::main]

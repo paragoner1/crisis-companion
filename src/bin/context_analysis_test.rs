@@ -9,7 +9,7 @@ use tokio::time::sleep;
 use tracing::info;
 use tracing_subscriber;
 
-use crate::error::AppResult;
+use solana_sos::error::AppResult;
 
 #[tokio::main]
 async fn main() -> AppResult<()> {

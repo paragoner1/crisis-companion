@@ -1,4 +1,4 @@
-use crate::SolanaSOS;
+use solana_sos::SolanaSOS;
 
 fn main() {
     println!("🧪 Testing Solana SOS Core Functionality...");

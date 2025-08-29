@@ -2,7 +2,7 @@
 //! 
 //! Demonstrates the hybrid offline/online architecture with context-aware guidance.
 
-use crate::error::AppResult;
+use solana_sos::error::AppResult;
 use tracing::{info, Level};
 use tracing_subscriber;
 use std::time::Duration;

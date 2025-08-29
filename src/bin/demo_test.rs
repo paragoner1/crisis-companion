@@ -1,8 +1,8 @@
-use crate::public::voice_interface::VoiceTrigger;
-use crate::public::audio_interface::AudioProcessor;
-use crate::public::emergency_interface::EmergencySystem;
-use crate::public::types::EmergencyType;
-use crate::error::AppResult;
+use solana_sos::public::voice_interface::VoiceTrigger;
+use solana_sos::public::audio_interface::AudioProcessor;
+use solana_sos::public::emergency_interface::EmergencySystem;
+use solana_sos::public::types::EmergencyType;
+use solana_sos::error::AppResult;
 use tracing::{info, Level};
 use tracing_subscriber;
 

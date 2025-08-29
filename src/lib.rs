@@ -126,17 +126,22 @@ pub use public::emergency_interface::{EmergencySystem, EmergencyConfig, Emergenc
 // Note: Implementation modules moved to src/private/ for IP protection
 // These are now accessed through the public interfaces above
 
+#[cfg(feature = "private")]
 use crate::private::emergency_database::EmergencyDatabase;
+#[cfg(feature = "private")]
 use crate::private::context_analysis::{ContextAnalyzer, EmergencyContext};
+#[cfg(feature = "private")]
 use crate::private::emergency_calling::{EmergencyCaller, EmergencyContact, EmergencyCallError};
 use std::collections::HashMap;
 
+#[cfg(feature = "private")]
 pub struct SolanaSOS {
     database: EmergencyDatabase,
     context_analyzer: ContextAnalyzer,
     emergency_caller: EmergencyCaller,
 }
 
+#[cfg(feature = "private")]
 impl SolanaSOS {
     pub fn new() -> Self {
         SolanaSOS {

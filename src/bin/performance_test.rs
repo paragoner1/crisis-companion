@@ -1,5 +1,5 @@
-use crate::public::voice_interface::VoiceInterface;
-use crate::config::VoiceConfig;
+use solana_sos::public::voice_interface::VoiceInterface;
+use solana_sos::config::VoiceConfig;
 use std::time::Instant;
 use tokio;
 

@@ -15,6 +15,7 @@ crate-type = ["cdylib"]
 
 [features]
 default = []
+desktop = []
 private = []
 voice = ["vosk", "nnnoiseless", "cpal"]
 sensors = ["accelerometer"]
@@ -63,6 +64,9 @@ accelerometer = { version = "0.12", optional = true }
 # ===== HTTP & NETWORKING (Mobile-optimized) =====
 reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
 
+# ===== UTILITY DEPENDENCIES =====
+rand = "0.8"
+sha2 = "0.10"
 # ===== SOLANA & BLOCKCHAIN =====
 solana-client = "1.17"
 solana-sdk = "1.17"
@@ -85,8 +89,16 @@ name = "solana-sos"
 path = "src/main.rs"
 
 [[bin]]
-name = "judge_demo"
-path = "src/bin/judge_demo.rs"
+name = "demo_test"
+path = "src/bin/demo_test.rs"
+
+[[bin]]
+name = "gamification_demo"
+path = "src/bin/gamification_demo.rs"
+
+[[bin]]
+name = "complete_walkthrough"
+path = "src/bin/complete_walkthrough.rs"
 
 
 

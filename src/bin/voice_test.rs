@@ -1,4 +1,4 @@
-use crate::public::voice_interface::VoiceTrigger;
+use solana_sos::public::voice_interface::VoiceTrigger;
 
 #[tokio::main]
 async fn main() {
