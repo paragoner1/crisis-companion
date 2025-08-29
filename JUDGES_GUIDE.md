@@ -1,4 +1,4 @@
-# 🚨 **JUDGES GUIDE - Testing Solana SOS**
+# **JUDGES GUIDE - Testing Solana SOS**
 
 ## **Quick Setup for Judges**
 
@@ -26,7 +26,7 @@ adb shell am start -n com.solanasos.emergency/.MainActivity
 
 ---
 
-## **🧪 Testing the App**
+## ** Testing the App**
 
 ### **1. First-Time Experience**
 - **Launch the app** - You'll see the main interface with safety features status
@@ -36,12 +36,12 @@ adb shell am start -n com.solanasos.emergency/.MainActivity
 ### **2. Core Features Testing**
 
 **Voice Recognition (Demo Mode):**
-- Tap the **"🚨 Press for Emergency"** button
+- Tap the **" Press for Emergency"** button
 - Try saying emergency phrases (note: emulator may not have real microphone)
 - The app will respond with emergency guidance
 
 **Emergency Types:**
-- Tap **"Help & Info"** → **"🚨 Emergency Types & Direct Actions"**
+- Tap **"Help & Info"** → **" Emergency Types & Direct Actions"**
 - Review all 15 emergency protocols supported
 - See the new "Critical Self-Rescue Protocols" section
 
@@ -63,7 +63,7 @@ adb shell am start -n com.solanasos.emergency/.MainActivity
 - See automatic 911 integration features
 
 **Enhanced Gamification:**
-- Tap **"Help & Info"** → **"🏆 Enhanced Gamification"**
+- Tap **"Help & Info"** → **" Enhanced Gamification"**
 - Review achievement levels and XP system
 - See community features and token rewards
 
@@ -121,23 +121,23 @@ adb shell am start -n com.solanasos.emergency/.MainActivity
 
 ---
 
-## **📊 What to Look For**
+## ** What to Look For**
 
-### **✅ Working Features**
+### ** Working Features**
 - App launches successfully
 - All UI elements are responsive
 - Safety features status shows correctly
 - Navigation between screens works
 - Emergency guidance is comprehensive
 
-### **✅ Technical Implementation**
+### ** Technical Implementation**
 - Hybrid architecture (offline/online)
 - Real-time status updates
 - Professional UI/UX design
 - Comprehensive documentation
 - Scalable architecture
 
-### **✅ Innovation & Impact**
+### ** Innovation & Impact**
 - Voice-activated emergency response
 - AI-powered medical analysis
 - Blockchain integration
@@ -170,7 +170,7 @@ adb shell am start -n com.solanasos.emergency/.MainActivity
 
 ---
 
-## **📞 Support**
+## ** Support**
 
 If you encounter any issues:
 1. **Check the README.md** for detailed setup instructions
