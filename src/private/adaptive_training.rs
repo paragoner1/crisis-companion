@@ -1,6 +1,7 @@
 // Adaptive model training for personalized accuracy
 
 use crate::public::types::EmergencyType;
+
 use tracing::info;
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};

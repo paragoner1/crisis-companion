@@ -1,3 +1,4 @@
+#[cfg(feature = "private")]
 use solana_sos::SolanaSOS;
 
 fn main() {

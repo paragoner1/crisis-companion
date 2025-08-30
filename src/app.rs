@@ -4,6 +4,7 @@
 //! Implementation details are hidden to protect proprietary algorithms.
 
 use crate::error::AppResult;
+use crate::config::AppConfig;
 
 /// Main Solana SOS application
 pub struct SolanaSOSApp {
@@ -53,6 +54,16 @@ impl SolanaSOSApp {
     pub fn get_status(&self) -> AppStatus {
         self.status.clone()
     }
+
+    /// Gets application configuration
+    pub fn get_config(&self) -> &AppConfig {
+        &self.config
+    }
+
+    /// Updates application configuration
+    pub fn update_config(&mut self, config: AppConfig) {
+        self.config = config;
+    }
 }
 
 /// Application status enumeration
@@ -72,41 +83,4 @@ pub enum AppStatus {
     Error,
 }
 
-/// Application configuration
-pub struct AppConfig {
-    /// App name
-    pub app_name: String,
-    /// App version
-    pub app_version: String,
-    /// Device name
-    pub device_name: String,
-    /// Whether debug mode is enabled
-    pub debug_mode: bool,
-    /// Log level
-    pub log_level: LogLevel,
-}
-
-impl Default for AppConfig {
-    fn default() -> Self {
-        Self {
-            app_name: "Solana SOS".to_string(),
-            app_version: "1.0.0".to_string(),
-            device_name: "Solana SOS Device".to_string(),
-            debug_mode: false,
-            log_level: LogLevel::Info,
-        }
-    }
-}
-
-/// Log level enumeration
-#[derive(Debug, Clone)]
-pub enum LogLevel {
-    /// Debug level
-    Debug,
-    /// Info level
-    Info,
-    /// Warning level
-    Warning,
-    /// Error level
-    Error,
-} 
+ 

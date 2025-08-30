@@ -6,6 +6,7 @@ use crate::private::noise_filter::{NoiseFilter, NoiseFilterType};
 use chrono::Utc;
 use std::sync::{Arc, Mutex};
 use tokio::sync::mpsc;
+
 use tracing::{info, warn, error};
 // use vosk::{Model, Recognizer}; // Temporarily disabled for demo
 use std::collections::HashMap;
@@ -28,6 +29,7 @@ pub struct VoiceTrigger {
 
 impl VoiceTrigger {
     pub fn new(config: &VoiceConfig) -> AppResult<Self> {
+
         info!("Initializing voice trigger system (demo mode)");
         let mut emergency_phrase_map = HashMap::new();
         // Populate emergency_phrase_map
@@ -96,6 +98,7 @@ impl VoiceTrigger {
         let (trigger_sender, _trigger_receiver) = mpsc::channel(100);
         let is_listening = Arc::new(Mutex::new(false));
 
+
         info!("Voice trigger system initialized (demo mode - no Vosk model)");
         Ok(Self {
             config: config.clone(),
@@ -109,10 +112,12 @@ impl VoiceTrigger {
     }
 
     pub async fn start_listening(&mut self) -> AppResult<()> {
+
         info!("Starting voice listening (demo mode)");
         let mut is_listening = self.is_listening.lock().unwrap();
         if *is_listening {
-            warn!("Voice listening already active");
+            
+        warn!("Voice listening already active");
             return Ok(());
         }
         *is_listening = true;
@@ -130,17 +135,21 @@ impl VoiceTrigger {
                 trigger_sender,
                 is_listening,
             ).await {
-                error!("Voice listening loop error: {}", e);
+                
+        error!("Voice listening loop error: {}", e);
             }
         });
+
         info!("Voice listening started successfully (demo mode)");
         Ok(())
     }
 
     pub async fn stop_listening(&self) -> AppResult<()> {
+
         info!("Stopping voice listening");
         let mut is_listening = self.is_listening.lock().unwrap();
         *is_listening = false;
+
         info!("Voice listening stopped");
         Ok(())
     }
@@ -151,6 +160,7 @@ impl VoiceTrigger {
         trigger_sender: mpsc::Sender<VoiceTriggerResult>,
         is_listening: Arc<Mutex<bool>>,
     ) -> AppResult<()> {
+
         info!("Voice listening loop started (demo mode)");
         let audio_buffer = vec![0i16; config.buffer_size];
 
@@ -175,13 +185,15 @@ impl VoiceTrigger {
             // Apply noise filtering (this is where the magic happens!)
             match noise_filter.process_audio(&simulated_raw_audio).await {
                 Ok(filtered_audio) => {
-                    info!("Audio processed with noise filtering ({} samples)", filtered_audio.len());
+                    
+        info!("Audio processed with noise filtering ({} samples)", filtered_audio.len());
                     
                     // In real implementation, this filtered audio would go to voice recognition
                     // For demo, we'll simulate detection on the filtered audio
                 }
                 Err(e) => {
-                    warn!("Noise filtering failed: {}", e);
+                    
+        warn!("Noise filtering failed: {}", e);
                     // Continue without filtering
                 }
             }
@@ -191,7 +203,8 @@ impl VoiceTrigger {
                 // In real implementation, this would process actual audio
                 // For demo, we'll simulate detection
                 if Self::simulate_phrase_detection(phrase).await {
-                    info!("Emergency phrase detected: {}", phrase);
+                    
+        info!("Emergency phrase detected: {}", phrase);
 
                     let trigger = VoiceTriggerResult {
                         detected: true,
@@ -203,7 +216,8 @@ impl VoiceTrigger {
                     };
 
                     if let Err(e) = trigger_sender.send(trigger).await {
-                        error!("Failed to send voice trigger: {}", e);
+                        
+        error!("Failed to send voice trigger: {}", e);
                     }
 
                     // Wait before allowing another detection
@@ -211,6 +225,7 @@ impl VoiceTrigger {
                 }
             }
         }
+
         info!("Voice listening loop ended");
         Ok(())
     }
@@ -227,6 +242,7 @@ impl VoiceTrigger {
     }
 
     pub async fn test_trigger(&self, phrase: &str) -> AppResult<Option<VoiceTriggerResult>> {
+
         info!("Testing voice trigger with phrase: {}", phrase);
 
         let emergency_type = self.emergency_phrase_map.get(phrase)
@@ -241,6 +257,7 @@ impl VoiceTrigger {
             timestamp: chrono::Utc::now().timestamp() as u64,
             audio_hash: Self::generate_audio_hash(&vec![0; 1024]),
         };
+
 
         info!("Test trigger created for: {:?}", emergency_type);
         Ok(Some(trigger))
@@ -265,13 +282,15 @@ impl VoiceTrigger {
 
     /// Process audio input and detect emergency phrases
     pub async fn process_audio_input(&mut self) -> AppResult<Option<VoiceTriggerResult>> {
+
         info!("Processing audio input for emergency detection");
         
         // Real microphone input implementation
         #[cfg(feature = "android")]
         {
             // Simplified Android implementation
-            info!("Processing audio input for emergency detection via Android AudioRecord");
+            
+        info!("Processing audio input for emergency detection via Android AudioRecord");
             
             // In production, this would use Android's microphone APIs
             // For now, we'll use a reliable fallback that works on all platforms
@@ -296,12 +315,14 @@ impl VoiceTrigger {
                             audio_hash: Self::generate_audio_hash(&vec![0; 1024]),
                         };
                         
-                        info!("Simulated emergency phrase detected: {:?}", emergency_type);
+                        
+        info!("Simulated emergency phrase detected: {:?}", emergency_type);
                         return Ok(Some(result));
                     }
                 }
                 Err(e) => {
-                    error!("Failed to process audio: {}", e);
+                    
+        error!("Failed to process audio: {}", e);
                 }
             }
         }
@@ -335,6 +356,7 @@ impl Drop for VoiceTrigger {
         if let Ok(mut is_listening) = self.is_listening.lock() {
             *is_listening = false;
         }
+
         info!("Voice trigger system dropped");
     }
 }
@@ -360,7 +382,7 @@ mod tests {
         // Test drowning detection
         let result = voice_trigger.test_trigger("drowning help").await.unwrap();
         assert!(result.is_some());
-        assert_eq!(result.unwrap().emergency_type: Some(emergency_type.clone()), EmergencyType::Drowning);
+        assert_eq!(result.unwrap().emergency_type, Some(EmergencyType::Drowning));
 
         // Test non-emergency phrase
         let result = voice_trigger.test_trigger("hello world").await.unwrap();

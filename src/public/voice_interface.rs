@@ -8,7 +8,9 @@ use crate::config::VoiceConfig;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use chrono;
+use tracing::{info, warn};
 // Voice recognition dependencies
+#[cfg(feature = "voice")]
 use nnnoiseless::DenoiseState;
 // use vosk::{Model, Recognizer};  // Optional - will use enhanced pattern recognition
 use serde::{Deserialize, Serialize};
@@ -232,13 +234,21 @@ impl VoiceInterface {
     /// Initialize voice recognition with enhanced pattern recognition
     pub async fn initialize(&mut self) -> AppResult<()> {
         // Enhanced pattern recognition with advanced features
-        tracing::info!("Voice interface initialized with ENHANCED PATTERN RECOGNITION");
-        tracing::info!("✅ Advanced noise filtering with RNNoise enabled!");
-        tracing::info!("✅ Expanded emergency phrase detection enabled!");
-        tracing::info!("✅ Context-aware emergency inference enabled!");
-        tracing::info!("✅ Accent and dialect adaptation enabled!");
         
+        {
+            
+        tracing::info!("Voice interface initialized with ENHANCED PATTERN RECOGNITION");
+            
+        tracing::info!("✅ Advanced noise filtering with RNNoise enabled!");
+            
+        tracing::info!("✅ Expanded emergency phrase detection enabled!");
+            
+        tracing::info!("✅ Context-aware emergency inference enabled!");
+            
+        tracing::info!("✅ Accent and dialect adaptation enabled!");
+            
         tracing::info!("Voice interface initialized with enhanced pattern recognition + RNNoise");
+        }
         Ok(())
     }
 
@@ -267,6 +277,7 @@ impl VoiceInterface {
             .contains("hey sos");
         
         if detected {
+                        
             tracing::info!("Wake word detected: hey sos");
         }
         
@@ -279,7 +290,8 @@ impl VoiceInterface {
         
         for phrase in &self.config.emergency_phrases {
             if recognized_text.to_lowercase().contains(phrase) {
-                tracing::info!("Emergency phrase detected: {}", phrase);
+                
+        tracing::info!("Emergency phrase detected: {}", phrase);
                 return Ok(Some(phrase.clone()));
             }
         }
@@ -299,7 +311,8 @@ impl VoiceInterface {
         ];
         for action in &direct_actions {
             if recognized_text.to_lowercase().contains(action) {
-                tracing::info!("Direct action detected: {}", action);
+                            
+            tracing::info!("Direct action detected: {}", action);
                 return Ok(Some(action.to_string()));
             }
         }
@@ -311,7 +324,10 @@ impl VoiceInterface {
     /// Apply advanced noise filtering with RNNoise
     fn apply_advanced_noise_filtering(&self, audio_data: &[u8]) -> AppResult<Vec<u8>> {
         // Advanced noise filtering with RNNoise
+        #[cfg(feature = "voice")]
         let mut denoise_state = DenoiseState::new();
+        #[cfg(not(feature = "voice"))]
+        let mut denoise_state = (); // Placeholder when voice feature is disabled
         let mut filtered = Vec::new();
         
         // Convert audio to float samples for RNNoise
@@ -336,7 +352,10 @@ impl VoiceInterface {
             }
             
             // Apply RNNoise denoising
+            #[cfg(feature = "voice")]
             let _quality = denoise_state.process_frame(&mut output_array, &frame_array);
+            #[cfg(not(feature = "voice"))]
+            let _quality = 0.5; // Default quality when voice feature is disabled
             
             // Convert back to i16
             for &sample in output_array.iter() {
@@ -344,6 +363,7 @@ impl VoiceInterface {
                 filtered.extend_from_slice(&sample_i16.to_le_bytes());
             }
         }
+        
         
         tracing::info!("Applied advanced RNNoise filtering to {} samples", samples.len());
         Ok(filtered)
@@ -388,6 +408,7 @@ impl VoiceInterface {
         let filtered_audio = self.apply_advanced_noise_filtering(audio_data)?;
         
         // Enhanced pattern recognition with advanced features
+        
         tracing::info!("Using ENHANCED PATTERN RECOGNITION with RNNoise filtering");
         
         // Convert audio to PCM samples for analysis
@@ -399,6 +420,7 @@ impl VoiceInterface {
     
     /// Simplified Vosk recognition that works with immutable references
     fn real_vosk_recognition_simplified(&self, samples: &[i16]) -> AppResult<String> {
+        
         tracing::info!("Using simplified Vosk recognition with {} samples", samples.len());
         
         // For now, use enhanced pattern recognition with Vosk context
@@ -416,10 +438,12 @@ impl VoiceInterface {
     
     /// Real Vosk speech recognition with advanced features (requires mutable access)
     fn real_vosk_recognition(&self, samples: &[i16]) -> AppResult<String> {
+        
         tracing::info!("Using REAL Vosk recognition with {} samples", samples.len());
         
         // Note: Real Vosk would require mutable access to the recognizer
         // For now, we use enhanced pattern recognition
+        
         tracing::info!("Real Vosk recognition available but requires mutable access");
         
         // Fallback to enhanced pattern recognition
@@ -522,10 +546,12 @@ impl VoiceInterface {
             
             // HIGH-ACCURACY CONFIDENCE VALIDATION (Target <3% false positive rate)
             if self.validate_emergency_detection(&selected_phrase, amplitude, audio_length) {
-                tracing::info!("High-accuracy emergency detected: '{}' (amplitude: {:.2})", selected_phrase, amplitude);
+                
+        tracing::info!("High-accuracy emergency detected: '{}' (amplitude: {:.2})", selected_phrase, amplitude);
                 Ok(selected_phrase)
             } else {
-                tracing::info!("Emergency rejected due to low confidence: '{}' (amplitude: {:.2})", selected_phrase, amplitude);
+                
+        tracing::info!("Emergency rejected due to low confidence: '{}' (amplitude: {:.2})", selected_phrase, amplitude);
                 Ok("no_emergency_low_confidence".to_string())
             }
         } else {
@@ -665,15 +691,18 @@ impl VoiceInterface {
         // Target <3% false positive rate with high confidence threshold
         if confidence >= 0.7 {
             // High confidence = likely real emergency
-            tracing::info!("Emergency validated with high confidence: {} (confidence: {:.2})", phrase, confidence);
+            
+        tracing::info!("Emergency validated with high confidence: {} (confidence: {:.2})", phrase, confidence);
             true
         } else if confidence >= 0.5 && self.is_critical_medical_emergency(phrase) {
             // Medium confidence + critical medical term = emergency
-            tracing::info!("Critical medical emergency detected: {} (confidence: {:.2})", phrase, confidence);
+            
+        tracing::info!("Critical medical emergency detected: {} (confidence: {:.2})", phrase, confidence);
             true
         } else {
             // Low confidence = likely false alarm
-            tracing::info!("Emergency rejected due to low confidence: {} (confidence: {:.2})", phrase, confidence);
+            
+        tracing::info!("Emergency rejected due to low confidence: {} (confidence: {:.2})", phrase, confidence);
             false
         }
     }
@@ -759,6 +788,7 @@ impl VoiceInterface {
         let avg_amplitude = self.calculate_audio_amplitude(audio_data);
         let frequency_content = self.analyze_frequency_content(audio_data);
         
+        
         tracing::info!("Real audio analysis - Length: {} bytes, Avg amplitude: {:.2}, Frequency: {:?}", 
                       audio_length, avg_amplitude, frequency_content);
         
@@ -798,6 +828,7 @@ impl VoiceInterface {
         };
         
         let selected_phrase = emergency_phrases[phrase_index].to_string();
+        
         tracing::info!("Selected phrase based on audio analysis: '{}'", selected_phrase);
         
         Ok(selected_phrase)
@@ -855,6 +886,7 @@ impl VoiceInterface {
     
     /// Emergency override - force emergency response
     pub fn emergency_override(&self) -> AppResult<String> {
+        
         tracing::warn!("EMERGENCY OVERRIDE ACTIVATED - Force emergency response");
         
         // Force emergency response regardless of recognition
@@ -863,12 +895,19 @@ impl VoiceInterface {
     
     /// Perform a health check on the voice recognition system
     pub fn health_check(&self) -> AppResult<()> {
+        
         tracing::info!("Health check - Voice recognition system status:");
+        
         tracing::info!("- RNNoise filtering: ENABLED");
+        
         tracing::info!("- Enhanced pattern recognition: ENABLED");
+        
         tracing::info!("- Context awareness: ENABLED");
+        
         tracing::info!("- Sample rate: {}Hz", self.config.sample_rate);
+        
         tracing::info!("- Model path: {}", self.model_path);
+        
         tracing::info!("- Mode: ENHANCED PATTERN RECOGNITION + RNNOISE + CONTEXT AWARENESS");
         
         Ok(())
@@ -928,6 +967,7 @@ impl VoiceInterface {
         }
 
         // Simplified model adaptation
+        
         tracing::info!("Adapting voice model with user data ({} bytes)", user_audio_data.len());
         Ok(())
     }

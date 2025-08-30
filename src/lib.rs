@@ -132,7 +132,7 @@ use crate::private::emergency_database::EmergencyDatabase;
 use crate::private::context_analysis::{ContextAnalyzer, EmergencyContext};
 #[cfg(feature = "private")]
 use crate::private::emergency_calling::{EmergencyCaller, EmergencyContact, EmergencyCallError};
-use std::collections::HashMap;
+
 
 #[cfg(feature = "private")]
 pub struct SolanaSOS {
@@ -333,7 +333,7 @@ pub extern "system" fn Java_com_solanasos_emergency_RustBridge_awardEmergencyTok
     _env.new_string(response).unwrap().into_raw()
 }
 
-#[cfg(test)]
+#[cfg(all(test, feature = "private"))]
 mod tests {
     use super::*;
     

@@ -2,6 +2,7 @@
 use crate::error::AppResult;
 use crate::error::AppError;
 use crate::config::AudioConfig;
+
 use tracing::{info, error};
 use std::sync::{Arc, Mutex};
 use tokio::sync::mpsc;
@@ -33,6 +34,7 @@ pub enum AudioCommand {
 
 impl AudioManager {
     pub fn new(config: &AudioConfig) -> AppResult<Self> {
+
         info!("Initializing audio manager");
         let (audio_sender, audio_receiver) = mpsc::channel(100);
         let current_volume = Arc::new(Mutex::new(config.default_volume));
@@ -57,14 +59,17 @@ impl AudioManager {
                 current_volume,
                 is_emergency_mode,
             ).await {
-                error!("Audio processing loop error: {}", e);
+                
+        error!("Audio processing loop error: {}", e);
             }
         });
+
         info!("Audio manager initialized successfully");
         Ok(audio_manager)
     }
 
     pub async fn set_volume(&self, volume: f32) -> AppResult<()> {
+
         info!("Setting volume to: {}", volume);
         self.audio_sender.send(AudioCommand::SetVolume(volume)).await
             .map_err(|e| AppError::Audio(format!("Failed to send volume command: {}", e)))?;
@@ -72,6 +77,7 @@ impl AudioManager {
     }
 
     pub async fn set_emergency_volume(&self) -> AppResult<()> {
+
         info!("Setting emergency volume");
         self.audio_sender.send(AudioCommand::SetEmergencyVolume).await
             .map_err(|e| AppError::Audio(format!("Failed to send emergency volume command: {}", e)))?;
@@ -79,6 +85,7 @@ impl AudioManager {
     }
 
     pub async fn play_tts(&self, text: String) -> AppResult<()> {
+
         info!("Playing TTS: {}", text);
         self.audio_sender.send(AudioCommand::PlayTTS(text)).await
             .map_err(|e| AppError::Audio(format!("Failed to send TTS command: {}", e)))?;
@@ -86,6 +93,7 @@ impl AudioManager {
     }
 
     pub async fn play_audio_file(&self, file_path: String) -> AppResult<()> {
+
         info!("Playing audio file: {}", file_path);
         self.audio_sender.send(AudioCommand::PlayAudioFile(file_path)).await
             .map_err(|e| AppError::Audio(format!("Failed to send audio file command: {}", e)))?;
@@ -93,6 +101,7 @@ impl AudioManager {
     }
 
     pub async fn stop_playback(&self) -> AppResult<()> {
+
         info!("Stopping audio playback");
         self.audio_sender.send(AudioCommand::StopPlayback).await
             .map_err(|e| AppError::Audio(format!("Failed to send stop command: {}", e)))?;
@@ -100,6 +109,7 @@ impl AudioManager {
     }
 
     pub async fn start_recording(&self) -> AppResult<()> {
+
         info!("Starting audio recording");
         self.audio_sender.send(AudioCommand::StartRecording).await
             .map_err(|e| AppError::Audio(format!("Failed to send start recording command: {}", e)))?;
@@ -107,6 +117,7 @@ impl AudioManager {
     }
 
     pub async fn stop_recording(&self) -> AppResult<()> {
+
         info!("Stopping audio recording");
         self.audio_sender.send(AudioCommand::StopRecording).await
             .map_err(|e| AppError::Audio(format!("Failed to send stop recording command: {}", e)))?;
@@ -128,6 +139,7 @@ impl AudioManager {
         current_volume: Arc<Mutex<f32>>,
         is_emergency_mode: Arc<Mutex<bool>>,
     ) -> AppResult<()> {
+
         info!("Starting audio processing loop");
         
         let mut current_sink: Option<Sink> = None;
@@ -137,17 +149,20 @@ impl AudioManager {
                 AudioCommand::SetVolume(volume) => {
                     let mut current_vol = current_volume.lock().unwrap();
                     *current_vol = volume;
-                    info!("Volume set to: {}", volume);
+                    
+        info!("Volume set to: {}", volume);
                 }
                 AudioCommand::SetEmergencyVolume => {
                     let mut current_vol = current_volume.lock().unwrap();
                     *current_vol = config.emergency_volume;
                     let mut emergency_mode = is_emergency_mode.lock().unwrap();
                     *emergency_mode = true;
-                    info!("Emergency volume set to: {}", config.emergency_volume);
+                    
+        info!("Emergency volume set to: {}", config.emergency_volume);
                 }
                 AudioCommand::PlayTTS(text) => {
-                    info!("Playing TTS: {}", text);
+                    
+        info!("Playing TTS: {}", text);
                     
                     // Stop any current playback
                     if let Some(sink) = current_sink.take() {
@@ -158,13 +173,15 @@ impl AudioManager {
                     match Self::generate_tts_audio(&text, &config).await {
                         Ok(audio_data) => {
                             // For now, just log the TTS generation
-                            info!("TTS audio generated: {} bytes", audio_data.len());
+                            
+        info!("TTS audio generated: {} bytes", audio_data.len());
                         }
                         Err(e) => error!("Failed to generate TTS audio: {}", e),
                     }
                 }
                 AudioCommand::PlayAudioFile(file_path) => {
-                    info!("Playing audio file: {}", file_path);
+                    
+        info!("Playing audio file: {}", file_path);
                     
                     // Stop any current playback
                     if let Some(sink) = current_sink.take() {
@@ -173,14 +190,16 @@ impl AudioManager {
                     
                     // Check if file exists
                     if !Path::new(&file_path).exists() {
-                        error!("Audio file not found: {}", file_path);
+                        
+        error!("Audio file not found: {}", file_path);
                         continue;
                     }
                     
                     // Read and play audio file
                     match fs::read(&file_path) {
                         Ok(audio_data) => {
-                            info!("Audio file loaded: {} bytes", audio_data.len());
+                            
+        info!("Audio file loaded: {} bytes", audio_data.len());
                         }
                         Err(e) => error!("Failed to read audio file: {}", e),
                     }
@@ -188,46 +207,54 @@ impl AudioManager {
                 AudioCommand::StopPlayback => {
                     if let Some(sink) = current_sink.take() {
                         sink.stop();
-                        info!("Audio playback stopped");
+                        
+        info!("Audio playback stopped");
                     }
                 }
                 AudioCommand::StartRecording => {
-                    info!("Starting audio recording");
+                    
+        info!("Starting audio recording");
                     // TODO: Implement actual audio recording
                     // This would require additional audio capture libraries
                 }
                 AudioCommand::StopRecording => {
-                    info!("Stopping audio recording");
+                    
+        info!("Stopping audio recording");
                     // TODO: Implement actual audio recording stop
                 }
             }
         }
         
+
         info!("Audio processing loop ended");
         Ok(())
     }
 
     /// Generate TTS audio from text
     async fn generate_tts_audio(text: &str, _config: &AudioConfig) -> AppResult<Vec<u8>> {
+
         info!("Generating TTS audio for: {}", text);
         
         // For now, return a placeholder audio buffer
         // In a real implementation, this would use the tts crate
         let audio_data = vec![0u8; 1024]; // Placeholder
         
+
         info!("TTS audio generated successfully ({} bytes)", audio_data.len());
         Ok(audio_data)
     }
 
     /// Play audio data through the audio system
     async fn play_audio_data(&self, audio_data: &[u8]) -> AppResult<Sink> {
+
         info!("Playing audio data of {} bytes", audio_data.len());
         
         // Real audio output implementation
         #[cfg(feature = "android")]
         {
             // Simplified Android implementation
-            info!("Real audio played via Android AudioTrack: {} bytes", audio_data.len());
+            
+        info!("Real audio played via Android AudioTrack: {} bytes", audio_data.len());
             
             // In production, this would use Android's audio APIs
             // For now, we'll use a reliable fallback that works on all platforms
@@ -236,7 +263,8 @@ impl AudioManager {
         #[cfg(not(feature = "android"))]
         {
             // Fallback for non-Android platforms
-            info!("Audio playback (non-Android platform)");
+            
+        info!("Audio playback (non-Android platform)");
         }
         
         // Placeholder - in real implementation, this would be a real sink
@@ -252,7 +280,8 @@ impl AudioManager {
     pub async fn set_android_volume(&self, volume: f32) -> AppResult<()> {
         if let Some(ref _env) = self.jni_env {
             // TODO: Implement Android volume control via JNI
-            info!("Would set Android volume to: {}", volume);
+            
+        info!("Would set Android volume to: {}", volume);
         }
         Ok(())
     }
@@ -260,6 +289,7 @@ impl AudioManager {
 
 impl Drop for AudioManager {
     fn drop(&mut self) {
+
         info!("Audio manager dropped");
     }
 }

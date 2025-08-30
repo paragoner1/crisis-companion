@@ -2,17 +2,15 @@ use solana_sos::{
     public::types::DirectAction,
     error::AppResult,
 };
-use tracing::{info, Level};
-use tracing_subscriber;
+use log::info;
+
 use std::time::Duration;
 use tokio::time::sleep;
 
 #[tokio::main]
 async fn main() -> AppResult<()> {
     // Initialize logging
-    tracing_subscriber::fmt()
-        .with_max_level(Level::INFO)
-        .init();
+    env_logger::init();
 
     info!("💓 Solana SOS - CPR Direct Action Test");
     info!("=====================================");
