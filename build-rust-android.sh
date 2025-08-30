@@ -60,7 +60,7 @@ for target in "${TARGETS[@]}"; do
     
     # Build the library
     echo "🔨 Building for $target..."
-    cargo build --target $target --release --lib
+    cargo build --target $target --release --lib --features "voice,monitoring,private,rodio"
     
     # Determine the correct library name and path
     case $target in

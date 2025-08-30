@@ -7,6 +7,7 @@ use crate::error::AppResult;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
 use tokio::sync::RwLock;
+use tracing::info;
 
 /// Audio processing configuration
 #[derive(Debug, Clone, Serialize, Deserialize)]

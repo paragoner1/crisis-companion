@@ -19,6 +19,7 @@ use crate::error::AppError;
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, Instant};
 use tokio::sync::mpsc;
+
 use tracing::{info, warn, error};
 
 /// Configuration for role detection

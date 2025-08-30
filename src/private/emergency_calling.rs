@@ -306,6 +306,7 @@ mod tests {
             phone_number: "555-1234".to_string(),
             relationship: "Mother".to_string(),
             notification_enabled: true,
+            last_notified: None,
         };
         
         caller.add_emergency_contact(contact);

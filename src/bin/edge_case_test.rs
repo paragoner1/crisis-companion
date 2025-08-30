@@ -1,4 +1,5 @@
-use solana_sos::emergency_database::EmergencyDatabase;
+#[cfg(feature = "private")]
+use solana_sos::private::emergency_database::EmergencyDatabase;
 use solana_sos::public::voice_interface::VoiceInterface;
 use std::time::Instant;
 

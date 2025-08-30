@@ -1,11 +1,11 @@
 use tracing::{info, Level};
+use tracing_subscriber;
 use solana_sos::{
     app::SolanaSOSApp,
     config::AppConfig,
     error::AppResult,
 };
 use clap::Parser;
-use tracing_subscriber;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]

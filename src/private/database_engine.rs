@@ -3,6 +3,7 @@ use crate::error::AppResult;
 use crate::{error::AppError, public::types::*};
 use crate::config::DatabaseConfig;
 use rusqlite::{Connection, params, Result as SqliteResult};
+
 use tracing::{info, debug};
 use std::path::{Path, PathBuf};
 use std::sync::{Arc, Mutex};

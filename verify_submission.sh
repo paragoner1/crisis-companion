@@ -13,7 +13,7 @@ echo "✅ Project root directory confirmed"
 
 # Check Rust compilation
 echo "🔧 Checking Rust compilation..."
-if cargo check; then
+if cargo check --lib --features "voice,monitoring,private,rodio"; then
     echo "✅ Rust code compiles successfully"
 else
     echo "❌ Rust compilation failed"
@@ -22,14 +22,14 @@ fi
 
 # Check demo binaries
 echo "🧪 Testing demo binaries..."
-if cargo run --bin voice_test > /dev/null 2>&1; then
+if cargo run --bin voice_test --features "voice,monitoring,private,rodio" > /dev/null 2>&1; then
     echo "✅ voice_test binary works"
 else
     echo "❌ voice_test binary failed"
     exit 1
 fi
 
-if cargo run --bin demo_test > /dev/null 2>&1; then
+if cargo run --bin demo_test --features "voice,monitoring,private,rodio" > /dev/null 2>&1; then
     echo "✅ demo_test binary works"
 else
     echo "❌ demo_test binary failed"

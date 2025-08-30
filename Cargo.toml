@@ -11,15 +11,16 @@ categories = ["emergency", "voice-recognition", "blockchain"]
 
 [lib]
 name = "solana_sos"
-crate-type = ["cdylib"]
+crate-type = ["cdylib", "rlib"]
 
 [features]
-default = []
+default = ["monitoring", "voice", "private", "audio"]
 desktop = []
 private = []
 voice = ["vosk", "nnnoiseless", "cpal"]
 sensors = ["accelerometer"]
 monitoring = ["tracing", "tracing-subscriber"]
+audio = ["rodio"]
 android = ["jni", "jni-sys", "ndk", "ndk-sys"]
 
 [dependencies]

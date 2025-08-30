@@ -7,6 +7,7 @@ use std::collections::HashMap;
 use tokio::sync::RwLock;
 use std::sync::Arc;
 use uuid::Uuid;
+
 use tracing::{info, warn, error};
 
 /// Safety features manager for silent SOS, crash detection, and trusted network
@@ -306,6 +307,11 @@ mod tests {
             emergency_alerts: true,
             safety_warnings: true,
             training_reminders: true,
+            achievement_notifications: true,
+            sound_enabled: true,
+            vibration_enabled: true,
+            quiet_hours_start: None,
+            quiet_hours_end: None,
         };
 
         let contact_id = manager.add_trusted_contact(
