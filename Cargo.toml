@@ -103,4 +103,7 @@ path = "src/main.rs"
 [[bin]]
 name = "demo_test"
 path = "src/bin/demo_test.rs"
+
+[target.aarch64-linux-android.dependencies]
+rustfft = { version = "6.4.0", features = ["neon"] }
 # Add other bins here
