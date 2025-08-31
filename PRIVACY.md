@@ -7,6 +7,7 @@
 - **Encrypted storage** - SQLite database with AES-256 encryption
 - **Minimal data collection** - Only essential emergency information is stored
 - **User control** - Complete data ownership and deletion rights
+- **AI Processing**: All ML inference on-device; models verified and encrypted.
 
 ### Compliance & Standards
 - **HIPAA compliance** - Medical information protection standards
