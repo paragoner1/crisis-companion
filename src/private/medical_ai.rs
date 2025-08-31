@@ -10,10 +10,10 @@ use ring::digest::{Context, SHA256};
 use std::fs;
 use std::path::Path;
 // use tract::prelude::*;  // Temporarily disabled due to dependency conflicts
-use ort::session::Session;
-use ort::session::builder::GraphOptimizationLevel;
-use ort::value::Value;
+use ort::{Session, GraphOptimizationLevel, Value};
 use ndarray::prelude::*;
+use tract_onnx::prelude::*;
+use tract_ndarray::prelude::*;
 
 /// Medical symptom analysis result
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -277,17 +277,15 @@ impl MedicalAI {
             if !Self::verify_model_integrity(model_path, &self.config.model_hash) {
                 tracing::warn!("Model integrity failed - falling back to database");
             } else {
-                // Real AI enhancement with ort
-                tracing::info!("Running AI enhancement with ort");
-                let mut session = Session::builder()?
-                    .with_optimization_level(GraphOptimizationLevel::Level1)?
-                    .commit_from_file(model_path)?;
-                // Create input tensor using correct ort 2.0 API
+                // Real AI enhancement with tract
+                tracing::info!("Running AI enhancement with tract");
+                let model = tract_onnx::onnx().model_for_path(model_path)?;
                 let input_shape = vec![1, 128];
-                let input_data: Vec<f32> = vec![0.0; 128];
-                let input = Value::from_array((input_shape, input_data))?;
-                let outputs = session.run(vec![("input", input)])?;
-                let ai_output = outputs["output"].try_extract_tensor::<f32>()?;
+                let input_data = vec![0.0f32; 128];
+                let input_array = Array1::from_vec(input_data).into_shape(input_shape)?;
+                let input = tract_ndarray::Array1::from_vec(input_data).into_shape(input_shape)?.into_tensor();
+                let outputs = model.run(tvec!(input.into()))?;
+                let ai_output = outputs[0].to_array_view::<f32>()?;
                 // Enhance assessment
                 confidence += 0.1;
                 assessment.confidence = confidence.min(1.0);

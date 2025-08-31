@@ -27,9 +27,11 @@ Enhance (not replace) existing database-driven system with on-device AI for dyna
 // (Insert the enhanced analyze_symptoms function here)
 
 ## Recommended Crates
-- Top Pick: tract (lightweight ONNX, pure Rust).
-- Alternative: ort (high-performance ONNX).
-- For Advanced: candle (for custom training).
+- Primary AI Inference: tract (v0.22.0) - Lightweight pure-Rust ONNX runtime, switched for better reliability and no external deps
+- Previous: ort - High-performance but C++-dependent; used temporarily
+- Voice STT: whisper-rs (v0.15.0) - State-of-the-art multilingual speech-to-text, integrated in voice_recognition.rs
+- TTS: tts (v0.25.0) - Text-to-speech for audible guidance
+- For Advanced ML: candle - For potential custom training later
 // (Full analysis details here)
 
 ## Concise Guidance Optimization
@@ -55,6 +57,7 @@ Brainstorm for roles/training personalization:
 ✅ **Crate Preparation**: tract dependency prepared (commented out, ready to activate)
 ✅ **Verified and ready for models**: Download/embed real models, integrate into inference, test on device
 ✅ **Voice Enhancement**: Switched from Vosk to Whisper-rs for superior multilingual STT accuracy with RNNoise integration
+✅ **AI Inference Crate**: Switched to tract (v0.22.0) for pure-Rust reliability
 
 ## Voice Enhancements
 - Upgraded STT from Vosk to Whisper-rs (v0.15.0) for state-of-the-art accuracy, noise handling, and native support for 99 languages
