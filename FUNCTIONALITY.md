@@ -4,22 +4,22 @@
 
 ---
 
-## 🌟 **Overview for Everyone**
+## Overview for Everyone
 
 Solana SOS transforms anyone into a potential lifesaver through voice-activated, AI-guided emergency response. Simply say **"Hey SOS"** and our advanced AI companion analyzes your situation, provides personalized guidance, and coordinates emergency response—all while working completely offline.
 
 ### **What Makes It Revolutionary**
-- **🧠 Unlimited Emergency Types**: AI adapts to any crisis scenario
-- **🗣️ 99+ Languages**: Multilingual support with accent recognition  
-- **🔒 Privacy-First**: Everything happens on your device
-- **⚡ Instant Response**: <200ms from voice to guidance
-- **🏆 Reward System**: Earn tokens for preparedness and training
+- **Unlimited Emergency Types**: AI adapts to any crisis scenario
+- **99+ Languages**: Multilingual support with accent recognition  
+- **Privacy-First**: Everything happens on your device
+- **Instant Response**: Less than 200ms from voice to guidance
+- **Reward System**: Earn tokens for preparedness and training
 
 ---
 
-## 👥 **For Different User Types**
+## For Different User Types
 
-### **🦸‍♀️ Everyday Heroes (General Public)**
+### Everyday Heroes (General Public)
 
 **Perfect for**: Parents, hikers, travelers, students, elderly, anyone who wants to be prepared
 
@@ -47,7 +47,7 @@ AI Response: "I'm calling 911 now. For a child choking:
 4. Repeat until object comes out..."
 ```
 
-### **🚑 First Responders & Medical Professionals**
+### First Responders and Medical Professionals
 
 **Perfect for**: EMTs, paramedics, nurses, doctors, firefighters, police
 

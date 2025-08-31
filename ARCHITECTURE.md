@@ -4,25 +4,26 @@
 
 ---
 
-## 🏗️ **System Architecture Overview**
+## System Architecture Overview
 
 Solana SOS represents a paradigm shift in emergency response technology, built on a foundation of **security-first, reliability-first, on-device AI** principles. This architecture ensures that when lives are on the line, the system never fails.
 
-### **Core Design Principles**
+### Core Design Principles
 
-1. **🔒 Security-First**: Zero data transmission except explicit emergency communications
-2. **🚀 Reliability-First**: 100% offline operation with no external dependencies  
-3. **🧠 AI-Powered**: On-device inference for unlimited emergency scenarios
-4. **⚡ Performance-Critical**: Sub-200ms response times for life-saving guidance
-5. **🌐 Universal Access**: Multilingual support (99+ languages) with noise resistance
+1. **Security-First**: Zero data transmission except explicit emergency communications
+2. **Reliability-First**: 100% offline operation with no external dependencies  
+3. **AI-Powered**: On-device inference for unlimited emergency scenarios
+4. **Performance-Critical**: Sub-200ms response times for life-saving guidance
+5. **Universal Access**: Multilingual support (99+ languages) with noise resistance
+6. **User-Adaptive**: Personalized guidance based on user profile and experience level
 
 ---
 
-## 🎯 **High-Level System Flow**
+## High-Level System Flow
 
 ```mermaid
 graph TD
-    A[Voice Input: "Hey SOS"] --> B[Audio Preprocessing]
+    A[Voice Input Hey SOS] --> B[Audio Preprocessing]
     B --> C[RNNoise Filtering]
     C --> D[Whisper STT Engine]
     D --> E[Intent Classification]
@@ -39,17 +40,51 @@ graph TD
     L --> M[911 Auto-Dial]
     M --> N[Contact Alerts]
     N --> O[Solana Token Rewards]
-    
-    style A fill:#ff6b6b
-    style H fill:#4ecdc4
-    style J fill:#45b7d1
-    style L fill:#96ceb4
-    style O fill:#ffeaa7
 ```
 
 ---
 
-## 🧠 **AI Processing Pipeline**
+## User Profile Personalization System
+
+### Adaptive User Profiling
+The system includes a comprehensive user profiling questionnaire that determines the optimal guidance approach for each individual:
+
+**Profile Categories:**
+- **Experience Level**: No training, basic first aid, advanced medical training, professional responder
+- **User Type**: Child (with parental supervision), adult, elderly, parent/caregiver, medical professional
+- **Training Completion**: In-app emergency response modules completed
+- **Physical Capabilities**: Any limitations that affect emergency response ability
+- **Language Preference**: Primary language and cultural considerations
+- **Emergency Context**: Home environment, workplace, frequent travel locations
+
+**Personalization Engine:**
+```rust
+pub struct UserProfile {
+    pub experience_level: ExperienceLevel,
+    pub user_type: UserType,
+    pub completed_training: Vec<TrainingModule>,
+    pub physical_capabilities: CapabilityAssessment,
+    pub language_preference: Language,
+    pub cultural_context: CulturalContext,
+}
+
+pub struct PersonalizationEngine {
+    pub fn adapt_guidance(&self, base_guidance: &str, profile: &UserProfile) -> String {
+        match profile.experience_level {
+            ExperienceLevel::NoTraining => self.simplify_for_layperson(base_guidance),
+            ExperienceLevel::BasicFirstAid => self.add_first_aid_context(base_guidance),
+            ExperienceLevel::Advanced => self.include_medical_details(base_guidance),
+            ExperienceLevel::Professional => self.use_clinical_terminology(base_guidance),
+        }
+    }
+}
+```
+
+This ensures that when someone says "Hey SOS," the AI immediately knows whether to provide simple step-by-step instructions for a panicked parent or detailed medical protocols for a trained professional.
+
+---
+
+## AI Processing Pipeline
 
 ### **Stage 1: Voice Capture & Preprocessing**
 ```rust
@@ -112,7 +147,7 @@ Context + Symptoms + User Profile → T5 Inference → Personalized Instructions
 
 ---
 
-## 🏛️ **Modular Code Architecture**
+## Modular Code Architecture
 
 ### **Public Interface Layer**
 ```
@@ -145,7 +180,7 @@ src/private/
 
 ---
 
-## 🔐 **Security Architecture**
+## Security Architecture
 
 ### **Data Flow Security**
 ```mermaid
@@ -189,7 +224,7 @@ if model_hash != EXPECTED_HASH {
 
 ---
 
-## ⚡ **Performance Architecture**
+## Performance Architecture
 
 ### **Real-Time Processing Pipeline**
 ```
@@ -212,7 +247,7 @@ Total Latency: <200ms end-to-end
 
 ---
 
-## 🌐 **Integration Architecture**
+## Integration Architecture
 
 ### **Solana Blockchain Integration**
 ```rust
@@ -248,7 +283,7 @@ pub struct EmergencyCall {
 
 ---
 
-## 🔄 **Deployment Architecture**
+## Deployment Architecture
 
 ### **Multi-Platform Strategy**
 ```
@@ -276,7 +311,7 @@ pub struct EmergencyCall {
 
 ---
 
-## 📊 **Monitoring & Analytics Architecture**
+## Monitoring and Analytics Architecture
 
 ### **Local Performance Monitoring**
 ```rust
@@ -303,7 +338,7 @@ pub struct PerformanceMetrics {
 
 ---
 
-## 🚀 **Scalability Architecture**
+## Scalability Architecture
 
 ### **Horizontal Scaling Strategy**
 - **Model Variants**: Multiple model sizes for different device capabilities
