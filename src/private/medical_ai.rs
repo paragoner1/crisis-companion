@@ -283,7 +283,7 @@ impl MedicalAI {
                 let input_shape = vec![1, 128];
                 let input_data = vec![0.0f32; 128];
                 let input_array = Array1::from_vec(input_data).into_shape(input_shape)?;
-                let input = tract_ndarray::Array1::from_vec(input_data).into_shape(input_shape)?.into_tensor();
+                let input = input_array.into_tensor();
                 let outputs = model.run(tvec!(input.into()))?;
                 let ai_output = outputs[0].to_array_view::<f32>()?;
                 // Enhance assessment
