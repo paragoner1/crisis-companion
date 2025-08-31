@@ -3,7 +3,7 @@
 //! Implements BONK and SKR token rewards, blockchain integration,
 //! and token economics for the SOS Hero gamification system.
 
-use crate::error::AppResult;
+
 use chrono::{DateTime, Utc};
 use std::collections::HashMap;
 
@@ -192,19 +192,19 @@ impl TokenSystem {
             _ => 50,
         };
         
-        let total_bonk = base_bonk + time_bonus_bonk + emergency_bonus_bonk;
-        let total_skr = base_skr + time_bonus_skr + emergency_bonus_skr;
+        let _total_bonk = base_bonk + time_bonus_bonk + emergency_bonus_bonk;
+        let _total_skr = base_skr + time_bonus_skr + emergency_bonus_skr;
         
         self.award_tokens("emergency_intervention", Some(emergency_type), Some(response_time))
     }
     
     /// Award tokens for achievement
     pub fn award_achievement(&mut self, achievement_id: &str) -> Result<TokenReward, String> {
-        let bonk_amount = self.token_economics.bonk_rewards.get(achievement_id)
+        let _bonk_amount = self.token_economics.bonk_rewards.get(achievement_id)
             .cloned()
             .unwrap_or(100);
         
-        let skr_amount = self.token_economics.skr_rewards.get(achievement_id)
+        let _skr_amount = self.token_economics.skr_rewards.get(achievement_id)
             .cloned()
             .unwrap_or(50);
         
@@ -213,8 +213,8 @@ impl TokenSystem {
     
     /// Award tokens for level up
     pub fn award_level_up(&mut self, level: u32) -> Result<TokenReward, String> {
-        let bonk_amount = level * 100; // 100 BONK per level
-        let skr_amount = level * 50;   // 50 SKR per level
+        let _bonk_amount = level * 100; // 100 BONK per level
+        let _skr_amount = level * 50;   // 50 SKR per level
         
         self.award_tokens("level_up", None, None)
     }

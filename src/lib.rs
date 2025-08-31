@@ -129,7 +129,7 @@ pub use public::emergency_interface::{EmergencySystem, EmergencyConfig, Emergenc
 #[cfg(feature = "private")]
 use crate::private::emergency_database::EmergencyDatabase;
 #[cfg(feature = "private")]
-use crate::private::context_analysis::{ContextAnalyzer, EmergencyContext};
+use crate::private::context_analysis::ContextAnalyzer;
 #[cfg(feature = "private")]
 use crate::private::emergency_calling::{EmergencyCaller, EmergencyContact, EmergencyCallError};
 
@@ -220,7 +220,7 @@ impl SolanaSOS {
     }
     
     /// Get emergency protocol for a specific type
-    pub fn get_emergency_protocol(&self, emergency_type: &str) -> Option<&crate::private::emergency_database::EmergencyProtocol> {
+    pub fn get_emergency_protocol(&self, emergency_type: &str) -> Option<crate::private::emergency_database::EmergencyProtocol> {
         self.database.get_protocol(emergency_type)
     }
     
@@ -276,15 +276,15 @@ pub struct TokenAward {
 }
 
 // JNI bindings for Android integration
-#[cfg(target_os = "android")]
+#[cfg(all(target_os = "android", feature = "android"))]
 use jni::JNIEnv;
-#[cfg(target_os = "android")]
+#[cfg(all(target_os = "android", feature = "android"))]
 use jni::objects::{JClass, JString};
-#[cfg(target_os = "android")]
+#[cfg(all(target_os = "android", feature = "android"))]
 use jni::sys::jstring;
 
-#[cfg(target_os = "android")]
-#[no_mangle]
+#[cfg(all(target_os = "android", feature = "android"))]
+#[unsafe(no_mangle)]
 pub extern "system" fn Java_com_solanasos_emergency_RustBridge_processEmergency(
     mut _env: JNIEnv,
     _class: JClass,
@@ -301,8 +301,8 @@ pub extern "system" fn Java_com_solanasos_emergency_RustBridge_processEmergency(
     _env.new_string(response).unwrap().into_raw()
 }
 
-#[cfg(target_os = "android")]
-#[no_mangle]
+#[cfg(all(target_os = "android", feature = "android"))]
+#[unsafe(no_mangle)]
 pub extern "system" fn Java_com_solanasos_emergency_RustBridge_call911(
     mut _env: JNIEnv,
     _class: JClass,
@@ -315,8 +315,8 @@ pub extern "system" fn Java_com_solanasos_emergency_RustBridge_call911(
     _env.new_string(response).unwrap().into_raw()
 }
 
-#[cfg(target_os = "android")]
-#[no_mangle]
+#[cfg(all(target_os = "android", feature = "android"))]
+#[unsafe(no_mangle)]
 pub extern "system" fn Java_com_solanasos_emergency_RustBridge_awardEmergencyTokens(
     mut _env: JNIEnv,
     _class: JClass,

@@ -91,13 +91,13 @@ impl TrainingAI {
     }
     
     /// Generate personalized training recommendations
-    pub async fn generate_training_recommendations(&self, user_id: &str) -> AppResult<Vec<AITrainingRecommendation>> {
+    pub async fn generate_training_recommendations(&self, _user_id: &str) -> AppResult<Vec<AITrainingRecommendation>> {
         let mut recommendations = Vec::new();
         
         // Analyze user's emergency response history
         let heart_attacks = self.user_history.get("heart_attack").unwrap_or(&0);
-        let strokes = self.user_history.get("stroke").unwrap_or(&0);
-        let drownings = self.user_history.get("drowning").unwrap_or(&0);
+        let _strokes = self.user_history.get("stroke").unwrap_or(&0);
+        let _drownings = self.user_history.get("drowning").unwrap_or(&0);
         
         // Generate recommendations based on history and local risks
         if *heart_attacks > 2 {
@@ -250,7 +250,7 @@ impl TrainingAI {
     }
     
     /// Generate adaptive training based on user performance
-    pub async fn generate_adaptive_training(&self, user_id: &str, current_progress: &TrainingProgress) -> AppResult<Vec<String>> {
+    pub async fn generate_adaptive_training(&self, _user_id: &str, current_progress: &TrainingProgress) -> AppResult<Vec<String>> {
         let mut adaptive_content = Vec::new();
         
         // Analyze weak areas

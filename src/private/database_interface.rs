@@ -219,7 +219,7 @@ impl QueryManager {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub async fn save_user_profile(&self, profile: &UserProfile) -> AppResult<()> {
+    pub async fn save_user_profile(&self, _profile: &UserProfile) -> AppResult<()> {
         // Implementation details hidden - proprietary save logic
         Ok(())
     }
@@ -231,7 +231,7 @@ impl QueryManager {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub async fn record_emergency_history(&self, history: &EmergencyHistory) -> AppResult<()> {
+    pub async fn record_emergency_history(&self, _history: &EmergencyHistory) -> AppResult<()> {
         // Implementation details hidden - proprietary recording logic
         Ok(())
     }
@@ -244,7 +244,7 @@ impl QueryManager {
     /// 
     /// # Returns
     /// * `AppResult<Vec<EmergencyHistory>>` - Emergency history
-    pub async fn get_emergency_history(&self, user_id: &str, limit: u32) -> AppResult<Vec<EmergencyHistory>> {
+    pub async fn get_emergency_history(&self, _user_id: &str, _limit: u32) -> AppResult<Vec<EmergencyHistory>> {
         // Implementation details hidden - proprietary query logic
         Ok(vec![])
     }
@@ -256,7 +256,7 @@ impl QueryManager {
     /// 
     /// # Returns
     /// * `AppResult<Vec<EmergencyInstruction>>` - Matching instructions
-    pub async fn search_instructions(&self, query: &str) -> AppResult<Vec<EmergencyInstruction>> {
+    pub async fn search_instructions(&self, _query: &str) -> AppResult<Vec<EmergencyInstruction>> {
         // Implementation details hidden - proprietary search logic
         Ok(vec![])
     }

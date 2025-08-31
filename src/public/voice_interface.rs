@@ -8,7 +8,7 @@ use crate::config::VoiceConfig;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use chrono;
-use tracing::{info, warn};
+use tracing;
 // Voice recognition dependencies
 #[cfg(feature = "voice")]
 use nnnoiseless::DenoiseState;
@@ -92,6 +92,7 @@ pub struct EmotionAnalyzer {
 /// Stress level analysis
 pub struct StressAnalyzer {
     stress_indicators: Vec<String>,
+    #[allow(dead_code)]
     voice_patterns: Vec<String>,
 }
 
@@ -419,13 +420,14 @@ impl VoiceInterface {
     }
     
     /// Simplified Vosk recognition that works with immutable references
+    #[allow(dead_code)]
     fn real_vosk_recognition_simplified(&self, samples: &[i16]) -> AppResult<String> {
         
         tracing::info!("Using simplified Vosk recognition with {} samples", samples.len());
         
         // For now, use enhanced pattern recognition with Vosk context
         // This avoids the mutable borrowing issues while still providing Vosk-like capabilities
-        let audio_data: Vec<u8> = samples.iter()
+        let _audio_data: Vec<u8> = samples.iter()
             .flat_map(|&sample| {
                 let bytes = sample.to_le_bytes();
                 bytes.to_vec()
@@ -437,6 +439,7 @@ impl VoiceInterface {
     }
     
     /// Real Vosk speech recognition with advanced features (requires mutable access)
+    #[allow(dead_code)]
     fn real_vosk_recognition(&self, samples: &[i16]) -> AppResult<String> {
         
         tracing::info!("Using REAL Vosk recognition with {} samples", samples.len());
@@ -513,7 +516,7 @@ impl VoiceInterface {
             
             // Analyze audio characteristics for context
             let amplitude = self.calculate_audio_amplitude_from_samples(samples);
-            let frequency_content = self.analyze_frequency_content_from_samples(samples);
+            let _frequency_content = self.analyze_frequency_content_from_samples(samples);
             
             // HIGH-ACCURACY CONTEXT VALIDATION
             let selected_phrase = if amplitude > 0.7 {
@@ -747,9 +750,10 @@ impl VoiceInterface {
     }
     
     /// Enhanced pattern recognition when Vosk model is available
+    #[allow(dead_code)]
     fn enhanced_pattern_recognition(&self, audio_data: &[u8]) -> AppResult<String> {
         let audio_length = audio_data.len();
-        let sample_rate = self.config.sample_rate as usize;
+        let _sample_rate = self.config.sample_rate as usize;
         
         // More sophisticated pattern matching with Vosk model context
         let emergency_phrases = [
@@ -780,9 +784,10 @@ impl VoiceInterface {
     }
     
     /// Enhanced pattern recognition with real audio analysis for Android
+    #[allow(dead_code)]
     fn enhanced_pattern_recognition_with_real_audio(&self, audio_data: &[u8]) -> AppResult<String> {
         let audio_length = audio_data.len();
-        let sample_rate = self.config.sample_rate as usize;
+        let _sample_rate = self.config.sample_rate as usize;
         
         // Analyze real audio characteristics
         let avg_amplitude = self.calculate_audio_amplitude(audio_data);
@@ -835,6 +840,7 @@ impl VoiceInterface {
     }
     
     /// Calculate average audio amplitude
+    #[allow(dead_code)]
     fn calculate_audio_amplitude(&self, audio_data: &[u8]) -> f32 {
         if audio_data.is_empty() {
             return 0.0;
@@ -860,6 +866,7 @@ impl VoiceInterface {
     }
     
     /// Analyze frequency content of audio
+    #[allow(dead_code)]
     fn analyze_frequency_content(&self, audio_data: &[u8]) -> Vec<String> {
         let mut frequencies = Vec::new();
         
@@ -914,6 +921,7 @@ impl VoiceInterface {
     }
     
     /// Basic pattern recognition when Vosk model is not available
+    #[allow(dead_code)]
     fn basic_pattern_recognition(&self, audio_data: &[u8]) -> AppResult<String> {
         let audio_length = audio_data.len();
         let sample_rate = self.config.sample_rate as usize;

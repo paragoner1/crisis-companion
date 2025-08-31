@@ -6,7 +6,8 @@
 ```
 ~/projects/crisis-companion-enhanced-backups/
 ├── daily/                              # Daily development backups
-│   ├── 20250830-122343/               # ← LATEST - Clean compilation + default features  
+│   ├── 20250831-021728/               # ← LATEST - Production-ready AI implementation + comprehensive cleanup
+│   ├── 20250830-122343/               # Clean compilation + default features  
 │   ├── 20250828-224644/               # Previous daily backup
 │   └── 20250826/                      # Earlier backup
 ├── milestones/                         # Important project milestones
@@ -17,6 +18,47 @@
 
 ### **Current Working Directory**
 - `~/projects/crisis-companion-enhanced/` - **ACTIVE WORKING VERSION**
+
+### **Repository Workflow (CRITICAL)**
+```
+crisis-companion-enhanced/     ← Private working version (this repo)
+crisis-companion/              ← Public repo with full commit history
+```
+
+**⚠️ NEVER FORCE PUSH TO PUBLIC REPO ⚠️**
+- Public repo contains complete project history
+- Always use proper merge workflow to preserve commits
+- Force push will destroy all prior commit history
+
+## ** Safe Public Repository Merge Workflow**
+
+### **CORRECT Way to Merge to Public Repo**
+```bash
+# 1. Ensure all changes are committed in enhanced repo
+git add . && git commit -m "description" && git push origin master
+
+# 2. Fetch latest public repo state
+git fetch public
+
+# 3. Create merge branch from public repo
+git checkout -b merge-to-public public/main
+
+# 4. Merge improvements (preserves history)
+git merge master --no-ff -m "Merge improvements from development"
+
+# 5. Push merge to public repo
+git push public merge-to-public:main
+
+# 6. Clean up
+git checkout master && git branch -d merge-to-public
+```
+
+### **❌ DANGEROUS Commands (NEVER USE)**
+```bash
+# NEVER DO THIS - Will destroy commit history:
+git push public master:main --force
+git push public master:main --force-with-lease
+```
 
 ## ** Before Making Changes**
 
@@ -139,6 +181,20 @@ cargo check
 - **Test frequently** - Compilation errors are easier to fix when caught early
 - **Use milestone backups** - For important project states before major changes
 
+## ** Repository Safety Rules**
+
+### **🚨 CRITICAL - Protect Commit History**
+- **NEVER force push to public repo** - Will destroy all commit history
+- **Always use merge workflow** - Preserves complete project history
+- **Double-check remote names** - `origin` = enhanced, `public` = public repo
+- **Verify before pushing** - Check what you're about to push with `git log`
+
+### **Emergency Recovery if History Lost**
+1. **Check reflog**: `git reflog --all | grep <commit-hash>`
+2. **Restore from backup**: Use organized backup structure
+3. **Contact GitHub support**: May be able to restore force-pushed history
+4. **Learn from mistake**: Always use proper merge workflow
+
 ## ** Recent Improvements (August 30, 2025)**
 
 ### **Session Summary - Compiler Error Resolution & Organization**
@@ -149,6 +205,7 @@ cargo check
 - ✅ **Simplified build process** - `cargo check` now works without feature flags
 - ✅ **Maintained backward compatibility** - All existing build scripts still work
 - ✅ **Organized backup structure** - Clean, categorized backup system
+- ✅ **Established repository workflow** - Safe merge process to preserve commit history
 
 ### **What Changed**
 ```toml

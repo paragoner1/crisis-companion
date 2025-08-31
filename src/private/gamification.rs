@@ -3,7 +3,7 @@
 //! Implements the SOS Hero gamification system with XP, levels,
 //! achievements, and progression tracking.
 
-use crate::error::AppResult;
+
 use chrono::{DateTime, Utc};
 use std::collections::HashMap;
 
@@ -11,6 +11,7 @@ use std::collections::HashMap;
 pub struct GamificationSystem {
     user_profile: UserProfile,
     achievements: HashMap<String, Achievement>,
+    #[allow(dead_code)]
     leaderboard: Vec<LeaderboardEntry>,
     hero_levels: Vec<HeroLevel>,
     xp_rewards: HashMap<String, u32>,
@@ -120,7 +121,7 @@ impl GamificationSystem {
     }
     
     /// Award XP for an action
-    pub fn award_xp(&mut self, action: &str, amount: u32) -> Result<u32, String> {
+    pub fn award_xp(&mut self, _action: &str, amount: u32) -> Result<u32, String> {
         self.user_profile.current_xp += amount;
         self.user_profile.total_xp += amount;
         self.user_profile.last_active = Utc::now();
@@ -470,7 +471,7 @@ impl GamificationSystem {
     }
     
     fn on_level_up(&mut self, new_level: u32) -> Result<(), String> {
-        if let Some(level_info) = self.hero_levels.iter().find(|l| l.level == new_level) {
+        if let Some(_level_info) = self.hero_levels.iter().find(|l| l.level == new_level) {
             // Award level rewards
             // In real implementation, this would award BONK/SKR tokens
             Ok(())
@@ -530,7 +531,7 @@ impl GamificationSystem {
                         return false;
                     }
                 },
-                AchievementRequirement::LearningModules(count) => {
+                AchievementRequirement::LearningModules(_count) => {
                     // This would need to track learning modules separately
                     return false;
                 },

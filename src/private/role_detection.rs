@@ -13,14 +13,14 @@
 use crate::public::types::{
     UserRole, RoleDetectionMethod, RoleDetectionResult, RoleContext, SensorData,
     DeviceMovement, LocationContext, LocationType, AudioEnvironment, UserProfile,
-    EmergencyType, VoiceModel, MedicalInfo,
+    EmergencyType,
 };
 use crate::error::AppError;
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, Instant};
-use tokio::sync::mpsc;
 
-use tracing::{info, warn, error};
+
+use tracing::info;
 
 /// Configuration for role detection
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -57,6 +57,7 @@ pub struct RoleDetector {
     config: RoleDetectionConfig,
     user_profile: Option<UserProfile>,
     ai_inference: AIInference,
+    #[allow(dead_code)]
     sensor_fusion: SensorFusion,
     adaptive_learning: AdaptiveLearning,
 }
@@ -143,7 +144,7 @@ impl RoleDetector {
     fn check_user_profile(
         &self,
         profile: &UserProfile,
-        context: &EmergencyContext,
+        _context: &EmergencyContext,
     ) -> Option<UserRole> {
         // Caregivers are typically bystanders
         if profile.is_caregiver {
@@ -275,7 +276,9 @@ impl RoleDetector {
 
 /// AI inference for role detection
 pub struct AIInference {
+    #[allow(dead_code)]
     phrase_patterns: Vec<PhrasePattern>,
+    #[allow(dead_code)]
     sensor_weights: SensorWeights,
 }
 
@@ -558,6 +561,7 @@ impl SensorFusion {
 
 /// Adaptive learning system
 pub struct AdaptiveLearning {
+    #[allow(dead_code)]
     learning_rate: f32,
     historical_data: Vec<LearningExample>,
 }

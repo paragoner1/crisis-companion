@@ -1,4 +1,4 @@
-use crate::private::emergency_database::{EmergencyDatabase, EmergencyProtocol, EmergencyStep};
+use crate::private::emergency_database::EmergencyDatabase;
 use std::collections::HashMap;
 
 #[derive(Debug, Clone)]
@@ -302,7 +302,7 @@ impl ContextAnalyzer {
     }
     
     pub fn get_next_instruction(&self, context: &EmergencyContext) -> Option<String> {
-        if let Some(protocol) = self.database.get_protocol(&context.emergency_type) {
+        if let Some(_protocol) = self.database.get_protocol(&context.emergency_type) {
             // Find the most appropriate step based on context
             if let Some(step) = self.database.get_context_appropriate_step(
                 &context.emergency_type, 

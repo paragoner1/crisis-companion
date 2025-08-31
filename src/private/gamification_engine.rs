@@ -8,7 +8,7 @@ use tokio::sync::RwLock;
 use std::sync::Arc;
 use uuid::Uuid;
 
-use tracing::{info, warn, error};
+use tracing::info;
 use chrono::{DateTime, Utc};
 
 /// Hero level system for SOS Hero app
@@ -181,7 +181,9 @@ pub struct HeroProfile {
 #[derive(Debug)]
 pub struct GamificationManager {
     hero_profiles: Arc<RwLock<HashMap<Uuid, HeroProfile>>>,
+    #[allow(dead_code)]
     achievements: Vec<Achievement>,
+    #[allow(dead_code)]
     rewards: Vec<Reward>,
 }
 
