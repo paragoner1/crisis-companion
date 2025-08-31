@@ -3,7 +3,10 @@
 //! This module contains the proprietary implementation details for Solana SOS.
 //! These modules are protected by .gitignore and contain sensitive algorithms.
 
+#[cfg(feature = "voice")]
 pub mod voice_recognition;
+#[cfg(feature = "voice")]
+pub mod whisper_engine;
 pub mod audio_engine;
 pub mod emergency_logic;
 pub mod gamification_engine;
@@ -20,6 +23,7 @@ pub mod gamification;
 pub mod safety_features;
 pub mod crash_detection;
 pub mod coordination;
+#[cfg(feature = "voice")]
 pub mod medical_ai;
 pub mod role_detection;
 pub mod adaptive_training;

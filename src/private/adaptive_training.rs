@@ -20,7 +20,9 @@ pub struct AdaptiveTrainingConfig {
 pub struct AdaptiveTrainer {
     config: AdaptiveTrainingConfig,
     user_profiles: HashMap<String, UserProfile>,
+    #[allow(dead_code)]
     accent_models: HashMap<String, AccentModel>,
+    #[allow(dead_code)]
     context_patterns: HashMap<String, ContextPattern>,
 }
 
@@ -230,8 +232,8 @@ impl AdaptiveTrainer {
     async fn adapt_vosk_model(
         &self,
         user_id: &str,
-        audio_samples: &[Vec<f32>],
-        transcriptions: &[String],
+        _audio_samples: &[Vec<f32>],
+        _transcriptions: &[String],
     ) -> Result<(), Box<dyn std::error::Error>> {
         info!("Adapting Vosk model for user: {}", user_id);
         
@@ -285,7 +287,7 @@ impl AdaptiveTrainer {
         Ok(())
     }
 
-    async fn calculate_adaptation_score(&self, user_id: &str) -> Result<f32, Box<dyn std::error::Error>> {
+    async fn calculate_adaptation_score(&self, _user_id: &str) -> Result<f32, Box<dyn std::error::Error>> {
         // Calculate adaptation effectiveness score
         let base_score = 0.8;
         let accent_bonus = 0.1;

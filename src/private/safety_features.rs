@@ -3,9 +3,9 @@
 //! Implements advanced safety features including silent SOS activation,
 //! crash detection, trusted network alerts, and location tracking.
 
-use crate::error::AppResult;
+
 use chrono::{DateTime, Utc};
-use std::collections::HashMap;
+
 
 #[derive(Debug, Clone)]
 pub struct SafetyFeatures {
@@ -302,7 +302,7 @@ impl SafetyFeatures {
         }
     }
     
-    fn notify_trusted_network(&self, message: &str, location: &Option<Location>) -> Result<(), String> {
+    fn notify_trusted_network(&self, _message: &str, _location: &Option<Location>) -> Result<(), String> {
         if !self.trusted_network_enabled {
             return Ok(());
         }

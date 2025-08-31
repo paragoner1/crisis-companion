@@ -119,6 +119,7 @@ pub struct GamificationInterface {
     /// Achievement definitions
     achievements: HashMap<AchievementType, Vec<Achievement>>,
     /// Leaderboard data
+    #[allow(dead_code)]
     leaderboard: Vec<LeaderboardEntry>,
     /// XP multipliers
     xp_multipliers: HashMap<String, f32>,
@@ -303,7 +304,7 @@ impl GamificationInterface {
     }
     
     /// Record emergency response
-    pub async fn record_emergency_response(&mut self, user_id: &str, emergency_type: &str, success: bool) -> AppResult<UserProfile> {
+    pub async fn record_emergency_response(&mut self, user_id: &str, _emergency_type: &str, success: bool) -> AppResult<UserProfile> {
         let mut profile = self.get_user_profile(user_id).await;
         
         profile.emergency_responses += 1;
@@ -322,7 +323,7 @@ impl GamificationInterface {
     }
     
     /// Record training completion
-    pub async fn record_training_completion(&mut self, user_id: &str, module: &str) -> AppResult<UserProfile> {
+    pub async fn record_training_completion(&mut self, user_id: &str, _module: &str) -> AppResult<UserProfile> {
         let mut profile = self.get_user_profile(user_id).await;
         profile.training_completed += 1;
         
@@ -336,7 +337,7 @@ impl GamificationInterface {
     }
     
     /// Record skill mastery
-    pub async fn record_skill_mastery(&mut self, user_id: &str, skill: &str) -> AppResult<UserProfile> {
+    pub async fn record_skill_mastery(&mut self, user_id: &str, _skill: &str) -> AppResult<UserProfile> {
         let mut profile = self.get_user_profile(user_id).await;
         profile.skills_mastered += 1;
         

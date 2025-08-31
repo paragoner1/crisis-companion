@@ -79,6 +79,7 @@ pub struct TrainingInterface {
     /// User progress tracking
     progress: HashMap<TrainingModule, TrainingProgress>,
     /// Assessment questions
+    #[allow(dead_code)]
     assessments: HashMap<TrainingModule, Vec<String>>,
     /// Adaptive learning algorithm
     adaptive_learning: bool,

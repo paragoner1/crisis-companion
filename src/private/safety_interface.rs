@@ -117,7 +117,7 @@ impl CrashDetection {
     /// 
     /// # Returns
     /// * `AppResult<bool>` - True if crash detected
-    pub fn process_sensor_data(&self, accelerometer_data: &[f32], gps_data: &GPSData) -> AppResult<bool> {
+    pub fn process_sensor_data(&self, _accelerometer_data: &[f32], _gps_data: &GPSData) -> AppResult<bool> {
         // Implementation details hidden - proprietary crash detection algorithms
         Ok(false)
     }
@@ -129,7 +129,7 @@ impl CrashDetection {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn trigger_crash_response(&self, crash_data: CrashData) -> AppResult<()> {
+    pub fn trigger_crash_response(&self, _crash_data: CrashData) -> AppResult<()> {
         // Implementation details hidden - proprietary crash response logic
         Ok(())
     }
@@ -246,7 +246,7 @@ impl TrustedNetwork {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn send_emergency_notification(&self, emergency_type: &str, location: &str) -> AppResult<()> {
+    pub fn send_emergency_notification(&self, _emergency_type: &str, _location: &str) -> AppResult<()> {
         // Implementation details hidden - proprietary notification logic
         Ok(())
     }

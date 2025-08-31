@@ -1,14 +1,14 @@
 use crate::{
-    public::types::{SilentSOSMethod, CrashStatus, TrustedContact, NotificationPreferences, UserRole},
+    public::types::{SilentSOSMethod, CrashStatus, TrustedContact, NotificationPreferences},
     error::AppError,
 };
-use serde::{Deserialize, Serialize};
+
 use std::collections::HashMap;
 use tokio::sync::RwLock;
 use std::sync::Arc;
 use uuid::Uuid;
 
-use tracing::{info, warn, error};
+use tracing::info;
 
 /// Safety features manager for silent SOS, crash detection, and trusted network
 #[derive(Debug)]
@@ -217,7 +217,7 @@ impl SafetyFeaturesManager {
     }
 
     /// Call 911 for crash detection
-    async fn call_911_crash(&self, location: Option<(f64, f64)>) -> Result<(), AppError> {
+    async fn call_911_crash(&self, _location: Option<(f64, f64)>) -> Result<(), AppError> {
         info!("Calling 911 for crash - with location and crash data");
         // In real implementation, make 911 call with crash context
         Ok(())

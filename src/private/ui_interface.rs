@@ -41,7 +41,7 @@ impl UIManager {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn show_emergency_interface(&mut self, emergency_type: &str, instructions: &[String]) -> AppResult<()> {
+    pub fn show_emergency_interface(&mut self, _emergency_type: &str, _instructions: &[String]) -> AppResult<()> {
         // Implementation details hidden - proprietary emergency UI logic
         self.current_state = UIState::Emergency;
         Ok(())
@@ -61,7 +61,7 @@ impl UIManager {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn show_gamification_interface(&mut self, hero_profile: &str) -> AppResult<()> {
+    pub fn show_gamification_interface(&mut self, _hero_profile: &str) -> AppResult<()> {
         // Implementation details hidden - proprietary gamification UI logic
         self.current_state = UIState::Gamification;
         Ok(())
@@ -88,7 +88,7 @@ impl UIManager {
     /// 
     /// # Returns
     /// * `AppResult<()>` - Success or error
-    pub fn update_ui(&mut self, data: &UIData) -> AppResult<()> {
+    pub fn update_ui(&mut self, _data: &UIData) -> AppResult<()> {
         // Implementation details hidden - proprietary UI update logic
         Ok(())
     }
@@ -100,7 +100,7 @@ impl UIManager {
     /// 
     /// # Returns
     /// * `AppResult<UIResponse>` - UI response
-    pub fn handle_input(&mut self, input: &UIInput) -> AppResult<UIResponse> {
+    pub fn handle_input(&mut self, _input: &UIInput) -> AppResult<UIResponse> {
         // Implementation details hidden - proprietary input handling logic
         Ok(UIResponse::Success)
     }

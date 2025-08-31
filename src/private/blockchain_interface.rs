@@ -107,7 +107,7 @@ impl TransactionManager {
     /// 
     /// # Returns
     /// * `AppResult<String>` - Transaction hash
-    pub async fn record_emergency(&self, emergency_data: EmergencyData) -> AppResult<String> {
+    pub async fn record_emergency(&self, _emergency_data: EmergencyData) -> AppResult<String> {
         // Implementation details hidden - proprietary blockchain recording logic
         Ok("tx_hash_123456789".to_string())
     }
@@ -139,7 +139,7 @@ impl TransactionManager {
     /// 
     /// # Returns
     /// * `AppResult<bool>` - True if authentic
-    pub async fn verify_record(&self, record: &EmergencyRecord) -> AppResult<bool> {
+    pub async fn verify_record(&self, _record: &EmergencyRecord) -> AppResult<bool> {
         // Implementation details hidden - proprietary verification logic
         Ok(true)
     }
@@ -200,7 +200,7 @@ impl TokenManager {
     /// 
     /// # Returns
     /// * `AppResult<String>` - Transaction hash
-    pub async fn transfer_bonk(&self, to_address: &str, amount: u64) -> AppResult<String> {
+    pub async fn transfer_bonk(&self, _to_address: &str, _amount: u64) -> AppResult<String> {
         // Implementation details hidden - proprietary token transfer logic
         Ok("bonk_tx_hash".to_string())
     }
@@ -213,7 +213,7 @@ impl TokenManager {
     /// 
     /// # Returns
     /// * `AppResult<String>` - Transaction hash
-    pub async fn transfer_skr(&self, to_address: &str, amount: u64) -> AppResult<String> {
+    pub async fn transfer_skr(&self, _to_address: &str, _amount: u64) -> AppResult<String> {
         // Implementation details hidden - proprietary token transfer logic
         Ok("skr_tx_hash".to_string())
     }
@@ -226,7 +226,7 @@ impl TokenManager {
     /// 
     /// # Returns
     /// * `AppResult<u64>` - Token balance
-    pub async fn get_balance(&self, address: &str, token_type: TokenType) -> AppResult<u64> {
+    pub async fn get_balance(&self, _address: &str, _token_type: TokenType) -> AppResult<u64> {
         // Implementation details hidden - proprietary balance checking logic
         Ok(1000)
     }

@@ -114,23 +114,18 @@ impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
     }
 }
 
-#[cfg(feature = "private")]
+#[cfg(all(feature = "private", feature = "voice"))]
 impl From<ort::Error> for AppError {
     fn from(err: ort::Error) -> Self {
         AppError::Internal(format!("AI inference error: {}", err))
     }
 }
 
-#[cfg(feature = "private")]
+#[cfg(all(feature = "private", feature = "voice"))]
 impl From<ndarray::ShapeError> for AppError {
     fn from(err: ndarray::ShapeError) -> Self {
         AppError::Internal(format!("Array shape error: {}", err))
     }
 }
 
-#[cfg(feature = "voice")]
-impl From<whisper_rs::WhisperError> for AppError {
-    fn from(err: whisper_rs::WhisperError) -> Self {
-        AppError::Internal(format!("Whisper error: {}", err))
-    }
-}
+// Whisper error handling removed - now using ORT

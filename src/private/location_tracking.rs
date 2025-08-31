@@ -3,7 +3,7 @@
 //! Implements real-time GPS tracking, location services,
 //! and location-based emergency response features.
 
-use crate::error::AppResult;
+
 use chrono::{DateTime, Utc};
 use std::collections::VecDeque;
 
