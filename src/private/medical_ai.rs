@@ -279,17 +279,36 @@ impl MedicalAI {
             } else {
                 // Real AI enhancement with tract
                 tracing::info!("Running AI enhancement with tract");
-                let model = tract_onnx::onnx().model_for_path(model_path)?;
-                let input_shape = vec![1, 128];
-                let input_data = vec![0.0f32; 128];
-                let input_array = Array1::from_vec(input_data).into_shape(input_shape)?;
-                let input = input_array.into_tensor();
-                let outputs = model.run(tvec!(input.into()))?;
-                let ai_output = outputs[0].to_array_view::<f32>()?;
-                // Enhance assessment
-                confidence += 0.1;
-                assessment.confidence = confidence.min(1.0);
-                assessment.recommended_actions.push("AI Insight: Monitor for additional symptoms".to_string());
+                let tokenizer = Tokenizer::from_file("assets/tokenizer.json")?;  // Assume pre-downloaded
+
+                // MobileBERT: Symptom clustering
+                let inputs = tokenizer.encode(user_description, true)?;
+                let input_ids: Vec<i64> = inputs.get_ids().to_vec();
+                let input_array = Array::from_vec(input_ids).into_shape((1, input_ids.len()))?;
+                let input = Value::from_array(input_array)?;
+
+                let session = Session::builder()?.commit_from_file(model_path)?;
+                let outputs = session.run(vec![input])?;
+                let cluster_probs = outputs[0].try_extract_tensor::<f32>()?;
+                // Process (example: argmax for cluster)
+                let cluster_id = cluster_probs.argmax()?[1];
+                if cluster_probs[[0, cluster_id]] > 0.8 {
+                    assessment.symptoms.push(format!("AI-detected cluster {}", cluster_id));
+                }
+
+                // T5: Summarization
+                let session_t5 = Session::builder()?.commit_from_file("assets/models/t5.onnx")?; // Assuming T5 model is also pre-downloaded
+                let t5_input = tokenizer.encode(&format!("summarize: {}", user_description), true)?;
+                let t5_array = Array::from_vec(t5_input.get_ids().to_vec()).into_shape((1, t5_input.len()))?;
+                let t5_input_val = Value::from_array(t5_array)?;
+                let t5_outputs = session_t5.run(vec![t5_input_val])?;
+                let summary_logits = t5_outputs[0].try_extract_tensor::<f32>()?;
+                // Decode (simple argmax example)
+                let summary_tokens = summary_logits.argmax_axis(ndarray::Axis(2))?;
+                let summary = tokenizer.decode(&summary_tokens.iter().map(|&t| t as i32).collect::<Vec<_>>(), true)?;
+                assessment.recommended_actions.push(format!("AI Summary: {}", summary));
+
+                assessment.confidence += 0.2;
             }
         }
 
