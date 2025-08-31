@@ -90,6 +90,10 @@ cargo test --bin safety_features_test
 cargo test --bin gamification_demo
 ```
 
+## Testing Without Physical Device
+- Use Android Emulator.
+- Cloud services: BrowserStack for real hardware tests.
+
 ## Performance Testing
 
 ```bash
