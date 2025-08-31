@@ -4,13 +4,13 @@
 
 ---
 
-## 🔍 **System Overview**
+## System Overview
 
 Solana SOS represents a breakthrough in emergency response technology, combining cutting-edge on-device AI with security-first architecture to deliver life-saving guidance in under 200ms. This document provides a comprehensive technical deep-dive into how the system transforms voice input into personalized, actionable emergency guidance.
 
 ---
 
-## ⚡ **The Complete Emergency Response Flow**
+## The Complete Emergency Response Flow
 
 ### **Phase 1: Voice Activation & Capture (0-30ms)**
 
@@ -121,7 +121,7 @@ pub struct EmergencyActionCoordinator {
 
 ---
 
-## 🔐 **Security & Privacy Implementation**
+## Security and Privacy Implementation
 
 ### **On-Device Processing Architecture**
 ```rust
