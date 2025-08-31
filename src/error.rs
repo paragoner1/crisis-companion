@@ -113,3 +113,24 @@ impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
         AppError::Internal(err.to_string())
     }
 }
+
+#[cfg(feature = "private")]
+impl From<ort::Error> for AppError {
+    fn from(err: ort::Error) -> Self {
+        AppError::Internal(format!("AI inference error: {}", err))
+    }
+}
+
+#[cfg(feature = "private")]
+impl From<ndarray::ShapeError> for AppError {
+    fn from(err: ndarray::ShapeError) -> Self {
+        AppError::Internal(format!("Array shape error: {}", err))
+    }
+}
+
+#[cfg(feature = "voice")]
+impl From<whisper_rs::WhisperError> for AppError {
+    fn from(err: whisper_rs::WhisperError) -> Self {
+        AppError::Internal(format!("Whisper error: {}", err))
+    }
+}

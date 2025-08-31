@@ -88,4 +88,9 @@ api_keys = {}
 name = "Solana SOS"
 version = "0.1.0"
 description = "Voice-activated emergency response app for Solana Mobile Seeker"
-device_name = "Solana SOS" 
+device_name = "Solana SOS"
+
+# Medical AI Configuration
+[medical_ai]
+model_hash_mobilebert = "ceab9964bcdb19ad013a2fe44bc1ddb3657ab0af1f48cddc349014d6085762ca"
+model_hash_t5 = "5124770e67bf2c2ca80dd49ff9a002b240c3adbaf0c3b96a765115a756ed2916" 

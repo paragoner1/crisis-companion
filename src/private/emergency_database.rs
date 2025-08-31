@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use tts::Tts;
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub enum EmergencySeverity {
@@ -39,6 +40,8 @@ pub struct EmergencyStep {
     pub time_sensitive: bool,
     pub requires_equipment: Option<String>,
     pub alternative_instructions: Vec<String>,
+    pub audio_file: Option<Vec<u8>>, // New field for audio file
+    pub audio_generated: Option<Vec<u8>>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -63,6 +66,7 @@ pub struct EmergencyProtocol {
     pub source_url: String,                // Link to official protocol
     pub validation_status: ValidationStatus, // Verified, Pending, etc.
     pub authority_type: AuthorityType,     // Type of authority
+    pub audio_generated: Option<Vec<u8>>, // New field for audio file
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -117,6 +121,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -129,6 +135,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -141,6 +149,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec!["After 30 compressions, give 2 rescue breaths".to_string(), "Allow full chest recoil between compressions".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -153,6 +163,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -165,6 +177,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Drowning can cause delayed complications. Always seek medical attention even if victim appears fine.".to_string(),
@@ -183,6 +197,7 @@ impl EmergencyDatabase {
             source_url: "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::MedicalAssociation,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("drowning".to_string(), protocol);
@@ -205,6 +220,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -217,6 +234,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -229,6 +248,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -241,6 +262,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("nitroglycerin".to_string()),
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -253,6 +276,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Heart attack symptoms can vary. When in doubt, call 911 immediately.".to_string(),
@@ -271,6 +296,7 @@ impl EmergencyDatabase {
             source_url: "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::MedicalAssociation,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("heart_attack".to_string(), protocol);
@@ -293,6 +319,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -305,6 +333,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -317,6 +347,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -329,6 +361,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -341,6 +375,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Call 911 if choking persists or victim becomes unconscious.".to_string(),
@@ -359,6 +395,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("choking".to_string(), protocol);
@@ -381,6 +418,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("bandage".to_string()),
                     alternative_instructions: vec!["Do not remove blood-soaked bandages".to_string(), "Add more bandages on top if needed".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -393,6 +432,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -405,6 +446,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -417,6 +460,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("bandage".to_string()),
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -429,6 +474,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Severe bleeding can be life-threatening. Call 911 immediately if bleeding is heavy or doesn't stop.".to_string(),
@@ -447,6 +494,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("bleeding".to_string(), protocol);
@@ -469,6 +517,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -481,6 +531,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -493,6 +545,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -505,6 +559,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -517,6 +573,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Unconsciousness can indicate serious medical emergency. Call 911 immediately.".to_string(),
@@ -535,6 +593,7 @@ impl EmergencyDatabase {
             source_url: "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::MedicalAssociation,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("unconscious".to_string(), protocol);
@@ -557,6 +616,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -569,6 +630,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -581,6 +644,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -593,6 +658,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -605,6 +672,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Stroke is a medical emergency. Call 911 immediately - do not wait for symptoms to improve.".to_string(),
@@ -623,6 +692,7 @@ impl EmergencyDatabase {
             source_url: "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::MedicalAssociation,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("stroke".to_string(), protocol);
@@ -645,6 +715,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -657,6 +729,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -669,6 +743,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -681,6 +757,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -693,6 +771,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Call 911 if seizure lasts more than 5 minutes, person is injured, or this is their first seizure.".to_string(),
@@ -711,6 +791,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("seizure".to_string(), protocol);
@@ -733,6 +814,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -745,6 +828,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -757,6 +842,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -769,6 +856,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -781,6 +870,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Do not induce vomiting unless specifically directed by Poison Control.".to_string(),
@@ -799,6 +890,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("poisoning".to_string(), protocol);
@@ -821,6 +913,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -833,6 +927,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -845,6 +941,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -857,6 +955,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -869,6 +969,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Call 911 for burns larger than 3 inches, on face/hands/feet/genitals, or if person has difficulty breathing.".to_string(),
@@ -887,6 +989,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("burn".to_string(), protocol);
@@ -909,6 +1012,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -921,6 +1026,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("glucose tablets".to_string()),
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -933,6 +1040,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -945,6 +1054,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -957,6 +1068,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Call 911 if person is unconscious or condition doesn't improve after giving sugar.".to_string(),
@@ -975,6 +1088,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("diabetic".to_string(), protocol);
@@ -997,6 +1111,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -1009,6 +1125,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("epinephrine auto-injector".to_string()),
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -1021,6 +1139,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -1033,6 +1153,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -1045,6 +1167,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Anaphylaxis is life-threatening. Call 911 immediately and use epinephrine if available.".to_string(),
@@ -1063,6 +1187,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("allergic".to_string(), protocol);
@@ -1085,6 +1210,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -1097,6 +1224,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -1109,6 +1238,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("bandage".to_string()),
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -1121,6 +1252,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -1133,6 +1266,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Serious trauma requires immediate medical attention. Do not move person unless absolutely necessary.".to_string(),
@@ -1151,6 +1286,7 @@ impl EmergencyDatabase {
             source_url: "https://www.redcross.org/take-a-class/first-aid".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::NonProfit,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("trauma".to_string(), protocol);
@@ -1173,6 +1309,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec!["Text HOME to 741741 for Crisis Text Line".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -1185,6 +1323,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec!["Ask someone to remove dangerous items".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -1197,6 +1337,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec!["Call family member or close friend".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -1209,6 +1351,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec!["Deep breathing: 4-7-8 technique".to_string(), "Progressive muscle relaxation".to_string(), "Mental health apps: Calm, Headspace".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -1221,6 +1365,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec!["Write down coping strategies".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "You are not alone. Help is available 24/7. Your life has value.".to_string(),
@@ -1239,6 +1385,7 @@ impl EmergencyDatabase {
             source_url: "https://988lifeline.org/".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::GovernmentAgency,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("suicide_prevention".to_string(), protocol);
@@ -1261,6 +1408,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -1273,6 +1422,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: Some("naloxone".to_string()),
                     alternative_instructions: vec!["Call 911 for naloxone guidance".to_string(), "Multiple doses may be needed - effects begin in 2-3 minutes".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -1285,6 +1436,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -1297,6 +1450,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec!["Call 911 for CPR guidance".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -1309,6 +1464,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec![],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Opioid overdose is life-threatening. Naloxone can reverse effects but medical attention is still required.".to_string(),
@@ -1327,6 +1484,7 @@ impl EmergencyDatabase {
             source_url: "https://www.samhsa.gov/".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::GovernmentAgency,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("overdose_reversal".to_string(), protocol);
@@ -1349,6 +1507,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec!["Build emergency shelter if no building available".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 2,
@@ -1361,6 +1521,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: Some("dry_clothing".to_string()),
                     alternative_instructions: vec!["Use emergency blanket or plastic bags".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 3,
@@ -1373,6 +1535,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec!["Use body-to-body contact (share body heat)".to_string(), "Warm, sweet drinks (not alcohol)".to_string(), "Insulation with dry materials".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 4,
@@ -1385,6 +1549,8 @@ impl EmergencyDatabase {
                     time_sensitive: true,
                     requires_equipment: None,
                     alternative_instructions: vec!["Signal for help if in remote location".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
                 EmergencyStep {
                     step_number: 5,
@@ -1397,6 +1563,8 @@ impl EmergencyDatabase {
                     time_sensitive: false,
                     requires_equipment: None,
                     alternative_instructions: vec!["Seek medical attention for severe frostbite".to_string()],
+                    audio_file: None, // Initialize new field
+                    audio_generated: None,
                 },
             ],
             warning: "Hypothermia can be fatal. Gradual rewarming is crucial - avoid rapid temperature changes.".to_string(),
@@ -1415,34 +1583,35 @@ impl EmergencyDatabase {
             source_url: "https://wms.org/".to_string(),
             validation_status: ValidationStatus::Verified,
             authority_type: AuthorityType::MedicalAssociation,
+            audio_generated: None, // Initialize new field
         };
         
         self.protocols.insert("hypothermia_self_rescue".to_string(), protocol);
     }
     
-    pub fn get_protocol(&self, emergency_type: &str) -> Option<&EmergencyProtocol> {
-        self.protocols.get(emergency_type)
+    pub fn get_protocol(&self, emergency_type: &str) -> Option<EmergencyProtocol> {
+        self.protocols.get(emergency_type).cloned()
     }
     
-    pub fn get_step(&self, emergency_type: &str, step_number: u32) -> Option<&EmergencyStep> {
+    pub fn get_step(&self, emergency_type: &str, step_number: u32) -> Option<EmergencyStep> {
         if let Some(protocol) = self.get_protocol(emergency_type) {
-            protocol.steps.iter().find(|step| step.step_number == step_number)
+            protocol.steps.iter().find(|step| step.step_number == step_number).cloned()
         } else {
             None
         }
     }
     
-    pub fn get_context_appropriate_step(&self, emergency_type: &str, context: &[String]) -> Option<&EmergencyStep> {
+    pub fn get_context_appropriate_step(&self, emergency_type: &str, context: &[String]) -> Option<EmergencyStep> {
         if let Some(protocol) = self.get_protocol(emergency_type) {
             // First try to find a context-dependent step that matches
             if let Some(step) = protocol.steps.iter().find(|step| {
                 step.context_dependent && step.context_conditions.iter().any(|condition| context.contains(condition))
             }) {
-                return Some(step);
+                return Some(step.clone());
             }
             
             // If no context-dependent step matches, return the first non-context-dependent step
-            protocol.steps.iter().find(|step| !step.context_dependent)
+            protocol.steps.iter().find(|step| !step.context_dependent).cloned()
         } else {
             None
         }
@@ -1489,11 +1658,11 @@ impl EmergencyDatabase {
     }
     
     /// Get alternative protocols for a given emergency type
-    pub fn get_alternative_protocols(&self, emergency_type: &str) -> Vec<&EmergencyProtocol> {
+    pub fn get_alternative_protocols(&self, emergency_type: &str) -> Vec<EmergencyProtocol> {
         if let Some(protocol) = self.get_protocol(emergency_type) {
             protocol.alternative_protocols.iter()
                 .filter_map(|alt_type| self.get_protocol(alt_type))
-                .collect()
+                .collect::<Vec<_>>()
         } else {
             vec![]
         }

@@ -220,7 +220,7 @@ impl SolanaSOS {
     }
     
     /// Get emergency protocol for a specific type
-    pub fn get_emergency_protocol(&self, emergency_type: &str) -> Option<&crate::private::emergency_database::EmergencyProtocol> {
+    pub fn get_emergency_protocol(&self, emergency_type: &str) -> Option<crate::private::emergency_database::EmergencyProtocol> {
         self.database.get_protocol(emergency_type)
     }
     

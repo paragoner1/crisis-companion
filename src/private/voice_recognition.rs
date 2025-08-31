@@ -12,16 +12,18 @@ use tracing::{info, warn, error};
 use std::collections::HashMap;
 
 use rand::Rng;
-use sha2::{Sha256, Digest};
-use rand::prelude::SliceRandom;
+use rand::seq::SliceRandom;
+
+use whisper_rs::WhisperContext;
+use whisper_rs::WhisperContextParameters;
+use whisper_rs::FullParams;
+use whisper_rs::SamplingStrategy;
 
 /// Voice trigger system for detecting emergency phrases
-#[derive(Debug)]
 pub struct VoiceTrigger {
     config: VoiceConfig,
     noise_filter: NoiseFilter,
-    // model: Option<Model>, // Temporarily disabled
-    // recognizer: Option<Recognizer>, // Temporarily disabled
+    whisper_context: WhisperContext,
     is_listening: Arc<Mutex<bool>>,
     trigger_sender: mpsc::Sender<VoiceTriggerResult>,
     emergency_phrase_map: HashMap<String, EmergencyType>,
@@ -98,13 +100,14 @@ impl VoiceTrigger {
         let (trigger_sender, _trigger_receiver) = mpsc::channel(100);
         let is_listening = Arc::new(Mutex::new(false));
 
+        let params = WhisperContextParameters::default();
+        let whisper_context = WhisperContext::new_with_params(&config.model_path, params)?;
 
         info!("Voice trigger system initialized (demo mode - no Vosk model)");
         Ok(Self {
             config: config.clone(),
             noise_filter: NoiseFilter::new(NoiseFilterType::RNNoise), // Initialize with RNNoise filter
-            // model: None, // Temporarily disabled
-            // recognizer: None, // Temporarily disabled
+            whisper_context,
             is_listening,
             trigger_sender,
             emergency_phrase_map,
@@ -303,12 +306,26 @@ impl VoiceTrigger {
             
             // Process through noise filter
             match self.noise_filter.process_audio(&simulated_raw_audio).await {
-                Ok(_filtered_audio) => {
-                    // Check for emergency phrases (simulated for demo)
-                    if let Some(emergency_type) = self.detect_emergency_phrase(&simulated_raw_audio) {
+                Ok(filtered) => {
+                    let mut state = self.whisper_context.create_state()?;
+                    let mut params = FullParams::new(SamplingStrategy::Greedy { best_of: 1 });
+                    params.set_n_threads(1);
+                    params.set_single_segment(true);
+                    state.full(params, &filtered)?; // Run full inference
+                    let num_segments = state.full_n_segments();
+                    let mut text = String::new();
+                    for i in 0..num_segments {
+                        if let Some(segment) = state.get_segment(i) {
+                            if let Ok(segment_text) = segment.to_str() {
+                                text.push_str(segment_text);
+                            }
+                        }
+                    }
+                    let text = text.trim().to_lowercase();
+                    if let Some(emergency_type) = self.emergency_phrase_map.get(&text) {
                         let result = VoiceTriggerResult {
                             detected: true,
-                            phrase: "emergency detected".to_string(),
+                            phrase: text.to_string(),
                             emergency_type: Some(emergency_type.clone()),
                             confidence: 0.8,
                             timestamp: chrono::Utc::now().timestamp() as u64,
@@ -331,23 +348,24 @@ impl VoiceTrigger {
     }
     
     /// Simulate phrase detection (placeholder for real speech recognition)
-    fn detect_emergency_phrase(&self, audio_data: &[f32]) -> Option<EmergencyType> {
-        // In real implementation, this would use Vosk or similar
-        // For now, simulate based on random chance
-        let mut rng = rand::thread_rng();
-        
-        if rng.gen_bool(0.01) { // 1% chance for demo
-            // Return a random emergency type for demo
-            let emergency_types = vec![
-                EmergencyType::Drowning,
-                EmergencyType::HeartAttack,
-                EmergencyType::Choking,
-                EmergencyType::Bleeding,
-            ];
-            emergency_types.choose(&mut rng).cloned()
-        } else {
-            None
+    async fn detect_emergency_phrase(&self, audio_data: &[f32]) -> Option<EmergencyType> {
+        let filtered = self.noise_filter.process_audio(audio_data).await.ok()?; // Process with RNNoise
+        let mut state = self.whisper_context.create_state().ok()?;
+        let mut params = FullParams::new(SamplingStrategy::Greedy { best_of: 1 });
+        params.set_n_threads(1);
+        params.set_single_segment(true);
+        state.full(params, &filtered).ok()?; // Run full inference
+        let num_segments = state.full_n_segments();
+        let mut text = String::new();
+        for i in 0..num_segments {
+            if let Some(segment) = state.get_segment(i) {
+                if let Ok(segment_text) = segment.to_str() {
+                    text.push_str(segment_text);
+                }
+            }
         }
+        let text = text.trim().to_lowercase();
+        self.emergency_phrase_map.get(&text).cloned()
     }
 }
 
