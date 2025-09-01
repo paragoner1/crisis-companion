@@ -41,7 +41,7 @@ The system operates in three modes:
 - **Gamification**: Local XP tracking and achievements
 
 #### 2. Enhanced Mode (hybrid)
-- **AI Enhancement**: LLM integration for natural conversation
+- **Advanced Pattern Recognition**: Enhanced database analysis for natural conversation
 - **Real-time Updates**: Live emergency data and instructions
 - **Cloud Sync**: User profiles and emergency history
 - **Advanced Analytics**: Usage patterns and improvement insights
@@ -203,8 +203,8 @@ No → Core Features (offline)
 ## Future Enhancements
 
 ### Phase 2 (Q2 2026)
-- **AI Integration**: LLM-powered conversation
-- **Advanced Analytics**: Machine learning insights
+- **Future AI Integration**: Potential integration of mature AI models when reliability standards are met
+- **Advanced Analytics**: Pattern analysis insights
 - **IoT Integration**: Smart device coordination
 - **AR/VR Support**: Immersive emergency guidance
 - **Drone Integration**: Aerial emergency response

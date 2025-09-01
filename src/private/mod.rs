@@ -36,3 +36,4 @@ pub mod database_interface;
 pub mod gamification_interface;
 pub mod safety_interface;
 pub mod ui_interface;
+pub mod viral_sharing;

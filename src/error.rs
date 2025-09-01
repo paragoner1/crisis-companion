@@ -118,14 +118,12 @@ impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
     }
 }
 
-#[cfg(all(feature = "private", feature = "voice-ort"))]
 impl From<ort::Error> for AppError {
     fn from(err: ort::Error) -> Self {
         AppError::Internal(format!("AI inference error: {}", err))
     }
 }
 
-#[cfg(all(feature = "private", feature = "voice-ort"))]
 impl From<ndarray::ShapeError> for AppError {
     fn from(err: ndarray::ShapeError) -> Self {
         AppError::Internal(format!("Array shape error: {}", err))
