@@ -34,6 +34,8 @@ pub enum EmergencyType {
     DrugOverdose,
     /// Hypothermia emergency
     Hypothermia,
+    /// Other emergency
+    Other,
 }
 
 impl EmergencyType {
@@ -55,6 +57,7 @@ impl EmergencyType {
             EmergencyType::Suicide => "Suicide Prevention",
             EmergencyType::DrugOverdose => "Drug Overdose",
             EmergencyType::Hypothermia => "Hypothermia",
+            EmergencyType::Other => "Other",
         }
     }
 
@@ -76,6 +79,7 @@ impl EmergencyType {
             EmergencyType::Suicide => "Mental health crisis requiring immediate human connection and support",
             EmergencyType::DrugOverdose => "Substance overdose requiring harm reduction approach and medical intervention",
             EmergencyType::Hypothermia => "Cold exposure requiring gradual rewarming and specialized care",
+            EmergencyType::Other => "Other emergency requiring immediate attention",
         }
     }
 }

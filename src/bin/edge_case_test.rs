@@ -9,7 +9,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Testing all emergency scenarios and edge cases...");
     
     // Initialize components
-    let mut emergency_db = EmergencyDatabase::new();
+    let emergency_db = EmergencyDatabase::new();
     
     let mut voice_interface = VoiceInterface::new("models/vosk-model-small-en-us-0.15");
     voice_interface.initialize().await?;
@@ -139,7 +139,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn generate_test_audio(phrase: &str) -> Vec<u8> {
+fn generate_test_audio(_phrase: &str) -> Vec<u8> {
     // Generate realistic test audio data
     let mut audio_data = Vec::new();
     

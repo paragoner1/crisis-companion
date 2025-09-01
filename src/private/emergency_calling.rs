@@ -1,5 +1,8 @@
 
 use serde::{Deserialize, Serialize};
+use crate::private::first_responder_network::FirstResponderNetwork;
+use crate::public::types::{EmergencyType, Location};
+use std::sync::Arc;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EmergencyContact {
@@ -50,6 +53,7 @@ pub struct EmergencyCaller {
     contacts: Vec<EmergencyContact>,
     location_service: LocationService,
     call_history: Vec<EmergencyCall>,
+    first_responder_network: Arc<FirstResponderNetwork>,
 }
 
 impl EmergencyCaller {
@@ -58,6 +62,16 @@ impl EmergencyCaller {
             contacts: Vec::new(),
             location_service: LocationService::new(),
             call_history: Vec::new(),
+            first_responder_network: Arc::new(FirstResponderNetwork::new()),
+        }
+    }
+    
+    pub fn new_with_network(network: Arc<FirstResponderNetwork>) -> Self {
+        EmergencyCaller {
+            contacts: Vec::new(),
+            location_service: LocationService::new(),
+            call_history: Vec::new(),
+            first_responder_network: network,
         }
     }
     
@@ -119,6 +133,9 @@ impl EmergencyCaller {
         if self.should_notify_contacts(call) {
             self.notify_emergency_contacts(call).await?;
         }
+        
+        // 5. Broadcast to first responder network
+        self.broadcast_to_first_responders(call).await?;
         
         Ok(())
     }
@@ -238,6 +255,94 @@ impl EmergencyCaller {
     
     pub fn get_call_history(&self) -> &Vec<EmergencyCall> {
         &self.call_history
+    }
+    
+    async fn broadcast_to_first_responders(&self, call: &EmergencyCall) -> Result<(), EmergencyCallError> {
+        // Convert emergency call to emergency type and location for first responder network
+        let emergency_type = self.parse_emergency_type(&call.emergency_type);
+        let location = Location {
+            latitude: call.location.latitude,
+            longitude: call.location.longitude,
+            altitude: None,
+            accuracy: Some(call.location.accuracy),
+            timestamp: call.location.timestamp,
+        };
+        
+        // Determine severity based on emergency type and context flags
+        let severity = self.calculate_emergency_severity(&call.emergency_type, &call.context_flags);
+        
+        // Create description from context flags
+        let description = if call.context_flags.is_empty() {
+            format!("{} emergency requiring immediate assistance", call.emergency_type.replace("_", " "))
+        } else {
+            format!("{} emergency - Context: {}", 
+                   call.emergency_type.replace("_", " "), 
+                   call.context_flags.join(", "))
+        };
+        
+        // Broadcast to first responder network
+        match self.first_responder_network.broadcast_emergency(
+            emergency_type,
+            location,
+            severity,
+            description,
+            call.call_id.clone(),
+        ).await {
+            Ok(broadcast_id) => {
+                println!("📡 First responder broadcast sent: {}", broadcast_id);
+                Ok(())
+            }
+            Err(e) => {
+                eprintln!("⚠️ Failed to broadcast to first responders: {}", e);
+                // Don't fail the entire emergency call if first responder broadcast fails
+                Ok(())
+            }
+        }
+    }
+    
+    fn parse_emergency_type(&self, emergency_str: &str) -> EmergencyType {
+        match emergency_str.to_lowercase().as_str() {
+            "heart_attack" | "cardiac_arrest" => EmergencyType::HeartAttack,
+            "stroke" | "brain_attack" => EmergencyType::Stroke,
+            "choking" | "airway_obstruction" => EmergencyType::Choking,
+            "drowning" | "water_emergency" => EmergencyType::Drowning,
+            "seizure" | "convulsions" => EmergencyType::Seizure,
+            "allergic_reaction" | "anaphylaxis" => EmergencyType::AllergicReaction,
+            "burns" | "fire_injury" => EmergencyType::SevereBurns,
+            "bleeding" | "severe_bleeding" => EmergencyType::Bleeding,
+            "fracture" | "broken_bone" => EmergencyType::Trauma,
+            "poisoning" | "overdose" => EmergencyType::Poisoning,
+            _ => EmergencyType::HeartAttack, // Default fallback
+        }
+    }
+    
+    fn calculate_emergency_severity(&self, emergency_type: &str, context_flags: &[String]) -> u8 {
+        let mut severity = match emergency_type.to_lowercase().as_str() {
+            "heart_attack" | "cardiac_arrest" | "stroke" => 9, // Critical
+            "choking" | "drowning" => 8, // High
+            "severe_bleeding" | "anaphylaxis" => 7, // High
+            "seizure" | "burns" => 6, // Medium-High
+            "fracture" | "poisoning" => 5, // Medium
+            _ => 5, // Default medium
+        };
+        
+        // Adjust based on context flags
+        for flag in context_flags {
+            match flag.to_lowercase().as_str() {
+                "unconscious" | "not_breathing" | "no_pulse" => severity = 10,
+                "severe" | "critical" | "life_threatening" => severity = severity.max(8),
+                "moderate" | "serious" => severity = severity.max(6),
+                "minor" | "stable" => severity = severity.min(4),
+                _ => {}
+            }
+        }
+        
+        severity.min(10).max(1)
+    }
+    
+    /// Get access to the first responder network
+    pub fn get_first_responder_network(&self) -> Arc<FirstResponderNetwork> {
+        self.first_responder_network.clone()
     }
 }
 

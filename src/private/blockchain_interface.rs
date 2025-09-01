@@ -1,12 +1,21 @@
 //! Solana Blockchain Interface
 //! 
 //! This module provides the public interface for Solana blockchain integration.
-//! Implementation details are hidden to protect proprietary algorithms.
+//! Now uses real Solana transactions instead of simulations.
 
 use crate::error::AppResult;
+use crate::private::solana_blockchain::{
+    SolanaBlockchain, SolanaNetwork, TokenTransfer, TokenType, TransferPurpose,
+    EmergencyRecord as BlockchainEmergencyRecord, EmergencyOutcome
+};
+use crate::public::types::{EmergencyType, Location};
+use std::sync::Arc;
+use tokio::sync::RwLock;
 
-/// Solana blockchain connection
+/// Solana blockchain connection with real transaction capabilities
 pub struct SolanaConnection {
+    /// Real Solana blockchain implementation
+    blockchain: Arc<RwLock<SolanaBlockchain>>,
     /// Whether connection is active
     pub is_connected: bool,
     /// Network endpoint
@@ -16,10 +25,23 @@ pub struct SolanaConnection {
 }
 
 impl SolanaConnection {
-    /// Creates a new Solana connection
+    /// Creates a new Solana connection with real blockchain integration
     pub fn new(endpoint: &str) -> AppResult<Self> {
-        // Implementation details hidden - proprietary blockchain connection setup
+        // Determine network based on endpoint
+        let network = if endpoint.contains("mainnet") {
+            SolanaNetwork::Mainnet
+        } else if endpoint.contains("devnet") {
+            SolanaNetwork::Devnet
+        } else if endpoint.contains("testnet") {
+            SolanaNetwork::Testnet
+        } else {
+            SolanaNetwork::Devnet // Default to devnet for safety
+        };
+
+        let blockchain = Arc::new(RwLock::new(SolanaBlockchain::new(network)));
+
         Ok(Self {
+            blockchain,
             is_connected: false,
             endpoint: endpoint.to_string(),
             status: ConnectionStatus::Disconnected,
@@ -45,6 +67,138 @@ impl SolanaConnection {
     /// Gets connection status
     pub fn get_status(&self) -> ConnectionStatus {
         self.status.clone()
+    }
+
+    /// Transfer BONK tokens for emergency rewards
+    pub async fn transfer_bonk_tokens(&self, recipient: &str, amount: u64, purpose: &str) -> AppResult<String> {
+        let mut blockchain = self.blockchain.write().await;
+        
+        let transfer = TokenTransfer {
+            token_type: TokenType::BONK,
+            amount,
+            recipient: recipient.to_string(),
+            purpose: self.parse_transfer_purpose(purpose),
+            emergency_type: None,
+        };
+
+        let result = blockchain.transfer_tokens(transfer).await?;
+        Ok(result.signature)
+    }
+
+    /// Transfer SKR tokens for emergency rewards
+    pub async fn transfer_skr_tokens(&self, recipient: &str, amount: u64, purpose: &str) -> AppResult<String> {
+        let mut blockchain = self.blockchain.write().await;
+        
+        let transfer = TokenTransfer {
+            token_type: TokenType::SKR,
+            amount,
+            recipient: recipient.to_string(),
+            purpose: self.parse_transfer_purpose(purpose),
+            emergency_type: None,
+        };
+
+        let result = blockchain.transfer_tokens(transfer).await?;
+        Ok(result.signature)
+    }
+
+    /// Award emergency response tokens
+    pub async fn award_emergency_tokens(&self, responder_wallet: &str, emergency_type: EmergencyType, response_time_seconds: u32) -> AppResult<(String, String)> {
+        let mut blockchain = self.blockchain.write().await;
+        
+        let (bonk_result, skr_result) = blockchain.award_emergency_tokens(
+            responder_wallet,
+            emergency_type,
+            response_time_seconds,
+        ).await?;
+
+        Ok((bonk_result.signature, skr_result.signature))
+    }
+
+    /// Record emergency on blockchain
+    pub async fn record_emergency_on_blockchain(&self, emergency_type: EmergencyType, location: Location, outcome: &str) -> AppResult<String> {
+        let mut blockchain = self.blockchain.write().await;
+        
+        // Create privacy-preserving location hash
+        let location_hash = self.create_location_hash(&location);
+        let verification_hash = self.create_verification_hash(&emergency_type, &location);
+        
+        let record = BlockchainEmergencyRecord {
+            id: uuid::Uuid::new_v4().to_string(),
+            emergency_type,
+            location_hash,
+            timestamp: chrono::Utc::now().timestamp() as u64,
+            response_time_seconds: None,
+            outcome: self.parse_emergency_outcome(outcome),
+            responders: Vec::new(),
+            verification_hash,
+        };
+
+        let result = blockchain.record_emergency(record).await?;
+        Ok(result.signature)
+    }
+
+    /// Get blockchain statistics
+    pub async fn get_blockchain_stats(&self) -> AppResult<crate::private::solana_blockchain::BlockchainStats> {
+        let blockchain = self.blockchain.read().await;
+        Ok(blockchain.get_stats().clone())
+    }
+
+    /// Verify a transaction on blockchain
+    pub async fn verify_transaction(&self, signature: &str) -> AppResult<bool> {
+        let blockchain = self.blockchain.read().await;
+        blockchain.verify_transaction(signature).await
+    }
+
+    /// Parse transfer purpose from string
+    fn parse_transfer_purpose(&self, purpose: &str) -> TransferPurpose {
+        match purpose.to_lowercase().as_str() {
+            "emergency" | "emergency_response" => TransferPurpose::EmergencyResponse,
+            "first_responder" | "responder" => TransferPurpose::FirstResponderReward,
+            "training" => TransferPurpose::TrainingCompletion,
+            "referral" => TransferPurpose::ReferralBonus,
+            "achievement" => TransferPurpose::AchievementUnlock,
+            "staking" => TransferPurpose::StakingReward,
+            _ => TransferPurpose::EmergencyResponse,
+        }
+    }
+
+    /// Parse emergency outcome from string
+    fn parse_emergency_outcome(&self, outcome: &str) -> EmergencyOutcome {
+        match outcome.to_lowercase().as_str() {
+            "resolved" | "success" => EmergencyOutcome::Resolved,
+            "ongoing" | "in_progress" => EmergencyOutcome::Ongoing,
+            "escalated" | "escalate" => EmergencyOutcome::Escalated,
+            "false_alarm" | "false" => EmergencyOutcome::FalseAlarm,
+            "no_response" | "timeout" => EmergencyOutcome::NoResponse,
+            _ => EmergencyOutcome::Ongoing,
+        }
+    }
+
+    /// Create privacy-preserving location hash
+    fn create_location_hash(&self, location: &Location) -> String {
+        use sha2::{Digest, Sha256};
+        
+        let mut hasher = Sha256::new();
+        hasher.update(location.latitude.to_le_bytes());
+        hasher.update(location.longitude.to_le_bytes());
+        hasher.update(location.timestamp.to_le_bytes());
+        hasher.update(b"solana_sos_location");
+        
+        hex::encode(hasher.finalize())
+    }
+
+    /// Create verification hash for emergency record
+    fn create_verification_hash(&self, emergency_type: &EmergencyType, location: &Location) -> String {
+        use sha2::{Digest, Sha256};
+        
+        let mut hasher = Sha256::new();
+        hasher.update(format!("{:?}", emergency_type).as_bytes());
+        hasher.update(location.latitude.to_le_bytes());
+        hasher.update(location.longitude.to_le_bytes());
+        hasher.update(chrono::Utc::now().timestamp().to_le_bytes());
+        hasher.update(b"solana_sos_verification");
+        
+        hex::encode(hasher.finalize())
     }
 }
 
@@ -171,74 +325,35 @@ pub struct LocationData {
     pub accuracy: f32,
 }
 
-/// Token transaction manager
+/// Token transaction manager (now uses real Solana blockchain)
+/// This is kept for backward compatibility but delegates to SolanaConnection
 pub struct TokenManager {
-    /// Whether manager is active
-    pub is_active: bool,
-    /// BONK token contract address
-    pub bonk_contract: String,
-    /// SKR token contract address
-    pub skr_contract: String,
+    connection: SolanaConnection,
 }
 
 impl TokenManager {
     /// Creates a new token manager
     pub fn new() -> AppResult<Self> {
-        // Implementation details hidden - proprietary token setup
-        Ok(Self {
-            is_active: false,
-            bonk_contract: "BONK_CONTRACT_ADDRESS".to_string(),
-            skr_contract: "SKR_CONTRACT_ADDRESS".to_string(),
-        })
+        let connection = SolanaConnection::new("https://api.devnet.solana.com")?;
+        Ok(Self { connection })
     }
 
     /// Transfers BONK tokens
-    /// 
-    /// # Arguments
-    /// * `to_address` - Recipient address
-    /// * `amount` - Token amount
-    /// 
-    /// # Returns
-    /// * `AppResult<String>` - Transaction hash
-    pub async fn transfer_bonk(&self, _to_address: &str, _amount: u64) -> AppResult<String> {
-        // Implementation details hidden - proprietary token transfer logic
-        Ok("bonk_tx_hash".to_string())
+    pub async fn transfer_bonk(&self, to_address: &str, amount: u64) -> AppResult<String> {
+        self.connection.transfer_bonk_tokens(to_address, amount, "emergency").await
     }
 
     /// Transfers SKR tokens
-    /// 
-    /// # Arguments
-    /// * `to_address` - Recipient address
-    /// * `amount` - Token amount
-    /// 
-    /// # Returns
-    /// * `AppResult<String>` - Transaction hash
-    pub async fn transfer_skr(&self, _to_address: &str, _amount: u64) -> AppResult<String> {
-        // Implementation details hidden - proprietary token transfer logic
-        Ok("skr_tx_hash".to_string())
+    pub async fn transfer_skr(&self, to_address: &str, amount: u64) -> AppResult<String> {
+        self.connection.transfer_skr_tokens(to_address, amount, "emergency").await
     }
 
-    /// Gets token balance
-    /// 
-    /// # Arguments
-    /// * `address` - Wallet address
-    /// * `token_type` - Token type
-    /// 
-    /// # Returns
-    /// * `AppResult<u64>` - Token balance
+    /// Gets token balance (placeholder for now)
     pub async fn get_balance(&self, _address: &str, _token_type: TokenType) -> AppResult<u64> {
-        // Implementation details hidden - proprietary balance checking logic
+        // This would require RPC calls to get actual balances
+        // For now, return a placeholder value
         Ok(1000)
     }
-}
-
-/// Token types
-#[derive(Debug, Clone)]
-pub enum TokenType {
-    /// BONK token
-    BONK,
-    /// SKR token
-    SKR,
 }
 
 /// Blockchain configuration

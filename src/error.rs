@@ -78,6 +78,10 @@ pub enum AppError {
     /// Training errors
     #[error("Training error: {0}")]
     Training(String),
+    
+    /// Validation errors
+    #[error("Validation error: {0}")]
+    ValidationError(String),
 }
 
 /// Result type for Solana SOS operations
@@ -114,17 +118,29 @@ impl From<Box<dyn std::error::Error + Send + Sync>> for AppError {
     }
 }
 
-#[cfg(all(feature = "private", feature = "voice"))]
+#[cfg(all(feature = "private", feature = "voice-ort"))]
 impl From<ort::Error> for AppError {
     fn from(err: ort::Error) -> Self {
         AppError::Internal(format!("AI inference error: {}", err))
     }
 }
 
-#[cfg(all(feature = "private", feature = "voice"))]
+#[cfg(all(feature = "private", feature = "voice-ort"))]
 impl From<ndarray::ShapeError> for AppError {
     fn from(err: ndarray::ShapeError) -> Self {
         AppError::Internal(format!("Array shape error: {}", err))
+    }
+}
+
+impl From<solana_sdk::pubkey::ParsePubkeyError> for AppError {
+    fn from(e: solana_sdk::pubkey::ParsePubkeyError) -> Self {
+        AppError::Blockchain(e.to_string())
+    }
+}
+
+impl From<solana_client::client_error::ClientError> for AppError {
+    fn from(e: solana_client::client_error::ClientError) -> Self {
+        AppError::Blockchain(e.to_string())
     }
 }
 

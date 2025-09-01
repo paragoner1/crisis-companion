@@ -106,6 +106,14 @@ CREATE TABLE IF NOT EXISTS emergency_contacts (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+-- User profiles table
+CREATE TABLE IF NOT EXISTS user_profiles (
+    id INTEGER PRIMARY KEY,
+    user_id TEXT UNIQUE NOT NULL,
+    profile_data TEXT, -- JSON or serialized
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS idx_emergency_instructions_type_step ON emergency_instructions(emergency_type_id, step_number);
 CREATE INDEX IF NOT EXISTS idx_emergency_responses_type ON emergency_responses(emergency_type_id);
@@ -116,6 +124,13 @@ CREATE INDEX IF NOT EXISTS idx_device_coordination_response ON device_coordinati
 CREATE INDEX IF NOT EXISTS idx_device_coordination_device ON device_coordination(device_id);
 CREATE INDEX IF NOT EXISTS idx_blockchain_transactions_response ON blockchain_transactions(emergency_response_id);
 CREATE INDEX IF NOT EXISTS idx_blockchain_transactions_signature ON blockchain_transactions(transaction_signature);
+CREATE INDEX IF NOT EXISTS idx_user_profiles_user_id ON user_profiles(user_id);
+
+-- Add symptoms to emergency_instructions
+ALTER TABLE emergency_instructions ADD COLUMN symptoms TEXT;
+
+CREATE INDEX IF NOT EXISTS idx_emergency_instructions_symptoms ON emergency_instructions(symptoms);
+CREATE INDEX IF NOT EXISTS idx_emergency_instructions_type_symptoms ON emergency_instructions(emergency_type_id, symptoms);
 
 -- Insert all 15 emergency types
 INSERT OR IGNORE INTO emergency_types (id, name, description) VALUES
