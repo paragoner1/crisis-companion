@@ -77,8 +77,6 @@ cargo run --bin ai_test_suite
 ### **Core AI Infrastructure**
 - **ONNX Runtime (ORT) 2.0.0-rc.10** - Production-ready on-device inference
 - **Whisper-base** - 74M parameter multilingual speech recognition
-- **MobileBERT** - 25M parameter medical symptom analysis  
-- **T5-small** - 60M parameter personalized guidance generation
 - **RNNoise** - Professional-grade noise reduction for >95% accuracy
 
 ### **Mobile & Platform Integration**
@@ -117,9 +115,6 @@ cargo run --bin memory_profiler --features "voice,monitoring"
 ```bash
 # Test Whisper speech recognition
 cargo run --bin whisper_test --features "voice"
-
-# Test MobileBERT medical analysis  
-cargo run --bin medical_ai_test --features "voice"
 
 # Test T5 guidance generation
 cargo run --bin guidance_test --features "voice"

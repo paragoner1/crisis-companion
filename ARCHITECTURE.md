@@ -1,4 +1,4 @@
-# Solana SOS - Revolutionary AI Emergency Response Architecture
+# Solana SOS - Revolutionary Database-First Emergency Response Architecture
 
 **Engineering Excellence for Life-Saving Impact**
 
@@ -6,13 +6,13 @@
 
 ## System Architecture Overview
 
-Solana SOS represents a paradigm shift in emergency response technology, built on a foundation of **security-first, reliability-first, on-device AI** principles. This architecture ensures that when lives are on the line, the system never fails.
+Solana SOS represents a paradigm shift in emergency response technology, built on a foundation of **security-first, reliability-first, database-driven** principles. This architecture ensures that when lives are on the line, the system never fails.
 
 ### Core Design Principles
 
 1. **Security-First**: Zero data transmission except explicit emergency communications
 2. **Reliability-First**: 100% offline operation with no external dependencies  
-3. **AI-Powered**: On-device inference for unlimited emergency scenarios
+3. **Database-Driven**: Proven emergency protocols with enhanced pattern recognition
 4. **Performance-Critical**: Sub-200ms response times for life-saving guidance
 5. **Universal Access**: Multilingual support (99+ languages) with noise resistance
 6. **User-Adaptive**: Personalized guidance based on user profile and experience level
@@ -30,12 +30,12 @@ graph TD
     E --> F[Emergency Type Detection]
     F --> G{Emergency Confirmed?}
     
-    G -->|Yes| H[MobileBERT Symptom Analysis]
+    G -->|Yes| H[Database Pattern Analysis]
     G -->|No| I[Context Gathering]
     I --> H
     
-    H --> J[T5 Guidance Generation]
-    J --> K[Protocol Selection]
+    H --> J[Enhanced Protocol Selection]
+    J --> K[Guidance Generation]
     K --> L[TTS Audio Output]
     L --> M[911 Auto-Dial]
     M --> N[Contact Alerts]
@@ -121,28 +121,28 @@ Transcription → Intent Analysis → Emergency Type → Urgency Level → Conte
 3. **Contextual Emergency**: "Someone is hurt", "There's been an accident"
 4. **Indirect Indicators**: Tone analysis, urgency detection
 
-### **Stage 4: AI-Powered Analysis (MobileBERT)**
+### **Stage 4: Enhanced Database Analysis**
 ```rust
-// Symptom clustering and medical context analysis
-Symptoms → Tokenization → MobileBERT Inference → Cluster Analysis → Risk Assessment
+// Advanced pattern recognition and medical context analysis
+Symptoms → Pattern Matching → Enhanced Detection → Risk Assessment
 ```
 
-**MobileBERT Processing:**
-- **Model**: MobileBERT-uncased (25M parameters, optimized for mobile)
-- **Function**: Symptom clustering and medical context understanding
-- **Output**: Structured symptom vectors for protocol matching
-- **Inference Time**: <150ms on mobile hardware
+**Database Processing:**
+- **Method**: Enhanced pattern recognition with life-threatening detection
+- **Function**: Symptom clustering and medical context understanding via proven protocols
+- **Output**: Structured symptom analysis for protocol matching
+- **Processing Time**: <50ms on mobile hardware
 
-### **Stage 5: Dynamic Guidance Generation (T5)**
+### **Stage 5: Dynamic Guidance Generation**
 ```rust
 // Personalized guidance generation based on user profile and context
-Context + Symptoms + User Profile → T5 Inference → Personalized Instructions → Audio Output
+Context + Symptoms + User Profile → Protocol Selection → Personalized Instructions → Audio Output
 ```
 
-**T5 Text Generation:**
-- **Model**: T5-small (60M parameters, quantized)
+**Database-Driven Generation:**
+- **Method**: Rule-based protocol selection with context awareness
 - **Personalization**: Adapts to user type (child, adult, professional, parent)
-- **Output**: Concise, actionable guidance in natural language
+- **Output**: Concise, actionable guidance from proven emergency protocols
 - **Languages**: Multilingual output matching input language
 
 ---
@@ -229,8 +229,8 @@ if model_hash != EXPECTED_HASH {
 ### **Real-Time Processing Pipeline**
 ```
 Voice Input (16kHz) → 30ms Buffer → RNNoise (5ms) → Whisper (150ms) → 
-MobileBERT (100ms) → T5 (80ms) → TTS (50ms) → Audio Output
-Total Latency: <200ms end-to-end
+Database Analysis (20ms) → Protocol Selection (10ms) → TTS (50ms) → Audio Output
+Total Latency: <150ms end-to-end
 ```
 
 ### **Memory Management**

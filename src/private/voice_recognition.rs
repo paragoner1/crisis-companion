@@ -6,6 +6,7 @@ use crate::public::types::*;
 use crate::config::VoiceConfig;
 use crate::private::noise_filter::{NoiseFilter, NoiseFilterType};
 use crate::private::whisper_engine::WhisperEngine;
+// If not found, add pub to WhisperEngine in whisper_engine.rs
 // use chrono::Utc; // Unused for now
 use std::sync::{Arc, Mutex};
 use tokio::sync::mpsc;

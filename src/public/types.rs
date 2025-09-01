@@ -2,7 +2,7 @@
 use serde::{Serialize, Deserialize};// This module provides common types and enums used throughout the application.
 
 /// Emergency types supported by Solana SOS
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum EmergencyType {
     /// Drowning emergency
     Drowning,

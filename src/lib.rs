@@ -135,6 +135,10 @@ use crate::private::emergency_calling::{EmergencyCaller, EmergencyContact, Emerg
 #[cfg(feature = "private")]
 use crate::private::first_responder_network::FirstResponderNetwork;
 #[cfg(feature = "private")]
+use crate::private::viral_sharing::ViralSharingSystem;
+#[cfg(feature = "private")]
+use crate::public::types::Location;
+#[cfg(feature = "private")]
 use std::sync::Arc;
 
 
@@ -144,18 +148,21 @@ pub struct SolanaSOS {
     context_analyzer: ContextAnalyzer,
     emergency_caller: EmergencyCaller,
     first_responder_network: Arc<FirstResponderNetwork>,
+    viral_sharing: Arc<tokio::sync::RwLock<ViralSharingSystem>>,
 }
 
 #[cfg(feature = "private")]
 impl SolanaSOS {
     pub fn new() -> Self {
         let first_responder_network = Arc::new(FirstResponderNetwork::new());
+        let viral_sharing = Arc::new(tokio::sync::RwLock::new(ViralSharingSystem::new()));
         
         SolanaSOS {
             database: EmergencyDatabase::new(),
             context_analyzer: ContextAnalyzer::new(),
             emergency_caller: EmergencyCaller::new_with_network(first_responder_network.clone()),
             first_responder_network,
+            viral_sharing,
         }
     }
     
@@ -296,6 +303,92 @@ impl SolanaSOS {
             skr_tokens: (base_tokens + time_bonus) / 2,
             xp_points: base_tokens * 2,
         }
+    }
+
+    // ===== VIRAL SHARING METHODS =====
+
+    /// Create a referral campaign for app downloads
+    pub async fn create_referral_campaign(&self, user_id: &str, wallet_address: &str) -> Result<String, String> {
+        let mut viral_system = self.viral_sharing.write().await;
+        let campaign = viral_system
+            .create_app_download_campaign(user_id, wallet_address)
+            .await
+            .map_err(|e| format!("Failed to create referral campaign: {}", e))?;
+        
+        Ok(campaign.blink_url)
+    }
+
+    /// Share an emergency save with privacy protection
+    pub async fn share_emergency_save(
+        &self,
+        user_id: &str,
+        emergency_type: EmergencyType,
+        outcome: crate::private::viral_sharing::SaveOutcome,
+        response_time_seconds: u32,
+        location: Location,
+    ) -> Result<String, String> {
+        let mut viral_system = self.viral_sharing.write().await;
+        let save = viral_system
+            .share_emergency_save(user_id, emergency_type, outcome, response_time_seconds, location)
+            .await
+            .map_err(|e| format!("Failed to share emergency save: {}", e))?;
+        
+        Ok(save.blink_url)
+    }
+
+    /// Share an achievement
+    pub async fn share_achievement(
+        &self,
+        user_id: &str,
+        achievement: crate::private::viral_sharing::Achievement,
+    ) -> Result<String, String> {
+        let mut viral_system = self.viral_sharing.write().await;
+        let share = viral_system
+            .share_achievement(user_id, achievement)
+            .await
+            .map_err(|e| format!("Failed to share achievement: {}", e))?;
+        
+        Ok(share.blink_url)
+    }
+
+    /// Process a referral conversion
+    pub async fn process_referral_conversion(&self, campaign_id: &str, new_user_id: &str) -> Result<(), String> {
+        let mut viral_system = self.viral_sharing.write().await;
+        viral_system
+            .process_referral_conversion(campaign_id, new_user_id)
+            .await
+            .map_err(|e| format!("Failed to process referral conversion: {}", e))
+    }
+
+    /// Get user viral statistics
+    pub async fn get_user_viral_stats(&self, user_id: &str) -> Option<crate::private::viral_sharing::UserViralStats> {
+        let viral_system = self.viral_sharing.read().await;
+        viral_system.get_user_stats(user_id).cloned()
+    }
+
+    /// Get viral leaderboard
+    pub async fn get_viral_leaderboard(&self, limit: usize) -> Vec<crate::private::viral_sharing::UserViralStats> {
+        let viral_system = self.viral_sharing.read().await;
+        viral_system
+            .get_viral_leaderboard(limit)
+            .into_iter()
+            .cloned()
+            .collect()
+    }
+
+    /// Track Blink interaction
+    pub async fn track_blink_interaction(&self, campaign_id: &str, interaction_type: &str) -> Result<(), String> {
+        let mut viral_system = self.viral_sharing.write().await;
+        viral_system
+            .track_blink_interaction(campaign_id, interaction_type)
+            .await
+            .map_err(|e| format!("Failed to track Blink interaction: {}", e))
+    }
+
+    /// Get campaign performance metrics
+    pub async fn get_campaign_metrics(&self, campaign_id: &str) -> Option<crate::private::viral_sharing::CampaignMetrics> {
+        let viral_system = self.viral_sharing.read().await;
+        viral_system.get_campaign_metrics(campaign_id)
     }
 }
 
