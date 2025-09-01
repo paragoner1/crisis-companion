@@ -18,14 +18,20 @@ default = ["monitoring", "voice", "private", "audio"]
 desktop = []
 private = []
 voice = [
-    "whisper-rs",
     "nnnoiseless",
     "cpal"
+]
+voice-ort = [
+    "dep:ort",
+    "dep:ndarray", 
+    "dep:hf-hub",
+    "dep:tokenizers"
 ]
 sensors = ["accelerometer"]
 monitoring = ["tracing", "tracing-subscriber"]
 audio = ["rodio", "tts"]
 android = ["jni", "jni-sys", "ndk", "ndk-sys"]
+leak-check = []  # Enable memory leak detection using Rust sanitizers
 
 [dependencies]
 # ===== CORE MOBILE DEPENDENCIES =====
@@ -78,23 +84,33 @@ solana-client = "2.0.0"  # Updated to stable 2.0 (compatible with Anchor 0.31)
 solana-sdk = "2.0.0"  # Updated to stable 2.0
 spl-token = "8.0.0"  # Updated to latest stable
 anchor-lang = "0.31.1"  # Updated to latest stable
+anchor-spl = "0.31.1"
 
 # ===== MONITORING (Mobile-appropriate) =====
 tracing = { version = "0.1.40", optional = true }
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"], optional = true }
 
 # ===== ON-DEVICE AI (Security-focused) =====
+ort = { version = "2.0.0-rc.10", optional = true, features = ["load-dynamic"] }
+ndarray = { version = "0.16.1", optional = true }
+tokenizers = { version = "0.21.4", optional = true, features = ["fancy-regex"] }
 tract-onnx = "0.22.0"
-tract-ndarray = "0.22.0"
+# tract-ndarray = "0.22.0" # Removed - using ORT instead
 hex = "0.4.3"
-hf-hub = "0.4.3"  # Added for HF model OTA/offline caching
+hf-hub = { version = "0.4.3", optional = true }  # Added for HF model OTA/offline caching
 
 whisper-rs = { version = "0.15.0", optional = true }
+
+[build-dependencies]
+cc = "1.2.34"  # Updated to latest for better cross-compilation and security
 
 [dev-dependencies]
 criterion = "0.7.0"  # Updated to latest
 tokio-test = "0.4.4"
 tempfile = "3.10.1"
+# Memory leak detection uses built-in Rust sanitizers
+
+trident = "0.2.1"
 
 [[bin]]
 name = "solana-sos"
@@ -103,6 +119,14 @@ path = "src/main.rs"
 [[bin]]
 name = "demo_test"
 path = "src/bin/demo_test.rs"
+
+[[bin]]
+name = "first_responder_demo"
+path = "src/bin/first_responder_demo.rs"
+
+[[bin]]
+name = "blockchain_demo"
+path = "src/bin/blockchain_demo.rs"
 
 [target.aarch64-linux-android.dependencies]
 rustfft = { version = "6.4.0", features = ["neon"] }

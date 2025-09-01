@@ -1,5 +1,5 @@
 use solana_sos::public::voice_interface::VoiceInterface;
-use solana_sos::config::VoiceConfig;
+// VoiceConfig import removed - not used in this test
 use std::time::Instant;
 use tokio;
 
@@ -76,7 +76,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn generate_test_audio(phrase: &str) -> Vec<u8> {
+fn generate_test_audio(_phrase: &str) -> Vec<u8> {
     // Generate realistic test audio data
     // In production, this would use real audio samples
     let mut audio_data = Vec::new();

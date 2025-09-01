@@ -8,12 +8,17 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use ring::digest::{Context, SHA256};
 use std::fs;
-use std::path::Path;
 // use tract::prelude::*;  // Temporarily disabled due to dependency conflicts
-use ort::{Session, GraphOptimizationLevel, Value};
+#[cfg(feature = "voice-ort")]
+use ort::{
+    session::{builder::SessionBuilder}, 
+    value::Value
+};
+// AppError import removed - not used in non-ORT builds
+#[cfg(feature = "voice-ort")]
 use ndarray::prelude::*;
-use tract_onnx::prelude::*;
-use tract_ndarray::prelude::*;
+#[cfg(feature = "voice-ort")]
+use tokenizers::Tokenizer;
 
 /// Medical symptom analysis result
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -261,9 +266,9 @@ impl MedicalAI {
             }
         }
         let (severity, actions, time_to_emergency) = self.triage_symptoms(&identified_symptoms, &emergency_keywords_found);
-        let mut confidence = self.calculate_confidence(&identified_symptoms, &emergency_keywords_found);
+        let confidence = self.calculate_confidence(&identified_symptoms, &emergency_keywords_found);
 
-        let mut assessment = MedicalAssessment {
+                    let assessment = MedicalAssessment {
             symptoms: identified_symptoms,
             severity,
             recommended_actions: actions,
@@ -272,40 +277,76 @@ impl MedicalAI {
         };
 
         // AI enhancement if enabled
+        #[cfg(feature = "voice-ort")]
         if self.config.enable_ai_enhancements {
             let model_path = "assets/models/mobilebert.onnx";
             if !Self::verify_model_integrity(model_path, &self.config.model_hash) {
                 tracing::warn!("Model integrity failed - falling back to database");
             } else {
-                // Real AI enhancement with tract
-                tracing::info!("Running AI enhancement with tract");
+                // Real AI enhancement with ORT
+                tracing::info!("Running AI enhancement with ORT");
                 let tokenizer = Tokenizer::from_file("assets/tokenizer.json")?;  // Assume pre-downloaded
 
                 // MobileBERT: Symptom clustering
                 let inputs = tokenizer.encode(user_description, true)?;
-                let input_ids: Vec<i64> = inputs.get_ids().to_vec();
-                let input_array = Array::from_vec(input_ids).into_shape((1, input_ids.len()))?;
+                let input_ids: Vec<i32> = inputs.get_ids().iter().map(|&x| x as i32).collect();
+                let input_array = Array::from_vec(input_ids).into_shape_with_order((1, inputs.len()))?;
                 let input = Value::from_array(input_array)?;
 
-                let session = Session::builder()?.commit_from_file(model_path)?;
-                let outputs = session.run(vec![input])?;
-                let cluster_probs = outputs[0].try_extract_tensor::<f32>()?;
-                // Process (example: argmax for cluster)
-                let cluster_id = cluster_probs.argmax()?[1];
-                if cluster_probs[[0, cluster_id]] > 0.8 {
-                    assessment.symptoms.push(format!("AI-detected cluster {}", cluster_id));
+                let mut session = SessionBuilder::new()?.commit_from_file(model_path)?;
+                let outputs = session.run(vec![("input_ids", input)])?;
+                let cluster_probs = if let Some(output) = outputs.get("output") {
+                    output.try_extract_tensor::<f32>()?
+                } else {
+                    // Get first output by index
+                    let first_key = outputs.iter().next()
+                        .ok_or_else(|| AppError::Internal("No outputs found".to_string()))?
+                        .0;
+                    outputs.get(first_key)
+                        .ok_or_else(|| AppError::Internal("Failed to get first output".to_string()))?
+                        .try_extract_tensor::<f32>()?
+                };
+                // Process cluster probabilities
+                let (_, data) = cluster_probs;
+                let max_idx = data.iter()
+                    .enumerate()
+                    .max_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal))
+                    .map(|(idx, _)| idx)
+                    .unwrap_or(0);
+                
+                if data[max_idx] > 0.8 {
+                    assessment.symptoms.push(format!("AI-detected cluster {}", max_idx));
                 }
 
                 // T5: Summarization
-                let session_t5 = Session::builder()?.commit_from_file("assets/models/t5.onnx")?; // Assuming T5 model is also pre-downloaded
-                let t5_input = tokenizer.encode(&format!("summarize: {}", user_description), true)?;
-                let t5_array = Array::from_vec(t5_input.get_ids().to_vec()).into_shape((1, t5_input.len()))?;
+                let mut session_t5 = SessionBuilder::new()?.commit_from_file("assets/models/t5.onnx")?;
+                let t5_input = tokenizer.encode(format!("summarize: {}", user_description), true)?;
+                let t5_ids: Vec<i32> = t5_input.get_ids().iter().map(|&x| x as i32).collect();
+                let t5_array = Array::from_vec(t5_ids).into_shape_with_order((1, t5_input.len()))?;
                 let t5_input_val = Value::from_array(t5_array)?;
-                let t5_outputs = session_t5.run(vec![t5_input_val])?;
-                let summary_logits = t5_outputs[0].try_extract_tensor::<f32>()?;
-                // Decode (simple argmax example)
-                let summary_tokens = summary_logits.argmax_axis(ndarray::Axis(2))?;
-                let summary = tokenizer.decode(&summary_tokens.iter().map(|&t| t as i32).collect::<Vec<_>>(), true)?;
+                let t5_outputs = session_t5.run(vec![("input_ids", t5_input_val)])?;
+                let summary_logits = if let Some(output) = t5_outputs.get("output") {
+                    output.try_extract_tensor::<f32>()?
+                } else {
+                    // Get first output by index
+                    let first_key = t5_outputs.iter().next()
+                        .ok_or_else(|| AppError::Internal("No T5 outputs found".to_string()))?
+                        .0;
+                    t5_outputs.get(first_key)
+                        .ok_or_else(|| AppError::Internal("Failed to get first T5 output".to_string()))?
+                        .try_extract_tensor::<f32>()?
+                };
+                
+                // Simple token extraction (argmax over vocabulary dimension)
+                let (_, summary_data) = summary_logits;
+                let summary_tokens: Vec<usize> = summary_data.chunks(50257) // Assuming GPT-2 vocab size
+                    .map(|chunk| chunk.iter()
+                        .enumerate()
+                        .max_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal))
+                        .map(|(idx, _)| idx)
+                        .unwrap_or(0))
+                    .collect();
+                let summary = tokenizer.decode(&summary_tokens.iter().map(|&t| t as u32).collect::<Vec<_>>(), true)?;
                 assessment.recommended_actions.push(format!("AI Summary: {}", summary));
 
                 assessment.confidence += 0.2;
@@ -433,9 +474,7 @@ impl MedicalAI {
         stats
     }
 
-    fn query_database_for_type(&self, _description: &str) -> Option<MedicalAssessment> {
-        None  // Placeholder - implement database query here
-    }
+    // Database query method removed - using direct analysis
 }
 
 #[cfg(test)]

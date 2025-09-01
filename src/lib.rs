@@ -132,6 +132,10 @@ use crate::private::emergency_database::EmergencyDatabase;
 use crate::private::context_analysis::ContextAnalyzer;
 #[cfg(feature = "private")]
 use crate::private::emergency_calling::{EmergencyCaller, EmergencyContact, EmergencyCallError};
+#[cfg(feature = "private")]
+use crate::private::first_responder_network::FirstResponderNetwork;
+#[cfg(feature = "private")]
+use std::sync::Arc;
 
 
 #[cfg(feature = "private")]
@@ -139,15 +143,19 @@ pub struct SolanaSOS {
     database: EmergencyDatabase,
     context_analyzer: ContextAnalyzer,
     emergency_caller: EmergencyCaller,
+    first_responder_network: Arc<FirstResponderNetwork>,
 }
 
 #[cfg(feature = "private")]
 impl SolanaSOS {
     pub fn new() -> Self {
+        let first_responder_network = Arc::new(FirstResponderNetwork::new());
+        
         SolanaSOS {
             database: EmergencyDatabase::new(),
             context_analyzer: ContextAnalyzer::new(),
-            emergency_caller: EmergencyCaller::new(),
+            emergency_caller: EmergencyCaller::new_with_network(first_responder_network.clone()),
+            first_responder_network,
         }
     }
     
@@ -217,6 +225,38 @@ impl SolanaSOS {
     /// Get available emergency types
     pub fn get_emergency_types(&self) -> Vec<String> {
         self.database.list_emergency_types().into_iter().map(|s| s.clone()).collect()
+    }
+    
+    /// Get emergency protocol for a specific type
+    
+    /// Get access to the first responder network
+    pub fn get_first_responder_network(&self) -> Arc<FirstResponderNetwork> {
+        self.first_responder_network.clone()
+    }
+    
+    /// Register as a first responder
+    pub async fn register_as_first_responder(&self, responder: crate::private::first_responder_network::FirstResponder) -> Result<(), String> {
+        self.first_responder_network.register_responder(responder).await
+            .map_err(|e| format!("Failed to register first responder: {}", e))
+    }
+    
+    /// Get active emergency broadcasts for first responders
+    pub async fn get_active_emergency_broadcasts(&self) -> Vec<crate::private::first_responder_network::EmergencyBroadcast> {
+        self.first_responder_network.get_active_broadcasts().await
+    }
+    
+    /// Respond to an emergency broadcast as a first responder
+    pub async fn respond_to_emergency(&self, broadcast_id: &str, responder_id: &str, accepting: bool) -> Result<(), String> {
+        use crate::private::first_responder_network::ResponseDecision;
+        
+        let decision = if accepting {
+            ResponseDecision::Accepting
+        } else {
+            ResponseDecision::Declining
+        };
+        
+        self.first_responder_network.handle_responder_response(broadcast_id, responder_id, decision).await
+            .map_err(|e| format!("Failed to respond to emergency: {}", e))
     }
     
     /// Get emergency protocol for a specific type

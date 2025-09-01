@@ -17,6 +17,8 @@ pub mod ui_engine;
 pub mod context_analysis; pub mod noise_filter;
 pub mod emergency_database;
 pub mod emergency_calling;
+pub mod first_responder_network;
+pub mod solana_blockchain;
 pub mod location_tracking;
 pub mod token_system;
 pub mod gamification;

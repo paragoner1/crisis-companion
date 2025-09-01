@@ -53,6 +53,11 @@ Solana SOS has evolved from a simple emergency app into a sophisticated AI ecosy
 - **Solana Blockchain Layer**: Secure token rewards and verification without compromising offline-first design.
 - **Modular Mastery**: Private modules handle sensitive AI/security; public interfaces enable easy extensions. See [ARCHITECTURE.md] for flow diagrams and deep dives—built for scalability and future-proofing.
 
+### Hybrid Blockchain Architecture
+- **Client-Side (Native Rust)**: Fast reward calculations and transaction building in `solana_blockchain.rs`.
+- **On-Chain (Anchor)**: Verifiable reward awarding and record storage in `emergency_rewards.rs`.
+- **Security Tools**: Ackee VSCode extension for real-time audits; Trident for fuzz testing.
+
 ---
 
 ## Performance Metrics & Development Status
@@ -154,17 +159,17 @@ The screenshots showcase the complete Solana SOS user experience including:
 ## Future Development
 
 ### Planned Enhancements
-- **Advanced AI Models**: Enhanced on-device inference with larger model variants
-- **Expanded Protocol Coverage**: AI-generated protocols for rare emergency scenarios  
-- **Enhanced 911 Integration**: Direct emergency service connectivity with location data
-- **Multi-Platform Deployment**: iOS and desktop versions with identical security standards
-- **Offline Analytics**: Local performance insights and training recommendations
+- **Advanced AI Models**: Build on current on-device inference with optimized variants for faster, more accurate symptom analysis and guidance generation
+- **Expanded Protocol Coverage**: Use AI to adapt and generate protocols for rare or emerging scenarios, maintaining full offline capability
+- **Enhanced 911 Integration**: Improve direct connectivity with encrypted location sharing and automated alerts to trusted contacts
+- **Multi-Platform Deployment**: Extend to iOS with identical security and on-device AI standards, followed by potential desktop versions
+- **Offline Analytics**: Add local insights for user training progress and personalized recommendations to build preparedness
 
 ### Expansion Strategy
-- **Cross-Platform Security**: iOS and Android with identical on-device AI capabilities
-- **Enterprise Adoption**: Healthcare and emergency services with privacy-compliant integration
-- **Global Deployment**: International emergency response with local protocol compliance
-- **Community Growth**: Open-source contributions while maintaining security standards
+- **Cross-Platform Security**: Ensure consistent on-device AI and privacy across iOS, Android, and future platforms
+- **Enterprise Adoption**: Explore partnerships with healthcare providers for customized, compliance-focused integrations (e.g., HIPAA-aligned tools)
+- **Global Deployment**: Add localization for international protocols and languages, focusing on regulatory compliance without data transmission
+- **Community Growth**: Encourage open-source contributions to public components while protecting core security features
 
 ---
 
@@ -189,9 +194,9 @@ cargo run --bin gamification_demo
 ```
 
 ### Additional Documentation
-- **[FUNCTIONALITY.md]**: Complete feature guide.
-- **[ARCHITECTURE.md]**: Modular codebase breakdown.
-- **[HOW_IT_WORKS.md]**: Under-the-hood explanations.
+- **[FUNCTIONALITY.md](FUNCTIONALITY.md)**: Complete feature guide.
+- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Modular codebase breakdown.
+- **[HOW_IT_WORKS.md](HOW_IT_WORKS.md)**: Under-the-hood explanations.
 - **[Development Guide](DEVELOPMENT.md)** - Setup, build, and deployment instructions
 - **[Privacy & Security](PRIVACY.md)** - Data protection and compliance details
 - **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute to the project
