@@ -1,6 +1,6 @@
 # Solana SOS - Revolutionary Database-Driven Life-Saving Companion
 
-**Solana Mobile Hackathon 2025 Participant - Production-Ready Emergency Response Ecosystem**
+**Strategic Technology Leader | Solana Blockchain Developer | Voice AI Specialist**
 
 *Engineered for Solana Mobile Excellence - Expanding to Android/iOS with Unmatched Reliability*
 
@@ -95,23 +95,6 @@ Solana SOS has evolved from a simple emergency app into a sophisticated database
 ### Testing Notes
 - **Emulator-Ready**: Run on Android emulator for core testing.
 - **Real Device Recommended**: For accurate sensors/AI perf—use cloud services like BrowserStack if no phone available.
-
-### Screenshots
-[View Complete Screenshot Gallery](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)
-
-The screenshots showcase the complete Solana SOS user experience including:
-- Mission critical disclaimer and permission setup
-- Comprehensive app overview and getting started guide
-- Emergency protocol interfaces and voice activation
-- Safety features and user protection mechanisms
-
----
-
-## Demo and Documentation
-
-**Full Demo Video**: [Watch Solana SOS in Action](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)
-
-See voice recognition, emergency response, and life-saving features demonstrated in real-time.
 
 ### Screenshots
 [View Complete Screenshot Gallery](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)
