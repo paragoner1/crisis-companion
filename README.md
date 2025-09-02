@@ -72,7 +72,7 @@ Solana SOS has evolved from a simple emergency app into a sophisticated database
 
 ### Development Status
 **Production-Ready Core:**
-- Real AI integration for unlimited, dynamic emergencies with user-adaptive guidance
+- Voice AI integration for dynamic emergencies with user-adaptive guidance
 - Voice-activated flows with advanced STT/TTS (multilingual, noise-resistant)
 - Sensor-based detection (crash, fall, vitals monitoring)
 - Silent SOS, trusted emergency networks, automatic 911 alerts
