@@ -1,15 +1,15 @@
 ---
-name: 💡 Feature Request
+name: Feature Request
 about: Suggest an idea for Solana SOS
 title: '[FEATURE] '
 labels: ['enhancement', 'needs-triage']
 assignees: ''
 ---
 
-## 💡 **Feature Description**
+## **Feature Description**
 A clear and concise description of the feature you'd like to see.
 
-## 🎯 **Problem Statement**
+## **Problem Statement**
 A clear and concise description of what problem this feature would solve.
 
 ## 💭 **Proposed Solution**
@@ -24,7 +24,7 @@ A clear and concise description of any alternative solutions or features you've 
 - **Reliability:** [Improves/Maintains/Reduces] - Impact on system reliability
 - **Offline Functionality:** [Required/Preferred/Not Needed]
 
-## 🎮 **Gamification Integration**
+## **Gamification Integration**
 - **SOS Hero Levels:** [New level/New achievement/No impact]
 - **Token Rewards:** [BONK/SKR/None] - Proposed token incentives
 - **Community Features:** [Viral growth/Network building/None]
@@ -36,7 +36,7 @@ A clear and concise description of any alternative solutions or features you've 
 - **Blockchain Integration:** [New smart contract/Enhanced/Not Affected]
 - **Performance Impact:** [Minimal/Moderate/Significant]
 
-## 🎯 **Target Users**
+## **Target Users**
 - **Primary:** [Emergency responders/General users/Healthcare workers]
 - **Secondary:** [Parents/Caregivers/Remote workers]
 - **Accessibility:** [Improves/Maintains/Reduces] - Impact on accessibility
