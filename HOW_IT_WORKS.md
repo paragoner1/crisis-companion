@@ -70,29 +70,29 @@ pub struct EmergencyClassifier {
 
 ### **Phase 4: AI-Powered Medical Analysis (220-320ms)**
 
-#### **MobileBERT Medical Intelligence**
+#### **Database Pattern Recognition**
 ```rust
-pub struct MedicalAI {
-    mobilebert_session: OrtSession,
-    symptom_embeddings: SymptomEmbeddingSpace,
-    medical_knowledge_base: MedicalKnowledgeGraph,
-    risk_calculator: RiskAssessmentEngine,
+pub struct EmergencyAnalyzer {
+    pattern_matcher: PatternMatcher,
+    symptom_database: SymptomDatabase,
+    protocol_selector: ProtocolSelector,
+    risk_assessor: RiskAssessor,
 }
 ```
 
-**Medical Knowledge Integration:**
-- **Symptom Clustering**: Groups related symptoms using medical embeddings
-- **Pattern Recognition**: Identifies complex medical syndromes and conditions
-- **Risk Stratification**: Assesses severity and urgency based on medical evidence
-- **Differential Diagnosis**: Considers multiple possible conditions
-- **Evidence-Based Protocols**: Integrates guidelines from AHA, WHO, NIH, Red Cross
+**Database Analysis:**
+- **Symptom Matching**: Compares input to database patterns
+- **Pattern Recognition**: Identifies emergencies from symptoms
+- **Risk Assessment**: Determines severity from database rules
+- **Protocol Selection**: Chooses best response from proven protocols
+- **Evidence-Based**: Uses AHA, WHO, NIH, Red Cross guidelines
 
 ### **Phase 5: Personalized Guidance Generation (320-400ms)**
 
-#### **T5 Guidance Generation**
+#### **Database Guidance Generation**
 ```rust
 pub struct GuidanceGenerator {
-    t5_session: OrtSession,
+    database_selector: DatabaseSelector,
     personalization_engine: PersonalizationEngine,
     language_adapter: LanguageAdapter,
     audio_synthesizer: AudioSynthesizer,

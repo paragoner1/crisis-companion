@@ -1,9 +1,11 @@
-# On-Device AI Implementation Plan
+# Future AI Integration Roadmap (DEFERRED)
 
-## 📅 Created: August 2025
+## Created: August 2025 | Status: DEFERRED
 
-## 🎯 Overview
-Enhance (not replace) existing database-driven system with on-device AI for dynamic/"unlimited" emergency coverage. Ties to Phase 1 of FUTURE_ROADMAP.md.
+## Overview
+**NOTE: This plan has been deferred in favor of the current database-first approach for reliability-first development.**
+
+Future consideration: Enhance (not replace) existing database-driven system with on-device AI for dynamic/"unlimited" emergency coverage when AI models achieve production-grade reliability standards.
 
 ## Key Decisions
 - AI as optional layer on top of SQLite (query DB first, AI enhances).

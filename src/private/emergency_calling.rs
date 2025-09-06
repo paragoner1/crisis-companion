@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use crate::private::first_responder_network::FirstResponderNetwork;
 use crate::public::types::{EmergencyType, Location};
 use std::sync::Arc;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct EmergencyContact {
@@ -98,8 +99,8 @@ impl EmergencyCaller {
             caller_info: self.get_caller_info(),
             emergency_contacts: self.contacts.clone(),
             context_flags: context_flags.to_vec(),
-            timestamp: std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
+            timestamp: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
                 .unwrap()
                 .as_secs(),
             call_id: self.generate_call_id(),
@@ -245,7 +246,6 @@ impl EmergencyCaller {
     }
     
     fn generate_call_id(&self) -> String {
-        use std::time::{SystemTime, UNIX_EPOCH};
         let timestamp = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .unwrap()
@@ -366,18 +366,17 @@ impl LocationService {
     }
     
     pub async fn get_current_location(&self) -> Result<LocationData, EmergencyCallError> {
-        // This would use Android's location services
-        // For demo purposes, return a mock location
-        Ok(LocationData {
-            latitude: 37.7749,
+        let location = LocationData {
+            latitude: 37.7749, // Would use actual GPS
             longitude: -122.4194,
             accuracy: 10.0,
-            address: Some("123 Main St, San Francisco, CA".to_string()),
-            timestamp: std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
+            address: None,
+            timestamp: SystemTime::now()
+                .duration_since(UNIX_EPOCH)
                 .unwrap()
                 .as_secs(),
-        })
+        };
+        Ok(location)
     }
 }
 

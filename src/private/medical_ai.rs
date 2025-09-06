@@ -14,6 +14,7 @@ use ort::{
     session::{builder::SessionBuilder}, 
     value::Value
 };
+use crate::error::AppError;
 // AppError import removed - not used in non-ORT builds
 #[cfg(feature = "voice-ort")]
 use ndarray::prelude::*;
@@ -268,7 +269,7 @@ impl MedicalAI {
         let (severity, actions, time_to_emergency) = self.triage_symptoms(&identified_symptoms, &emergency_keywords_found);
         let confidence = self.calculate_confidence(&identified_symptoms, &emergency_keywords_found);
 
-                    let assessment = MedicalAssessment {
+        let mut assessment = MedicalAssessment {
             symptoms: identified_symptoms,
             severity,
             recommended_actions: actions,
