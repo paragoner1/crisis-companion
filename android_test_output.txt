@@ -1,4 +1,0 @@
-println!("✅ Crisis Companion Enhanced - Android build successful!");
-println!("📱 Library compiled for aarch64-linux-android");
-println!("🔧 Features: voice, monitoring, private, audio");
-println!("🎯 Ready for Solana Mobile deployment!");
