@@ -67,3 +67,4 @@ AI Response: "I'm calling 911 now. For a child choking:
 
 ## Latest Updates
 - Enhanced user targeting descriptions
+- Clarified professional user categories
