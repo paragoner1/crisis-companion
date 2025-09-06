@@ -40,7 +40,7 @@ Solana SOS transforms anyone into a potential lifesaver through voice-activated,
 ```
 Scenario: Child Choking at Dinner
 Voice: "Help! My daughter is choking!"
-AI Response: "I'm calling 911 now. For a child choking:
+System Response: "I'm calling 911 now. For a child choking:
 1. Check if she can cough or speak
 2. If not, give 5 back blows between shoulder blades
 3. Then 5 chest thrusts with two fingers
