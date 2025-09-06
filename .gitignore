@@ -323,3 +323,37 @@ JUDGE_BUILD_GUIDE.md
 =======
 >>>>>>> f0484fbed1bc0a610fb0f14a45c29d19f2508ec3
 src/private/
+
+# Files to keep private from public repo
+BACKUPS.md
+CHANGELOG.md
+BUILD_NOTES.md
+config.toml
+test_integration.rs
+
+# CRITICAL SECURITY: Android Build Artifacts
+android-app/app/build/
+android-app/app/build/**/*
+*.apk
+*.aab
+
+# CRITICAL SECURITY: Database Files  
+*.db
+*.sqlite
+*.sqlite3
+emergency.db
+
+# CRITICAL SECURITY: Build Scripts & Configs
+build-rust-android.sh
+config.toml
+test_integration.rs
+
+# CRITICAL SECURITY: Internal Documentation
+android_test_output.txt
+
+# CRITICAL SECURITY: IDE and Build Files
+android-app/.gradle/
+android-app/.kotlin/
+.DS_Store
+*.iml
+.idea/
