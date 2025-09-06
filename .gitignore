@@ -357,3 +357,22 @@ android-app/.kotlin/
 .DS_Store
 *.iml
 .idea/
+
+# CRITICAL SECURITY: Android Source Code (Private)
+android-app/app/src/
+android-app/app/*.gradle
+android-app/*.gradle
+android-app/gradle/
+android-app/gradlew*
+android-app/settings.gradle
+android-app/README.md
+
+# CRITICAL SECURITY: Android Manifests & Resources
+android-app/app/src/main/AndroidManifest.xml
+android-app/app/src/main/java/
+android-app/app/src/main/res/
+android-app/app/src/main/cpp/
+
+# CRITICAL SECURITY: All Android Implementation
+android-app/app/
+android-app/screenshots/
