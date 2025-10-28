@@ -2,7 +2,7 @@
 
 **Strategic Technology Leader | Solana Blockchain Developer | Voice AI Specialist**
 
-*Engineered for Solana Mobile Excellence - Expanding to Android/iOS with Unmatched Reliability*
+*Engineered for Solana Mobile Excellence with Unmatched Reliability*
 
 **Mission**: Transform critical life-or-death moments into heroic saves with voice-activated AI that delivers instant, personalized life-saving guidance—anywhere, anytime, even offline. Secure, reliable, and designed for global impact.
 
@@ -90,7 +90,7 @@ Solana SOS has evolved from a simple emergency app into a sophisticated database
 
 ## Demo and Testing
 
-**Full Demo Video**: [Watch Solana SOS in Action](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)
+**Full Demo Video**: [Watch Solana SOS in Action](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)
 
 ### Testing Notes
 - **Emulator-Ready**: Run on Android emulator for core testing.
@@ -166,7 +166,7 @@ The screenshots showcase the complete Solana SOS user experience including:
 For detailed technical information, development setup, and contribution guidelines, please refer to the project documentation and source code.
 
 **Repository**: [crisis-companion](https://github.com/paragoner1/crisis-companion)  
-**Demo Video**: [Full Demo](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)  
+**Demo Video**: [Full Demo](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)  
 **Screenshots**: [Complete Gallery](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)
 
 ### Demo Commands
