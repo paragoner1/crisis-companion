@@ -2,7 +2,7 @@
 
 ## Project: Solana SOS - Database-Driven Life-Saving Companion
 
-**Category:** Cypherpunk Track  
+**Category:** Consumer Apps Track  
 **Submission Date:** October 2025  
 **Demo Video:** [Watch Full Demonstration](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)
 
