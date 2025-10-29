@@ -38,10 +38,11 @@
 - **User anonymity** - Personal data not stored on blockchain
 
 ### Token Security
-- **Secure wallet integration** - Solana Mobile wallet adapter
+- **Secure wallet integration** - Solana Mobile Wallet Adapter (optimized for Seeker and compatible devices)
 - **Encrypted transactions** - All token transfers are encrypted
-- **Private key protection** - Keys never leave the device
-- **Transaction verification** - All blockchain interactions are verified
+- **Private key protection** - Keys never leave the device, stored in secure hardware when available
+- **Transaction verification** - All blockchain interactions are cryptographically verified
+- **Minimal on-chain data** - Only wallet addresses and reward amounts recorded publicly
 
 ## Safety Features Privacy
 
@@ -80,16 +81,21 @@
 ## Security Measures
 
 ### Encryption
-- **AES-256 encryption** - Database and sensitive data encryption
+- **AES-256-GCM encryption** - Database and sensitive data encryption with authenticated encryption
 - **End-to-end encryption** - All communications encrypted
-- **Key management** - Secure key generation and storage
+- **Secure key derivation** - Argon2-based key generation
 - **Certificate pinning** - Prevents man-in-the-middle attacks
+- **SHA256 integrity verification** - Emergency protocol and model verification
+
+For detailed security architecture, see our [Security Documentation](/docs/SECURITY.md) including comprehensive threat model and risk assessment.
 
 ### Access Control
 - **Biometric authentication** - Optional fingerprint/face unlock
 - **PIN protection** - Device-level security
 - **App-level security** - Additional authentication for sensitive features
 - **Emergency bypass** - Security bypassed during actual emergencies
+- **Principle of least privilege** - Minimal permissions for all operations
+- **Hardware security** - Utilizes TEE and Android Keystore on supported devices (including Seeker)
 
 ## Compliance
 
@@ -136,7 +142,14 @@
 ## Contact Information
 
 For privacy concerns or data requests:
-- **Email**: privacy@solanasos.com
+- **X**: @paragoner1
+- **GitHub**: [Report issues](https://github.com/paragoner1/crisis-companion/issues)
 - **Data deletion**: Complete data deletion available on request
 - **Audit requests**: Privacy audit reports available
 - **Compliance verification**: Regular compliance reports published
+
+## Additional Resources
+
+- **Security Architecture**: Detailed [Security Documentation](/docs/SECURITY.md) with threat model
+- **Performance Impact**: [Performance benchmarks](/docs/PERFORMANCE.md) showing privacy-preserving on-device processing
+- **API Documentation**: [Public API](/docs/API.md) demonstrating privacy-first design principles
