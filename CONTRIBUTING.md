@@ -17,10 +17,11 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 - Consider the impact on emergency response reliability
 
 ### Code Contributions
-- See our [Contributing Guidelines](CONTRIBUTING.md) for detailed process
+- See our [Build Guide](/BUILD_GUIDE.md) for development setup
 - Follow Rust coding standards and best practices
 - Include comprehensive tests for new features
 - Update documentation for any API changes
+- Review [Code Examples](/examples/) for implementation patterns
 
 ### Documentation
 - Help improve guides and API documentation
@@ -33,6 +34,8 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 - Verify voice recognition accuracy
 - Test offline functionality
 - Validate emergency protocol accuracy
+- See our [Testing Strategy](/docs/TESTING_STRATEGY.md) for comprehensive testing guidelines
+- Review [Integration Test Examples](/tests/integration_test_examples.rs) for test patterns
 
 ## Community Guidelines
 
@@ -84,9 +87,10 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 
 ### Testing Requirements
 - **Unit tests** - All new code must have unit tests
-- **Integration tests** - Test emergency response flows
-- **Performance tests** - Verify response time requirements
-- **Security tests** - Validate privacy and security measures
+- **Integration tests** - Test emergency response flows (see [Integration Test Examples](/tests/integration_test_examples.rs))
+- **Performance tests** - Verify response time requirements (see [Performance Benchmarks](/docs/PERFORMANCE.md))
+- **Security tests** - Validate privacy and security measures (see [Security Documentation](/docs/SECURITY.md))
+- **Testing Strategy** - Follow our comprehensive [Testing Strategy](/docs/TESTING_STRATEGY.md) for life-critical software
 
 ## Emergency Response Standards
 
@@ -143,10 +147,10 @@ We welcome contributions from the community! Whether you're fixing bugs, adding 
 - Regular updates for new features
 
 ### Developer Documentation
-- **Comprehensive API documentation** - Essential for contributors
-- Include setup and development guides
-- Document architecture and design decisions
-- Provide contribution guidelines and examples
+- **Comprehensive API documentation** - Essential for contributors (see [API Documentation](/docs/API.md))
+- **Setup and development guides** - Complete [Build Guide](/BUILD_GUIDE.md) and [Deployment Guide](/docs/DEPLOYMENT.md)
+- **Architecture and design decisions** - Detailed [Architecture Documentation](/docs/ARCHITECTURE.md)
+- **Code examples** - Working implementations in [Examples Directory](/examples/)
 
 ## Recognition and Credits
 
