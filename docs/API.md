@@ -521,6 +521,343 @@ if let Ok(crash) = detect_crash(sensor_data) {
 }
 ```
 
+## Blockchain Integration
+
+### Solana Token Rewards
+
+The blockchain integration uses Solana for decentralized token rewards and verifiable emergency records.
+
+#### Reward Functions
+
+```rust
+/// Calculate training rewards based on performance
+/// 
+/// # Arguments
+/// * `module` - Training module completed
+/// * `score` - Performance score (0-100)
+/// * `completion_time` - Time taken in seconds
+/// 
+/// # Returns
+/// * `TokenReward` - BONK and SKR token amounts
+pub fn calculate_training_reward(
+    module: TrainingModule,
+    score: u8,
+    completion_time: u32,
+) -> TokenReward {
+    let base_reward = match module {
+        TrainingModule::CPR => 150,
+        TrainingModule::FirstAid => 100,
+        TrainingModule::Heimlich => 100,
+        TrainingModule::AED => 125,
+        _ => 100,
+    };
+    
+    let multiplier = match score {
+        90..=100 => 1.5,
+        80..=89 => 1.2,
+        70..=79 => 1.0,
+        _ => 0.5,
+    };
+    
+    let bonk_tokens = (base_reward as f32 * multiplier) as u64;
+    let skr_tokens = bonk_tokens / 2;
+    
+    TokenReward {
+        bonk_tokens,
+        skr_tokens,
+        xp_points: score as u32 * 10,
+        reason: format!("Training: {:?}", module),
+        timestamp: Utc::now(),
+    }
+}
+
+/// Submit token reward transaction to Solana blockchain
+/// 
+/// # Arguments
+/// * `wallet` - User's Solana wallet address
+/// * `reward` - Token reward to distribute
+/// 
+/// # Returns
+/// * `Result<Signature, BlockchainError>` - Transaction signature or error
+pub async fn submit_reward_transaction(
+    wallet: Pubkey,
+    reward: TokenReward,
+) -> Result<Signature, BlockchainError>
+```
+
+#### Mobile Wallet Adapter Integration
+
+```kotlin
+// Kotlin/Android integration with Mobile Wallet Adapter
+class MobileWalletAdapter {
+    fun connectWallet(): Result<PublicKey> {
+        // Connect to Solana Mobile wallet
+        val walletAdapter = MobileWalletAdapterClient()
+        return walletAdapter.authorize(
+            identity: AppIdentity(
+                identityName: "Solana SOS",
+                identityUri: "https://solanasos.com",
+                iconUri: "https://solanasos.com/icon.png"
+            )
+        )
+    }
+    
+    suspend fun signRewardTransaction(
+        transaction: Transaction
+    ): Result<ByteArray> {
+        // Sign transaction via Mobile Wallet Adapter
+        return walletAdapter.signTransaction(transaction)
+    }
+}
+```
+
+### Emergency Record Verification
+
+```rust
+/// Store emergency response record on-chain
+/// 
+/// # Arguments
+/// * `emergency_type` - Type of emergency
+/// * `outcome` - Success/failure of intervention
+/// * `timestamp` - When emergency occurred
+/// 
+/// # Returns
+/// * `Result<Signature, BlockchainError>` - On-chain record signature
+pub async fn record_emergency_on_chain(
+    emergency_type: EmergencyType,
+    outcome: EmergencyOutcome,
+    timestamp: DateTime<Utc>,
+) -> Result<Signature, BlockchainError> {
+    // Create minimal privacy-preserving record
+    let record = EmergencyRecord {
+        emergency_type_hash: hash_emergency_type(emergency_type),
+        outcome_flag: outcome as u8,
+        timestamp: timestamp.timestamp() as u64,
+        // No personal data, only verification proof
+    };
+    
+    submit_emergency_record(record).await
+}
+```
+
+## JNI Bridge (Android Integration)
+
+### Rust to Kotlin Bridge
+
+The JNI bridge enables seamless communication between Rust core and Android UI.
+
+#### Native Method Declarations
+
+```kotlin
+// Kotlin declarations
+class EmergencyNative {
+    external fun initializeEmergencySystem(): Boolean
+    external fun processVoiceInput(audioData: ByteArray): String
+    external fun getEmergencyProtocol(emergencyType: String): String
+    external fun calculateReward(module: String, score: Int): Long
+    
+    companion object {
+        init {
+            System.loadLibrary("solana_sos")
+        }
+    }
+}
+```
+
+#### JNI Implementation
+
+```rust
+// Rust JNI implementation
+#[no_mangle]
+pub extern "C" fn Java_com_solanasos_emergency_EmergencyNative_initializeEmergencySystem(
+    env: JNIEnv,
+    _class: JClass,
+) -> jboolean {
+    match EmergencySystem::new() {
+        Ok(_) => JNI_TRUE,
+        Err(e) => {
+            log::error!("Failed to initialize: {}", e);
+            JNI_FALSE
+        }
+    }
+}
+
+#[no_mangle]
+pub extern "C" fn Java_com_solanasos_emergency_EmergencyNative_processVoiceInput(
+    env: JNIEnv,
+    _class: JClass,
+    audio_data: jbyteArray,
+) -> jstring {
+    // Convert Java byte array to Rust
+    let audio_bytes = env.convert_byte_array(audio_data)
+        .expect("Failed to convert audio data");
+    
+    // Process voice input
+    let result = process_emergency_voice(&audio_bytes);
+    
+    // Convert result to Java string
+    env.new_string(result.to_json())
+        .expect("Failed to create string")
+        .into_inner()
+}
+```
+
+## Configuration
+
+### System Configuration
+
+```rust
+pub struct SystemConfig {
+    /// Voice recognition settings
+    pub voice_config: VoiceConfig,
+    
+    /// Database path and encryption
+    pub database_path: PathBuf,
+    pub database_key: [u8; 32],
+    
+    /// Blockchain RPC endpoint
+    pub solana_rpc_url: String,
+    pub solana_cluster: Cluster,
+    
+    /// Emergency settings
+    pub auto_call_911: bool,
+    pub contact_notification_delay: Duration,
+    pub crash_detection_sensitivity: f32,
+    
+    /// Privacy settings
+    pub data_retention_days: u32,
+    pub location_precision: LocationPrecision,
+    pub anonymous_stats: bool,
+}
+
+impl Default for SystemConfig {
+    fn default() -> Self {
+        Self {
+            voice_config: VoiceConfig::default(),
+            database_path: PathBuf::from("emergency.db"),
+            database_key: generate_secure_key(),
+            solana_rpc_url: "https://api.mainnet-beta.solana.com".to_string(),
+            solana_cluster: Cluster::Mainnet,
+            auto_call_911: true,
+            contact_notification_delay: Duration::from_secs(10),
+            crash_detection_sensitivity: 0.85,
+            data_retention_days: 365,
+            location_precision: LocationPrecision::High,
+            anonymous_stats: true,
+        }
+    }
+}
+```
+
+## Advanced Features
+
+### Emergency Protocol Customization
+
+```rust
+/// Register custom emergency protocol
+/// 
+/// # Arguments
+/// * `emergency_type` - Type of emergency
+/// * `protocol` - Custom protocol steps
+/// 
+/// # Returns
+/// * `Result<(), ProtocolError>` - Success or error
+pub fn register_custom_protocol(
+    emergency_type: EmergencyType,
+    protocol: Protocol,
+) -> Result<(), ProtocolError> {
+    // Validate protocol meets safety standards
+    validate_protocol(&protocol)?;
+    
+    // Register in database
+    db.insert_protocol(emergency_type, protocol)?;
+    
+    Ok(())
+}
+
+/// Protocol validation rules
+fn validate_protocol(protocol: &Protocol) -> Result<(), ProtocolError> {
+    // Must have at least 3 steps
+    if protocol.steps.len() < 3 {
+        return Err(ProtocolError::InsufficientSteps);
+    }
+    
+    // Must include 911 call instruction
+    if !protocol.includes_emergency_call() {
+        return Err(ProtocolError::MissingEmergencyCall);
+    }
+    
+    // Steps must have clear instructions
+    for step in &protocol.steps {
+        if step.description.len() < 10 {
+            return Err(ProtocolError::InsufficientDetail);
+        }
+    }
+    
+    Ok(())
+}
+```
+
+### Sensor Integration
+
+```rust
+/// Process accelerometer data for crash detection
+/// 
+/// # Arguments
+/// * `accel_data` - Raw accelerometer readings (x, y, z)
+/// * `timestamp` - When reading was taken
+/// 
+/// # Returns
+/// * `Option<CrashEvent>` - Crash event if detected
+pub fn process_accelerometer_data(
+    accel_data: (f32, f32, f32),
+    timestamp: DateTime<Utc>,
+) -> Option<CrashEvent> {
+    let (x, y, z) = accel_data;
+    
+    // Calculate g-force magnitude
+    let magnitude = (x.powi(2) + y.powi(2) + z.powi(2)).sqrt();
+    
+    // Crash threshold: > 4G
+    if magnitude > 4.0 {
+        Some(CrashEvent {
+            force: magnitude,
+            timestamp,
+            location: get_current_location().ok(),
+        })
+    } else {
+        None
+    }
+}
+
+/// Monitor GPS for unusual patterns
+/// 
+/// # Arguments
+/// * `location_history` - Recent GPS coordinates
+/// 
+/// # Returns
+/// * `Option<AlertType>` - Alert if unusual pattern detected
+pub fn analyze_location_pattern(
+    location_history: &[Location],
+) -> Option<AlertType> {
+    if location_history.len() < 5 {
+        return None;
+    }
+    
+    // Detect if user stationary in unusual location
+    // Could indicate medical emergency
+    let is_stationary = location_history
+        .windows(2)
+        .all(|w| distance(&w[0], &w[1]) < 10.0);
+    
+    if is_stationary {
+        Some(AlertType::StationaryAlert)
+    } else {
+        None
+    }
+}
+```
+
 ## Versioning
 
 The API follows semantic versioning (SemVer):
@@ -530,6 +867,13 @@ The API follows semantic versioning (SemVer):
 - **Patch version**: Bug fixes, backward compatible
 
 Current version: **1.0.0**
+
+### API Stability Guarantees
+
+- **Public API** (`src/public/*`): Stable, follows SemVer
+- **Internal API** (`src/*`): May change between minor versions
+- **JNI Bridge**: Stable within major versions
+- **Protocol Format**: Backward compatible within major versions
 
 ## Support
 
