@@ -200,7 +200,7 @@ Solana SOS represents the intersection of life-saving technology and cypherpunk 
 
 **Repository:** https://github.com/paragoner1/crisis-companion  
 **Demo Video:** https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611  
-**Contact:** paragoner@solanasos.com
+**Contact:** X: @paragoner1
 
 ---
 
