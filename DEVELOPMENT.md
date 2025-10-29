@@ -2,6 +2,10 @@
 
 **World-Class Development Environment for Life-Saving AI Technology**
 
+> **Quick Start:** For complete step-by-step build instructions, see [BUILD_GUIDE.md](/BUILD_GUIDE.md)
+> 
+> **Production Deployment:** For deployment procedures and distribution, see [Deployment Guide](/docs/DEPLOYMENT.md)
+
 ---
 
 ## Prerequisites
@@ -192,9 +196,16 @@ cargo test --bin safety_features_test
 cargo test --bin gamification_demo
 ```
 
-## Testing Without Physical Device
-- Use Android Emulator.
-- Cloud services: BrowserStack for real hardware tests.
+### Comprehensive Testing Strategy
+
+For detailed testing approaches for life-critical software, including protocol validation, performance benchmarks, integration tests, and security audits, see our [Testing Strategy](/docs/TESTING_STRATEGY.md).
+
+Review working test implementations in [Integration Test Examples](/tests/integration_test_examples.rs).
+
+### Testing Without Physical Device
+- Use Android Emulator (see [Build Guide](/BUILD_GUIDE.md) for setup)
+- Cloud services: BrowserStack for real hardware tests
+- Seeker device testing: Enhanced performance on Solana Mobile hardware
 
 ## Performance Testing
 
@@ -205,6 +216,8 @@ cargo run --bin voice_test -- --benchmark
 # Emergency response timing
 cargo run --bin demo_test -- --timing
 ```
+
+For detailed performance targets, benchmarking methodology, and optimization strategies, see [Performance Documentation](/docs/PERFORMANCE.md).
 
 ## Troubleshooting
 
@@ -235,10 +248,22 @@ RUST_LOG=debug cargo run
 cargo run -- --verbose
 ```
 
-## Contributing
+## Additional Resources
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+### Developer Documentation
+- **[Build Guide](/BUILD_GUIDE.md)** - Complete step-by-step build instructions for all platforms
+- **[API Documentation](/docs/API.md)** - Complete developer API reference with JNI bridge details
+- **[Architecture Overview](/ARCHITECTURE.md)** - System design and component interactions
+- **[Contributing Guidelines](/CONTRIBUTING.md)** - Contribution process and standards
 
-## API Documentation
+### Implementation Examples
+- **[Emergency Protocol Example](/examples/emergency_protocol_example.rs)** - Database-driven guidance system
+- **[Voice Activation Example](/examples/voice_activation_example.rs)** - Speech recognition implementation
+- **[Blockchain Rewards Example](/examples/blockchain_rewards_example.rs)** - Solana token integration
+- **[Examples README](/examples/README.md)** - Guide to all code examples
 
-See [docs/API.md](docs/API.md) for complete developer API reference.
+### Quality Assurance
+- **[Testing Strategy](/docs/TESTING_STRATEGY.md)** - Comprehensive testing approach for life-critical systems
+- **[Performance Benchmarks](/docs/PERFORMANCE.md)** - Latency targets and optimization strategies
+- **[Security Model](/docs/SECURITY.md)** - Threat model and security architecture
+- **[Deployment Guide](/docs/DEPLOYMENT.md)** - Production build and distribution procedures
