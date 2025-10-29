@@ -10,12 +10,18 @@ Solana SOS represents a paradigm shift in emergency response technology, built o
 
 ### Core Design Principles
 
-1. **Security-First**: Zero data transmission except explicit emergency communications
+1. **Security-First**: Zero data transmission except explicit emergency communications (see [Security Documentation](/docs/SECURITY.md))
 2. **Reliability-First**: 100% offline operation with no external dependencies  
 3. **Database-Driven**: Proven emergency protocols with enhanced pattern recognition
-4. **Performance-Critical**: Sub-200ms response times for life-saving guidance
+4. **Performance-Critical**: Sub-200ms response times for life-saving guidance (see [Performance Benchmarks](/docs/PERFORMANCE.md))
 5. **Universal Access**: Multilingual support (99+ languages) with noise resistance
 6. **User-Adaptive**: Personalized guidance based on user profile and experience level
+
+**Related Documentation:**
+- [Testing Strategy](/docs/TESTING_STRATEGY.md) - Comprehensive testing approach for life-critical systems
+- [API Documentation](/docs/API.md) - Public interfaces and integration points
+- [Build Guide](/BUILD_GUIDE.md) - Complete development environment setup
+- [Deployment Guide](/docs/DEPLOYMENT.md) - Production deployment procedures
 
 ---
 
@@ -222,6 +228,8 @@ if model_hash != EXPECTED_HASH {
 }
 ```
 
+For comprehensive security architecture including threat model, attack surface analysis, and risk assessment, see [Security Documentation](/docs/SECURITY.md).
+
 ---
 
 ## Performance Architecture
@@ -244,6 +252,9 @@ Total Latency: <150ms end-to-end
 - **Memory Footprint**: <500MB total RAM usage
 - **Storage**: <200MB for all models and assets
 - **CPU Usage**: Optimized for ARM processors with NEON instructions
+- **Device-Specific**: Enhanced performance on Seeker and high-end Android devices
+
+For detailed performance analysis, benchmarks, and optimization strategies, see [Performance Documentation](/docs/PERFORMANCE.md).
 
 ---
 
@@ -307,7 +318,9 @@ pub struct EmergencyCall {
 - **Rust Core**: Single codebase for all platforms
 - **Native Bindings**: Platform-specific optimizations
 - **Feature Flags**: Conditional compilation for different targets
-- **Automated Testing**: CI/CD pipeline with device testing
+- **Automated Testing**: CI/CD pipeline with device testing (see [Testing Strategy](/docs/TESTING_STRATEGY.md))
+
+For complete build instructions and development environment setup, see [Build Guide](/BUILD_GUIDE.md) and [Deployment Guide](/docs/DEPLOYMENT.md).
 
 ---
 
