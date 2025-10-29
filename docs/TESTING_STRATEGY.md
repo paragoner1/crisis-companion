@@ -249,7 +249,7 @@ fn test_local_storage_encrypted() {
 **Purpose**: Validate mobile-specific functionality
 
 **Test Devices:**
-- Solana Saga (primary target)
+- Seeker (primary target)
 - Google Pixel series (reference Android)
 - Samsung Galaxy series (market share)
 - Low-end devices (accessibility)
@@ -265,7 +265,7 @@ fn test_local_storage_encrypted() {
 ```
 Device Type    | API Level | RAM  | Test Status
 ---------------|-----------|------|------------
-Saga           | 33        | 12GB | Primary
+Seeker         | 33        | 12GB | Primary
 Pixel 6        | 34        | 8GB  | Reference
 Galaxy S21     | 33        | 8GB  | Market
 Budget Device  | 29        | 4GB  | Minimum
