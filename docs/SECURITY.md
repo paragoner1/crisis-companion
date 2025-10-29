@@ -88,6 +88,157 @@ This document outlines the security measures, best practices, and procedures for
 - **Sandboxing**: Isolate untrusted code execution
 - **Error Handling**: Secure error messages and logging
 
+## Threat Model
+
+### Threat Actors
+
+**External Attackers**
+- Motivation: Data theft, service disruption, ransom
+- Capability: Advanced persistent threats, automated attacks
+- Attack vectors: Network intrusion, social engineering, supply chain
+
+**Malicious Insiders**
+- Motivation: Data exfiltration, sabotage, financial gain
+- Capability: Privileged access, system knowledge
+- Attack vectors: Privilege abuse, data theft, backdoors
+
+**Nation-State Actors**
+- Motivation: Surveillance, intelligence gathering
+- Capability: Highly sophisticated, zero-day exploits
+- Attack vectors: Advanced malware, infrastructure compromise
+
+**Accidental Threats**
+- Source: User error, configuration mistakes, software bugs
+- Impact: Data leaks, service interruption, incorrect emergency response
+- Mitigation: Defensive design, validation, testing
+
+### Attack Surface Analysis
+
+**Network Attack Surface**
+- Emergency service API endpoints
+- Blockchain RPC connections
+- Contact notification system
+- Limited exposure due to offline-first design
+
+**Physical Attack Surface**
+- Device theft or loss
+- Unauthorized physical access
+- Backup media exposure
+- Mitigated through encryption and remote wipe
+
+**Application Attack Surface**
+- Voice input processing
+- Emergency protocol database
+- User data storage
+- JNI bridge between Rust and Android
+
+**Supply Chain Attack Surface**
+- Third-party dependencies
+- Model downloads
+- Build pipeline
+- App distribution channels
+
+### Threat Scenarios
+
+**Scenario 1: Voice Input Manipulation**
+- Threat: Attacker creates audio to trigger false emergency
+- Impact: Unnecessary 911 calls, system abuse, resource waste
+- Mitigation: Confidence thresholds, pattern validation, rate limiting
+- Risk Level: Medium
+
+**Scenario 2: Protocol Database Tampering**
+- Threat: Malicious modification of emergency protocols
+- Impact: CRITICAL - Incorrect life-saving guidance
+- Mitigation: Cryptographic verification, read-only storage, checksums
+- Risk Level: Critical
+
+**Scenario 3: Location Data Interception**
+- Threat: Network eavesdropping during emergency call
+- Impact: Privacy violation, potential physical harm
+- Mitigation: End-to-end encryption, TLS 1.3, certificate pinning
+- Risk Level: High
+
+**Scenario 4: Private Key Compromise**
+- Threat: Theft of Solana wallet private keys
+- Impact: Token theft, unauthorized transactions
+- Mitigation: Hardware security module, biometric protection, key isolation
+- Risk Level: High
+
+**Scenario 5: Denial of Service During Emergency**
+- Threat: System crash or resource exhaustion when needed most
+- Impact: CRITICAL - No emergency assistance when required
+- Mitigation: Resource limits, fail-safe defaults, offline operation
+- Risk Level: Critical
+
+**Scenario 6: Emergency Contact Impersonation**
+- Threat: Attacker poses as trusted emergency contact
+- Impact: False information, misdirection during crisis
+- Mitigation: Contact verification, cryptographic authentication
+- Risk Level: Medium
+
+### Security Controls by Threat
+
+**Data Protection Controls**
+- AES-256-GCM encryption for local data
+- SHA256 integrity verification for protocols
+- Memory-safe Rust implementation
+- Secure key derivation (Argon2)
+- Zero-knowledge architecture where possible
+
+**Access Control Mechanisms**
+- Principle of least privilege throughout
+- Permission-based feature access
+- Emergency bypass for critical functions
+- Audit logging of sensitive operations
+
+**Network Security Measures**
+- TLS 1.3 for all network communications
+- Certificate pinning to prevent MITM
+- Minimal network dependency (offline-first)
+- Secure Solana RPC connections only
+
+**Application Hardening**
+- Input validation on all user data
+- Memory safety via Rust
+- Process isolation between components
+- Secure error handling (no sensitive data in errors)
+
+### Risk Assessment Matrix
+
+```
+Threat                          | Likelihood | Impact   | Risk     | Mitigation Priority
+--------------------------------|------------|----------|----------|--------------------
+Protocol tampering              | Low        | Critical | High     | Highest
+Voice input manipulation        | Medium     | Medium   | Medium   | High
+Location data interception      | Low        | High     | Medium   | High
+DoS during emergency            | Low        | Critical | High     | Highest
+Private key compromise          | Low        | High     | Medium   | High
+Contact impersonation           | Low        | Medium   | Low      | Medium
+Dependency vulnerabilities      | Medium     | Medium   | Medium   | High
+Device theft/loss               | High       | Medium   | High     | High
+User error                      | High       | Low      | Medium   | Medium
+```
+
+### Security Assumptions
+
+**Trusted Components**
+- Android operating system base security
+- Hardware security features (TEE, Keystore)
+- Solana blockchain integrity
+- Medical authority protocol sources
+
+**User Responsibilities**
+- Device physical security
+- Operating system updates
+- Permission awareness
+- Trusted contact selection
+
+**Out of Scope**
+- Physical device tampering
+- Compromised operating system
+- Malicious medical authorities
+- Quantum computing attacks (current timeframe)
+
 ## Emergency Response Security
 
 ### Emergency Call Security
@@ -268,4 +419,4 @@ Security is fundamental to Solana SOS's mission of saving lives. We are committe
 
 ---
 
-**Remember**: Security is everyone's responsibility. If you discover a security issue, please report it responsibly to help protect our users and their safety. 🚨 
+**Remember**: Security is everyone's responsibility. If you discover a security issue, please report it responsibly to help protect our users and their safety.
