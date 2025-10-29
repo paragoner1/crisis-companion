@@ -6,6 +6,13 @@
 
 **Mission**: Transform critical life-or-death moments into heroic saves with voice-activated AI that delivers instant, personalized life-saving guidance—anywhere, anytime, even offline. Secure, reliable, and designed for global impact.
 
+---
+
+**Colosseum Cypherpunk Hackathon Submission**  
+[Full Demo Video](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000) | [Hackathon Submission Details](HACKATHON_SUBMISSION.md)
+
+---
+
 ### Why Solana SOS? (Empowering Heroes Everywhere)
 Imagine freezing in panic as a loved one collapses—now imagine a reliable companion that hears your voice, analyzes symptoms using proven medical protocols, and guides you through exact steps to save their life, all while alerting help. Solana SOS isn't just an app; it's your always-on guardian, blending world-class voice recognition with Solana's secure blockchain to make emergency response intuitive, multilingual (99+ languages), and rewarding. From urban streets to remote trails, it turns bystanders into lifesavers with zero technical barriers.
 
