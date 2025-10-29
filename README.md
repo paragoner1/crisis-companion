@@ -88,10 +88,10 @@ Solana SOS has evolved from a simple emergency app into a sophisticated database
 - Strict on-device processing - no personal data leaves your device except for explicit emergency communications (e.g., 911 calls, trusted alerts) or user-approved, anonymized blockchain transactions (e.g., token rewards).
 
 **Active Development:**
-- iOS bridging for cross-platform consistency
+- Solana Mobile Stack optimization and dApp Store integration
 - Advanced 911 integrations with real-time data sharing
-- Community features including global leaderboards and shared training modules
-- Expanded sensor integrations (e.g., wearables)
+- Community features including global leaderboards with on-chain verification
+- Expanded sensor integrations for Saga and Android devices
 
 ---
 

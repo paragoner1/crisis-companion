@@ -108,10 +108,11 @@ Solana integration provides:
 - Training gamification with token rewards
 
 ### Active Development
-- iOS platform expansion
-- Enhanced 911 integration
-- Community leaderboards
-- Additional sensor integrations
+- Solana Mobile Stack optimization and refinement
+- Enhanced dApp Store integration
+- Community leaderboards with on-chain verification
+- Additional sensor integrations for Saga and Android devices
+- Advanced 911 integration with emergency services
 
 ---
 
