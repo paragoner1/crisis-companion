@@ -2,14 +2,14 @@
 
 **Strategic Technology Leader | Solana Blockchain Developer | Voice AI Specialist**
 
-*Engineered for Solana Mobile Excellence with Unmatched Reliability*
+*Engineered for Solana Mobile Excellence - Expanding to Android/iOS with Unmatched Reliability*
 
 **Mission**: Transform critical life-or-death moments into heroic saves with voice-activated AI that delivers instant, personalized life-saving guidance—anywhere, anytime, even offline. Secure, reliable, and designed for global impact.
 
 ---
 
 **Colosseum Cypherpunk Hackathon Submission**  
-[Full Demo Video](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000) | [Hackathon Submission Details](HACKATHON_SUBMISSION.md)
+[Full Demo Video](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611) | [Hackathon Submission Details](HACKATHON_SUBMISSION.md)
 
 ---
 
@@ -173,7 +173,7 @@ The screenshots showcase the complete Solana SOS user experience including:
 For detailed technical information, development setup, and contribution guidelines, please refer to the project documentation and source code.
 
 **Repository**: [crisis-companion](https://github.com/paragoner1/crisis-companion)  
-**Demo Video**: [Full Demo](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)  
+**Demo Video**: [Full Demo](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)  
 **Screenshots**: [Complete Gallery](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)
 
 ### Demo Commands

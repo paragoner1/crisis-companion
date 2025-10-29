@@ -4,7 +4,7 @@
 
 **Category:** Cypherpunk Track  
 **Submission Date:** October 2025  
-**Demo Video:** [Watch Full Demonstration](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)
+**Demo Video:** [Watch Full Demonstration](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)
 
 ---
 
@@ -126,7 +126,7 @@ The demonstration showcases:
 6. Solana wallet integration
 7. Token reward system
 
-**Full walkthrough:** [Loom Demo Video](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)
+**Full walkthrough:** [Loom Demo Video](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)
 
 ---
 
@@ -197,7 +197,7 @@ The demonstration showcases:
 Solana SOS represents the intersection of life-saving technology and cypherpunk principles. By keeping processing on-device, leveraging blockchain for transparency, and eliminating central authority control, we create emergency response infrastructure that respects user sovereignty while delivering measurable life-saving impact.
 
 **Repository:** https://github.com/paragoner1/crisis-companion  
-**Demo Video:** https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000  
+**Demo Video:** https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611  
 **Contact:** paragoner@solanasos.com
 
 ---
