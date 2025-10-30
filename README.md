@@ -173,7 +173,7 @@ The screenshots showcase the complete Solana SOS user experience including:
 For detailed technical information, development setup, and contribution guidelines, please refer to the project documentation and source code.
 
 **Repository**: [crisis-companion](https://github.com/paragoner1/crisis-companion)  
-**Demo Video**: [Full Demo](https://www.loom.com/share/04f125a1b1c3476dae47d2940b858000)  
+**Demo Video**: [Full Demo][Full Demo Video](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)  
 **Screenshots**: [Complete Gallery](https://github.com/paragoner1/crisis-companion/tree/main/screenshots)
 
 ### Demo Commands
