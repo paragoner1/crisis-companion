@@ -5,6 +5,7 @@
 **Category:** Consumer Apps Track  
 **Submission Date:** October 2025  
 **Demo Video:** [Watch Full Demonstration](https://www.loom.com/share/8dbcf2cc250f4872b7b14d6ff1aa9611)
+**Raw Pitch Deck (no voiceover):** [Colosseum Pitch Deck](https://gamma.app/docs/SolanaSOS-Be-a-Hero-qqcd7507eap4zak?mode=doc)
 
 ---
 
