@@ -1,3 +1,5 @@
+> **Hackathon prototype. Not for clinical use; no compliance review was performed.**
+
 # Solana SOS - Revolutionary Database-Driven Life-Saving Companion
 
 **Strategic Technology Leader | Solana Blockchain Developer | Voice AI Specialist**
